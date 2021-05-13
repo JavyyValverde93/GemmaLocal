@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Crear Grupo</title>
+    
+</head>
+<body>
+  <style>
+    :root{
+      margin:80px;
+    }
+
+    select{
+      font-size: 20px;
+      width: auto;
+      padding-right: 26px;
+    }
+  </style>
+    <form method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
+      @csrf
+        <div class="form-row">
+          <div class="form-group col-md-6 mx-4">
+            <label for="inputEmail4">Nombre:</label>
+            <input type="text" name="nombre" class="form-control" id="inputEmail4" placeholder="Nombre del grupo">
+          </div>
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group col-auto mx-4">
+            <label>Profesor:</label><br>
+            <select name="id_profesor" required>
+              @foreach($profesores as $item)
+              <option value="{{$item->id}}">{{$item->apellidos}} {{$item->nombre}}</option>
+              @endforeach
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+          <div class="form-group mx-4">
+            <label>Espacio:</label><br>
+            <select name="id_espacio" required>
+              @foreach($espacios as $item)
+              <option value="{{$item->id}}">P:{{$item->planta}} - {{$item->nombre}}</option>
+              @endforeach
+            </select>
+          </div>
+
+        </div>
+        <button type="submit" class="btn btn-danger ml-3">Crear grupo</button>
+      </form>
+    
+</body>
+</html>

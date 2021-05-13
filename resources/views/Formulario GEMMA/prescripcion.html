@@ -1,0 +1,119 @@
+<head>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+
+	<title>
+		
+	</title>
+</head>
+<body>
+
+<form class="ml-5 mt-4 border p-5" style="width: 1200px">
+  <div class="form-row col-md-10">
+    <div class="form-group col-md-5">
+      <label for="inputName">Nombre</label>
+      <input type="name" class="form-control" id="inputName" placeholder="Nombre">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="inputSurname">Apellidos</label>
+      <input type="surname" class="form-control" id="inputSurname" placeholder="Apellidos">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Contraseña</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Contraseña">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="inputTelephone1">Telefono 1</label>
+      <input type="tel" class="form-control" id="inputTelephone2" placeholder="Telefono 1">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="inputTelephone2">Telefono 2</label>
+      <input type="tel" class="form-control" id="inputTelephone2" placeholder="Telefono 2">
+    </div>
+  </div>
+  <div class="form-row  col-md-10">
+    <div class="form-group col-md-10">
+      <label for="inputAddress">Dirección</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Calle/Plaza/Avenida Ejemplo Nº1">
+    </div>
+    <div class="form-group col-md-10">
+      <label for="inputAddress2">Dirección 2</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Calle/Plaza/Avenida Ejemplo Nº2">
+    </div>
+  </div>
+  <div class="form-row col-md-10">
+    <div class="form-group col-md-4">
+      <label for="inputCity">Localidad</label>
+      <input type="text" class="form-control" id="inputCity" placeholder="Almeria">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Pais</label>
+     <input type="text" class="form-control" id="inputState" placeholder="Pais">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Codigo Postal</label>
+      <input type="text" class="form-control" id="inputZip" placeholder="04000">
+    </div>
+  </div>
+  <!--div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div-->
+  <div class="form-row col-md-10" id="actvidadesFormulario">
+      <div class="form-group col-md-4">
+          <label for="inputName">Nombre de la Actividad</label>
+          <input type="name" class="form-control" id="inputName" placeholder="Nombre de la Actividad">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputStartDate">Fecha de Inicio Prescipcion</label>
+        <input class="form-control"  id="datepickerStarDate">
+        <script>
+            $('#datepickerStarDate').datepicker({
+                uiLibrary: 'bootstrap4',
+            });
+        </script>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputCloseDate">Fecha de Cierre Prescipcion</label>
+        <input class="form-control"  id="datepickerCloseDate">
+        <script>
+            $('#datepickerCloseDate').datepicker({
+                uiLibrary: 'bootstrap4',
+            });
+        </script>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputPrescipcion">Fecha de Prescipcion</label>
+        <input class="form-control"  id="datepickerPrescipcion">
+        <script>
+            $('#datepickerPrescipcion').datepicker({
+                uiLibrary: 'bootstrap4',
+            });
+        </script>
+      </div>
+    </div>
+
+  <div class="form-group col-md-4">
+    <button type="submit" class="btn btn-primary" style="background: #dc3545; border: 0px">Registrar</button>
+    <button type="submit" class="btn btn-primary" style="background: #dc3545; border: 0px" id="add">Agregar Más Actividades</button>
+    <!-- EL SCRIPT FUNCIONA COMO EL CULO -->
+    <!--script>
+      $("#add").click(function (e) {
+          $("#actvidadesFormulario").append('<div class="form-group col-md-4"><label for="inputName">Nombre de la Actividad</label><input type="name" class="form-control" id="inputName" placeholder="Nombre de la Actividad"></div><div class="form-group col-md-2"><label for="inputStartDate">Fecha de Inicio Prescipcion</label><input class="form-control"  id="datepickerStarDate"><script>$('#datepickerStarDate').datepicker({uiLibrary: 'bootstrap4',});</script></div><div class="form-group col-md-2"><label for="inputCloseDate">Fecha de Cierre Prescipcion</label><input class="form-control"  id="datepickerCloseDate"><script>$('#datepickerCloseDate').datepicker({uiLibrary: 'bootstrap4',});</script></div><div class="form-group col-md-2"><label for="inputPrescipcion">Fecha de Prescipcion</label><input class="form-control"  id="datepickerPrescipcion"><script>$('#datepickerPrescipcion').datepicker({uiLibrary: 'bootstrap4',});</script></div>  <button class="delete">Delete</button></div>'); });
+    </script-->
+  </div>
+</form>
+
+</body>
+</html>
