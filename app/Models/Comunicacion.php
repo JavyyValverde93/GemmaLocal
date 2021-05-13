@@ -11,6 +11,8 @@ class Comunicacion extends Model
 	
 	protected $fillable=['id_usuario','mensaje','fecha_creacion','fecha_modificacion'];
 	
+	protected $table = "comunicaciones";
+
 	public $timestamps = false;	
 	
 	public function User(){

@@ -11,6 +11,8 @@ class Reservaespacio extends Model
 	
 	protected $fillable=['nombre','id_grupo','id_usuario','id_espacio','fecha_inicio','fecha_fin'];
     
+	protected $table = "reservasespacios";
+
 	public $timestamps = false;	
 	
 }

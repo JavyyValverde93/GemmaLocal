@@ -11,6 +11,8 @@ class Calificacion extends Model
 	
 	protected $fillable=['id_usuario','id_actividad','id_grupo','id_periodocalificacion','nota'];
 	
+	protected $table = "calificaciones";
+
 	public $timestamps = false;	
 	
 	/*public function Alumno(){

@@ -11,6 +11,8 @@ class Inventario extends Model
 	
 	protected $fillable=['nombre','datos','fecha_creacion','fecha_modificacion'];
 	
+	protected $table = "inventario";
+
 	public $timestamps = false;	
 	
 	public function Prestamo(){

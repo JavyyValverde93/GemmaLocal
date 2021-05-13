@@ -11,6 +11,8 @@ class Prescripcion extends Model
 	
 	protected $fillable=['id_usuario','id_actividad','fecha_creacion','id_plazoprescripcion'];
     
+	protected $table = "prescripciones";
+
 	public $timestamps = false;	
 	
     

@@ -11,6 +11,8 @@ class Plazoprescripcion extends Model
 	
 	protected $fillable=['nombre','fecha'];
     
+	protected $table = "plazosprescripciones";
+
 	public $timestamps = false;	
 	
 }

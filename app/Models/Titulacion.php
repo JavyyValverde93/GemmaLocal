@@ -11,6 +11,8 @@ class Titulacion extends Model
 	
 	protected $fillable=['id_usuario','id_actividad','especialidad','titulacion'];
     
+	protected $table = "titulaciones";
+
 	public $timestamps = false;	
 	
     

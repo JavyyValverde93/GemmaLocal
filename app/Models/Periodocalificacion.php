@@ -11,6 +11,8 @@ class Periodocalificacion extends Model
 	
 	protected $fillable=['nombre','fecha_inicio','fecha_fin'];
     
+	protected $table = "periodoscalificaciones";
+
 	public $timestamps = false;	
 	
 }

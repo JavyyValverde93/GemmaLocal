@@ -16,6 +16,8 @@ class Actividad extends Model
         'anio_academico', 'creditos', 'ciclo_formativo'
     ];
 
+	protected $table = "actividades";
+
     public $timestamps = false;
     
     public function User(){

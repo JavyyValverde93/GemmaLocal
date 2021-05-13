@@ -12,7 +12,7 @@ class Preferenciahorario extends Model
 	protected $fillable=['tipo','id_usuario','dia','hora_inicio','hora_fin','fecha_creacion',
 						
 						'fecha_modificacion'];
-						
+					
 	public $timestamps = false;	
 	
 	

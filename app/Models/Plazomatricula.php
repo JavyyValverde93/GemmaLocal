@@ -11,6 +11,8 @@ class Plazomatricula extends Model
 	
 	protected $fillable=['nombre','fecha'];
 
+	protected $table = "plazosmatriculas";
+
 	public $timestamps = false;	
 	
 }

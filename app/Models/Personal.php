@@ -11,4 +11,6 @@ class Personal extends Model
     
 	public $timestamps = false;	
 	
+	protected $table = "personales";
+
 }

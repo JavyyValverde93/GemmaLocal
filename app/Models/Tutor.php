@@ -11,6 +11,8 @@ class Tutor extends Model
 
     protected $fillable = ['id_alumno','nombre','relacion','dni','telefono','direccion'];
 
+	protected $table = "titulaciones";
+
 	public $timestamps = false;	
 	
     public function Alumno(){

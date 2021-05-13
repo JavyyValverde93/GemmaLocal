@@ -21,6 +21,8 @@ class Facturacion extends Model
 						
 						'fecha_creacion','fecha_modificacion'];
 	
+	protected $table = "facturaciones";
+
 	public $timestamps = false;	
 	
 
