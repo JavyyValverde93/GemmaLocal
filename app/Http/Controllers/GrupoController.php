@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grupo;
+use App\Models\Profesor;
+use App\Models\Espacio;
 use Illuminate\Http\Request;
 
 class GrupoController extends Controller
@@ -12,9 +14,10 @@ class GrupoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $grupos = Grupo::orderBy('id', 'desc')->paginate('10');
+        return view('grupos.index', compact('grupos', 'request'));
     }
 
     /**
@@ -24,7 +27,9 @@ class GrupoController extends Controller
      */
     public function create()
     {
-        //
+        $profesores = Profesor::orderBy('apellidos')->get();
+        $espacios = Espacio::orderBy('planta')->get();
+        return view('grupos.create', compact('profesores', 'espacios'));
     }
 
     /**

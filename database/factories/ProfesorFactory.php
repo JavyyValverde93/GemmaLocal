@@ -22,7 +22,7 @@ class ProfesorFactory extends Factory
     public function definition()
     {
         return [
-            'id_usuario'=> $this->faker->unique()->numberBetween(81, 110),
+            'id_usuario'=> rand(81, 110),
             'nombre'=> $this->faker->firstName(),
             'apellidos'=> $this->faker->lastName(),
             'dni'=> $this->faker->dni(),

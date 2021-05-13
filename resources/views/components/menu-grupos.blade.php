@@ -33,13 +33,13 @@ session_start();
                             home
                         </span> 
                         <span class="material-icons align-middle mt-4">
-                            school
-                        </span> 
-                        <span class="material-icons align-middle mt-4">
                             group
                         </span> 
                         <span class="material-icons align-middle mt-4">
-                            report_problem
+                            task
+                        </span> 
+                        <span class="material-icons align-middle mt-4">
+                            description
                         </span> 
                         <span class="material-icons align-middle mt-4">
                             face
@@ -49,13 +49,13 @@ session_start();
                         </span> 
                     </aside>
                     <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
-                        Bienvenido</a>
+                        Administración</a>
                     <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
-                        Profesores</a>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('grupos.index')}}">
-                        Grupos</a>
+                        Grupos de Clase</a>
                     <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
-                        Incidencias
+                        Matrículas</a>
+                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
+                        Prescripciones
                     </a>
                     <a href="{{route('alumnos.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
                         Alumnos

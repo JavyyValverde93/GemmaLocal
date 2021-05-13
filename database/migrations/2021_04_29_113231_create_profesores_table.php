@@ -19,6 +19,7 @@ class CreateProfesoresTable extends Migration
             $table->foreign('id_usuario')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('nombre');
             $table->string('apellidos');
+            $table->string('dni');
             $table->string('foto')->default('imagenes/profesores/default.png');
             $table->string('domicilio');
             $table->string('poblacion');

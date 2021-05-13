@@ -23,6 +23,10 @@ Route::get('/administracion', function(){
 	return view('administracion/panel');
 });
 
+Route::get('/panel-grupos', function(){
+	return view('administracion/panel-grupos');
+})->name('panel-grupos');
+
 Route::get('/dashboard', function () {
     return view('administracion/panel');
 })->middleware(['auth'])->name('dashboard');
