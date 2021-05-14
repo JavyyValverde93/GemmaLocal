@@ -19,7 +19,7 @@ class ProfesorController extends Controller
      */
     public function index(Request $request)
     {
-        $profesores = Profesor::orderBy('id')->paginate(10);
+        $profesores = Profesor::orderBy('id')->select('id', 'nombre', 'apellidos', 'telefono', 'dni')->nombre($request->nombre)->paginate(10);
         return view('profesores.index', compact('profesores', 'request'));
     }
 
@@ -30,7 +30,7 @@ class ProfesorController extends Controller
      */
     public function create()
     {
-        //
+        return view('profesores.create');
     }
 
     /**
@@ -122,9 +122,9 @@ class ProfesorController extends Controller
      * @param  \App\Models\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function show(Profesor $profesor)
+    public function show(Profesor $profesore)
     {
-        dd($profesor);
+        dd($profesore);
     }
 
     /**
@@ -133,8 +133,9 @@ class ProfesorController extends Controller
      * @param  \App\Models\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profesor $profesor)
+    public function edit(Profesor $profesore)
     {
+        $profesor = $profesore;
         dd($profesor);
         return view('profesores.edit', compact('profesor'));
     }

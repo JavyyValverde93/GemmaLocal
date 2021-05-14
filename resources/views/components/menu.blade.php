@@ -39,7 +39,10 @@ session_start();
                             group
                         </span> 
                         <span class="material-icons align-middle mt-4">
-                            report_problem
+                            mail
+                        </span> 
+                        <span class="material-icons align-middle mt-4">
+                            attach_money
                         </span> 
                         <span class="material-icons align-middle mt-4">
                             face
@@ -55,14 +58,18 @@ session_start();
                     <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('grupos.index')}}">
                         Grupos</a>
                     <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
-                        Incidencias
+                        Comunicaciones
+                    </a>
+                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('facturaciones.index')}}">
+                        Facturaciones
                     </a>
                     <a href="{{route('alumnos.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
                         Alumnos
                     </a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a href="route('logout')" style="color:white;" class="list-group-item list-group-item-action bg-danger" this.closest('form').submit();">
+                        <a href="Cerrar Sesión" style="color:white;" class="list-group-item list-group-item-action bg-danger" onclick="event.preventDefault();
+                        this.closest('form').submit();">
                             {{ __('Cerrar sesión') }}
                         </a>
                     </form>

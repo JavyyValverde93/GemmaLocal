@@ -80,7 +80,8 @@ session_start();
                     </a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a href="route('logout')" style="color:white;" class="list-group-item list-group-item-action bg-danger" this.closest('form').submit();">
+                        <a href="Cerrar Sesión" style="color:white;" class="list-group-item list-group-item-action bg-danger" onclick="event.preventDefault();
+                        this.closest('form').submit();">
                             {{ __('Cerrar sesión') }}
                         </a>
                     </form>

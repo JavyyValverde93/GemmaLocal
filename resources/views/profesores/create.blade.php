@@ -11,8 +11,9 @@
 				-moz-appearance: textfield;
 			}
 		</style>
-		<h1 class="text-center">Profesor</h1>
-		<form class="ml-5 mt-4 border p-5">
+		<div align="center">Profesor</div>
+		<form action="{{route('profesores.store')}}" method="POST" class="ml-5 mt-4 border p-5">
+			@csrf
 			<div class="row justify-content-lg-center">
 				<div class="col-auto">
 					<table class="table table-responsive mx-auto">
@@ -41,8 +42,8 @@
 							</td>
 							<td>
 								<div class="form-group">
-									<label for="apellnameos" class="form-text">Apellnameos</label>
-									<input type="text" name="apellnameos" class="form-control text-right">
+									<label class="form-text">Apellidos</label>
+									<input type="text" name="apellidos" class="form-control text-right">
 								</div>
 								<div class="form-group">
 									<label for="pais" class="form-text">Pa&iacute;s</label>
@@ -131,7 +132,7 @@
 					</table>
 				</div>
 			</div>
-			<input type="submit" name="Enviar" class="btn btn-danger">
+			<button type="submit" name="Enviar" class="btn btn-danger">Crear</button>
 		</form>
 
 	</x-slot>
