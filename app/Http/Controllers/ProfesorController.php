@@ -136,7 +136,6 @@ class ProfesorController extends Controller
     public function edit(Profesor $profesore)
     {
         $profesor = $profesore;
-        dd($profesor);
         return view('profesores.edit', compact('profesor'));
     }
 
