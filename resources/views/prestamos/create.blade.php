@@ -9,7 +9,7 @@
           </style>
         <div align="center">Préstamos</div>
 
-        <form action="{{route('prescripciones.store')}}" method="POST" class="ml-5 mt-4 border p-5">
+        <form action="{{route('prestamos.store')}}" method="POST" class="ml-5 mt-4 border p-5">
             <div class="form-group">
                 <div class="row">
                     <div class="col">
