@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inventario;
 use App\Models\Prestamo;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class PrestamoController extends Controller
      */
     public function create()
     {
-        //
+        $inventario = Inventario::orderBy('fecha_modificacion')->get();
+        return view('prestamos.create', compact('inventario'));
     }
 
     /**

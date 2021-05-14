@@ -12,9 +12,10 @@ class InventarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $inventario = Inventario::orderBy('fecha_modificacion', 'desc')->paginate(15);
+        return view('inventario.index', compact('inventario', 'request'));
     }
 
     /**
@@ -24,7 +25,7 @@ class InventarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('inventario.create');
     }
 
     /**

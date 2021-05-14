@@ -50,7 +50,7 @@ session_start();
                     </aside>
                     <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
                         Bienvenido</a>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
+                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('profesores.index')}}">
                         Profesores</a>
                     <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('grupos.index')}}">
                         Grupos</a>
@@ -91,6 +91,16 @@ session_start();
                 </nav>
 
                 <div class="container-fluid">
+                    <x-alert-message></x-alert-message>
+                    @if ($errors->any())
+                    <div class="alert alert-danger mt-3">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     {{ $slot }}
                 </div>
             </div>

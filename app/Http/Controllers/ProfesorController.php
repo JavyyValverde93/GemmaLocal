@@ -17,10 +17,10 @@ class ProfesorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $profesores = Profesor::orderBy('id')->paginate(10);
-        return view('profesores.index', compact('profesores'));
+        return view('profesores.index', compact('profesores', 'request'));
     }
 
     /**
@@ -124,7 +124,7 @@ class ProfesorController extends Controller
      */
     public function show(Profesor $profesor)
     {
-        //
+        dd($profesor);
     }
 
     /**
@@ -135,7 +135,8 @@ class ProfesorController extends Controller
      */
     public function edit(Profesor $profesor)
     {
-        //
+        dd($profesor);
+        return view('profesores.edit', compact('profesor'));
     }
 
     /**

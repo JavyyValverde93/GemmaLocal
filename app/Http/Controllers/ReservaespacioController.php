@@ -14,7 +14,8 @@ class ReservaespacioController extends Controller
      */
     public function index()
     {
-        //
+        $reservasespacios = Reservaespacio::orderBy('fecha_modificacion')->paginate(15);
+        return view('reservasespacios.index', compact('reservasespacios'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ReservaespacioController extends Controller
      */
     public function create()
     {
-        //
+        return view('reservasespacios.create');
     }
 
     /**

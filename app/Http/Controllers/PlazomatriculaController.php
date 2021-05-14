@@ -12,9 +12,10 @@ class PlazomatriculaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $plazosmatriculas = Plazomatricula::orderBy('id', 'desc')->paginate(15);
+        return view('plazosmatriculas.index', compact('plazosmatriculas', 'request'));
     }
 
     /**

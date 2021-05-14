@@ -1,15 +1,5 @@
 <x-menu-grupos>
   <x-slot name="slot">
-    <x-alert-message></x-alert-message>
-    @if ($errors->any())
-    <div class="alert alert-danger mt-3">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 
     <style>
       select{

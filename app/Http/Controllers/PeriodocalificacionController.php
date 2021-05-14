@@ -12,9 +12,10 @@ class PeriodocalificacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $periodoscalificaciones = Periodocalificacion::orderBy('id', 'desc')->paginate(15);
+        return view('periodoscalificaciones.index', compact('periodoscalificaciones', 'request'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PeriodocalificacionController extends Controller
      */
     public function create()
     {
-        //
+        return view('periodoscalificaciones.create');
     }
 
     /**

@@ -26,7 +26,7 @@ session_start();
         <div class="d-flex ml-4" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-danger border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading" style="color: white; font-size: 25px;">Administración</div>
+                <div class="sidebar-heading" style="color: white; font-size: 25px;">Gestión</div>
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
                         <span class="material-icons align-middle" style="margin-top: 80px;">
@@ -42,7 +42,16 @@ session_start();
                             description
                         </span> 
                         <span class="material-icons align-middle mt-4">
+                            inventory_2
+                        </span> 
+                        <span class="material-icons align-middle mt-4">
                             face
+                        </span> 
+                        <span class="material-icons align-middle mt-4">
+                            school
+                        </span> 
+                        <span class="material-icons align-middle mt-4">
+                            room
                         </span> 
                         <span class="material-icons align-middle mt-4">
                             logout
@@ -57,8 +66,17 @@ session_start();
                     <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('prescripciones.index')}}">
                         Prescripciones
                     </a>
-                    <a href="{{route('alumnos.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
+                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('inventario.index')}}">
+                        Inventario
+                    </a>
+                    <a href="{{route('alumnos.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;">
                         Alumnos
+                    </a>
+                    <a href="{{route('profesores.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;">
+                        Profesores
+                    </a>
+                    <a href="{{route('espacios.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;">
+                        Espacios
                     </a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -92,6 +110,15 @@ session_start();
 
                 <div class="container-fluid">
                     <x-alert-message></x-alert-message>
+                    @if ($errors->any())
+                    <div class="alert alert-danger mt-3">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     {{ $slot }}
                 </div>
             </div>
