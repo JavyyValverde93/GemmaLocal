@@ -16,7 +16,7 @@ class GrupoController extends Controller
      */
     public function index(Request $request)
     {
-        $grupos = Grupo::orderBy('id', 'desc')->paginate('10');
+        $grupos = Grupo::orderBy('id', 'desc')->nombre($request->nombre)->paginate('10');
         return view('grupos.index', compact('grupos', 'request'));
     }
 
@@ -43,7 +43,7 @@ class GrupoController extends Controller
         $request->validate([
             'id_profesor' => 'required',
             'nombre' => 'required',
-            'id_espaico' => 'required'
+            'id_espacio' => 'required'
         ]);
 
         try{
@@ -55,7 +55,7 @@ class GrupoController extends Controller
             $grupo->fecha_modificacion = now()->getTimestamp();
 
             $grupo->save();
-            return back()->with('mensaje', 'Grupo creado');
+            return redirect()->route('grupos.index')->with('mensaje', 'Grupo creado');
         }catch(\Exception $ex){
             return back()->with('error', 'El grupo no ha podido crearse');
         }

@@ -12,9 +12,10 @@ class PlazoprescripcionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $plazosprescripciones = Plazoprescripcion::orderBy('id', 'desc')->paginate(10);
+        return view('plazosprescripciones.index', compact('plazosprescripciones', 'request'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PlazoprescripcionController extends Controller
      */
     public function create()
     {
-        //
+        return view('plazosprescripciones.create');
     }
 
     /**
@@ -37,15 +38,26 @@ class PlazoprescripcionController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'fecha' => 'required'
+            'fecha_inicio' => 'required',
+            'fecha_fin' => 'required'
         ]);
+
+        $date = new \DateTime($request->fecha_inicio);
+        $date = $date->getTimestamp();
+        $date2 = new \DateTime($request->fecha_fin);
+        $date2 = $date2->getTimestamp();
+
+        if($date2<=$date){
+            return back()->with('error', 'No se ha podido crear el nuevo plazo');
+        }
 
         try{
             $plazoprescripcion = new Plazoprescripcion();
             $plazoprescripcion->nombre = $request->nombre;
-            $plazoprescripcion->fecha = $request->fecha->getTimestamp();
-
+            $plazoprescripcion->fecha_inicio = $date;
+            $plazoprescripcion->fecha_fin = $date2;
             $plazoprescripcion->save();
+
 
             return back()->with('mensaje', 'Plazo creado correctamente');
 

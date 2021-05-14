@@ -10,7 +10,7 @@ class Profesor extends Model
     use HasFactory;
 	
 	
-	protected $fillable=['id_usuario','nombre','apellidos','foto','domicilio','poblacion','provincia',
+	protected $fillable=['id_usuario','nombre','apellidos','foto', 'dni', 'domicilio','poblacion','provincia',
 						
 						'pais','codigo_postal','sexo','telefono','telefono2','email2','edad',
 						
@@ -24,5 +24,8 @@ class Profesor extends Model
 	
 	public $timestamps = false;	
 	
+	public function Grupo(){
+		return $this->hasMany(Grupo::class);
+	}
 	
 }

@@ -82,7 +82,7 @@ session_start();
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
                                 <a class="nav-link" href="#!">
-                                    <strong>José</strong> <br/>Profesor
+                                    <strong>@if(Auth::user()!=null){{Auth::user()->name}} @endif</strong> <br/>Profesor
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>

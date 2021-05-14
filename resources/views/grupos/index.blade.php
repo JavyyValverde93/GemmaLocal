@@ -18,13 +18,17 @@
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Profesor</th>
+                <th>Espacio</th>
+                <th>Planta</th>
                 <th>&nbsp;</th>
             </tr>
             @foreach($grupos as $item)
             <tr>
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}} {{$item->apellidos}}</td>
-                <td>{{$item->profesor->nombre}}</td>
+                <td><a href="{{route('profesores.show', $item->profesor)}}" class="text-black">{{$item->profesor->apellidos}} {{$item->profesor->nombre}}</a></td>
+                <td><a href="{{route('espacios.show', $item->espacio)}}" class="text-black">{{$item->espacio->nombre}}</a></td>
+                <td><a href="#" class="text-black">{{$item->espacio->planta}}</a></td>
                 <td>
                     <a href="{{route('grupos.show', $item)}}"><i class="fas fa-eye"></i></a>
                     <a href="{{route('grupos.edit', $item)}}"><i class="fas fa-edit"></i></a>

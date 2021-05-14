@@ -24,7 +24,7 @@ class PlazomatriculaController extends Controller
      */
     public function create()
     {
-        //
+        return view('plazosmatriculas.create');
     }
 
     /**

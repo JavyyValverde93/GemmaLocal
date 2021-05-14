@@ -12,9 +12,11 @@ class PrescripcionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $prescripciones = Prescripcion::orderBy('id', 'desc')->paginate(20);
+        return view('prescripciones.index', compact('prescripciones', 'request'));
+
     }
 
     /**
@@ -24,7 +26,7 @@ class PrescripcionController extends Controller
      */
     public function create()
     {
-        //
+        return view('prescripciones.create');
     }
 
     /**

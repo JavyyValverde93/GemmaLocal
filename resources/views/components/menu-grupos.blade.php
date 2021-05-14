@@ -48,13 +48,13 @@ session_start();
                             logout
                         </span> 
                     </aside>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
+                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('dashboard')}}">
                         Administración</a>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
+                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('grupos.index')}}">
                         Grupos de Clase</a>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
+                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('matriculas.index')}}">
                         Matrículas</a>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
+                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('prescripciones.index')}}">
                         Prescripciones
                     </a>
                     <a href="{{route('alumnos.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
@@ -82,7 +82,7 @@ session_start();
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
                                 <a class="nav-link" href="#!">
-                                    <strong>José</strong> <br/>Profesor
+                                    <strong>@if(Auth::user()!=null){{Auth::user()->name}} @endif</strong> <br/>Profesor
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
@@ -91,6 +91,7 @@ session_start();
                 </nav>
 
                 <div class="container-fluid">
+                    <x-alert-message></x-alert-message>
                     {{ $slot }}
                 </div>
             </div>

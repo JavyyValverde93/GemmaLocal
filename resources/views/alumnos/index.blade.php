@@ -3,12 +3,12 @@
         <div align="center">Alumnos</div>
         <div class="row">
             <div class="col">
-                <a href="{{route('profesores.index')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear alumno</a>
+                <a href="{{route('alumnos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear alumno</a>
             </div>
             <div class="col">
                 <form action="{{route('alumnos.index')}}" class=" float-right m-3" method="GET">
                 @csrf
-                <input type="text" name="nombre" class="rounded" placeholder="Buscar...">
+                <input type="text" value="{{$request->nombre}}" name="nombre" class="rounded" placeholder="Buscar...">
                 <button type="submit" class="btn btn-danger"><i class="fas fa-search"></i></button>
             </form>
             </div>

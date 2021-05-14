@@ -22,6 +22,9 @@ class CreateMatriculasTable extends Migration
             $table->bigInteger('fecha_creacion');
             $table->foreignId('id_prescripcion')->nullable();
             $table->foreign('id_prescripcion')->references('id')->on('prescripciones')->onUpdate('cascade')->onDelete('cascade');
+            
+            $table->foreignId('id_plazomatricula')->nullable();
+            $table->foreign('id_plazomatricula')->references('id')->on('plazosmatriculas')->onUpdate('cascade')->onDelete('cascade');
             // $table->timestamps();
         });
     }
