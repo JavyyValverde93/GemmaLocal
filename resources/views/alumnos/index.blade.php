@@ -30,7 +30,7 @@
                 <td>
                     <a href="{{route('alumnos.show', $item)}}"><i class="fas fa-eye"></i></a>
                     <a href="{{route('alumnos.edit', $item)}}"><i class="fas fa-edit"></i></a>
-                    <a href="{{route('alumnos.edit', $item)}}"><i class="fas fa-clipboard-list"></i></a>
+                    <a href="{{route('matriculas.index', ['id_alumno='.$item->id, 'plazomatricula=true'])}}"><i class="fas fa-clipboard-list"></i></a>
 
                 </td>
                 

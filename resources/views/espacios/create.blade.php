@@ -6,6 +6,11 @@
         width: auto;
         padding-right: 26px;
       }
+      
+      label::after{
+            content: "*";
+            color: red;
+      }
     </style>
       <form action="{{route('espacios.store')}}" method="POST" class="ml-5 mt-4 border p-5">
         @csrf

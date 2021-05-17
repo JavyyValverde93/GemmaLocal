@@ -30,6 +30,10 @@ class Grupo extends Model
 		return $this->belongsTo(Profesor::class, 'id_profesor');
 	}
 
+	public function Matricula(){
+		return $this->hasMany(Matricula::class);
+	}
+
 	public function scopeNombre($query, $p){
         if($p!=null){
             // \DB es igual a poner use Illuminate\Support\Facades\DB; y DB

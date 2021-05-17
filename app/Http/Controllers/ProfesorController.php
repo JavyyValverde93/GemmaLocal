@@ -44,8 +44,7 @@ class ProfesorController extends Controller
         $request->validate([
             'nombre' => 'required',
             'apellidos' => 'required',
-            'dni' => 'required',
-            'foto' => 'required',
+            'dni' => 'required|unique:profesores|unique:alumnos',
             'domicilio' => 'required',
             'poblacion' => 'required',
             'provincia' => 'required',
@@ -58,6 +57,22 @@ class ProfesorController extends Controller
             'fecha_nacimiento' => 'required',
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
+        ],[
+            'nombre.required' => 'nombre',
+            'apellidos.required' => 'apellidos',
+            'dni.required' => 'dni',
+            'domicilio.required' => 'domicilio',
+            'poblacion.required' => 'poblacion',
+            'provincia.required' => 'provincia',
+            'pais.required' => 'pais',
+            'codigo_postal.required' => 'codigo_postal',
+            'sexo.required' => 'sexo',
+            'telefono.required' => 'telefono',
+            'email.required' => 'email',
+            'edad.required' => 'edad',
+            'fecha_nacimiento.required' => 'fecha_nacimiento',
+            'lugar_nacimiento.required' => 'lugar_nacimiento',
+            'nss.required' => 'nss'
         ]);
         $nombre = $request->nombre;
         $apellidos = $request->apellidos;
@@ -67,7 +82,7 @@ class ProfesorController extends Controller
         try{
             $user = new User();
             $user->name = $request->nombre + $request->apellidos;
-            $user->email = $nombre[0].$apellidos[0].$apellidos[1].$apellidos[2].$apellidos[$ap2+1].$apellidos[$ap2+2].$apellidos[$ap2+3].$dni[strlen($dni)-4].$dni[strlen($dni)-3].$dni[strlen($dni)-2]."@moodle.com";
+            $user->email = $request->email;
             $user->password = Hash::make($this->randomPassword());
             $user->fecha_creacion = now()->getTimestamp();
             $user->fecha_modificacion = now()->getTimestamp();
@@ -87,7 +102,9 @@ class ProfesorController extends Controller
             $profesor->email = $request->email;
             $profesor->email2 = $request->email2;
             $profesor->edad = $request->edad;
-            $profesor->fecha_nacimiento = $request->fecha_nacimiento;
+            $date = new \DateTime($request->fecha_nacimiento);
+            $date = $date->getTimestamp();
+            $profesor->fecha_nacimiento = $date;
             $profesor->lugar_nacimiento = $request->lugar_nacimiento;
             $profesor->nss = $request->nss;
             $profesor->observaciones = $request->observaciones;
@@ -98,7 +115,7 @@ class ProfesorController extends Controller
             $profesor->iban = $request->iban;
             $profesor->impuesto = $request->impuesto;
             $profesor->irpf = $request->irpf;
-            if($request->has('foto')){
+            if($request->foto!=null){
                 $request->validate(['foto'=>['image']]);
                 $nom = $request->foto;
                 $nom2 = "imagenes/profesores/".uniqid()."_".$nom->getClientOriginalName();
@@ -153,7 +170,6 @@ class ProfesorController extends Controller
             'nombre' => 'required',
             'apellidos' => 'required',
             'dni' => 'required',
-            'foto' => 'required',
             'domicilio' => 'required',
             'poblacion' => 'required',
             'provincia' => 'required',
@@ -184,7 +200,9 @@ class ProfesorController extends Controller
             $profesor->email = $request->email;
             $profesor->email2 = $request->email2;
             $profesor->edad = $request->edad;
-            $profesor->fecha_nacimiento = $request->fecha_nacimiento;
+            $date = new \DateTime($request->fecha_nacimiento);
+            $date = $date->getTimestamp();
+            $profesor->fecha_nacimiento = $date;
             $profesor->lugar_nacimiento = $request->lugar_nacimiento;
             $profesor->nss = $request->nss;
             $profesor->observaciones = $request->observaciones;
@@ -195,7 +213,7 @@ class ProfesorController extends Controller
             $profesor->iban = $request->iban;
             $profesor->impuesto = $request->impuesto;
             $profesor->irpf = $request->irpf;
-            if($request->has('foto')){
+            if($request->foto!=null){
                 $request->validate(['foto'=>['image']]);
                 $nom = $request->foto;
                 $nom2 = "imagenes/profesores/".uniqid()."_".$nom->getClientOriginalName();

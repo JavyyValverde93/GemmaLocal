@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{EspacioController, FacturacionController, GrupoController, ComunicacionController, DestinatarioController, InventarioController, LogController, MatriculaController, PeriodocalificacionController, PermisoController, PersonalController, PlazomatriculaController, PlazoprescripcionController, PrescripcionController, PreferenciahorarioController, PrestamoController, ProfesorController, ReservaespacioController, RolControllers, SalarioController, TitulacionController, ActividadController, AlumnoController,AsistenciaController, CalificacionController, CategoriaController, RolController};
+use App\Models\Plazomatricula;
 use Database\Seeders\PreferenciahorarioSeeder;
 
 /*
@@ -60,3 +61,6 @@ Route::resource('reservasespacios', ReservaespacioController::class)->middleware
 Route::resource('roles', RolController::class)->middleware(['auth']);
 Route::resource('salarios', SalarioController::class)->middleware(['auth']);
 Route::resource('titulaciones', TitulacionController::class)->middleware(['auth']);
+
+
+Route::post('plazomatricula', [PlazomatriculaController::class, 'plazomatricula'])->name('plazosmatriculas.plazomatricula');

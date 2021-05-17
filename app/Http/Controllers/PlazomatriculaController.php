@@ -45,12 +45,16 @@ class PlazomatriculaController extends Controller
         try{
             $plazomatricula = new Plazomatricula();
             $plazomatricula->nombre = $request->nombre;
-            $plazomatricula->fecha_inicio = $request->fecha_inicio;
-            $plazomatricula->fecha_fin = $request->fecha_fin;
+            $date = new \DateTime($request->fecha_inicio);
+            $date = $date->getTimestamp();
+            $date2 = new \DateTime($request->fecha_fin);
+            $date2 = $date2->getTimestamp();
+            $plazomatricula->fecha_inicio = $date;
+            $plazomatricula->fecha_fin = $date2;
 
             $plazomatricula->save();
 
-            return back()->with('mensaje', 'Plazo creado correctamente');
+            return redirect()->route('plazosmatriculas.index')->with('mensaje', 'Plazo creado correctamente');
 
         }catch(\Exception $ex){
             return back()->with('error', 'No se ha podido crear el nuevo plazo');

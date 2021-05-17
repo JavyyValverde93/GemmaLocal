@@ -7,6 +7,11 @@
         width: auto;
         padding-right: 26px;
       }
+      
+      label::after{
+            content: "*";
+            color: red;
+      }
     </style>
       <form action="{{route('grupos.store')}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
         @csrf

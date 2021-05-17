@@ -15,8 +15,8 @@ class CreatePrescripcionesTable extends Migration
     {
         Schema::create('prescripciones', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_usuario');
-            $table->foreign('id_usuario')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('id_alumno');
+            $table->foreign('id_alumno')->references('id')->on('alumnos')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('id_actividad');
             $table->foreign('id_actividad')->references('id')->on('actividades')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('fecha_creacion');

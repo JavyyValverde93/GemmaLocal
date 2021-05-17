@@ -49,7 +49,7 @@ class InventarioController extends Controller
             $inventario->fecha_creacion = now()->getTimestamp();
             $inventario->fecha_modificacion = now()->getTimestamp();
             $inventario->save();
-            return back()->with('mensaje', 'Inventario añadido');
+            return redirect()->route('inventario.index')->with('mensaje', $request->nombre.' añadido a inventario');
         }catch(\Exception $ex){
             return back()->with('error', 'No ha podido definirse el inventario');
         }

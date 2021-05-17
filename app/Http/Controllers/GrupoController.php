@@ -16,7 +16,10 @@ class GrupoController extends Controller
      */
     public function index(Request $request)
     {
-        $grupos = Grupo::orderBy('id', 'desc')->nombre($request->nombre)->paginate('10');
+        $grupos = Grupo::orderBy('id', 'desc')->nombre($request->nombre)->paginate('15');
+        if($request->redirect=="matriculas"){
+            return view('matriculas.create', compact('request', 'grupos'));
+        }
         return view('grupos.index', compact('grupos', 'request'));
     }
 

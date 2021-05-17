@@ -37,6 +37,10 @@ class Alumno extends Model
 		return $this->hasMany(Calificacion::class);
 	}
 
+	public function Matricula(){
+		return $this->hasMany(Matricula::class);
+	}
+
 	public function scopeNombre($query, $p){
         if($p!=null){
             // \DB es igual a poner use Illuminate\Support\Facades\DB; y DB

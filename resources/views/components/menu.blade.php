@@ -44,9 +44,9 @@ session_start();
                         <span class="material-icons align-middle mt-4">
                             attach_money
                         </span> 
-                        <span class="material-icons align-middle mt-4">
+                        {{-- <span class="material-icons align-middle mt-4">
                             face
-                        </span> 
+                        </span>  --}}
                         <span class="material-icons align-middle mt-4">
                             logout
                         </span> 
@@ -63,9 +63,9 @@ session_start();
                     <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('facturaciones.index')}}">
                         Facturaciones
                     </a>
-                    <a href="{{route('alumnos.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
+                    {{-- <a href="{{route('alumnos.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;" href="#!">
                         Alumnos
-                    </a>
+                    </a> --}}
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <a href="Cerrar Sesión" style="color:white;" class="list-group-item list-group-item-action bg-danger" onclick="event.preventDefault();

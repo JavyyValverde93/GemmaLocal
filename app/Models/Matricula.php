@@ -9,9 +9,16 @@ class Matricula extends Model
 {
     use HasFactory;
 	
-	protected $fillable=['id_usuario','id_grupo','fecha_creacion','id_prescripcion'];
+	protected $fillable=['id_alumno','id_grupo','fecha_creacion','id_prescripcion'];
 
 	public $timestamps = false;	
 	
 
+	public function Alumno(){
+		return $this->belongsTo(Alumno::class, 'id_alumno');
+	}
+
+	public function Grupo(){
+		return $this->belongsTo(Grupo::class, 'id_grupo');
+	}
 }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Matricula;
+use App\Models\Grupo;
+use App\Models\Plazomatricula;
+use App\Models\Prescripcion;
 use Illuminate\Http\Request;
 
 class MatriculaController extends Controller
@@ -15,6 +18,10 @@ class MatriculaController extends Controller
     public function index(Request $request)
     {
         $matriculas = Matricula::orderBy('id', 'desc')->paginate(20);
+        if($request->plazomatricula=='true'){
+            $plazosmatriculas = Plazomatricula::orderBy('fecha_fin', 'desc')->paginate(20);
+            return view('plazosmatriculas.plazomatricula', compact('matriculas', 'request', 'plazosmatriculas'));
+        }
         return view('matriculas.index', compact('matriculas', 'request'));
     }
 
@@ -23,9 +30,10 @@ class MatriculaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $grupos = Grupo::orderBy('nombre')->nombre($request->nombre)->paginate(15);
+        return view('matriculas.create', compact('request', 'grupos'));
     }
 
     /**
@@ -39,16 +47,22 @@ class MatriculaController extends Controller
         $request->validate([
             'id_alumno' => 'required',
             'id_grupo' => 'required',
+            'id_plazomatricula' => 'required',
         ]);
+
+        $prescripcion = Prescripcion::where('id_alumno', $request->id_alumno);
 
         try{
             $matricula = new Matricula();
-            $matricula->id_alumno = $request->id_usuario;
+            $matricula->id_alumno = $request->id_alumno;
             $matricula->id_grupo = $request->id_grupo;
+            $matricula->id_plazomatricula = $request->id_plazomatricula;
             $matricula->fecha_creacion = now()->getTimestamp();
-            $matricula->id_prescripcion = $request->id_prescripcion;
+            if($request->id_prescripcion!=null){
+                $matricula->id_prescripcion = $request->id_prescripcion;
+            }
             $matricula->save();
-            return back()->with('mensaje', 'Matrícula creada');
+            return redirect()->route('alumnos.index')->with('mensaje', 'Matrícula creada');
         }catch(\Exception $ex){
             return back()->with('error', 'No ha podido crearse la matricula');
         }

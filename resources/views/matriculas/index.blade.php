@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col">
                 <a href="{{route('plazosmatriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Plazo Matriculación</a>
-                <a href="{{route('matriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Matrícula</a>
+                <a href="{{route('plazosmatriculas.index')}}" class="btn btn-outline-danger my-2"> Plazos Matriculación</a>
+                {{-- <a href="{{route('matriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Matrícula</a> --}}
             </div>
             <div class="col">
                 <form action="{{route('matriculas.index')}}" class=" float-right m-3" method="GET">
@@ -26,7 +27,8 @@
             @foreach($matriculas as $item)
             <tr>
                 <td>{{$item->id}}</td>
-                <td>{{$item->grupo->nombre}} {{$item->apellidos}}</td>
+                <td>{{$item->alumno->nombre}} {{$item->alumno->apellidos}}</td>
+                <td>{{$item->grupo->nombre}}</td>
                 <td>{{$item->id}}</td>
                 <td>
                     <a href="{{route('matriculas.show', $item)}}"><i class="fas fa-eye"></i></a>

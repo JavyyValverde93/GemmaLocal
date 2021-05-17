@@ -36,7 +36,7 @@ class AlumnoController extends Controller
     public function create()
     {
 
-        return view('administracion/nuevo-alumno');
+        return view('alumnos.create');
     }
 
     /**
@@ -48,11 +48,9 @@ class AlumnoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_usuario' => 'required',
             'nombre' => 'required',
             'apellidos' => 'required',
-            'dni' => 'required',
-            'foto' => 'required',
+            'dni' => 'required|unique:alumnos',
             'domicilio' => 'required',
             'poblacion' => 'required',
             'provincia' => 'required',
@@ -60,11 +58,27 @@ class AlumnoController extends Controller
             'codigo_postal' => 'required',
             'sexo' => 'required',
             'telefono' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:alumnos',
             'edad' => 'required',
             'fecha_nacimiento' => 'required',
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
+        ],[
+            'nombre.required' => 'nombre',
+            'apellidos.required' => 'apellidos',
+            'dni.required' => 'dni',
+            'domicilio.required' => 'domicilio',
+            'poblacion.required' => 'poblacion',
+            'provincia.required' => 'provincia',
+            'pais.required' => 'pais',
+            'codigo_postal.required' => 'codigo_postal',
+            'sexo.required' => 'sexo',
+            'telefono.required' => 'telefono',
+            'email.required' => 'email',
+            'edad.required' => 'edad',
+            'fecha_nacimiento.required' => 'fecha_nacimiento',
+            'lugar_nacimiento.required' => 'lugar_nacimiento',
+            'nss.required' => 'nss'
         ]);
         $nombre = $request->nombre;
         $apellidos = $request->apellidos;
@@ -73,7 +87,7 @@ class AlumnoController extends Controller
 
         try{
             $user = new User();
-            $user->name = $request->nombre + $request->apellidos;
+            $user->name = $request->nombre." ".$request->apellidos;
             $user->email = $request->email;
             $user->password = Hash::make($this->randomPassword());
             $user->fecha_creacion = now()->getTimestamp();
@@ -101,20 +115,22 @@ class AlumnoController extends Controller
             $alumno->nss = $request->nss;
             $alumno->observaciones = $request->observaciones;
             $alumno->fecha_creacion = now()->getTimestamp();
-            if($request->has('foto')){
+
+            if($request->foto!=null){
                 $request->validate(['foto'=>['image']]);
                 $nom = $request->foto;
                 $nom2 = "/imagenes/alumnos/".uniqid()."_".$nom->getClientOriginalName();
                 Storage::disk("public")->put($nom2, File::get($nom));
                 $alumno->foto = 'storage/'.$nom2;
             }
+
             $user->save();
             $alumno->id_usuario = $user->id;
             $alumno->save();
 
             return back()->with('mensaje', 'Alumno creado correctamente');
         }catch(\Exception $ex){
-            return back()->with('error', 'No ha podido crearse el alumno');
+            return back()->with('error', 'No ha podido crearse el alumno'.$ex);
         }
     }
 
@@ -153,7 +169,6 @@ class AlumnoController extends Controller
             'nombre' => 'required',
             'apellidos' => 'required',
             'dni' => 'required',
-            'foto' => 'required',
             'domicilio' => 'required',
             'poblacion' => 'required',
             'provincia' => 'required',
@@ -184,11 +199,13 @@ class AlumnoController extends Controller
             $alumno->email = $request->email;
             $alumno->email2 = $request->email2;
             $alumno->edad = $request->edad;
-            $alumno->fecha_nacimiento = $request->fecha_nacimiento;
+            $date = new \DateTime($request->fecha_nacimiento);
+            $date = $date->getTimestamp();
+            $alumno->fecha_nacimiento = $date;
             $alumno->lugar_nacimiento = $request->lugar_nacimiento;
             $alumno->nss = $request->nss;
             $alumno->observaciones = $request->observaciones;
-            if($request->has('foto')){
+            if($request->foto!=null){
                 $request->validate(['foto'=>['image']]);
                 $nom = $request->foto;
                 $nom2 = "imagenes/alumnos/".uniqid()."_".$nom->getClientOriginalName();

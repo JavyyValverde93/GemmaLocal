@@ -4,8 +4,8 @@
             @csrf
             <div class="form-row col-md-10">
                 <div class="form-group col-md-5">
-                    <label for="inputName">Nombre de la Actividad</label>
-                    <input type="name" class="form-control" name="nombre" placeholder="Nombre de la Actividad">
+                    <label for="inputName">Nombre del Plazo</label>
+                    <input type="nombre" class="form-control" name="nombre" placeholder="Nombre de la Actividad">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputStartDate">Fecha de Inicio</label>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="inputCloseDate">Fecha de Cierre</label>
-                    <input type="date" class="form-control" name="fecha_cierre">
+                    <input type="date" class="form-control" name="fecha_fin">
                   
                 </div>
             </div>
