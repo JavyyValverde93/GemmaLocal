@@ -74,7 +74,7 @@ class AlumnoController extends Controller
         try{
             $user = new User();
             $user->name = $request->nombre + $request->apellidos;
-            $user->email = $nombre[0].$apellidos[0].$apellidos[1].$apellidos[2].$apellidos[$ap2+1].$apellidos[$ap2+2].$apellidos[$ap2+3].$dni[strlen($dni)-4].$dni[strlen($dni)-3].$dni[strlen($dni)-2]."@moodle.com";
+            $user->email = $request->email;
             $user->password = Hash::make($this->randomPassword());
             $user->fecha_creacion = now()->getTimestamp();
             $user->fecha_modificacion = now()->getTimestamp();
@@ -94,7 +94,9 @@ class AlumnoController extends Controller
             $alumno->email = $request->email;
             $alumno->email2 = $request->email2;
             $alumno->edad = $request->edad;
-            $alumno->fecha_nacimiento = $request->fecha_nacimiento;
+            $date = new \DateTime($request->fecha_nacimiento);
+            $date = $date->getTimestamp();
+            $alumno->fecha_nacimiento = $date;
             $alumno->lugar_nacimiento = $request->lugar_nacimiento;
             $alumno->nss = $request->nss;
             $alumno->observaciones = $request->observaciones;
@@ -223,6 +225,7 @@ class AlumnoController extends Controller
             $pass[] = $alphabet[$n];
         }
         return implode($pass); //turn the array into a string
+        // $nombre[0].$apellidos[0].$apellidos[1].$apellidos[2].$apellidos[$ap2+1].$apellidos[$ap2+2].$apellidos[$ap2+3].$dni[strlen($dni)-4].$dni[strlen($dni)-3].$dni[strlen($dni)-2]."@moodle.com";
     }
 
 

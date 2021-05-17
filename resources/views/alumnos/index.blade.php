@@ -1,4 +1,4 @@
-<x-menu>
+<x-menu-grupos>
     <x-slot name="slot">
         <div align="center">Alumnos</div>
         <div class="row">
@@ -30,6 +30,8 @@
                 <td>
                     <a href="{{route('alumnos.show', $item)}}"><i class="fas fa-eye"></i></a>
                     <a href="{{route('alumnos.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                    <a href="{{route('alumnos.edit', $item)}}"><i class="fas fa-clipboard-list"></i></a>
+
                 </td>
                 
             </tr>
@@ -40,4 +42,4 @@
         </div>
     </x-slot>
 
-</x-menu>
+</x-menu-grupos>
