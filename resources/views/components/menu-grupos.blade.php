@@ -108,6 +108,12 @@ session_start();
                         color: blue;
                         text-decoration: underline;
                     }
+
+                    .migaspan a{
+                        color: #007eb0;
+                        text-decoration: underline;
+                        margin: 0 5px;
+                    }
                 </style>
 
                 <div class="container-fluid ml-3">

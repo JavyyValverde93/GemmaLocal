@@ -96,6 +96,13 @@ session_start();
 
                     tr td a{
                         color: blue;
+                        text-decoration: underline;
+                    }
+
+                    .migaspan a{
+                        color: #007eb0;
+                        text-decoration: underline;
+                        margin: 0 5px;
                     }
                 </style>
 

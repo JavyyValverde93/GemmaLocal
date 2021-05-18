@@ -1,14 +1,6 @@
 <x-menu-grupos>
     <x-slot name="slot">
         <div class="row migaspan">
-            <style>
-            .migaspan a{
-                color: #007eb0;
-                text-decoration: underline;
-                margin: 0 5px;
-            }
-                
-            </style>
             <a href="{{route('grupos.index')}}"> Grupos </a> > 
             <a href="{{route('periodoscalificaciones.index')}}">Periodos Calificaciones</a> >
         </div>
