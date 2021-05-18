@@ -1,4 +1,4 @@
-<x-menu-grupo>
+<x-menu-grupos>
   <x-slot name="slot">
     <h1 class="ml-5 mt-1">Periodo Calificación</h1>
     <form action="{{route('periodoscalificaciones.store')}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
@@ -21,4 +21,4 @@
     </form>
 
   </x-slot>
-</x-menu-grupo>
+</x-menu-grupos>

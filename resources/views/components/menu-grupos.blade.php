@@ -29,62 +29,54 @@ session_start();
                 <div class="sidebar-heading" style="color: white; font-size: 25px;">Gestión</div>
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
-                        <span class="material-icons align-middle" style="margin-top: 80px;">
-                            home
+                        <span class="material-icons align-middle" style="margin-top: 75px;">
+                            <a href="{{route('dashboard')}}" id="home">home</a>
                         </span> 
-                        <span class="material-icons align-middle mt-4">
-                            group
+                        <span class="material-icons align-middle mt-3">
+                            <a href="{{route('grupos.index')}}" id="group">group</a>
                         </span> 
-                        <span class="material-icons align-middle mt-4">
-                            task
+                        <span class="material-icons align-middle mt-3">
+                            <a href="{{route('matriculas.index')}}" id="task">task</a>
                         </span> 
-                        <span class="material-icons align-middle mt-4">
-                            description
+                        <span class="material-icons align-middle mt-3">
+                            <a href="{{route('prescripciones.index')}}" id="description">description</a>
                         </span> 
-                        <span class="material-icons align-middle mt-4">
-                            inventory_2
+                        <span class="material-icons align-middle mt-3">
+                            <a href="{{route('inventario.index')}}" id="inventory">inventory_2</a>
                         </span> 
-                        <span class="material-icons align-middle mt-4">
-                            face
+                        <span class="material-icons align-middle mt-3">
+                            <a href="{{route('alumnos.index')}}" id="face">face</a>
                         </span> 
-                        <span class="material-icons align-middle mt-4">
-                            school
+                        <span class="material-icons align-middle mt-3">
+                            <a href="{{route('profesores.index')}}" id="school">school</a>
                         </span> 
-                        <span class="material-icons align-middle mt-4">
-                            room
+                        <span class="material-icons align-middle mt-3">
+                        <a href="{{route('espacios.index')}}" id="room">room</a>
                         </span> 
-                        <span class="material-icons align-middle mt-4">
-                            logout
-                        </span> 
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <span class="material-icons align-middle mt-3">
+                                <a href="Cerrar Sesión" id="logout" onclick="event.preventDefault(); this.closest('form').submit();">logout</a>
+                            </span> 
+                        </form>
                     </aside>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('dashboard')}}">
-                        Administración</a>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('grupos.index')}}">
-                        Grupos de Clase</a>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('matriculas.index')}}">
-                        Matrículas</a>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('prescripciones.index')}}">
-                        Prescripciones
-                    </a>
-                    <a class="list-group-item list-group-item-action bg-danger" style="color: white;" href="{{route('inventario.index')}}">
-                        Inventario
-                    </a>
-                    <a href="{{route('alumnos.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;">
-                        Alumnos
-                    </a>
-                    <a href="{{route('profesores.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;">
-                        Profesores
-                    </a>
-                    <a href="{{route('espacios.index')}}" class="list-group-item list-group-item-action bg-danger" style="color: white;">
-                        Espacios
-                    </a>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <a href="Cerrar Sesión" style="color:white;" class="list-group-item list-group-item-action bg-danger" onclick="event.preventDefault();
-                        this.closest('form').submit();">
-                            {{ __('Cerrar sesión') }}
-                        </a>
-                    </form>
+                    <div class="nav flex-column nav-pills ml-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active bg-danger" id="v-pills-home-tab"  role="tab" aria-controls="v-pills-home" aria-selected="true" href="{{route('dashboard')}}">Administración</a>
+                        <a class="nav-link bg-danger" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false" href="{{route('grupos.index')}}">Grupos de clase</a>
+                        <a class="nav-link bg-danger" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('matriculas.index')}}">Matriculas</a>
+                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('prescripciones.index')}}">Prescripciones</a>
+                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('inventario.index')}}">Inventario</a>
+                        <a class="nav-link bg-danger" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('alumnos.index')}}">Alumnos</a>
+                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('profesores.index')}}">Profesores</a>
+                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('espacios.index')}}">Espacios</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="Cerrar Sesión" class="nav-link bg-danger" id="v-pills-settings-tab"  role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="event.preventDefault();
+                            this.closest('form').submit();">
+                                {{ __('Cerrar sesión') }}
+                            </a>
+                        </form>
+                    </div>
                 </div>
             </div>
 
@@ -100,16 +92,25 @@ session_start();
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#!">
-                                    <strong>@if(Auth::user()!=null){{Auth::user()->name}} @endif</strong> <br/>Profesor
-                                    <span class="sr-only">(current)</span>
-                                </a>
+                                <strong>@if(Auth::user()!=null){{Auth::user()->name}} @endif</strong> <br/>Profesor
+                                <span class="sr-only">(current)</span>
                             </li>
                         </ul>
                     </div>
                 </nav>
+                
+                <style>
+                    tr td i:last-child{
+                        color: black;
+                    }
 
-                <div class="container-fluid">
+                    tr td a{
+                        color: blue;
+                        text-decoration: underline;
+                    }
+                </style>
+
+                <div class="container-fluid ml-3">
                     <x-alert-message></x-alert-message>
                     @if ($errors->any())
                     <div class="alert alert-danger mt-3">

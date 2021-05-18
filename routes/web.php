@@ -62,5 +62,7 @@ Route::resource('roles', RolController::class)->middleware(['auth']);
 Route::resource('salarios', SalarioController::class)->middleware(['auth']);
 Route::resource('titulaciones', TitulacionController::class)->middleware(['auth']);
 
-
+//Selección de plazo para matricular alumno
 Route::post('plazomatricula', [PlazomatriculaController::class, 'plazomatricula'])->name('plazosmatriculas.plazomatricula');
+//Calificar grupo
+Route::post('calificargrupo', [CalificacionController::class, 'calificarGrupo'])->name('calificaciones.calificar-grupo');

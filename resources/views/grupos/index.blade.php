@@ -31,7 +31,8 @@
                 <td><a href="#" class="text-black">{{$item->espacio->planta}}</a></td>
                 <td>
                     <a href="{{route('grupos.show', $item)}}"><i class="fas fa-eye"></i></a>
-                    <a href="{{route('grupos.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                    <a href="{{route('grupos.edit', $item)}}"><i class="fas fa-edit mx-2"></i></a>
+                    <a href="{{route('periodoscalificaciones.index', ["c=p", "id_grupo=$item->id"])}}"><i class="fas fa-sort-numeric-up-alt"></i></a>
                 </td>
                 
             </tr>

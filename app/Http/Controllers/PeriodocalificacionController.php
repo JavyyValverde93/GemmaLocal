@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Periodocalificacion;
+use DateTime;
 use Illuminate\Http\Request;
 
 class PeriodocalificacionController extends Controller
@@ -15,6 +16,9 @@ class PeriodocalificacionController extends Controller
     public function index(Request $request)
     {
         $periodoscalificaciones = Periodocalificacion::orderBy('id', 'desc')->paginate(15);
+        if($request->c="p"){
+            return view('periodoscalificaciones.periodocalificacion', compact('periodoscalificaciones', 'request'));
+        }
         return view('periodoscalificaciones.index', compact('periodoscalificaciones', 'request'));
     }
 
@@ -45,8 +49,10 @@ class PeriodocalificacionController extends Controller
         try{
             $periodocalificacion = new Periodocalificacion();
             $periodocalificacion->nombre = $request->nombre;
-            $periodocalificacion->fecha_inicio = $request->fecha_inicio;
-            $periodocalificacion->fecha_fin = $request->fecha_fin;
+            $date = new \DateTime($request->fecha_inicio);
+            $date2 = new DateTime($request->fecha_fin);
+            $periodocalificacion->fecha_inicio = $date->getTimestamp();
+            $periodocalificacion->fecha_fin = $date2->getTimestamp();
             $periodocalificacion->save();
             return back()->with('mensaje', 'Periodo creado');
         }catch(\Exception $ex){

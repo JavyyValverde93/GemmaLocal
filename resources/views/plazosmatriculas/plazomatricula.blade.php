@@ -1,6 +1,6 @@
 <x-menu-grupos>
     <x-slot name="slot">
-        <div align="center">Plazos Matrículas</div>
+        <div align="center">Seleccione el plazo en el que se desea matricular al alumno</div>
         <div class="row">
             <div class="col">
                 {{-- <a href="{{route('matriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Matrícula</a> --}}

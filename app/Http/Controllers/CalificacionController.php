@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Calificacion;
+use App\Models\Grupo;
+use App\Models\Alumno;
+use App\Models\Matricula;
 use Illuminate\Http\Request;
 
 class CalificacionController extends Controller
@@ -22,9 +25,13 @@ class CalificacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $alumnos = Matricula::orderBy('id')->where('id_grupo', $request->id_grupo)->paginate(10);
+        // $alumnos = Alumno::select('nombre', 'apellidos', 'id')->orderBy('apellidos')
+        // ->where('id', $matriculados)->paginate(10);
+        
+        return view('calificaciones.calificar-grupo', compact('request', 'alumnos'));
     }
 
     /**
@@ -37,7 +44,6 @@ class CalificacionController extends Controller
     {
         $request->validate([
             'id_alumno' => 'required',
-            'id_actividad' => 'required',
             'id_grupo' => 'required',
             'id_periodocalificacion' => 'required',
             'nota' => 'required'
@@ -47,7 +53,6 @@ class CalificacionController extends Controller
             $calificacion = new Calificacion();
 
             $calificacion->id_alumno = $request->id_alumno;
-            $calificacion->id_actividad = $request->id_actividad;
             $calificacion->id_grupo = $request->id_grupo;
             $calificacion->id_periodocalificacion = $request->id_periodocalificacion;
             $calificacion->nota = $request->nota;
@@ -124,5 +129,11 @@ class CalificacionController extends Controller
     public function destroy(Calificacion $calificacion)
     {
         //
+    }
+
+    ///////////////////////////////////////////////
+
+    public function calificarGrupo(Request $request){
+        
     }
 }
