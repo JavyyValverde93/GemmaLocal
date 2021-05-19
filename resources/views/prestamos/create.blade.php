@@ -1,5 +1,10 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <div class="row migaspan">
+            <a href="{{route('inventario.index')}}" class="text-danger">Inventario</a> >
+            <a href="{{route('prestamos.index')}}" class="text-danger">Prestamos</a> >
+            <a href="{{route('prestamos.create')}}" class="text-danger">Solicitar Prestamo</a> >
+        </div>
         <style>
             select{
               font-size: 20px;
@@ -9,7 +14,7 @@
           </style>
         <div align="center">Préstamos</div>
 
-        <form action="{{route('prestamos.store')}}" method="POST" class="ml-5 mt-4 border p-5">
+        <form action="{{route('prestamos.store')}}" method="POST" class="mt-4 border p-5">
             @csrf
             <input type="hidden" name="id_usuario" value="1">
             <div class="form-group">

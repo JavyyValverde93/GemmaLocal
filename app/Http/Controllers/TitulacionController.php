@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Titulacion;
+use App\Models\Actividad;
 use Illuminate\Http\Request;
 
 class TitulacionController extends Controller
@@ -12,9 +13,12 @@ class TitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $titulaciones = Titulacion::where('id_profesor', $request->id_profesor)->paginate(10);
+        $profesor = $request->profesor;
+        $id_profesor = $request->id_profesor;
+        return view('titulaciones.index', compact('titulaciones', 'profesor', 'request', 'id_profesor'));
     }
 
     /**
@@ -22,9 +26,11 @@ class TitulacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $id_profesor = $request->id_profesor;
+        $actividades = Actividad::select('id', 'nombre')->orderBy('nombre')->get();
+        return view('titulaciones.create', compact('id_profesor', 'actividades', 'request'));
     }
 
     /**
@@ -41,6 +47,15 @@ class TitulacionController extends Controller
             'especialidad' => 'required',
             'titulacion' => 'required'
         ]);
+        
+        $validar = Titulacion::where('id_profesor', $request->id_profesor)
+        ->where('id_actividad', $request->id_actividad)
+        ->where('especialidad', $request->especialidad)->first();
+         
+        if($validar!=null){
+            return back()->with('error', 'La Titulación ya existe');
+        }
+
 
         try{
             $titulacion = new Titulacion();
@@ -50,7 +65,7 @@ class TitulacionController extends Controller
             $titulacion->titulacion = $request->titulacion;
             $titulacion->save();
 
-            return back()->with('mensaje', 'Titulación creada');
+            return redirect()->route('titulaciones.index', ["id_profesor=$request->id_profesor", "profesor=$request->profesor"])->with('mensaje', 'Titulación creada');
         }catch(\Exception $ex){
             return back()->with('error', 'No se ha podido crear la titulación');
         }

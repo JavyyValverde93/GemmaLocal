@@ -11,11 +11,11 @@ class Tutor extends Model
 
     protected $fillable = ['id_alumno','nombre','relacion','dni','telefono','direccion'];
 
-	protected $table = "titulaciones";
+	protected $table = "tutores";
 
 	public $timestamps = false;	
 	
     public function Alumno(){
-        return $this->belongsTo(Alumno::class);
+        return $this->belongsTo(Alumno::class, 'id_alumno');
     }
 }

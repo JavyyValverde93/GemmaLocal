@@ -1,7 +1,6 @@
 <x-menu-grupos>
     <x-slot name="slot">
 		<div class="row migaspan">
-            <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
         </div>
         <div align="center">Prescripciones</div>
@@ -18,7 +17,7 @@
             </form>
             </div>
         </div>
-        <table class="table">
+        <table class="table table-sm">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th>Id</th>
                 <th>Alumno</th>
@@ -35,7 +34,7 @@
                 <td>
                     <a href="{{route('prescripciones.show', $item)}}"><i class="fas fa-eye"></i></a>
                     <a href="{{route('prescripciones.edit', $item)}}"><i class="fas fa-edit"></i></a>
-                    <a href="{{route('matriculas.index', ['id_alumno='.$item->id, 'plazomatricula=true', "id_prescripcion=$item->id", "id_actividad=$item->id_actividad"])}}"><i class="fas fa-clipboard-list"></i></a>
+                    <a href="{{route('matriculas.index', ['id_alumno='.$item->alumno->id, 'plazomatricula=true', "id_prescripcion=$item->id", "id_actividad=$item->id_actividad"])}}"><i class="fas fa-clipboard-list"></i></a>
                 </td>
                 
             </tr>

@@ -34,11 +34,7 @@ class MatriculaController extends Controller
     public function create(Request $request)
     {
         $grupos = Grupo::orderBy('nombre')->nombre($request->nombre)->paginate(15);
-        if($request->id_actividad!=null){
-            $id_grupo = Actividad::where('id', $request->id_actividad)->first()->id;
-            $request->id_grupo = $id_grupo;
-            return redirect()->route('matriculas.store', compact('request'));
-        }
+        
         return view('matriculas.create', compact('request', 'grupos'));
     }
 
@@ -50,10 +46,25 @@ class MatriculaController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->id_actividad!=null){
+            $id_grupo = Actividad::where('id', $request->id_actividad)->first();
+            $request->id_grupo = $id_grupo->id;
+        }
+
+        if($request->id_grupo==null){
+            $request->validate([
+                'id_grupo' => 'required'
+            ],[
+                'id_grupo.required' => 'El grupo es obligatorio'
+            ]);
+        }
+
         $request->validate([
             'id_alumno' => 'required',
-            'id_grupo' => 'required',
             'id_plazomatricula' => 'required',
+        ],[
+            'id_alumno.required' => 'Id de alumno requerido',
+            'id_plazomatriculacion.required' => 'Id del plazo reuqerido'
         ]);
 
         $validar = Matricula::where('id_alumno', $request->id_alumno)

@@ -11,8 +11,9 @@
 			}
 		</style>
 		<div align="center">Profesor</div>
-		<form action="{{route('profesores.update',$profesor)}}" method="POST" class="ml-5 mt-4 border p-5">
+		<form action="{{route('profesores.update',$profesor)}}" enctype="multipart/form-data" method="POST" class="ml-5 mt-4 border p-5">
 			@csrf
+			@method('PUT')
 			<div class="row justify-content-lg-center">
 				<div class="col-auto">
 					<table class="table table-responsive mx-auto">

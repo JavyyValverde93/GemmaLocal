@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{EspacioController, FacturacionController, GrupoController, ComunicacionController, DestinatarioController, InventarioController, LogController, MatriculaController, PeriodocalificacionController, PermisoController, PersonalController, PlazomatriculaController, PlazoprescripcionController, PrescripcionController, PreferenciahorarioController, PrestamoController, ProfesorController, ReservaespacioController, RolControllers, SalarioController, TitulacionController, ActividadController, AlumnoController,AsistenciaController, CalificacionController, CategoriaController, RolController};
+use App\Http\Controllers\{EspacioController, FacturacionController, GrupoController, ComunicacionController, DestinatarioController, InventarioController, LogController, MatriculaController, PeriodocalificacionController, PermisoController, PersonalController, PlazomatriculaController, PlazoprescripcionController, PrescripcionController, PreferenciahorarioController, PrestamoController, ProfesorController, ReservaespacioController, TutorController, SalarioController, TitulacionController, ActividadController, AlumnoController,AsistenciaController, CalificacionController, CategoriaController, RolController};
 use App\Models\Plazomatricula;
 use Database\Seeders\PreferenciahorarioSeeder;
 
@@ -42,6 +42,7 @@ Route::resource('comunicaciones', ComunicacionController::class)->middleware(['a
 Route::resource('destinatarios', DestinatarioController::class)->middleware(['auth']);
 Route::resource('actividades', ActividadController::class)->middleware(['auth']);
 Route::resource('alumnos', AlumnoController::class);
+Route::resource('tutores', TutorController::class);
 Route::resource('asistencias', AsistenciaController::class)->middleware(['auth']);
 Route::resource('calificaciones', CalificacionController::class)->middleware(['auth']);
 Route::resource('categorias', CategoriaController::class)->middleware(['auth']);
@@ -69,3 +70,4 @@ Route::post('plazomatricula', [PlazomatriculaController::class, 'plazomatricula'
 Route::post('plazoprescripcion', [PlazoprescripcionController::class, 'plazoprescripcion'])->name('plazosprescripciones.plazoprescripcion');
 //Calificar grupo
 Route::post('calificargrupo', [CalificacionController::class, 'calificarGrupo'])->name('calificaciones.calificar-grupo');
+Route::post('asignarasistencia', [AsistenciaController::class, 'pasarListaGrupo'])->name('asistencia.pasarlista');

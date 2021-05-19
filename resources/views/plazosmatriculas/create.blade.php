@@ -1,6 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
-        <form action="{{route('plazosmatriculas.store')}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
+        <div class="row migaspan">
+            <a href="{{route('matriculas.index')}}" class="text-danger">Matriculas</a> >
+        </div>
+        <form action="{{route('plazosmatriculas.store')}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
             @csrf
             <div class="form-row col-md-10">
                 <div class="form-group col-md-5">

@@ -125,4 +125,37 @@ class AsistenciaController extends Controller
     {
         //
     }
+
+    /////////////////////////
+
+    public function pasarListaGrupo(Request $request){
+
+          for($i=0;$i<count($request->id_alumno);$i++){
+
+            $datoasistencia=false;
+            $alumno=$request->id_alumno[$i];
+            $asistencia = new Asistencia();
+            $asistencia->id_alumno = $request->id_alumno[$i];
+            $asistencia->id_grupo = $request->id_grupo;
+
+            if($request->$alumno==1){
+
+                $datoasistencia=true;
+
+            }
+
+            $asistencia->ausente = $datoasistencia;
+
+            $asistencia->fecha_creacion = now()->getTimestamp();
+            $asistencia->fecha_modificacion = now()->getTimestamp();
+
+            $asistencia->save();
+
+
+          }
+
+          return back()->with('mensaje', 'Asistencias asignadas');
+
+
+    }
 }

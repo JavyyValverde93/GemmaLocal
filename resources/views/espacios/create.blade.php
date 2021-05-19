@@ -1,5 +1,9 @@
 <x-menu-grupos>
   <x-slot name="slot">
+    <div class="row migaspan">
+      <a href="{{route('espacios.index')}}" class="text-danger">Espacios</a> >
+      <a href="{{route('espacios.create')}}" class="text-danger">Crear Espacios</a> >
+    </div>
     <style>
       select{
         font-size: 20px;
@@ -12,7 +16,7 @@
             color: red;
       }
     </style>
-      <form action="{{route('espacios.store')}}" method="POST" class="ml-5 mt-4 border p-5">
+      <form action="{{route('espacios.store')}}" method="POST" class="mt-4 border p-5" onsubmit="disableButton(this)">
         @csrf
           <div class="form-row">
             <div class="form-group col-md-6 mx-4">

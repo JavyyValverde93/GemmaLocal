@@ -23,7 +23,20 @@
             @foreach($plazosmatriculas as $item)
             <tr>
                 <td></td>
-                <td><a href="{{route('matriculas.create', ['id_alumno='.$request->id_alumno, 'id_plazomatricula='.$item->id, "id_actividad=$request->id_actividad"])}}">{{$item->nombre}}</a></td>
+                @if($request->id_actividad!=null)
+                    <td>
+                        <form action="{{route('matriculas.store')}}" method="POST">
+                            @csrf 
+                            <input type="hidden" name="id_alumno" value="{{$request->id_alumno}}">
+                            <input type="hidden" name="id_plazomatricula" value="{{$item->id}}">
+                            <input type="hidden" name="id_actividad" value="{{$request->id_actividad}}">
+                            <input type="hidden" name="id_prescripcion" value="{{$request->id_prescripcion}}">
+                            <button type="submit">{{$item->nombre}}</button>
+                        </form>
+                    </td>
+                @else
+                    <td><a href="{{route('matriculas.create', ['id_alumno='.$request->id_alumno, 'id_plazomatricula='.$item->id])}}">{{$item->nombre}}</a></td>
+                @endif
                 <td>{{date("d/m/Y", $item->fecha_inicio)}}</td>
                 <td>{{date("d/m/Y", $item->fecha_fin)}}</td>
                 

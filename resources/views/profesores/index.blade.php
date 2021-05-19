@@ -1,7 +1,6 @@
 <x-menu-grupos>
     <x-slot name="slot">
 		<div class="row migaspan">
-            <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
             <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
         </div>
         <div align="center">Profesores</div>
@@ -17,7 +16,7 @@
             </form>
             </div>
         </div>
-        <table class="table">
+        <table class="table table-sm">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th>Id</th>
                 <th>Nombre</th>
@@ -34,6 +33,7 @@
                 <td>
                     <a href="{{route('profesores.show', $item)}}"><i class="fas fa-eye"></i></a>
                     <a href="{{route('profesores.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                    <a href="{{route('titulaciones.index', ["id_profesor=$item->id", "profesor=$item->nombre $item->apellidos"])}}"><i class="fas fa-suitcase"></i></a>
                 </td>
                 
             </tr>

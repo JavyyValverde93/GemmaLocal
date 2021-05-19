@@ -1,14 +1,5 @@
 <x-menu-grupos>
     <x-slot name="slot">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
       <style>
         select{
           font-size: 20px;
@@ -21,7 +12,7 @@
             color: red;
         }
       </style>
-        <form action="{{route('alumnos.update', $alumno)}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
+        <form action="{{route('alumnos.update', $alumno)}}" enctype="multipart/form-data" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px" onsubmit="disableButton(this)">
           @csrf
 			@method('PUT')
             <div class="form-row">
@@ -106,14 +97,13 @@
                   </div>
                 </div>
       
-                <button type="submit" class="btn btn-danger ml-3">Crear alumno</button>
-            </form>
     
             <div class="form-row">
               <div class="form-group mx-4">
               </div>
     
             </div>
+            <button type="submit" class="btn btn-danger ml-3">Modificar alumno</button>
            
           </form>
         
