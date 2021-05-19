@@ -141,7 +141,8 @@ class ProfesorController extends Controller
      */
     public function show(Profesor $profesore)
     {
-        dd($profesore);
+        $profesor = $profesore;
+        return view('profesores.show', compact('profesor'));
     }
 
     /**
