@@ -29,14 +29,10 @@ class CalificacionController extends Controller
     public function create(Request $request)
     {
         $alumnos = Matricula::orderBy('id_alumno')->where('id_grupo', $request->id_grupo)->paginate(10);
-        $calificaciones = Calificacion::orderBy('id_alumno')->where('id_grupo', $request->id_grupo)
-        ->where('id_periodocalificacion', $request->id_periodocalificacion)->paginate(10);
-        $id_actividad = Actividad::select('id')->where('id_grupo', $request->id_grupo)->find(1)->id;
-        
-        // $alumnos = Alumno::select('nombre', 'apellidos', 'id')->orderBy('apellidos')
-        // ->where('id', $matriculados)->paginate(10);
-        
-        return view('calificaciones.calificar-grupo', compact('request', 'alumnos', 'calificaciones', 'id_actividad'));
+        $calificaciones = Calificacion::orderBy('id_alumno')->where('id_grupo', $request->id_grupo)->get();
+
+        return view('calificaciones.calificar-grupo', compact('request', 'alumnos', 'calificaciones'));
+
     }
 
     /**
@@ -139,6 +135,6 @@ class CalificacionController extends Controller
     ///////////////////////////////////////////////
 
     public function calificarGrupo(Request $request){
-        
+
     }
 }
