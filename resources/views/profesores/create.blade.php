@@ -1,5 +1,9 @@
 <x-menu-grupos>
 	<x-slot name="slot">
+		<div class="row migaspan">
+            <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
+			<a href="{{route('profesores.create')}}" class="text-danger">Crear Profesores</a> >
+        </div>
 		<style>
 			label.input-custom-file input[type=file] {
 				display: none;
@@ -11,7 +15,7 @@
 			}
 		</style>
 		<div align="center">Profesor</div>
-		<form action="{{route('profesores.store')}}" method="POST" class="ml-5 mt-4 border p-5">
+		<form action="{{route('profesores.store')}}" method="POST" class="p-5">
 			@csrf
 			<div class="row justify-content-lg-center">
 				<div class="col-auto">

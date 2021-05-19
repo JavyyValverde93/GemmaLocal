@@ -1,5 +1,8 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <div class="row migaspan">
+            <a href="{{route('matriculas.index')}}" class="text-danger">Matriculas</a> >
+        </div>
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

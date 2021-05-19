@@ -1,6 +1,11 @@
 <x-menu-grupos>
     <x-slot name="slot">
-        <form action="{{route('plazosprescripciones.store')}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
+        <div class="row migaspan">
+            <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
+            <a href="{{route('prescripciones.index')}}" class="text-danger">Plazos</a> >
+            <a href="{{route('plazosprescripciones.create')}}" class="text-danger">Crear Plazos Prescripción</a> >
+        </div>
+        <form action="{{route('plazosprescripciones.store')}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
             @csrf
             <div class="form-row col-md-10">
                 <div class="form-group col-md-5">

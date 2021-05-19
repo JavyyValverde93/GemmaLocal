@@ -1,5 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <div class="row migaspan">
+            <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
+            <a href="{{route('alumnos.create')}}" class="text-danger">Crear Alumnos</a> >
+        </div>
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -22,7 +26,7 @@
             color: red;
         }
       </style>
-        <form action="{{route('alumnos.store')}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
+        <form action="{{route('alumnos.store')}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
           @csrf
             <div class="form-row">
                 <div class="form-group col-md-2">
