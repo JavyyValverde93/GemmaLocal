@@ -12,9 +12,12 @@ class TutorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $tutores = Tutor::where('id_alumno', $request->id_alumno)->paginate(10);
+        $alumno = $request->alumno;
+        $id_alumno = $request->id_alumno;
+        return view('tutores.index', compact('tutores', 'alumno', 'request', 'id_alumno'));
     }
 
     /**
@@ -22,9 +25,10 @@ class TutorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $id_alumno = $request->id_alumno;
+        return view('tutores.create', compact('id_alumno', 'request'));
     }
 
     /**
@@ -44,6 +48,14 @@ class TutorController extends Controller
             'direccion' => 'required'
         ]);
 
+        $validar = Tutor::where('id_alumno', $request->id_alumno)
+        ->where('nombre', $request->nombre)
+        ->where('dni', $request->dni)->first();
+         
+        if($validar!=null){
+            return back()->with('error', 'El tutor ya existe');
+        }
+
         try{
             $tutor = new Tutor();
             $tutor->nombre = $request->nombre;
@@ -53,6 +65,8 @@ class TutorController extends Controller
             $tutor->telefono = $request->telefono;
             $tutor->direccion = $request->direccion;
             $tutor->save();
+
+            return redirect()->route('tutores.index', ["id_alumno=$request->id_alumno", "alumno=$request->alumno"])->with('mensaje', 'Tutor creado');
 
         }catch(\Exception $ex){
             return back()->with('error','No se ha podido crear el Tutor');

@@ -39,4 +39,8 @@ class Actividad extends Model
     public function Grupo(){
         return $this->belongsTo(Grupo::class, 'id_grupo');
     }
+
+    public function Titulacion(){
+        return $this->hasMany(Titulacion::class);
+    }
 }

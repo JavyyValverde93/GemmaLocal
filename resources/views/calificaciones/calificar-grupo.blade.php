@@ -45,7 +45,7 @@
             </table>
             <input type="hidden" name="id_plazocalificacion" value="{{$request->id_plazocalificacion}}">
             <input type="hidden" name="id_grupo" value="{{$request->id_grupo}}">
-            <input type="hidden" name="id_grupo" value="{{$id_actividad}}">
+            {{-- <input type="hidden" name="id_grupo" value="{{$id_actividad}}"> --}}
             <button type="submit" class="btn btn-danger ml-3">Calificar</button>
         </form>
         <div class="float-right mx-3">

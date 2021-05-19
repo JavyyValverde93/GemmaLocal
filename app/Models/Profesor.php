@@ -29,6 +29,10 @@ class Profesor extends Model
 		return $this->hasMany(Grupo::class);
 	}
 
+	public function Titulacion(){
+		return $this->hasMany(Titulacion::class);
+	}
+
 	public function scopeNombre($query, $p){
         if($p!=null){
             // \DB es igual a poner use Illuminate\Support\Facades\DB; y DB
