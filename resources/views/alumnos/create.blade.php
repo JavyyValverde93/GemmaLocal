@@ -4,15 +4,6 @@
             <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
             <a href="{{route('alumnos.create')}}" class="text-danger">Crear Alumnos</a> >
         </div>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
   
       <style>
         select{
@@ -26,7 +17,7 @@
             color: red;
         }
       </style>
-        <form action="{{route('alumnos.store')}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
+        <form action="{{route('alumnos.store')}}" method="POST" class="mt-4 border p-5" enctype="multipart/form-data" style="width: 1200px" onsubmit="disableButton(this)">
           @csrf
             <div class="form-row">
                 <div class="form-group col-md-2">
@@ -110,14 +101,13 @@
                   </div>
                 </div>
       
-                <button type="submit" class="btn btn-danger ml-3">Crear alumno</button>
-            </form>
     
             <div class="form-row">
               <div class="form-group mx-4">
               </div>
     
             </div>
+            <button type="submit" class="btn btn-danger ml-3">Crear alumno</button>
            
           </form>
         

@@ -70,3 +70,4 @@ Route::post('plazomatricula', [PlazomatriculaController::class, 'plazomatricula'
 Route::post('plazoprescripcion', [PlazoprescripcionController::class, 'plazoprescripcion'])->name('plazosprescripciones.plazoprescripcion');
 //Calificar grupo
 Route::post('calificargrupo', [CalificacionController::class, 'calificarGrupo'])->name('calificaciones.calificar-grupo');
+Route::post('asignarasistencia', [AsistenciaController::class, 'pasarListaGrupo'])->name('asistencia.pasarlista');

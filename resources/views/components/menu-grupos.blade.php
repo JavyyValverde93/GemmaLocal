@@ -26,53 +26,52 @@ session_start();
         <div class="d-flex ml-4" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-danger border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading" style="color: white; font-size: 25px;">Gestión</div>
+                <div class="sidebar-heading ml-4" style="color: white; font-size: 25px;">Gestión</div>
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
                         <span class="material-icons align-middle" style="margin-top: 75px;">
-                            <a href="{{route('dashboard')}}" id="home">home</a>
+                            <a class="text-white text-decoration-none" href="{{route('dashboard')}}" id="home">home</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a href="{{route('grupos.index')}}" id="group">group</a>
+                            <a class="text-white text-decoration-none" href="{{route('grupos.index')}}" id="group">group</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a href="{{route('matriculas.index')}}" id="task">task</a>
+                            <a class="text-white text-decoration-none" href="{{route('matriculas.index')}}" id="task">task</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a href="{{route('prescripciones.index')}}" id="description">description</a>
+                            <a class="text-white text-decoration-none" href="{{route('prescripciones.index')}}" id="description">description</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a href="{{route('inventario.index')}}" id="inventory">inventory_2</a>
+                            <a class="text-white text-decoration-none" href="{{route('inventario.index')}}" id="inventory">inventory_2</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a href="{{route('alumnos.index')}}" id="face">face</a>
+                            <a class="text-white text-decoration-none" href="{{route('alumnos.index')}}" id="face">face</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a href="{{route('profesores.index')}}" id="school">school</a>
+                            <a class="text-white text-decoration-none" href="{{route('profesores.index')}}" id="school">school</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                        <a href="{{route('espacios.index')}}" id="room">room</a>
+                        <a class="text-white text-decoration-none" href="{{route('espacios.index')}}" id="room">room</a>
                         </span> 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <span class="material-icons align-middle mt-3">
-                                <a href="Cerrar Sesión" id="logout" onclick="event.preventDefault(); this.closest('form').submit();">logout</a>
+                                <a class="text-white text-decoration-none" href="Cerrar Sesión" id="logout">logout</a>
                             </span> 
                         </form>
                     </aside>
                     <div class="nav flex-column nav-pills ml-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active bg-danger" id="v-pills-home-tab"  role="tab" aria-controls="v-pills-home" aria-selected="true" href="{{route('dashboard')}}">Administración</a>
-                        <a class="nav-link bg-danger" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false" href="{{route('grupos.index')}}">Grupos</a>
-                        <a class="nav-link bg-danger" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('matriculas.index')}}">Matriculas</a>
-                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('prescripciones.index')}}">Prescripciones</a>
-                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('inventario.index')}}">Inventario</a>
-                        <a class="nav-link bg-danger" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('alumnos.index')}}">Alumnos</a>
-                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('profesores.index')}}">Profesores</a>
-                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('espacios.index')}}">Espacios</a>
+                        <a class="nav-link active bg-danger text-white text-decoration-none" id="v-pills-home-tab"  role="tab" aria-controls="v-pills-home" aria-selected="true" href="{{route('dashboard')}}">Administración</a>
+                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false" href="{{route('grupos.index')}}">Grupos de clase</a>
+                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('matriculas.index')}}">Matriculas</a>
+                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('prescripciones.index')}}">Prescripciones</a>
+                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('inventario.index')}}">Inventario</a>
+                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('alumnos.index')}}">Alumnos</a>
+                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('profesores.index')}}">Profesores</a>
+                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('espacios.index')}}">Espacios</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a href="Cerrar Sesión" class="nav-link bg-danger" id="v-pills-settings-tab"  role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="event.preventDefault();
-                            this.closest('form').submit();">
+                            <a href="Cerrar Sesión" class="nav-link bg-danger text-white text-decoration-none" id="confirm"  role="tab" aria-controls="v-pills-settings" aria-selected="false" >
                                 {{ __('Cerrar sesión') }}
                             </a>
                         </form>
@@ -99,7 +98,6 @@ session_start();
                     </div>
                 </nav>
 
-                
                 <style>
                     tr td i:last-child{
                         color: black;
@@ -120,7 +118,7 @@ session_start();
                 <div class="container-fluid ml-3">
                     <x-alert-message></x-alert-message>
                     @if ($errors->any())
-                    <div class="alert alert-danger mt-3 mr-5">
+                    <div class="alert alert-danger mt-3">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -138,10 +136,59 @@ session_start();
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Código JS del Sidebar -->
         <script>
-            $("#menu-toggle").click(function (e) {
+         
+			
+			$("#confirm").click(function(){
+  				var bool=confirm("¿Seguro que desea cerrar la sesión?");
+  				if(bool){
+					event.preventDefault();
+                    this.closest('form').submit();
+  				}else{
+					event.preventDefault();			
+				}
+			});
+			
+			$("#logout").click(function(){
+  				var bool=confirm("¿Seguro que desea cerrar la sesión?");
+  				if(bool){
+					event.preventDefault();
+                    this.closest('form').submit();
+  				}else{
+					event.preventDefault();			
+				}
+			});
+			
+            $("#menu-toggle").click(function (e){
+                let menu = localStorage.getItem("menu");
                 e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
+
+                if(menu == undefined || menu != 1){
+                    localStorage.setItem("menu",1);
+
+                }else if (menu == 1){
+                    localStorage.setItem("menu",0);
+                    $("#wrapper").removeClass("toggled");
+                }
             });
+
+
+            window.onload = menu
+            function menu(){
+                let menu = localStorage.getItem("menu");
+                if(menu == undefined || menu != 1){
+                    $("#wrapper").removeClass("toggled");
+                }else if(menu == 1){
+                    $("#wrapper").toggleClass("toggled");
+                }
+            }
+
+            function disableButton(form) {
+                var btn = form.lastElementChild;
+                btn.disabled = true;
+                btn.innerText = 'Enviando...'
+            }
+			
         </script>
     </body>
 </html>
