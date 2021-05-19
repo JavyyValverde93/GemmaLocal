@@ -142,6 +142,12 @@ session_start();
                 e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
             });
+
+            function disableButton(form) {
+                var btn = form.lastElementChild;
+                btn.disabled = true;
+                btn.innerText = 'Enviando...'
+            }
         </script>
     </body>
 </html>
