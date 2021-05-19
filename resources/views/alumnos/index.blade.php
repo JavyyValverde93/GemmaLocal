@@ -1,5 +1,10 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <x-slot name="slot">
+            <div class="row migaspan">
+                <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
+                <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
+            </div>
         <div align="center">Alumnos</div>
         <div class="row">
             <div class="col">
@@ -31,6 +36,7 @@
                     <a href="{{route('alumnos.show', $item)}}"><i class="fas fa-eye"></i></a>
                     <a href="{{route('alumnos.edit', $item)}}"><i class="fas fa-edit"></i></a>
                     <a href="{{route('matriculas.index', ['id_alumno='.$item->id, 'plazomatricula=true'])}}"><i class="fas fa-clipboard-list"></i></a>
+                    <a href="{{route('prescripciones.index', ['id_alumno='.$item->id, 'plazoprescripcion=true'])}}"><i class="fas fa-file-prescription"></i></a>
 
                 </td>
                 

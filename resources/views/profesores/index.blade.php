@@ -1,5 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
+		<div class="row migaspan">
+            <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
+            <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
+        </div>
         <div align="center">Profesores</div>
         <div class="row">
             <div class="col">

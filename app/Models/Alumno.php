@@ -40,6 +40,10 @@ class Alumno extends Model
 	public function Matricula(){
 		return $this->hasMany(Matricula::class);
 	}
+	
+	public function Prescripcion(){
+		return $this->hasMany(Prescripcion::class);
+	}
 
 	public function scopeNombre($query, $p){
         if($p!=null){

@@ -12,10 +12,10 @@ class ActividadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $actividades = Actividad::orderBy('id')->get();
-        return view('actividades.index', compact('actividades'));
+        $actividades = Actividad::orderBy('id')->paginate(10);
+        return view('actividades.index', compact('actividades', 'request'));
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Models\Matricula;
 use App\Models\Grupo;
 use App\Models\Plazomatricula;
 use App\Models\Prescripcion;
+use App\Models\Actividad;
 use Illuminate\Http\Request;
 
 class MatriculaController extends Controller
@@ -32,7 +33,14 @@ class MatriculaController extends Controller
      */
     public function create(Request $request)
     {
+        dd($request);
+
         $grupos = Grupo::orderBy('nombre')->nombre($request->nombre)->paginate(15);
+        if($request->id_actividad!=null){
+            $id_grupo = Actividad::where('id', $request->id_actividad)->first()->id;
+            $request->id_grupo = $id_grupo;
+            return redirect()->route('matriculas.store', compact('request'));
+        }
         return view('matriculas.create', compact('request', 'grupos'));
     }
 
@@ -50,7 +58,13 @@ class MatriculaController extends Controller
             'id_plazomatricula' => 'required',
         ]);
 
-        $prescripcion = Prescripcion::where('id_alumno', $request->id_alumno);
+        $validar = Matricula::where('id_alumno', $request->id_alumno)
+        ->where('id_grupo', $request->id_grupo)
+        ->where('id_plazomatricula', $request->id_plazomatricula)->first();
+         
+        if($validar!=null){
+            return back()->with('error', 'La matrícula ya existe');
+        }
 
         try{
             $matricula = new Matricula();
@@ -58,9 +72,7 @@ class MatriculaController extends Controller
             $matricula->id_grupo = $request->id_grupo;
             $matricula->id_plazomatricula = $request->id_plazomatricula;
             $matricula->fecha_creacion = now()->getTimestamp();
-            if($request->id_prescripcion!=null){
-                $matricula->id_prescripcion = $request->id_prescripcion;
-            }
+            $matricula->id_prescripcion = $request->id_prescripcion;
             $matricula->save();
             return redirect()->route('alumnos.index')->with('mensaje', 'Matrícula creada');
         }catch(\Exception $ex){
@@ -87,7 +99,7 @@ class MatriculaController extends Controller
      */
     public function edit(Matricula $matricula)
     {
-        //
+        return view('matriculas.edit', compact($matricula));
     }
 
     /**

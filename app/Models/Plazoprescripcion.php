@@ -14,5 +14,9 @@ class Plazoprescripcion extends Model
 	protected $table = "plazosprescripciones";
 
 	public $timestamps = false;	
+
+	public function Prescripcion(){
+		return $this->hasMany(Prescripcion::class);
+	}
 	
 }

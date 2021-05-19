@@ -1,42 +1,48 @@
 <x-menu-grupos>
     <x-slot name="slot">
-        <h4 class="ml-5 mt-1">Seleccione la Actividad en la que se desea preinscribir</h4>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <h1 class="ml-5 mt-1">Matricular</h1>
         <div class="col">
-            <form action="{{route('prescripciones.index')}}" class=" float-right m-3" method="GET">
+            <form action="{{route('grupos.update', $matricula)}}" class=" float-right m-3" method="POST">
             @csrf
             <input type="hidden" name="redirect" value="matriculas">
             <input type="text" value="{{$request->nombre}}" name="nombre" class="rounded" placeholder="Buscar grupos...">
             <input type="hidden" name="id_alumno" value="{{$request->id_alumno}}">
-            <input type="hidden" name="id_plazomatricula" value="{{$request->id_plazomatricula}}">
-                                
             <button type="submit" class="btn btn-danger"><i class="fas fa-search"></i></button>
         </form>
         </div>
         <div class="ml-5 mt-4 border p-5">
             <div class="form-row">
                 <div class="form-group col-md-2">
-                  <label>Actividades</label>
+                  <label>matricula</label>
                   <table class="table">
                     <tr class="rounded text-white" style="background-color: #dc3545">
                         <td style="padding-left:50px; padding-right:50px;">Nombre</td>
-                        <td style="padding-left:50px; padding-right:50px;">Preinscribirse</td>
+                        <td style="padding-left:50px; padding-right:50px;">Matricular</td>
                     </tr>
-                      @foreach ($actividades as $item)
+                      @foreach ($matricula as $item)
                       <tr>
                         <td>{{$item->nombre}}</td>
                         <td align="center">
-                            <form action="{{route('prescripciones.store')}}" method="POST">
+                            <form action="{{route('matriculas.store')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="id_alumno" value="{{$request->id_alumno}}">
-                                <input type="hidden" name="id_actividad" value="{{$item->id}}">
-                                <input type="hidden" name="id_plazoprescripcion" value="{{$request->id_plazoprescripcion}}">
+                                <input type="hidden" name="id_grupo" value="{{$item->id}}">
                                 <button type="submit"><i class="fas fa-clipboard-list"></i></button>
                             </form>
                         </td>
                       </tr>
                       @endforeach
                   </table>
-                  {{$actividades->appends($request->except('page'))->links()}}
+                  {{$matricula->appends($request->except('page'))->links()}}
                 </div>
             </div>
         </div>

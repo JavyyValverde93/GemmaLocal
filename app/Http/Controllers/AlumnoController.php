@@ -23,7 +23,7 @@ class AlumnoController extends Controller
     {
         //Mostrar un listado de alumnos
 
-        $alumnos=Alumno::orderBy('nombre')->nombre($request->nombre)->paginate(5);
+        $alumnos=Alumno::select('nombre', 'apellidos', 'id', 'dni', 'telefono')->orderBy('nombre')->nombre($request->nombre)->paginate(10);
 
 		return view('alumnos.index',compact('alumnos', 'request'));
     }
@@ -153,7 +153,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        return view('administracion/lista-alumnos-editar');
+        return view('alumnos.edit', compact('alumno'));
     }
 
     /**

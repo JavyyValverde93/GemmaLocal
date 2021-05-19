@@ -16,10 +16,10 @@ class Prestamo extends Model
 						public $timestamps = false;	
 	
 	public function User(){
-		return $this->belongsTo(User::class);
+		return $this->belongsTo(User::class, 'id_usuario');
 	}
 	
 	public function Inventario(){
-		return $this->blongsTo(Inventario::class);
+		return $this->belongsTo(Inventario::class, 'id_inventario');
 	}
 }

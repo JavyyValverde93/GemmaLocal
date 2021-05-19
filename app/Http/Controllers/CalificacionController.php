@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actividad;
 use App\Models\Calificacion;
 use App\Models\Grupo;
 use App\Models\Alumno;
@@ -27,11 +28,15 @@ class CalificacionController extends Controller
      */
     public function create(Request $request)
     {
-        $alumnos = Matricula::orderBy('id')->where('id_grupo', $request->id_grupo)->paginate(10);
+        $alumnos = Matricula::orderBy('id_alumno')->where('id_grupo', $request->id_grupo)->paginate(10);
+        $calificaciones = Calificacion::orderBy('id_alumno')->where('id_grupo', $request->id_grupo)
+        ->where('id_periodocalificacion', $request->id_periodocalificacion)->paginate(10);
+        $id_actividad = Actividad::select('id')->where('id_grupo', $request->id_grupo)->find(1)->id;
+        
         // $alumnos = Alumno::select('nombre', 'apellidos', 'id')->orderBy('apellidos')
         // ->where('id', $matriculados)->paginate(10);
         
-        return view('calificaciones.calificar-grupo', compact('request', 'alumnos'));
+        return view('calificaciones.calificar-grupo', compact('request', 'alumnos', 'calificaciones', 'id_actividad'));
     }
 
     /**

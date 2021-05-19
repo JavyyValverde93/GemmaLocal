@@ -26,24 +26,33 @@ session_start();
         <div class="d-flex ml-4" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-danger border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading" style="color: white; font-size: 25px;">Administración</div>
+                <div class="sidebar-heading" style="color: white; font-size: 25px;">Gestión</div>
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
                         <span class="material-icons align-middle" style="margin-top: 75px;">
-                            <a href="#!" id="home">home</a>
+                            <a href="{{route('dashboard')}}" id="home">home</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
                             <a href="{{route('grupos.index')}}" id="group">group</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a href="#!" id="mail">mail</a>
+                            <a href="{{route('matriculas.index')}}" id="task">task</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a href="{{route('facturaciones.index')}}" id="money">attach_money</a>
+                            <a href="{{route('prescripciones.index')}}" id="description">description</a>
                         </span> 
-                        {{-- <span class="material-icons align-middle mt-3">
+                        <span class="material-icons align-middle mt-3">
+                            <a href="{{route('inventario.index')}}" id="inventory">inventory_2</a>
+                        </span> 
+                        <span class="material-icons align-middle mt-3">
                             <a href="{{route('alumnos.index')}}" id="face">face</a>
-                        </span>  --}}
+                        </span> 
+                        <span class="material-icons align-middle mt-3">
+                            <a href="{{route('profesores.index')}}" id="school">school</a>
+                        </span> 
+                        <span class="material-icons align-middle mt-3">
+                        <a href="{{route('espacios.index')}}" id="room">room</a>
+                        </span> 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <span class="material-icons align-middle mt-3">
@@ -51,14 +60,15 @@ session_start();
                             </span> 
                         </form>
                     </aside>
-
                     <div class="nav flex-column nav-pills ml-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active bg-danger" id="v-pills-home-tab" role="tab" aria-controls="v-pills-home" aria-selected="true" href="#!">Bienvenido</a>
-                        <a class="nav-link bg-danger" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('grupos.index')}}">Grupos</a>
-                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="#!">Comunicaciones</a>
-                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('facturaciones.index')}}">Facturaciones</a>
-                        {{-- <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('facturaciones.index')}}" href="{{route('alumnos.index')}}">Alumnos</a> 
-                            --}}
+                        <a class="nav-link active bg-danger" id="v-pills-home-tab"  role="tab" aria-controls="v-pills-home" aria-selected="true" href="{{route('dashboard')}}">Administración</a>
+                        <a class="nav-link bg-danger" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false" href="{{route('grupos.index')}}">Grupos de clase</a>
+                        <a class="nav-link bg-danger" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('matriculas.index')}}">Matriculas</a>
+                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('prescripciones.index')}}">Prescripciones</a>
+                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('inventario.index')}}">Inventario</a>
+                        <a class="nav-link bg-danger" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('alumnos.index')}}">Alumnos</a>
+                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('profesores.index')}}">Profesores</a>
+                        <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('espacios.index')}}">Espacios</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a href="Cerrar Sesión" class="nav-link bg-danger" id="v-pills-settings-tab"  role="tab" aria-controls="v-pills-settings" aria-selected="false" onclick="event.preventDefault();

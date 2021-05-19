@@ -21,4 +21,12 @@ class Matricula extends Model
 	public function Grupo(){
 		return $this->belongsTo(Grupo::class, 'id_grupo');
 	}
+
+	public function Plazomatricula(){
+		return $this->belongsTo(Plazomatricula::class, 'id_plazomatricula');
+	}
+
+	public function Prescripcion(){
+		return $this->belongsTo(Prescripcion::class, 'id_prescripcion');
+	}
 }

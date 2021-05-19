@@ -1,5 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
+		<div class="row migaspan">
+            <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
+            <a href="{{route('matriculas.index')}}" class="text-danger">Matriculas</a> >
+        </div>
         <div align="center">Matrículas</div>
         <div class="row">
             <div class="col">
@@ -17,19 +21,20 @@
         </div>
         <table class="table">
             <tr class="rounded text-white" style="background-color: #dc3545">
-                <th>Id</th>
+                <th> </th>
                 <th>Alumno</th>
                 <th>Grupo</th>
-                <th>Prescripción</th>
+                <th>Id Prescripción</th>
                 <th>Plazo</th>
                 <th>&nbsp;</th>
             </tr>
             @foreach($matriculas as $item)
             <tr>
-                <td>{{$item->id}}</td>
+                <td></td>
                 <td>{{$item->alumno->nombre}} {{$item->alumno->apellidos}}</td>
                 <td>{{$item->grupo->nombre}}</td>
-                <td>{{$item->id}}</td>
+                <td>{{$item->id_prescripcion}}</td>
+                <td>{{date("d/m/Y", $item->plazomatricula->fecha_inicio)}} - {{date("d/m/Y", $item->plazomatricula->fecha_fin)}}</td>
                 <td>
                     <a href="{{route('matriculas.show', $item)}}"><i class="fas fa-eye"></i></a>
                     <a href="{{route('matriculas.edit', $item)}}"><i class="fas fa-edit"></i></a>

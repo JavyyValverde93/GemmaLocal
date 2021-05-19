@@ -9,10 +9,14 @@ class Plazomatricula extends Model
 {
     use HasFactory;
 	
-	protected $fillable=['nombre','fecha'];
+	protected $fillable=['nombre','fecha_inicio', 'fecha_fin'];
 
 	protected $table = "plazosmatriculas";
 
 	public $timestamps = false;	
+
+	public function Matricula(){
+		return $this->hasMany(Matricula::class);
+	}
 	
 }

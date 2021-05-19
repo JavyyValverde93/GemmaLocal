@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Prescripcion;
+use App\Models\Actividad;
+use App\Models\Plazoprescripcion;
 use Illuminate\Http\Request;
 
 class PrescripcionController extends Controller
@@ -15,6 +17,10 @@ class PrescripcionController extends Controller
     public function index(Request $request)
     {
         $prescripciones = Prescripcion::orderBy('id', 'desc')->paginate(20);
+        if($request->plazoprescripcion=='true'){
+            $plazosprescripciones = Plazoprescripcion::orderBy('fecha_fin', 'desc')->paginate(20);
+            return view('plazosprescripciones.plazoprescripcion', compact('prescripciones', 'request', 'plazosprescripciones'));
+        }
         return view('prescripciones.index', compact('prescripciones', 'request'));
 
     }
@@ -24,9 +30,10 @@ class PrescripcionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('prescripciones.create');
+        $actividades = Actividad::orderBy('nombre')->paginate(10);
+        return view('prescripciones.create', compact('request', 'actividades'));
     }
 
     /**
@@ -38,20 +45,28 @@ class PrescripcionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_usuario' => 'required',
+            'id_alumno' => 'required',
             'id_actividad' => 'required',
             'id_plazoprescripcion' => 'required'
         ]);
+        
+        $validar = Prescripcion::where('id_alumno', $request->id_alumno)
+        ->where('id_actividad', $request->id_actividad)
+        ->where('id_plazoprescripcion', $request->id_plazoprescripcion)->first();
+         
+        if($validar!=null){
+            return back()->with('error', 'La prescripción ya existe');
+        }
 
         try{
             $prescripcion = new Prescripcion();
-            $prescripcion->id_usuario = $request->id_usuario;
+            $prescripcion->id_alumno = $request->id_alumno;
             $prescripcion->id_actividad = $request->id_actividad;
             $prescripcion->id_plazoprescripcion = $request->id_plazoprescripcion;
             $prescripcion->fecha_creacion = now()->getTimestamp();
             $prescripcion->save();
 
-            return back()->with('mensaje', 'Prescripción realizada');
+            return redirect()->route('prescripciones.index')->with('mensaje', 'Prescripción realizada');
         }catch(\Exception $ex){
             return back()->with('error', 'La prescripción no ha podido realizarse');
         }

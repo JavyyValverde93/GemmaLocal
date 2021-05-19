@@ -1,10 +1,15 @@
 <x-menu-grupos>
     <x-slot name="slot">
+		<div class="row migaspan">
+            <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
+            <a href="{{route('inventario.index')}}" class="text-danger">Inventario</a> >
+        </div>
         <div align="center">Inventario</div>
         <div class="row">
             <div class="col">
                 <a href="{{route('inventario.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Añadir a Inventario</a>
                 <a href="{{route('prestamos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Solicitar Préstamo</a>
+                <a href="{{route('prestamos.index')}}" class="btn btn-outline-danger my-2">Préstamos</a>
             </div>
             <div class="col">
                 <form action="{{route('inventario.index')}}" class=" float-right m-3" method="GET">

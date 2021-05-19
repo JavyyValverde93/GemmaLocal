@@ -64,5 +64,8 @@ Route::resource('titulaciones', TitulacionController::class)->middleware(['auth'
 
 //Selección de plazo para matricular alumno
 Route::post('plazomatricula', [PlazomatriculaController::class, 'plazomatricula'])->name('plazosmatriculas.plazomatricula');
+
+//Selección de plazo para preinscribir alumno
+Route::post('plazoprescripcion', [PlazoprescripcionController::class, 'plazoprescripcion'])->name('plazosprescripciones.plazoprescripcion');
 //Calificar grupo
 Route::post('calificargrupo', [CalificacionController::class, 'calificarGrupo'])->name('calificaciones.calificar-grupo');

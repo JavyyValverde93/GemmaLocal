@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actividad;
+use App\Models\Categoria;
 use App\Models\Grupo;
 use App\Models\Profesor;
 use App\Models\Espacio;
@@ -32,7 +34,8 @@ class GrupoController extends Controller
     {
         $profesores = Profesor::orderBy('apellidos')->get();
         $espacios = Espacio::orderBy('planta')->get();
-        return view('grupos.create', compact('profesores', 'espacios'));
+        $categorias = Categoria::orderBy('nombre')->get();
+        return view('grupos.create', compact('profesores', 'espacios', 'categorias'));
     }
 
     /**
@@ -45,8 +48,14 @@ class GrupoController extends Controller
     {
         $request->validate([
             'id_profesor' => 'required',
-            'nombre' => 'required',
-            'id_espacio' => 'required'
+            'nombre' => 'required|unique:grupos',
+            'id_espacio' => 'required',
+            'id_categoria' => 'required',
+            'nombre_actividad' => 'required|unique:actividades,nombre',
+            'descripcion' => 'required',
+            'horas' => 'required',
+            'asistencia' => 'required',
+            'anio_academico' => 'required',
         ]);
 
         try{
@@ -57,7 +66,21 @@ class GrupoController extends Controller
             $grupo->fecha_creacion = now()->getTimestamp();
             $grupo->fecha_modificacion = now()->getTimestamp();
 
+            $actividad = new Actividad();
+            $actividad->nombre = $request->nombre_actividad;
+            $actividad->descripcion = $request->descripcion;
+            $actividad->id_profesor = $request->id_profesor;
+            $actividad->id_categoria = $request->id_categoria;
+            $actividad->horas = $request->horas;
+            $actividad->asistencia = $request->asistencia;
+            $actividad->anio_academico = $request->anio_academico;
+            $actividad->fecha_creacion = now()->getTimestamp();
+            $actividad->fecha_modificacion = now()->getTimestamp();
+
             $grupo->save();
+            $actividad->id_grupo = $grupo->id;
+            $actividad->save();
+
             return redirect()->route('grupos.index')->with('mensaje', 'Grupo creado');
         }catch(\Exception $ex){
             return back()->with('error', 'El grupo no ha podido crearse');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asistencia;
+use App\Models\Matricula;
 use Illuminate\Http\Request;
 
 class AsistenciaController extends Controller
@@ -12,10 +13,11 @@ class AsistenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $asistencias = Asistencia::orderBy('id')->get();
-        return view('asistencia.index', compact('asistencias'));
+        // $alumnos = Asistencia::orderBy('fecha_creacion', 'desc')->where('id_grupo', $request->id_grupo)->paginate(15);
+        $alumnos = Matricula::orderBy('id')->where('id_grupo', $request->id_grupo)->get();
+        return view('asistencias.index', compact('alumnos', 'request'));
     }
 
     /**

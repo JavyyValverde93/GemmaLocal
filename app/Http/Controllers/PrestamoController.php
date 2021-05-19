@@ -13,9 +13,10 @@ class PrestamoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $prestamos = Prestamo::orderBy('id', 'desc')->paginate(10);
+        return view('prestamos.index', compact('prestamos', 'request'));
     }
 
     /**
@@ -50,7 +51,8 @@ class PrestamoController extends Controller
             $prestamo = new Prestamo();
             $prestamo->id_usuario = $request->id_usuario;
             $prestamo->id_inventario = $request->id_inventario;
-            $prestamo->fecha_prevista_devolucion = $request->fecha_prevista_devolucion;
+            $date = new \DateTime($request->fecha_prevista_devolucion);
+            $prestamo->fecha_prevista_devolucion = $date->getTimestamp();
             $prestamo->importe_fianza = $request->importe_fianza;
             $prestamo->concepto_fianza = $request->concepto_fianza;
             $prestamo->observaciones = $request->observaciones;

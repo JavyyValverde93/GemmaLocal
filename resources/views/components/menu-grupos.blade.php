@@ -62,7 +62,7 @@ session_start();
                     </aside>
                     <div class="nav flex-column nav-pills ml-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="nav-link active bg-danger" id="v-pills-home-tab"  role="tab" aria-controls="v-pills-home" aria-selected="true" href="{{route('dashboard')}}">Administración</a>
-                        <a class="nav-link bg-danger" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false" href="{{route('grupos.index')}}">Grupos de clase</a>
+                        <a class="nav-link bg-danger" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false" href="{{route('grupos.index')}}">Grupos</a>
                         <a class="nav-link bg-danger" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('matriculas.index')}}">Matriculas</a>
                         <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('prescripciones.index')}}">Prescripciones</a>
                         <a class="nav-link bg-danger" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('inventario.index')}}">Inventario</a>
@@ -98,6 +98,7 @@ session_start();
                         </ul>
                     </div>
                 </nav>
+
                 
                 <style>
                     tr td i:last-child{
@@ -119,7 +120,7 @@ session_start();
                 <div class="container-fluid ml-3">
                     <x-alert-message></x-alert-message>
                     @if ($errors->any())
-                    <div class="alert alert-danger mt-3">
+                    <div class="alert alert-danger mt-3 mr-5">
                         <ul>
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>

@@ -31,8 +31,13 @@
                     <td>{{$item->alumno->nombre}} {{$item->alumno->apellidos}}</td>
                     <td>{{$item->grupo->nombre}}</td>
                     <td>
-                        <input type="number" name="nota{{$item->alumno->id}}" min="0" max="100" step="1" placeholder="Sin Calificar">
-
+                        @if($calificaciones->count()>=1)
+                        @foreach($calificaciones as $nota)
+                        <input type="number" @if($nota->id_alumno == $item->alumno->id) value="{{$nota->nota}}" @endif name="{{$item->alumno->id}}" min="0" max="100" step="1" placeholder="Sin Calificar">
+                        @endforeach
+                        @else 
+                        <input type="number" name="{{$item->alumno->id}}" min="0" max="100" step="1" placeholder="Sin Calificar">
+                        @endif
                     </td>
                     
                 </tr>
@@ -40,6 +45,7 @@
             </table>
             <input type="hidden" name="id_plazocalificacion" value="{{$request->id_plazocalificacion}}">
             <input type="hidden" name="id_grupo" value="{{$request->id_grupo}}">
+            <input type="hidden" name="id_grupo" value="{{$id_actividad}}">
             <button type="submit" class="btn btn-danger ml-3">Calificar</button>
         </form>
         <div class="float-right mx-3">

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Asistencia extends Model
 {
@@ -14,10 +15,11 @@ class Asistencia extends Model
 	public $timestamps = false;	
 	
 	public function Alumno(){
-		return $this->belongsTo(Alumno::class);
+		return $this->belongsTo(Alumno::class, 'id_alumno');
 	}
 	
 	public function Grupo(){
-		return $this->belongsTo(Grupo::class);
+		return $this->belongsTo(Grupo::class, 'id_grupo');
 	}
+
 }

@@ -10,6 +10,8 @@
         <div align="center">Préstamos</div>
 
         <form action="{{route('prestamos.store')}}" method="POST" class="ml-5 mt-4 border p-5">
+            @csrf
+            <input type="hidden" name="id_usuario" value="1">
             <div class="form-group">
                 <div class="row">
                     <div class="col">
@@ -32,11 +34,11 @@
                 <div class="row">
                     <div class="col">
                         <label>Fianza</label><br>
-                        <input type="number" name="fianza" step="0.01" required>
+                        <input type="number" name="importe_fianza" step="0.01" required>
                     </div>
                     <div class="col">
                         <label>Concepto</label><br>
-                        <input name="concepto" required>
+                        <input name="concepto_fianza" required>
                     </div>
                 </div>
             </div>

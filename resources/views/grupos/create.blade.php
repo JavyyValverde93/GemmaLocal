@@ -52,7 +52,41 @@
   
           <div class="form-row">
             <div class="form-group mx-4">
+              <label>Nombre de la Actividad:</label><br>
+              <input type="text" name="nombre_actividad">
             </div>
+            <div class="form-group mx-4">
+              <label>Categoría:</label><br>
+              <select name="id_categoria">
+                <option>Seleccione la categoría...</option>
+                @foreach ($categorias as $item)
+                <option value="{{$item->id}}">{{$item->nombre}}</option>
+                @endforeach
+              </select>
+            </div>
+            <div class="form-group mx-4">
+              <label>Descripción:</label><br>
+              <textarea name="descripcion"></textarea>
+            </div>
+          </div>
+
+            <div class="form-row">
+              <div class="form-group mx-4">
+                <label>Horas:</label><br>
+                <input type="number" name="horas">
+              </div>
+              <div class="form-group mx-4">
+                <label>Asistencia:</label><br>
+                <select name="asistencia">
+                  <option value="presencial">Presencial</option>
+                  <option value="no presencial">No Presencial</option>
+                </select>
+              </div>
+              <div class="form-group mx-4">
+                <label>Anio académico:</label><br>
+                <input type="text" name="anio_academico">
+              </div>
+
   
           </div>
           <button type="submit" class="btn btn-danger ml-3">Crear grupo</button>

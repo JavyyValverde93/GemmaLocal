@@ -17,6 +17,7 @@
             <input type="text" value="{{$request->nombre}}" name="nombre" class="rounded" placeholder="Buscar grupos...">
             <input type="hidden" name="id_alumno" value="{{$request->id_alumno}}">
             <input type="hidden" name="id_plazomatricula" value="{{$request->id_plazomatricula}}">
+            <input type="hidden" name="id_prescripcion" value="{{$request->id_prescripcion}}">
                                 
             <button type="submit" class="btn btn-danger"><i class="fas fa-search"></i></button>
         </form>
@@ -37,8 +38,9 @@
                             <form action="{{route('matriculas.store')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="id_alumno" value="{{$request->id_alumno}}">
-                                <input type="hidden" name="id_grupo" value="{{$item->id}}">
                                 <input type="hidden" name="id_plazomatricula" value="{{$request->id_plazomatricula}}">
+                                <input type="hidden" name="id_grupo" value="{{$item->id}}">
+                                <input type="hidden" name="id_prescripcion" value="{{$request->id_prescripcion}}">
                                 <button type="submit"><i class="fas fa-clipboard-list"></i></button>
                             </form>
                         </td>
