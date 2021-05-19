@@ -29,8 +29,8 @@
                 <td>{{date("d/m/Y", $item->fecha_inicio)}}</td>
                 <td>{{date("d/m/Y", $item->fecha_fin)}}</td>
                 <td>
-                    <a href="{{route('periodoscalificaciones.show', $item)}}"><i class="fas fa-eye"></i></a>
-                    <a href="{{route('periodoscalificaciones.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                    {{-- <a href="{{route('periodoscalificaciones.show', $item)}}"><i class="fas fa-eye"></i></a>
+                    <a href="{{route('periodoscalificaciones.edit', $item)}}"><i class="fas fa-edit"></i></a> --}}
                 </td>
                 
             </tr>

@@ -14,6 +14,25 @@
 				color: red;
 			}
 		</style>
+		<script>
+			$(function(){
+				$('input[name=fecha_nacimiento]').on('change', calcularEdad);
+			});
+			
+			function calcularEdad() {
+				
+				fecha = $(this).val();
+				var hoy = new Date();
+				var cumpleanos = new Date(fecha);
+				var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+				var m = hoy.getMonth() - cumpleanos.getMonth();
+	
+				if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+					edad--;
+				}
+				$('input[name=edad]').val(edad);
+			}
+		  </script>
 		<div align="center">Profesor</div>
 		<form action="{{route('profesores.store')}}" method="POST" enctype="multipart/form-data" class="p-5">
 			@csrf
@@ -97,8 +116,8 @@
 									<input type="text" class="form-control" name="sexo">
 								</div>
 								<div class="form-group">
-									<label for="edad" class="form-text">Edad</label>
-									<input class="form-control flechas" name="edad">
+									<label class="form-text">Fecha Nacimiento</label>
+									<input type="date" class="form-control bg-white" name="fecha_nacimiento">
 								</div>
 								<div class="form-group">
 									<label for="f_pago" class="form-text no">Forma Pago</label>
@@ -120,8 +139,8 @@
 									<input type="number" class="form-control" name="telefono">
 								</div>
 								<div class="form-group">
-									<label class="form-text">Fecha Nacimiento</label>
-									<input type="date" class="form-control bg-white" name="fecha_nacimiento">
+									<label for="edad" class="form-text">Edad</label>
+									<input class="form-control flechas" name="edad">
 								</div>
 								<div class="form-group">
 									<label for="e_ingreso" class="form-text no">Entidad de Ingreso</label>

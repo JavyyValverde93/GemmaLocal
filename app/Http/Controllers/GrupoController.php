@@ -18,7 +18,22 @@ class GrupoController extends Controller
      */
     public function index(Request $request)
     {
-        $grupos = Grupo::orderBy('id', 'desc')->nombre($request->nombre)->paginate('15');
+        $espacio = Espacio::where('nombre', 'LIKE', "%$request->nombre%");
+        if($espacio->first()==null){
+            $espacio = ["%"];
+        }else{
+            $espacio = $espacio->get('id')->toArray();
+        }
+        $profesor = Profesor::orwhere('nombre', 'LIKE', "%$request->nombre%")
+        ->orWhere('apellidos', 'LIKE', "%$request->nombre%");
+        if($profesor->first()==null){
+            $profesor = ["%"];
+        }else{
+            $profesor = $profesor->get('id')->toArray();
+        }
+        
+        $grupos = Grupo::orderBy('id', 'desc')->nombre($request->nombre)
+        ->orWhereIn('id_espacio', $espacio)->orWhereIn('id_profesor', $profesor)->paginate('15');
         if($request->redirect=="matriculas"){
             return view('matriculas.create', compact('request', 'grupos'));
         }

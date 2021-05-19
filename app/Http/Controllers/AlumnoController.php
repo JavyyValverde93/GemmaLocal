@@ -181,6 +181,22 @@ class AlumnoController extends Controller
             'fecha_nacimiento' => 'required',
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
+        ],[
+            'nombre.required' => 'nombre',
+            'apellidos.required' => 'apellidos',
+            'dni.required' => 'dni',
+            'domicilio.required' => 'domicilio',
+            'poblacion.required' => 'poblacion',
+            'provincia.required' => 'provincia',
+            'pais.required' => 'pais',
+            'codigo_postal.required' => 'codigo_postal',
+            'sexo.required' => 'sexo',
+            'telefono.required' => 'telefono',
+            'email.required' => 'email',
+            'edad.required' => 'edad',
+            'fecha_nacimiento.required' => 'fecha_nacimiento',
+            'lugar_nacimiento.required' => 'lugar_nacimiento',
+            'nss.required' => 'nss'
         ]);
 
         try{

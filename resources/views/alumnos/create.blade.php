@@ -17,6 +17,25 @@
             color: red;
         }
       </style>
+      <script>
+        $(function(){
+            $('input[name=fecha_nacimiento]').on('change', calcularEdad);
+        });
+        
+        function calcularEdad() {
+            
+            fecha = $(this).val();
+            var hoy = new Date();
+            var cumpleanos = new Date(fecha);
+            var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+            var m = hoy.getMonth() - cumpleanos.getMonth();
+
+            if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+                edad--;
+            }
+            $('input[name=edad]').val(edad);
+        }
+      </script>
         <form action="{{route('alumnos.store')}}" method="POST" class="mt-4 border p-5" enctype="multipart/form-data" style="width: 1200px" onsubmit="disableButton(this)">
           @csrf
             <div class="form-row">
@@ -81,12 +100,12 @@
       
                 <div class="form-row">
                   <div class="form-group col-md-2">
-                    <label>Edad</label>
-                    <input type="number" class="form-control" id="edad" name="edad"  min="16" max="70">
-                  </div>
-                  <div class="form-group col-md-2 offset-md-1">
                     <label>Fecha Nacimiento</label>
                     <input type="date" id="fechan" name="fecha_nacimiento">
+                  </div>
+                  <div class="form-group col-md-2 offset-md-1">
+                    <label>Edad</label>
+                    <input type="number" class="form-control" id="edad" name="edad"  min="16" max="70">
                   </div>
                   <div class="form-group col-md-2 offset-md-1">
                     <label>Lugar Nacimiento</label>

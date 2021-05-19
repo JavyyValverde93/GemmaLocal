@@ -9,7 +9,7 @@ class Matricula extends Model
 {
     use HasFactory;
 	
-	protected $fillable=['id_alumno','id_grupo','fecha_creacion','id_prescripcion'];
+	protected $fillable=['id_alumno','id_grupo','fecha_creacion','id_prescripcion', 'id_plazomatricula'];
 
 	public $timestamps = false;	
 	

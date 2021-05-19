@@ -10,6 +10,25 @@
 				color: red;
 			}
 		</style>
+		<script>
+			$(function(){
+				$('input[name=fecha_nacimiento]').on('change', calcularEdad);
+			});
+			
+			function calcularEdad() {
+				
+				fecha = $(this).val();
+				var hoy = new Date();
+				var cumpleanos = new Date(fecha);
+				var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+				var m = hoy.getMonth() - cumpleanos.getMonth();
+
+				if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+					edad--;
+				}
+				$('input[name=edad]').val(edad);
+			}
+      </script>
 		<div align="center">Profesor</div>
 		<form action="{{route('profesores.update',$profesor)}}" enctype="multipart/form-data" method="POST" class="ml-5 mt-4 border p-5">
 			@csrf
@@ -94,8 +113,8 @@
 									<input type="text" class="form-control" name="sexo" value="{{$profesor->sexo}}">
 								</div>
 								<div class="form-group">
-									<label for="edad" class="form-text">Edad</label>
-									<input class="form-control flechas" name="edad" value="{{$profesor->edad}}">
+									<label class="form-text">Fecha Nacimiento</label>
+									<input type="date" class="form-control bg-white" name="fecha_nacimiento" value="{{date("Y-m-d", $profesor->fecha_nacimiento)}}">
 								</div>
 								<div class="form-group">
 									<label for="f_pago" class="form-text no">Forma Pago</label>
@@ -117,8 +136,8 @@
 									<input type="number" class="form-control" name="telefono" value="{{$profesor->telefono}}">
 								</div>
 								<div class="form-group">
-									<label class="form-text">Fecha Nacimiento</label>
-									<input type="date" class="form-control bg-white" name="fecha_nacimiento" value="{{$profesor->fecha_nacimiento}}">
+									<label for="edad" class="form-text">Edad</label>
+									<input class="form-control flechas" name="edad" value="{{$profesor->edad}}">
 								</div>
 								<div class="form-group">
 									<label for="e_ingreso" class="form-text no">Entidad de Ingreso</label>
@@ -133,7 +152,7 @@
 					</table>
 				</div>
 			</div>
-			<button type="submit" name="Enviar" class="btn btn-danger">Crear</button>
+			<button type="submit" name="Enviar" class="btn btn-danger">Actualizar profesor</button>
 		</form>
 
 	</x-slot>

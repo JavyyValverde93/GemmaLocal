@@ -82,7 +82,7 @@
                   </div>
                   <div class="form-group col-md-2 offset-md-1">
                     <label>Fecha Nacimiento</label>
-                    <input type="date" id="fechan" name="fecha_nacimiento" value="{{date("d/m/Y", $alumno->fecha_nacimiento)}}">
+                    <input type="date" id="fechan" name="fecha_nacimiento" value="{{date("Y-m-d", $alumno->fecha_nacimiento)}}">
                   </div>
                   <div class="form-group col-md-2 offset-md-1">
                     <label>Lugar Nacimiento</label>

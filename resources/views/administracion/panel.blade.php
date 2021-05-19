@@ -1,4 +1,4 @@
-<x-menu>
+<x-menu-grupos>
     <x-slot name="slot">
         <h1 style="margin-left: 35px;">Administración</h1>
         <div class="row align-items-start">
@@ -29,4 +29,4 @@
             </div>
         </div>
     </x-slot>
-</x-menu>
+</x-menu-grupos>

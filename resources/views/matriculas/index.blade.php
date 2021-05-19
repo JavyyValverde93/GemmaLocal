@@ -35,8 +35,8 @@
                 <td>{{$item->id_prescripcion}}</td>
                 <td>{{date("d/m/Y", $item->plazomatricula->fecha_inicio)}} - {{date("d/m/Y", $item->plazomatricula->fecha_fin)}}</td>
                 <td>
-                    <a href="{{route('matriculas.show', $item)}}"><i class="fas fa-eye"></i></a>
-                    <a href="{{route('matriculas.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                    {{-- <a href="{{route('matriculas.show', $item)}}"><i class="fas fa-eye"></i></a> --}}
+                    {{-- <a href="{{route('matriculas.edit', $item)}}"><i class="fas fa-edit"></i></a> --}}
                 </td>
                 
             </tr>

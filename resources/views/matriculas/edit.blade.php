@@ -11,18 +11,12 @@
         @endif
         <h1 class="ml-5 mt-1">Matricular</h1>
         <div class="col">
-            <form action="{{route('grupos.update', $matricula)}}" class=" float-right m-3" method="POST">
-            @csrf
-            <input type="hidden" name="redirect" value="matriculas">
-            <input type="text" value="{{$request->nombre}}" name="nombre" class="rounded" placeholder="Buscar grupos...">
-            <input type="hidden" name="id_alumno" value="{{$request->id_alumno}}">
-            <button type="submit" class="btn btn-danger"><i class="fas fa-search"></i></button>
-        </form>
+           
         </div>
         <div class="ml-5 mt-4 border p-5">
             <div class="form-row">
                 <div class="form-group col-md-2">
-                  <label>matricula</label>
+                  <label>Matrícula</label>
                   <table class="table">
                     <tr class="rounded text-white" style="background-color: #dc3545">
                         <td style="padding-left:50px; padding-right:50px;">Nombre</td>
@@ -42,7 +36,6 @@
                       </tr>
                       @endforeach
                   </table>
-                  {{$matricula->appends($request->except('page'))->links()}}
                 </div>
             </div>
         </div>

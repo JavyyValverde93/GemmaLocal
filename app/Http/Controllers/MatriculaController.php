@@ -108,7 +108,7 @@ class MatriculaController extends Controller
      */
     public function edit(Matricula $matricula)
     {
-        return view('matriculas.edit', compact($matricula));
+        return view('matriculas.edit', compact('matricula'));
     }
 
     /**

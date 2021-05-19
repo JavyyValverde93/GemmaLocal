@@ -37,9 +37,10 @@ class Grupo extends Model
 	public function scopeNombre($query, $p){
         if($p!=null){
             // \DB es igual a poner use Illuminate\Support\Facades\DB; y DB
-            return $query->where(DB::raw("CONCAT(nombre, id)"), "LIKE", "%$p%");
+            return $query->where(DB::table('grupos')->raw("CONCAT(nombre, id)"), "LIKE", "%$p%");
         }else{
             return $query->where('nombre', "LIKE", "%");
         }
     }
+
 }

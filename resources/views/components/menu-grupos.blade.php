@@ -26,7 +26,7 @@ session_start();
         <div class="d-flex ml-4" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-danger border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading ml-4" style="color: white; font-size: 25px;">Gestión</div>
+                <div class="sidebar-heading ml-4" style="color: white; font-size: 25px;">GEMMA</div>
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
                         <span class="material-icons align-middle" style="margin-top: 75px;">
@@ -53,6 +53,19 @@ session_start();
                         <span class="material-icons align-middle mt-3">
                         <a class="text-white text-decoration-none" href="{{route('espacios.index')}}" id="room">room</a>
                         </span> 
+                        <span class="material-icons align-middle mt-3">
+                        <a class="text-white text-decoration-none" href="{{route('salarios.index')}}" id="room">euro</a>
+                        </span> 
+                        <span class="material-icons align-middle mt-3">
+                        <a class="text-white text-decoration-none" href="{{route('facturaciones.index')}}" id="room">request_quote</a>
+                        </span> 
+                        <span class="material-icons align-middle mt-3">
+                        <a class="text-white text-decoration-none" href="{{route('comunicaciones.index')}}" id="room">email</a>
+                        </span> 
+                        <span class="material-icons align-middle mt-3">
+                        <a class="text-white text-decoration-none" href="{{route('logs.index')}}" id="room">warning</a>
+                        </span> 
+                        
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <span class="material-icons align-middle mt-3">
@@ -61,14 +74,18 @@ session_start();
                         </form>
                     </aside>
                     <div class="nav flex-column nav-pills ml-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active bg-danger text-white text-decoration-none" id="v-pills-home-tab"  role="tab" aria-controls="v-pills-home" aria-selected="true" href="{{route('dashboard')}}">Administración</a>
-                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false" href="{{route('grupos.index')}}">Grupos de clase</a>
-                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('matriculas.index')}}">Matriculas</a>
-                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('prescripciones.index')}}">Prescripciones</a>
-                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('inventario.index')}}">Inventario</a>
-                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false" href="{{route('alumnos.index')}}">Alumnos</a>
-                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('profesores.index')}}">Profesores</a>
-                        <a class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false" href="{{route('espacios.index')}}">Espacios</a>
+                        <a href="{{route('dashboard')}}"class="nav-link active bg-danger text-white text-decoration-none" id="v-pills-home-tab"  role="tab" aria-controls="v-pills-home" aria-selected="true">Administración</a>
+                        <a href="{{route('grupos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false"> Grupos</a>
+                        <a href="{{route('matriculas.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false"> Matriculas</a>
+                        <a href="{{route('prescripciones.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Prescripciones</a>
+                        <a href="{{route('inventario.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Inventario</a>
+                        <a href="{{route('alumnos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
+                        <a href="{{route('profesores.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Profesores</a>
+                        <a href="{{route('espacios.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Espacios</a>
+                        <a href="{{route('salarios.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Salarios</a>
+                        <a href="{{route('facturaciones.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Facturaciones</a>
+                        <a href="{{route('comunicaciones.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Comunicaciones</a>
+                        <a href="{{route('logs.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Logs</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a href="Cerrar Sesión" class="nav-link bg-danger text-white text-decoration-none" id="confirm"  role="tab" aria-controls="v-pills-settings" aria-selected="false" >
@@ -109,13 +126,13 @@ session_start();
                     }
 
                     .migaspan a{
-                        color: #007eb0;
+                        color: #dc3545; /* blue #007eb0 */
                         text-decoration: underline;
                         margin: 0 5px;
                     }
                 </style>
 
-                <div class="container-fluid ml-3">
+                <div class="container ml-3">
                     <x-alert-message></x-alert-message>
                     @if ($errors->any())
                     <div class="alert alert-danger mt-3">

@@ -32,8 +32,8 @@
                 <td>{{$item->actividad->nombre}}</td>
                 <td>{{$item->plazoprescripcion->nombre}}</td>
                 <td>
-                    <a href="{{route('prescripciones.show', $item)}}"><i class="fas fa-eye"></i></a>
-                    <a href="{{route('prescripciones.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                    {{-- <a href="{{route('prescripciones.show', $item)}}"><i class="fas fa-eye"></i></a>
+                    <a href="{{route('prescripciones.edit', $item)}}"><i class="fas fa-edit"></i></a> --}}
                     <a href="{{route('matriculas.index', ['id_alumno='.$item->alumno->id, 'plazomatricula=true', "id_prescripcion=$item->id", "id_actividad=$item->id_actividad"])}}"><i class="fas fa-clipboard-list"></i></a>
                 </td>
                 
