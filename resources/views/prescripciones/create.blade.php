@@ -1,5 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <div class="row migaspan">
+            <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
+            <a href="{{route('prescripciones.create')}}" class="text-danger">Crear Prescripciones</a> >
+        </div>
         <h4 class="ml-5 mt-1">Seleccione la Actividad en la que se desea preinscribir</h4>
         <div class="col">
             <form action="{{route('prescripciones.index')}}" class=" float-right m-3" method="GET">
@@ -12,7 +16,7 @@
             <button type="submit" class="btn btn-danger"><i class="fas fa-search"></i></button>
         </form>
         </div>
-        <div class="ml-5 mt-4 border p-5">
+        <div class="mt-4 border p-5">
             <div class="form-row">
                 <div class="form-group col-md-2">
                   <label>Actividades</label>

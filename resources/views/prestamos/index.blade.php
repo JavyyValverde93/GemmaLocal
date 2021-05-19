@@ -1,8 +1,8 @@
 <x-menu-grupos>
     <x-slot name="slot">
 		<div class="row migaspan">
-            <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
             <a href="{{route('inventario.index')}}" class="text-danger">Inventario</a> >
+            <a href="{{route('prestamos.index')}}" class="text-danger">Prestamos</a> >
         </div>
         <div align="center">Préstamos</div>
         <div class="row">
@@ -18,7 +18,7 @@
             </form>
             </div>
         </div>
-        <table class="table">
+        <table class="table table-sm">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th>Id</th>
                 <th>Nombre</th>

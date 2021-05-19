@@ -1,7 +1,6 @@
 <x-menu-grupos>
     <x-slot name="slot">
 		<div class="row migaspan">
-            <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
         </div>
         <div align="center">Prescripciones</div>
@@ -18,7 +17,7 @@
             </form>
             </div>
         </div>
-        <table class="table">
+        <table class="table table-sm">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th>Id</th>
                 <th>Alumno</th>
