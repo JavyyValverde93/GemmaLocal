@@ -74,7 +74,7 @@ class InventarioController extends Controller
      */
     public function edit(Inventario $inventario)
     {
-        //
+        return view('inventario.edit', compact('inventario'));
     }
 
     /**
