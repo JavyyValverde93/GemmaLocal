@@ -33,8 +33,6 @@ class MatriculaController extends Controller
      */
     public function create(Request $request)
     {
-        dd($request);
-
         $grupos = Grupo::orderBy('nombre')->nombre($request->nombre)->paginate(15);
         if($request->id_actividad!=null){
             $id_grupo = Actividad::where('id', $request->id_actividad)->first()->id;
