@@ -37,7 +37,7 @@
                     <a href="{{route('matriculas.index', ['id_alumno='.$item->id, 'plazomatricula=true'])}}"><i class="fas fa-clipboard-list"></i></a>
                     <a href="{{route('prescripciones.index', ['id_alumno='.$item->id, 'plazoprescripcion=true'])}}"><i class="fas fa-file-prescription"></i></a>
                     <a href="{{route('tutores.index', ["id_alumno=$item->id", "alumno=$item->nombre $item->apellidos"])}}"><i class="fas fa-address-book"></i></a>
-                    <a href="{{route('asistencias.index', ["id_alumno=$item->id", "alumno=$item->nombre $item->apellidos"])}}"><i class="fas fa-users-class"></i></a>
+                    <a href="{{route('asistencias.index', ["id_alumno=$item->id", "alumno=$item->nombre $item->apellidos"])}}"><i class="fas fa-list"></i></a>
                 </td>
                 
             </tr>
