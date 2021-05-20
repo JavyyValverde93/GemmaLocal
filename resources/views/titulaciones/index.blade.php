@@ -11,7 +11,7 @@
                 <a href="{{route('titulaciones.create', ["id_profesor=$id_profesor", "profesor=$profesor"])}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle mr-2"></i> Añadir Titulación</a>
             </div>
         </div>
-        <table class="table">
+        <table class="table table-striped table-hover table-sm">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th> </th>
                 <th>Nombre</th>
