@@ -15,7 +15,7 @@ class LogController extends Controller
      */
     public function index(Request $request)
     {
-        $logs = Log::orderBy('id', 'desc')->where('id_usuario', Auth::user()->id)->paginate(15);
+        $logs = Log::orderBy('id', 'desc')->accion($request->nombre)->where('id_usuario', Auth::user()->id)->paginate(15);
         return view('logs.index', compact('logs', 'request'));
     }
 
@@ -49,8 +49,10 @@ class LogController extends Controller
             $log->accion = $request->accion;
             $log->fecha_creacion = now()->getTimestamp();
             $log->save();
+            $this->Log("Ha creado el Log $request->accion");
             return redirect()->route('logs.index')->with('mensaje', 'Log creado');
         }catch(\Exception $ex){
+            $this->Log("Error al crear Log $request->accion");
             return back()->with('error', 'Error al crear el log');
         }
     }

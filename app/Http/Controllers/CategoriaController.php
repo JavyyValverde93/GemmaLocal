@@ -44,8 +44,10 @@ class CategoriaController extends Controller
             $categoria->nombre = $request->nombre;
 
             $categoria->save();
+            $this->Log("Ha creado la Categoría $categoria->nombre");
             return back()->with('mensaje', 'Categoría creada');
         }catch(\Exception $ex){
+            $this->Log("Error al crear la Categoría $request->nombre");
             return back()->with('error', 'La categoría no ha podido crearse');
         }
     }
@@ -90,7 +92,9 @@ class CategoriaController extends Controller
 
             $categoria->save();
             return back()->with('mensaje', 'Categoría modificada');
+            $this->Log("Ha modificado la Categoría $categoria->nombre");
         }catch(\Exception $ex){
+            $this->Log("Error al modificar la categoría $request->nombre");
             return back()->with('error', 'La categoría no ha podido modificarse');
         }
     }

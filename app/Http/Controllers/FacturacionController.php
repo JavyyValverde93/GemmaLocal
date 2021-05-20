@@ -131,8 +131,10 @@ class FacturacionController extends Controller
             $facturacion->fecha_modificacion = now()->getTimestamp();
             $facturacion->id_usuario = $request->id_usuario;
             $facturacion->save();
+            $this->Log("Ha actualizado la Facturación de ".$facturacion->user->name);
             return back()->with('mensaje', 'Facturación actualizada');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar Facturación del Usuario $request->id_usuario");
             return back()->with('error', 'No ha podido actualizarse la facturación'.$ex->getMessage());
         }
     }
@@ -249,8 +251,10 @@ class FacturacionController extends Controller
             $facturacion->fecha_modificacion = now()->getTimestamp();
             $facturacion->id_usuario = $request->id_usuario;
             $facturacion->save();
+            $this->Log("Ha modificado la Facturación de ".$facturacion->user->name);
             return back()->with('mensaje', 'Facturación actualizada');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar la Facturación de ".$facturacion->user->name);
             return back()->with('error', 'No ha podido actualizarse la facturación'.$ex->getMessage());
         }
     }

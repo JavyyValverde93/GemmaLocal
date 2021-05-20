@@ -48,6 +48,7 @@ class PlazoprescripcionController extends Controller
         $date2 = $date2->getTimestamp();
 
         if($date2<=$date){
+            $this->Log("Error al crear plazo de prescripción $request->nombre");
             return back()->with('error', 'No se ha podido crear el nuevo plazo');
         }
 
@@ -57,11 +58,13 @@ class PlazoprescripcionController extends Controller
             $plazoprescripcion->fecha_inicio = $date;
             $plazoprescripcion->fecha_fin = $date2;
             $plazoprescripcion->save();
+            $this->Log("Ha creado el plazo de prescripción $request->nombre");
 
 
             return back()->with('mensaje', 'Plazo creado correctamente');
 
         }catch(\Exception $ex){
+            $this->Log("Error al crear el plazo de prescripción $request->nombre");
             return back()->with('error', 'No se ha podido crear el nuevo plazo');
         }
     }
@@ -109,10 +112,12 @@ class PlazoprescripcionController extends Controller
             $plazoprescripcion->fecha_fin = $request->fecha_fin;
 
             $plazoprescripcion->save();
+            $this->Log("Ha modificado el plazo de prescripción $request->nombre");
 
             return back()->with('mensaje', 'Plazo modificado correctamente');
 
         }catch(\Exception $ex){
+            $this->Log("Error al modificar el plazo de prescripción $request->nombre");
             return back()->with('error', 'No se ha podido modificar el plazo');
         }
     }

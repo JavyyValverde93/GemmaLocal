@@ -60,9 +60,11 @@ class PrestamoController extends Controller
             $prestamo->fecha_creacion = now()->getTimestamp();
             $prestamo->fecha_modificacion = now()->getTimestamp();
             $prestamo->save();
+            $this->Log("Ha solicitado un préstamo de ".$prestamo->inventario->nombre);
 
             return back()->with('mensaje', 'Préstamo creado');
         }catch(\Exception $ex){
+            $this->Log("Error al solicitar préstamo del Inventario $request->id_inventario");
             return back()->with('error', 'El préstamo no ha podido crearse');
         }
     }

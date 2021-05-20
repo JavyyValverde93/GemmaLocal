@@ -155,6 +155,7 @@ class AsistenciaController extends Controller
 
           }
 
+        //   $this->Log("Ha pasdo Lista en el grupo $asistencia->grupo->nombre");
           return back()->with('mensaje', 'Asistencias asignadas');
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Matricula;
 use App\Models\Grupo;
+use App\Models\Alumno;
 use App\Models\Plazomatricula;
 use App\Models\Prescripcion;
 use App\Models\Actividad;
@@ -18,7 +19,22 @@ class MatriculaController extends Controller
      */
     public function index(Request $request)
     {
-        $matriculas = Matricula::orderBy('id', 'desc')->paginate(20);
+        if($request->nombre==null){
+            $busqueda = ["%"];
+            $matriculas = Matricula::orderBy('id', 'desc')->paginate(20);
+        }else{
+            $busqueda = $request->nombre;
+            $alumnos = Alumno::select('id', 'nombre', 'apellidos')->orWhere('nombre', 'LIKE', "%$busqueda%")
+            ->orWhere('apellidos', 'LIKE', "%$busqueda%")->get('id');
+            if($alumnos->first()==null){
+                $busqueda = ["%"];
+                $matriculas = Matricula::orderBy('id', 'desc')->paginate(20);
+            }else{
+                $busqueda = $alumnos;
+                $matriculas = Matricula::orderBy('id', 'desc')->orWhereIn('id_alumno', $busqueda)->paginate(20);
+            }
+        }
+        
         if($request->plazomatricula=='true'){
             $plazosmatriculas = Plazomatricula::orderBy('fecha_fin', 'desc')->paginate(20);
             return view('plazosmatriculas.plazomatricula', compact('matriculas', 'request', 'plazosmatriculas'));
@@ -83,8 +99,10 @@ class MatriculaController extends Controller
             $matricula->fecha_creacion = now()->getTimestamp();
             $matricula->id_prescripcion = $request->id_prescripcion;
             $matricula->save();
+            $this->Log("Ha matriculado al Alumno ".$matricula->alumno->nombre." ".$matricula->alumno->apellidos." en el Grupo ".$matricula->grupo->nombre);
             return redirect()->route('alumnos.index')->with('mensaje', 'Matrícula creada');
         }catch(\Exception $ex){
+            $this->Log("Error al matricular al Alumno $request->id_alumno en el Grupo $request->id_grupo");
             return back()->with('error', 'No ha podido crearse la matricula');
         }
     }
@@ -131,8 +149,10 @@ class MatriculaController extends Controller
             $matricula->fecha_creacion = now()->getTimestamp();
             $matricula->id_prescripcion = $request->id_prescripcion;
             $matricula->save();
+            $this->Log("Ha modificado la matrícula del Alumno ".$matricula->alumno->nombre." ".$matricula->alumno->apellidos." del Grupo ".$matricula->grupo->nombre);
             return back()->with('mensaje', 'Matrícula modificada');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar matrícula del Alumno $request->id_alumno del Grupo $request->id_grupo");
             return back()->with('error', 'No ha podido modificarse la matricula');
         }
     }

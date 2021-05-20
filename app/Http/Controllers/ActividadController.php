@@ -137,7 +137,7 @@ class ActividadController extends Controller
 
             return redirect()->route('actividades.show', $actividad)->with('mensaje', 'Actividad modificada');
         }catch(\Exception $ex){
-            $this->Log("Error al modificar la Actividad $actividad->nombre");
+            $this->Log("Error al modificar la Actividad $request->nombre");
             return back()->with('error', 'Error al crear la actividad');
         }
     }

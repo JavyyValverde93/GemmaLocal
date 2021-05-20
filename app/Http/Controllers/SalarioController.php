@@ -67,8 +67,10 @@ class SalarioController extends Controller
             $salario->fecha_modificacion = now()->getTimestamp();
 
             $salario->save();
+            $this->Log("Ha actualizado el Salario de ".$salario->user->name);
             return back()->with('mensaje', 'Salario actualizado');
         }catch(\Exception $ex){
+            $this->Log("Error al actualizar el Salario del Usuario $request->id_usuario");
             return back()->with('error', 'Error al actualizar salario');
         }
     }

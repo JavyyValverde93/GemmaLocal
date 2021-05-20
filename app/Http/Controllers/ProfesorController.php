@@ -126,9 +126,11 @@ class ProfesorController extends Controller
             $user->save();
             $profesor->id_usuario = $user->id;
             $profesor->save();
+            $this->Log("Ha creado al Profesor $profesor->nombre $profesor->apellidos");
 
             return back()->with('mensaje', 'Profesor creado correctamente');
         }catch(\Exception $ex){
+            $this->Log("Error al crear al Profesor $request->nombre $request->apellidos");
             return back()->with('error', 'No ha podido crear el profesor');
         }
     }
@@ -239,9 +241,11 @@ class ProfesorController extends Controller
             }
 
             $profesor->save();
+            $this->Log("ha modificado al Profesor $request->nombre $request->apellidos");
 
             return back()->with('mensaje', 'Profesor modificado correctamente');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar al Profesor $request->nombre $request->apellidos");
             return back()->with('error', 'No ha podido modificarse el profesor');
         }
     }

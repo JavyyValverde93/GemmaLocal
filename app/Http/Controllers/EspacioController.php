@@ -14,7 +14,7 @@ class EspacioController extends Controller
      */
     public function index(Request $request)
     {
-        $espacios = Espacio::orderBy('planta')->paginate(5);
+        $espacios = Espacio::orderBy('planta')->nombre($request->nombre)->paginate(5);
         return view('espacios.index', compact('espacios', 'request'));
     }
 
@@ -67,8 +67,10 @@ class EspacioController extends Controller
             $espacio->fecha_modificacion = now()->getTimestamp();
 
             $espacio->save();
+            $this->Log("Ha creado el Espacio $espacio->nombre");
              return redirect()->route('espacios.index')>with('mensaje', 'Espacio creado');
         }catch(\Exception $ex){
+            $this->Log("Error al crear el Espacio $request->nombre");
             return back()->with('error', 'El espacio no ha podido crearse'.$ex->getMessage());
         }
     }
@@ -122,8 +124,10 @@ class EspacioController extends Controller
             $espacio->fecha_modificacion = now()->getTimestamp();
 
             $espacio->save();
+            $this->Log("Ha modificado el Espacio $espacio->nombre");
              return back()->with('mensaje', 'Espacio modificado');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar el Espacio $request->nombre");
             return back()->with('error', 'El espacio no ha podido modificarse');
         }
     }

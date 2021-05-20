@@ -127,9 +127,11 @@ class AlumnoController extends Controller
             $user->save();
             $alumno->id_usuario = $user->id;
             $alumno->save();
+            $this->Log("Ha creado el Alumno $alumno->nombre");
 
             return back()->with('mensaje', 'Alumno creado correctamente');
         }catch(\Exception $ex){
+            $this->Log("Error al crear el alumno $request->nombre");
             return back()->with('error', 'No ha podido crearse el alumno'.$ex);
         }
     }
@@ -230,9 +232,11 @@ class AlumnoController extends Controller
             }
 
             $alumno->save();
+            $this->Log("Ha modificado al Alumno $alumno->nombre");
 
             return back()->with('mensaje', 'Alumno modificado correctamente');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar el alumno $request->nombre");
             return back()->with('error', 'No ha podido modificarse el alumno');
         }
     }

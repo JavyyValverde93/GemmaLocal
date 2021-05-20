@@ -96,10 +96,11 @@ class GrupoController extends Controller
             $actividad->id_grupo = $grupo->id;
             $actividad->save();
 
-            $this->Log("Ha creado la Actividad $actividad->nombre en el grupo $grupo->nombre");
+            $this->Log("Ha creado la Actividad $actividad->nombre en el Grupo $grupo->nombre");
 
             return redirect()->route('grupos.index')->with('mensaje', 'Grupo creado');
         }catch(\Exception $ex){
+            $this->Log("Error al crear Actividad $request->nombre_actividad en el Grupo $request->nombre");
             return back()->with('error', 'El grupo no ha podido crearse');
         }
     }
@@ -140,7 +141,7 @@ class GrupoController extends Controller
         $request->validate([
             'id_profesor' => 'required',
             'nombre' => 'required',
-            'id_espaico' => 'required'
+            'id_espacio' => 'required'
         ]);
 
         try{

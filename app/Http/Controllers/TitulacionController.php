@@ -53,6 +53,7 @@ class TitulacionController extends Controller
         ->where('especialidad', $request->especialidad)->first();
          
         if($validar!=null){
+            $this->Log("Error por intentar introducir una Titulación existente, $request->titulacion");
             return back()->with('error', 'La Titulación ya existe');
         }
 
@@ -64,9 +65,11 @@ class TitulacionController extends Controller
             $titulacion->especialidad = $request->especialidad;
             $titulacion->titulacion = $request->titulacion;
             $titulacion->save();
+            $this->Log("Ha añadido la Titulación $request->titulacion");
 
             return redirect()->route('titulaciones.index', ["id_profesor=$request->id_profesor", "profesor=$request->profesor"])->with('mensaje', 'Titulación creada');
         }catch(\Exception $ex){
+            $this->Log("Error al añadir Titulación $request->titulacion");
             return back()->with('error', 'No se ha podido crear la titulación');
         }
     }
@@ -115,9 +118,11 @@ class TitulacionController extends Controller
             $titulacion->especialidad = $request->especialidad;
             $titulacion->titulacion = $request->titulacion;
             $titulacion->save();
+            $this->Log("Ha modificado la Titulación $request->titulacion");
 
             return back()->with('mensaje', 'Titulación modificada');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar la Titulación $request->titulacion");
             return back()->with('error', 'No se ha podido modificar la titulación');
         }
     }

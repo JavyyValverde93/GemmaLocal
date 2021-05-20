@@ -56,9 +56,11 @@ class ReservaespacioController extends Controller
             $reservaespacio->fecha_inicio = $request->fecha_inicio;
             $reservaespacio->fecha_fin = $request->fecha_fin;
             $reservaespacio->save();
+            $this->Log("Ha reservado el Espacio ".$reservaespacio->espacio->nombre);
 
             return back()->with('mensaje', 'Reserva realizada');
         }catch(\Exception $ex){
+            $this->Log("Error al reservar el Espacio $request->id");
             return back()->with('error', 'Error al reservar espacio');
         }
     }
@@ -113,9 +115,11 @@ class ReservaespacioController extends Controller
             $reservaespacio->fecha_inicio = $request->fecha_inicio;
             $reservaespacio->fecha_fin = $request->fecha_fin;
             $reservaespacio->save();
+            $this->Log("Ha modificado la reserva del Espacio ".$reservaespacio->espacio->nombre);
 
             return back()->with('mensaje', 'Reserva modificada');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar la reserva del Espacio ".$reservaespacio->espacio->nombre);
             return back()->with('error', 'Error al modificar reserva de espacio');
         }
     }

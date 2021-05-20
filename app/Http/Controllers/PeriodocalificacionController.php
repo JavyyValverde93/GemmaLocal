@@ -54,8 +54,10 @@ class PeriodocalificacionController extends Controller
             $periodocalificacion->fecha_inicio = $date->getTimestamp();
             $periodocalificacion->fecha_fin = $date2->getTimestamp();
             $periodocalificacion->save();
+            $this->Log("Ha creado el periodo de calificación $periodocalificacion->nombre");
             return back()->with('mensaje', 'Periodo creado');
         }catch(\Exception $ex){
+            $this->Log("Error al crear el periodo de calificación $request->nombre");
             return back()->with('error', 'No ha podido crearse el periodo');
         }
     }
@@ -102,8 +104,10 @@ class PeriodocalificacionController extends Controller
             $periodocalificacion->fecha_inicio = $request->fecha_inicio;
             $periodocalificacion->fecha_fin = $request->fecha_fin;
             $periodocalificacion->save();
+            $this->Log("Ha modificado el periodo de calificación $request->nombre");
             return back()->with('mensaje', 'Periodo modificado');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar periodo de calificación $request->nombre");
             return back()->with('error', 'No ha podido modificarse el periodo');
         }
     }

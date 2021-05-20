@@ -53,10 +53,12 @@ class PlazomatriculaController extends Controller
             $plazomatricula->fecha_fin = $date2;
 
             $plazomatricula->save();
+            $this->Log("Ha creado el plazo de matriculación $request->nombre");
 
             return redirect()->route('plazosmatriculas.index')->with('mensaje', 'Plazo creado correctamente');
 
         }catch(\Exception $ex){
+            $this->Log("Error al crear el plazo de matriculación $request->nombre");
             return back()->with('error', 'No se ha podido crear el nuevo plazo');
         }
     }
@@ -104,10 +106,12 @@ class PlazomatriculaController extends Controller
             $plazomatricula->fecha_fin = $request->fecha_fin;
 
             $plazomatricula->save();
+            $this->Log("Ha modificado el plazo de matriculación $request->nombre");
 
             return back()->with('mensaje', 'Plazo modificado correctamente');
 
         }catch(\Exception $ex){
+            $this->Log("Error al modificar plazo de matriculación $request->nombre");
             return back()->with('error', 'No se ha podido modificar el plazo');
         }
     }
