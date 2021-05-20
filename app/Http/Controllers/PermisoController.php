@@ -68,7 +68,7 @@ class PermisoController extends Controller
      */
     public function edit(Permiso $permiso)
     {
-        //
+        return view('permisos.edit', compact('permiso'));
     }
 
     /**

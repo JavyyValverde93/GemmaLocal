@@ -88,7 +88,7 @@ class PlazoprescripcionController extends Controller
      */
     public function edit(Plazoprescripcion $plazoprescripcion)
     {
-        //
+        return view('plazosprescripciones.edit', compact('plazoprescripcion'));
     }
 
     /**

@@ -82,7 +82,7 @@ class AsistenciaController extends Controller
      */
     public function edit(Asistencia $asistencia)
     {
-        //
+        return view('asistencias.edit', compact('asistencia'));
     }
 
     /**

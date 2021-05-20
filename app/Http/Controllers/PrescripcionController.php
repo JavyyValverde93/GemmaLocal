@@ -109,7 +109,7 @@ class PrescripcionController extends Controller
      */
     public function edit(Prescripcion $prescripcion)
     {
-        //
+        return view('prescripciones.edit', compact('prescripcion'));
     }
 
     /**

@@ -158,7 +158,7 @@ class FacturacionController extends Controller
      */
     public function edit(Facturacion $facturacion)
     {
-        //
+        return view('facturaciones.edit', compact('facturacion'));
     }
 
     /**

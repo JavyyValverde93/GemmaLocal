@@ -85,7 +85,7 @@ class CalificacionController extends Controller
      */
     public function edit(Calificacion $calificacion)
     {
-        //
+        return view('calificaciones.edit', compact('calificacion'));
     }
 
     /**

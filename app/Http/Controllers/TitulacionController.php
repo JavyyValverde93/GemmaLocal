@@ -93,7 +93,7 @@ class TitulacionController extends Controller
      */
     public function edit(Titulacion $titulacion)
     {
-        //
+        return view('titulaciones.edit', compact('titulacion'));
     }
 
     /**

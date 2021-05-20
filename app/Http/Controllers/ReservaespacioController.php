@@ -84,7 +84,7 @@ class ReservaespacioController extends Controller
      */
     public function edit(Reservaespacio $reservaespacio)
     {
-        //
+        return view('reservasespacios.edit', compact('reservaespacio'));
     }
 
     /**
