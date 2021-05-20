@@ -92,7 +92,7 @@ class TutorController extends Controller
      */
     public function edit(Tutor $tutor)
     {
-        return view('tutores.edit', compact('tutor'));
+        //
     }
 
     /**

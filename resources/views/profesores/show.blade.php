@@ -39,14 +39,35 @@
                         <span class="row"><b>Nº Seguridad:</b>&nbsp;{{$profesor->nss}}</span>
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <button class="btn btn-outline-danger" id="mostrar">Mostrar más datos</button>
-                </div>
                 <div class="container">
-
+                    <b>Observaciones</b>
+                    <textarea class="form-control bg-transparent" readonly>{{$profesor->observaciones}}</textarea>
+                </div>
+                <div class="row mt-3">
+                    <button class="btn btn-outline-danger ml-2" id="mostrar" onclick="mostrar()">Mostrar más datos</button>
+                </div>
+                <div id="datos" class="container">
+                    <span ><b>Forma de Pago:</b>&nbsp;{{$profesor->forma_pago}}</span>
+                    <span><b>Entidad Ingreso:</b>&nbsp;{{$profesor->entidad_ingreso}}</span>
+                    <span><b>Cuenta Ingreso:</b>&nbsp;{{$profesor->cuenta_ingreso}}</span>
+                    <span><b>Swift:</b>&nbsp;{{$profesor->swift}}</span>
+                    <span><b>IBAN:</b>&nbsp;{{$profesor->iban}}</span>
+                    <span><b>Impuesto:</b>&nbsp;{{$profesor->impuesto}}</span>
+                    <span><b>IRPF:</b>&nbsp;{{$profesor->irpf}}</span>
                 </div>
             </div>
         </div>
-
+        <script>
+            function mostrar(){
+                
+                if($("#datos").attr("style") != "display: none;"){
+                    $("#datos").hide();
+                }else{
+                    $("#datos").show();
+                    
+                }
+                
+            }
+        </script>
 	</x-slot>
 </x-menu-grupos>
