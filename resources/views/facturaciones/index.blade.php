@@ -1,4 +1,4 @@
-<x-menu>
+<x-menu-grupos>
     <x-slot name="slot">
         <h5 align="center">Facturaciones</h5>
         <div class="row">
@@ -14,4 +14,4 @@
             </div>
         </div>
     </x-slot>
-</x-menu>
+</x-menu-grupos>
