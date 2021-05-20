@@ -23,7 +23,7 @@
                 <th>Alumno</th>
                 <th>Actividad</th>
                 <th>Plazo</th>
-                <th>&nbsp;</th>
+                <th>Matricular</th>
             </tr>
             @foreach($prescripciones as $item)
             <tr>

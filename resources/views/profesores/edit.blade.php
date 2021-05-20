@@ -29,8 +29,11 @@
 				$('input[name=edad]').val(edad);
 			}
       </script>
-		<div align="center">Profesor</div>
-		<form action="{{route('profesores.update',$profesor)}}" enctype="multipart/form-data" method="POST" class="ml-5 mt-4 border p-5">
+	  <div class="row migaspan">
+            <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
+        </div>
+	  <h5 align="center">Profesores<h5>
+		<form action="{{route('profesores.update',$profesor)}}" enctype="multipart/form-data" method="POST" class="p-5">
 			@csrf
 			@method('PUT')
 			<div class="row justify-content-lg-center">

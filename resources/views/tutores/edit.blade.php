@@ -17,12 +17,12 @@
             }
 
         </style>
-        <div align="center">Tutores de {{$request->alumno}}</div>
+        <div align="center">Tutores de {{$tutor->alumno}}</div>
         <form action="{{route('tutores.edit', $tutor)}}" method="POST" class="ml-5 mt-4 border p-5">
             @csrf
             @method('PUT')
             <input type="hidden" name="id_alumno" value="{{$id_alumno}}">
-            <input type="hidden" name="alumno" value="{{$request->alumno}}">
+            <input type="hidden" name="alumno" value="{{$tutor->alumno}}">
             <div class="form-group">
                 <label class="form-text">Nombre del Tutor</label>
                 <input type="text" name="nombre" class="form-control" value="{{$tutor->nombre}}">

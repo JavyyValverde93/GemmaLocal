@@ -64,7 +64,7 @@ class AlumnoController extends Controller
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
         ],[
-            'nombre.required' => 'nombre',
+            'nombre.required' => 'El nombre es obligatorio, melón',
             'apellidos.required' => 'apellidos',
             'dni.required' => 'dni',
             'domicilio.required' => 'domicilio',
@@ -182,7 +182,7 @@ class AlumnoController extends Controller
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
         ],[
-            'nombre.required' => 'nombre',
+            'nombre.required' => 'El nombre es obligatorio, melón',
             'apellidos.required' => 'apellidos',
             'dni.required' => 'dni',
             'domicilio.required' => 'domicilio',

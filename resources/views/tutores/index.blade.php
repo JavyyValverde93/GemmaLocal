@@ -18,6 +18,7 @@
                 <th>DNI</th>
                 <th>Dirección</th>
                 <th>Relación</th>
+                <th>&nbsp;</th>
             </tr>
             @foreach($tutores as $item)
             <tr>
@@ -27,6 +28,10 @@
                 <td>{{$item->dni}}</td>
                 <td>{{$item->direccion}}</td>
                 <td>{{$item->relacion}}</td>
+                <td>
+                    <a href="{{route('tutores.show', $item)}}"><i class="fas fa-eye"></i></a>
+                    <a href="{{route('tutores.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                </td> 
                 
             </tr>
             @endforeach
