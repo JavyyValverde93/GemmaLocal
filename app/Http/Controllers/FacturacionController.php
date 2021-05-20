@@ -69,7 +69,7 @@ class FacturacionController extends Controller
             'cuenta' => 'required',
             'iban' => 'required',
             'mandato_sepa' => 'required',
-            'fecha_mandato' => 'required',
+            // 'fecha_mandato' => 'required',
             'nombre_banco' => 'required',
             'swift' => 'required',
             'direccion_banco' => 'required',
@@ -94,7 +94,7 @@ class FacturacionController extends Controller
             'cuenta.required' => 'cuenta',
             'iban.required' => 'iban',
             'mandato_sepa.required' => 'mandato_sepa',
-            'fecha_mandato.required' => 'fecha_mandato',
+            // 'fecha_mandato.required' => 'fecha_mandato',
             'nombre_banco.required' => 'nombre_banco',
             'swift.required' => 'swift',
             'direccion_banco.required' => 'direccion_banco',
@@ -121,8 +121,8 @@ class FacturacionController extends Controller
             $facturacion->iban = $request->iban;
             $facturacion->mandato_sepa = $request->mandato_sepa;
             $facturacion->swift = $request->swift;
-            $date = new DateTime($request->fecha_mandato);
-            $facturacion->fecha_mandato = $date->getTimestamp();
+            // $date = new DateTime($request->fecha_mandato);
+            // $facturacion->fecha_mandato = $date->getTimestamp();
             $facturacion->nombre_banco = $request->nombre_banco;
             $facturacion->direccion_banco = $request->direccion_banco;
             $facturacion->poblacion_banco = $request->poblacion_banco;
