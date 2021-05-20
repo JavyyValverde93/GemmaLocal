@@ -35,6 +35,7 @@
                     <a href="{{route('profesores.edit', $item)}}"><i class="fas fa-edit"></i></a>
                     <a href="{{route('titulaciones.index', ["id_profesor=$item->id", "profesor=$item->nombre $item->apellidos"])}}"><i class="fas fa-suitcase"></i></a>
                     <a href="{{route('salarios.index', ["id_profesor=$item->id"])}}"><i class="fas fa-euro-sign"></i></a>
+                    <a href="{{route('facturaciones.index', ["id_profesor=$item->id"])}}"><i class="fas fa-file-invoice"></i></a>
 
                 </td>
                 

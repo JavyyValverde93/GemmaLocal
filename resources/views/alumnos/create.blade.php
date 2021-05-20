@@ -16,6 +16,10 @@
             content: "*";
             color: red;
         }
+
+        small{
+          color: red;
+        }
       </style>
       <script>
         $(function(){
@@ -42,6 +46,7 @@
                 <div class="form-group col-md-2">
                   <label>Nombre</label>
                   <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                  <small>{{$errors->first('nombre')}}</small>
                 </div>
                 <div class="form-group col-md-2 offset-md-1">
                   <label>Apellidos</label>
