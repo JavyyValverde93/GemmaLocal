@@ -63,7 +63,7 @@ class InventarioController extends Controller
      */
     public function show(Inventario $inventario)
     {
-        //
+        return view('inventario.show',compact('inventario'));
     }
 
     /**

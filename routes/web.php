@@ -74,3 +74,5 @@ Route::post('asignarasistencia', [AsistenciaController::class, 'pasarListaGrupo'
 
 Route::get('verlistaasistencia/{alumno}', [AsistenciaController::class, 'verasistencias'])->name('asistencia.verlista');
 
+Route::get('justificarfalta/{asistencia}', [AsistenciaController::class, 'justificarFalta'])->name('asistencia.justificar');
+

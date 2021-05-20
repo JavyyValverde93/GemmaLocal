@@ -35,7 +35,7 @@ class CreateFacturacionesTable extends Migration
             $table->string('iban');
             $table->string('mandato_sepa');//firmado, no firmado
             $table->integer('swift');
-            $table->timestamp('fecha_mandato')->nullable();
+            $table->bigInteger('fecha_mandato')->nullable();
             $table->string('nombre_banco');
             $table->string('direccion_banco');
             $table->string('poblacion_banco');

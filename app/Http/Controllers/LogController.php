@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Log;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LogController extends Controller
@@ -12,9 +13,10 @@ class LogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $logs = Log::orderBy('id', 'desc')->where('id_usuario', Auth::user()->id)->paginate(15);
+        return view('logs.index', compact('logs', 'request'));
     }
 
     /**
@@ -24,7 +26,8 @@ class LogController extends Controller
      */
     public function create()
     {
-        //
+        $id_usuario = Auth::user()->id;
+        return view('logs.create', compact('id_usuario'));
     }
 
     /**
@@ -46,7 +49,7 @@ class LogController extends Controller
             $log->accion = $request->accion;
             $log->fecha_creacion = now()->getTimestamp();
             $log->save();
-            return back()->with('mensaje', 'Log creado');
+            return redirect()->route('logs.index')->with('mensaje', 'Log creado');
         }catch(\Exception $ex){
             return back()->with('error', 'Error al crear el log');
         }

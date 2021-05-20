@@ -10,6 +10,7 @@
               color: red;
         }
       </style>
+      <h1 class="ml-5 mt-1">Inventario</h1>
         <form action="{{route('inventario.update', $inventario)}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
           @csrf
           @method('PUT')

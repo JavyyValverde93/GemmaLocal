@@ -35,10 +35,18 @@
                  <td> Presente </td>
                  <td></td>
                 @else
+                @if ($item->justificada==1)
+
+                <td>Justificada</td>
+                <td></td>
+
+               @else
 
                <td>Ausente</td>
 
-               <td><a onclick="justificar(this)"><i class="fas fa-check"></i></a></td>
+               <td><a href="{{route('asistencia.justificar',$item)}}"><i class="fas fa-check"></i></a></td>
+
+               @endif
 
                 @endif
         </tr>
@@ -48,14 +56,7 @@
         {{$asistencia->appends($request->except('page'))->links()}}
     </div>
 
-    <script>
 
-     function justificar(e){
-
-            console.log(e);
-     }
-
-    </script>
 
 </x-slot>
 

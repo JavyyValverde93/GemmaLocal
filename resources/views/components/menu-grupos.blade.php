@@ -54,9 +54,6 @@ session_start();
                         <a class="text-white text-decoration-none" href="{{route('espacios.index')}}" id="room">room</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                        <a class="text-white text-decoration-none" href="{{route('facturaciones.index')}}" id="room">request_quote</a>
-                        </span> 
-                        <span class="material-icons align-middle mt-3">
                         <a class="text-white text-decoration-none" href="{{route('comunicaciones.index')}}" id="room">email</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
@@ -79,7 +76,6 @@ session_start();
                         <a href="{{route('alumnos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
                         <a href="{{route('profesores.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Profesores</a>
                         <a href="{{route('espacios.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Espacios</a>
-                        <a href="{{route('facturaciones.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Facturaciones</a>
                         <a href="{{route('comunicaciones.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Comunicaciones</a>
                         <a href="{{route('logs.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Logs</a>
                         <form method="POST" action="{{ route('logout') }}">
@@ -127,14 +123,11 @@ session_start();
                         margin: 0 5px;
                     }
                     
-                    .container{
-                    text-align: center;
-                    }
                     .table-striped tbody tr:nth-of-type(odd){
                     background-color: rgb(237,245,245);
                     }
                     .table-hover tbody tr:hover{
-                    background-color: #ddc7c9;
+                    background-color: #fff5f57e;
                     color: rgb(112,24,78);
                     }
                     .thead-green{
@@ -142,9 +135,21 @@ session_start();
                     color: white;
                     }
 
-                </style>
+                    .page-item.active .page-link{
+                        background-color: #dc3545;
+                        border: 1px solid red;;
+                    }
 
-                <div class="container ml-3">
+                    .page-link{
+                        color: #dc3545;
+                    }
+                    .page-link:hover{
+                        color: red;
+                    }
+
+                </style>
+            <div style="width: 98%">
+                <div class="container-fluid ml-3">
                     <x-alert-message></x-alert-message>
                     @if ($errors->any())
                     <div class="alert alert-danger mt-3">
@@ -157,6 +162,7 @@ session_start();
                     @endif
                     {{ $slot }}
                 </div>
+            </div>
             </div>
         </div>
         

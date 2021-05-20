@@ -14,9 +14,8 @@
 
         </style>
         <h4 align="center">Facturación de {{$profesor->nombre}} {{$profesor->apellidos}}</h4>
-        <form action="{{route('facturaciones.update', $facturacion)}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
+        <form action="{{route('facturaciones.store')}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
           @csrf
-          @method('PUT')
             <div class="form-row">
               <input type="hidden" name="id_usuario" value="{{$id_usuario}}">
                 <div class="form-group col-md-6 mx-4">
@@ -37,14 +36,9 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-auto mx-4">
-                    <?php 
-                        $cad = strpos($facturacion->caducidad, "/");
-                        $cad2 = substr($facturacion->caducidad, $cad+1, 2);
-                        $cad1 = str_replace("/".$cad2, "", $facturacion->caducidad);
-                    ?>
                     <label>Caducidad:</label><br>
-                    <input type="number" min="01" max="12" step="1" name="caducidad" value="{{$cad1}}" :value="{{old('caducidad')}}" size="2"> / <input type="number"
-                        step="1" min="21" max="50" name="caducidad2" value="{{$cad2}}" :value="{{old('caducidad2')}}" maxlength="2">
+                    <input type="number" min="01" max="12" step="1" name="caducidad" value="{{$facturacion->caducidad}}" :value="{{old('caducidad')}}" size="2"> / <input type="number"
+                        step="1" min="21" max="50" name="caducidad2" value="{{$facturacion->caducidad2}}" :value="{{old('caducidad2')}}" maxlength="2">
                 </div>
 
                 <div class="form-group col-auto mx-4">
@@ -139,6 +133,10 @@
                     <input type="number" name="swift" value="{{$facturacion->swift}}" :value="{{old('swift')}}" step="1" min="0" required>
                 </div>
 
+                <div class="form-group col-auto mx-4">
+                    <label>Fecha mandato:</label><br>
+                    <input type="date" name="fecha_mandato" value="{{date("Y-m-d", $facturacion->fecha_mandato)}}" :value="{{old('fecha_mandato')}}" required>
+                </div>
 
                 <div class="form-group col-auto mx-4">
                     <label>Nombre del banco:</label><br>
@@ -164,7 +162,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-danger ml-3">Modificar facturación</button>
+            <button type="submit" class="btn btn-danger ml-3">Crear facturación</button>
         </form>
     </x-slot>
 </x-menu-grupos>
