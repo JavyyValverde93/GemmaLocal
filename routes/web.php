@@ -71,3 +71,6 @@ Route::post('plazoprescripcion', [PlazoprescripcionController::class, 'plazopres
 //Calificar grupo
 Route::post('calificargrupo', [CalificacionController::class, 'calificarGrupo'])->name('calificaciones.calificar-grupo');
 Route::post('asignarasistencia', [AsistenciaController::class, 'pasarListaGrupo'])->name('asistencia.pasarlista');
+
+Route::get('verlistaasistencia/{alumno}', [AsistenciaController::class, 'verasistencias'])->name('asistencia.verlista');
+

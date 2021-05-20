@@ -25,22 +25,42 @@
                     <th>Grupo</th>
                     <th>&nbsp;</th>
                 </tr>
+
+
+
                 @foreach($alumnos as $item)
+
+                @php
+                    $tienenota=0;
+                @endphp
                 <tr>
                     <td> </td>
                     <td>{{$item->alumno->nombre}} {{$item->alumno->apellidos}}</td>
                     <td>{{$item->grupo->nombre}}</td>
                     <td>
-                        <input type="number" name="nota[]" value="@php
+                       @foreach ( $calificaciones as $cali )
 
-                            foreach ($calificaciones as  $nota) {
-                                if($item->alumno->id==$nota->id_alumno){
+                       @if ($item->alumno->id==$cali->id_alumno)
 
-                                        echo $nota->nota;
-                                }
-                            }
+                       @php
+                            $tienenota++;
+                       @endphp
 
-                        @endphp" min="0" max="100" step="1" placeholder="Sin Calificar">
+                       <input type="number" name="nota[]" value="{{$cali->nota}}" min="0" max="100" step="1" placeholder="Sin Calificar">
+
+                       @php
+                           break;
+                       @endphp
+
+                       @endif
+
+                       @endforeach
+
+                       @if ($tienenota==0)
+
+                       <input type="number" name="nota[]" min="0" max="100" step="1" placeholder="Sin Calificar">
+
+                       @endif
                     </td>
 
                     <input type="hidden" name="id_alumno[]" value="{{$item->alumno->id}}">

@@ -30,7 +30,6 @@ class CalificacionController extends Controller
     {
         $alumnos = Matricula::orderBy('id_alumno')->where('id_grupo', $request->id_grupo)->paginate(10);
         $calificaciones = Calificacion::orderBy('id_alumno')->where('id_grupo',$request->id_grupo)->get();
-
         return view('calificaciones.calificar-grupo', compact('request', 'alumnos', 'calificaciones'));
 
     }
@@ -136,30 +135,42 @@ class CalificacionController extends Controller
 
     public function calificarGrupo(Request $request){
 
-
           for($i=0;$i<count($request->nota);$i++){
 
-            $existe=Calificacion::where('id_grupo',$request->id_grupo)->where('id_alumno',$request->id_alumno[1])->count();
+
+            $existe=Calificacion::where('id_grupo',$request->id_grupo)->where('id_alumno',$request->id_alumno[$i])->count();
 
             if($existe>0){
 
-           $calificacion = Calificacion::where('id_alumno',$request->id_alumno[$i]);
 
-            $nota=$request->nota[$i];
+                    if($request->nota[$i]!=null){
 
-            $calificacion->update(['nota' => $nota]);
+                        $calificacion = Calificacion::where('id_alumno',$request->id_alumno[$i]);
+
+                        $calificacion->update(['nota' => $request->nota[$i]]);
+                    }
+
+
 
         }else{
 
 
-            $calificacion = new Calificacion();
 
-            $calificacion->id_alumno = $request->id_alumno[$i];
-            $calificacion->id_grupo = $request->id_grupo;
-            $calificacion->id_periodocalificacion = $request->id_periodocalificacion;
-            $calificacion->nota = $request->nota[$i];
+                $calificacion = new Calificacion();
 
-            $calificacion->save();
+                $calificacion->id_alumno = $request->id_alumno[$i];
+                $calificacion->id_grupo = $request->id_grupo;
+                $calificacion->id_periodocalificacion = $request->id_periodocalificacion;
+
+                if($request->nota[$i]!=null){
+
+                    $calificacion->nota = $request->nota[$i];
+
+                    $calificacion->save();
+
+
+                }
+
 
         }
 
