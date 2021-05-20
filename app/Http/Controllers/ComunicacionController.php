@@ -72,7 +72,7 @@ class ComunicacionController extends Controller
      */
     public function edit(Comunicacion $comunicacion)
     {
-        //
+        return view('comunicaciones.edit', compact('comunicacion'));
     }
 
     /**

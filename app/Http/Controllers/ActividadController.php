@@ -89,7 +89,7 @@ class ActividadController extends Controller
      */
     public function edit(Actividad $actividad)
     {
-        //
+        return view('actividades.edit', compact('actividad'));
     }
 
     /**

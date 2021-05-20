@@ -12,7 +12,10 @@
               color: red;
         }
       </style>
-        <form action="{{route('espacios.update',$espacio)}}" method="POST" class="ml-5 mt-4 border p-5">
+        <div class="row migaspan">
+            <a href="{{route('espacios.index')}}" class="text-danger">Espacios</a> >
+        </div>
+        <form action="{{route('espacios.update',$espacio)}}" method="POST" class="mt-4 border p-5">
           @csrf
             <div class="form-row">
               <div class="form-group col-md-6 mx-4">

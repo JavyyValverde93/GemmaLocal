@@ -92,7 +92,7 @@ class SalarioController extends Controller
      */
     public function edit(Salario $salario)
     {
-        //
+        return view('salarios.edit', compact('salario'));
     }
 
     /**

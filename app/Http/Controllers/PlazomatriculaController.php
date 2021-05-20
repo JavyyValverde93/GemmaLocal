@@ -80,7 +80,7 @@ class PlazomatriculaController extends Controller
      */
     public function edit(Plazomatricula $plazomatricula)
     {
-        //
+        return view('plazosmatriculas.edit', compact('plazomatricula'));
     }
 
     /**

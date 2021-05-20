@@ -83,7 +83,7 @@ class LogController extends Controller
      */
     public function update(Request $request, Log $log)
     {
-        //
+        return view('logs.edit', compact('log'));
     }
 
     /**

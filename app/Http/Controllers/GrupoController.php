@@ -121,7 +121,7 @@ class GrupoController extends Controller
      */
     public function edit(Grupo $grupo)
     {
-        //
+        return view('grupos.edit', compact('grupo'));
     }
 
     /**

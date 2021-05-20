@@ -79,7 +79,7 @@ class PeriodocalificacionController extends Controller
      */
     public function edit(Periodocalificacion $periodocalificacion)
     {
-        //
+        return view('periodoscalificaciones.edit', compact('periodocalificacion'));
     }
 
     /**
