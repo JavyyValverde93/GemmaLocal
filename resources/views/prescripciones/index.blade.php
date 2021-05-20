@@ -17,7 +17,7 @@
             </form>
             </div>
         </div>
-        <table class="table table-sm">
+        <table class="table table-striped table-hover table-sm">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th>Id</th>
                 <th>Alumno</th>

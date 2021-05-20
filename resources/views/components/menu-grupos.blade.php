@@ -130,6 +130,22 @@ session_start();
                         text-decoration: underline;
                         margin: 0 5px;
                     }
+                    
+                    .container{
+                    text-align: center;
+                    }
+                    .table-striped tbody tr:nth-of-type(odd){
+                    background-color: rgb(237,245,245);
+                    }
+                    .table-hover tbody tr:hover{
+                    background-color: #ddc7c9;
+                    color: rgb(112,24,78);
+                    }
+                    .thead-green{
+                    background-color: rgb(0, 99, 71);
+                    color: white;
+                    }
+
                 </style>
 
                 <div class="container ml-3">
