@@ -96,6 +96,8 @@ class GrupoController extends Controller
             $actividad->id_grupo = $grupo->id;
             $actividad->save();
 
+            $this->Log("Ha creado la Actividad $actividad->nombre en el grupo $grupo->nombre");
+
             return redirect()->route('grupos.index')->with('mensaje', 'Grupo creado');
         }catch(\Exception $ex){
             return back()->with('error', 'El grupo no ha podido crearse');
