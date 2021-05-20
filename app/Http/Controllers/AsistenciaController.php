@@ -168,4 +168,12 @@ class AsistenciaController extends Controller
 
     }
 
+    public function justificarFalta(Asistencia $asistencia){
+
+         $asistencia->update(['justificada'=>true]);
+
+         return back()->with('mensaje', 'Falta Justificada');
+
+    }
+
 }
