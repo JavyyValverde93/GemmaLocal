@@ -3,7 +3,7 @@
 		<div class="row migaspan">
             <a href="{{route('matriculas.index')}}" class="text-danger">Matriculas</a> >
         </div>
-        <div align="center">Matrículas</div>
+        <h5 align="center">Matrículas</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('plazosmatriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Plazo Matriculación</a>

@@ -4,7 +4,7 @@
             <a href="{{route('inventario.index')}}" class="text-danger">Inventario</a> >
             <a href="{{route('prestamos.index')}}" class="text-danger">Prestamos</a> >
         </div>
-        <div align="center">Préstamos</div>
+        <h5 align="center">Préstamos</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('inventario.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Añadir a Inventario</a>
