@@ -26,7 +26,7 @@ session_start();
         <div class="d-flex ml-4" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-danger border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading ml-5" style="color: white; font-size: 20px;">GEMMA</div>
+                <div class="sidebar-heading ml-4" style="color: white; font-size: 25px;">GEMMA</div>
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
                         <span class="material-icons align-middle" style="margin-top: 75px;">
@@ -45,16 +45,13 @@ session_start();
                             <a class="text-white text-decoration-none" href="{{route('inventario.index')}}" id="inventory">inventory_2</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('alumnos.index')}}" id="face">face</a>
+                            <a class="text-white text-decoration-none" href="{{route('alumnos.index')}}" id="face">person</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
                             <a class="text-white text-decoration-none" href="{{route('profesores.index')}}" id="school">school</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
                         <a class="text-white text-decoration-none" href="{{route('espacios.index')}}" id="room">room</a>
-                        </span> 
-                        <span class="material-icons align-middle mt-3">
-                        <a class="text-white text-decoration-none" href="{{route('salarios.index')}}" id="room">euro</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
                         <a class="text-white text-decoration-none" href="{{route('facturaciones.index')}}" id="room">request_quote</a>
@@ -82,7 +79,6 @@ session_start();
                         <a href="{{route('alumnos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
                         <a href="{{route('profesores.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Profesores</a>
                         <a href="{{route('espacios.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Espacios</a>
-                        <a href="{{route('salarios.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Salarios</a>
                         <a href="{{route('facturaciones.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Facturaciones</a>
                         <a href="{{route('comunicaciones.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Comunicaciones</a>
                         <a href="{{route('logs.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Logs</a>
@@ -117,7 +113,7 @@ session_start();
 
                 <style>
                     tr td i:last-child{
-                        color: black;
+                        color: rgb(110, 110, 110);
                     }
 
                     tr td a{
