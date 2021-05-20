@@ -29,18 +29,18 @@
             <tr>
                 <td class="m-2">
                     <a href="{{route('alumnos.show', $item)}}"><i class="fas fa-eye"></i></a>
-                    <a href="{{route('alumnos.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                    <a href="{{route('alumnos.edit', $item)}}"><i class="fas fa-pencil-alt"></i></a>
                     <a href="{{route('matriculas.index', ['id_alumno='.$item->id, 'plazomatricula=true'])}}"><i class="fas fa-clipboard-list"></i></a>
                     <a href="{{route('prescripciones.index', ['id_alumno='.$item->id, 'plazoprescripcion=true'])}}"><i class="fas fa-file-prescription"></i></a>
                     <a href="{{route('tutores.index', ["id_alumno=$item->id", "alumno=$item->nombre $item->apellidos"])}}"><i class="fas fa-address-book"></i></a>
-                    <a href="{{route('asistencia.verlista',$item)}}"><i class="fas fa-list"></i></a>
+                    <a href="{{route('asistencias.index', ["id_alumno=$item->id", "alumno=$item->nombre $item->apellidos"])}}"><i class="fas fa-list"></i></a>
                 </td>
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}} {{$item->apellidos}}</td>
                 <td>{{$item->dni}}</td>
                 <td>{{$item->telefono}}<br>{{$item->telefono2}}</td>
-
-
+                
+                
             </tr>
             @endforeach
         </table>

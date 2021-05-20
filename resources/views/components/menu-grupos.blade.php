@@ -127,14 +127,11 @@ session_start();
                         margin: 0 5px;
                     }
                     
-                    .container{
-                    text-align: center;
-                    }
                     .table-striped tbody tr:nth-of-type(odd){
                     background-color: rgb(237,245,245);
                     }
                     .table-hover tbody tr:hover{
-                    background-color: #ddc7c9;
+                    background-color: #fff5f57e;
                     color: rgb(112,24,78);
                     }
                     .thead-green{
@@ -142,9 +139,21 @@ session_start();
                     color: white;
                     }
 
-                </style>
+                    .page-item.active .page-link{
+                        background-color: #dc3545;
+                        border: 1px solid red;;
+                    }
 
-                <div class="container ml-3">
+                    .page-link{
+                        color: #dc3545;
+                    }
+                    .page-link:hover{
+                        color: red;
+                    }
+
+                </style>
+            <div style="width: 98%">
+                <div class="container-fluid ml-3">
                     <x-alert-message></x-alert-message>
                     @if ($errors->any())
                     <div class="alert alert-danger mt-3">
@@ -157,6 +166,7 @@ session_start();
                     @endif
                     {{ $slot }}
                 </div>
+            </div>
             </div>
         </div>
         

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asistencia;
-use App\Models\Matricula;
 use App\Models\Alumno;
+use App\Models\Matricula;
 use Illuminate\Http\Request;
 
 class AsistenciaController extends Controller
@@ -159,6 +159,7 @@ class AsistenciaController extends Controller
 
 
     }
+
 
     public function verasistencias(Request $request, Alumno $alumno){
 

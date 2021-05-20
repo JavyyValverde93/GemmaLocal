@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inventario;
 use App\Models\Prestamo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class PrestamoController extends Controller
 {
@@ -74,7 +75,8 @@ class PrestamoController extends Controller
      */
     public function show(Prestamo $prestamo)
     {
-        //
+        $inventario = Inventario::find($prestamo->id_inventario);
+        return view('prestamos.show',compact('prestamo'));
     }
 
     /**
