@@ -18,7 +18,7 @@
             </form>
             </div>
         </div>
-        <table class="table table-sm">
+        <table class="table table-striped table-hover table-sm">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th>Id</th>
                 <th>Nombre</th>
@@ -34,7 +34,10 @@
                 <td>{{$item->user->name}}</td>
                 <td style="width: 400px">{{$item->observaciones}}</td>
                 <td>{{date("d/m/Y", $item->fecha_modificacion)}}</td>
-               
+                <td>
+                    <a href="{{route('prestamos.show', $item)}}"><i class="fas fa-eye"></i></a>
+                    <a href="{{route('prestamos.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                </td>               
                 
             </tr>
             @endforeach

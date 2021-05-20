@@ -14,7 +14,7 @@
         </div>
         <form action="{{route('asistencia.pasarlista')}}" method="POST">
             @csrf
-            <table class="table">
+            <table class="table table-striped table-hover table-sm">
                 <tr class="rounded text-white" style="background-color: #dc3545">
                     <th> </th>
                     <th>Nombre</th>
