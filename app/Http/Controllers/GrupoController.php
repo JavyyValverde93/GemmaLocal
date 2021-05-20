@@ -110,7 +110,9 @@ class GrupoController extends Controller
      */
     public function show(Grupo $grupo)
     {
-        //
+        $profesor = Profesor::find($grupo->id_profesor);
+        $espacio = Espacio::find($grupo->id_espacio);
+        return view('grupos.show',compact('grupo','profesor','espacio'));
     }
 
     /**

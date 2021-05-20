@@ -127,7 +127,9 @@ session_start();
                         margin: 0 5px;
                     }
                     
-                    
+                    .container{
+                    text-align: center;
+                    }
                     .table-striped tbody tr:nth-of-type(odd){
                     background-color: rgb(237,245,245);
                     }

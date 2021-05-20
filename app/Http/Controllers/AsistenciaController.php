@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Asistencia;
 use App\Models\Matricula;
-use App\Models\Alumno;
 use Illuminate\Http\Request;
 
 class AsistenciaController extends Controller
@@ -159,13 +158,4 @@ class AsistenciaController extends Controller
 
 
     }
-
-    public function verasistencias(Request $request, Alumno $alumno){
-
-        $asistencia=Asistencia::where('id_alumno',$alumno->id)->paginate(6);
-
-        return view('asistencias.listaasistencias',compact('alumno','asistencia','request'));
-
-    }
-
 }

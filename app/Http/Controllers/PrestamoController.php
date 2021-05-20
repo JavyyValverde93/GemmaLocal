@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inventario;
 use App\Models\Prestamo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class PrestamoController extends Controller
 {
@@ -74,7 +75,8 @@ class PrestamoController extends Controller
      */
     public function show(Prestamo $prestamo)
     {
-        //
+        $inventario = Inventario::find($prestamo->id_inventario);
+        return view('prestamos.show',compact('prestamo'));
     }
 
     /**
@@ -85,7 +87,7 @@ class PrestamoController extends Controller
      */
     public function edit(Prestamo $prestamo)
     {
-        return view('prestamos.edit', compact('prestamo'));
+        //
     }
 
     /**
@@ -97,31 +99,7 @@ class PrestamoController extends Controller
      */
     public function update(Request $request, Prestamo $prestamo)
     {
-        $request->validate([
-            'id_usuario' => 'required',
-            'id_inventario' => 'required',
-            'fecha_prevista_devolucion' => 'required',
-            'importe_fianza' => 'required',
-            'concepto_fianza' => 'required',
-            'observaciones' => 'required',
-        ]);
-
-        try{
-            $prestamo->id_usuario = $request->id_usuario;
-            $prestamo->id_inventario = $request->id_inventario;
-            $date = new \DateTime($request->fecha_prevista_devolucion);
-            $prestamo->fecha_prevista_devolucion = $date->getTimestamp();
-            $prestamo->importe_fianza = $request->importe_fianza;
-            $prestamo->concepto_fianza = $request->concepto_fianza;
-            $prestamo->observaciones = $request->observaciones;
-            $prestamo->fecha_creacion = now()->getTimestamp();
-            $prestamo->fecha_modificacion = now()->getTimestamp();
-            $prestamo->save();
-
-            return back()->with('mensaje', 'Préstamo modificado correctamente.');
-        }catch(\Exception $ex){
-            return back()->with('error', 'El préstamo no ha podido modificarse.');
-        }
+        //
     }
 
     /**

@@ -64,7 +64,7 @@ class AlumnoController extends Controller
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
         ],[
-            'nombre.required' => 'El nombre es obligatorio, melón',
+            'nombre.required' => 'nombre',
             'apellidos.required' => 'apellidos',
             'dni.required' => 'dni',
             'domicilio.required' => 'domicilio',
@@ -142,7 +142,7 @@ class AlumnoController extends Controller
      */
     public function show(Alumno $alumno)
     {
-        //
+        return view('alumnos.show',compact('alumno'));
     }
 
     /**
@@ -182,7 +182,7 @@ class AlumnoController extends Controller
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
         ],[
-            'nombre.required' => 'El nombre es obligatorio, melón',
+            'nombre.required' => 'nombre',
             'apellidos.required' => 'apellidos',
             'dni.required' => 'dni',
             'domicilio.required' => 'domicilio',

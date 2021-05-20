@@ -14,8 +14,7 @@ class ComunicacionController extends Controller
      */
     public function index()
     {
-        $comunicaciones = Comunicacion::orderBy('id')->paginate(10);
-        return view('comunicaciones.index', compact('comunicaciones'));
+        //
     }
 
     /**

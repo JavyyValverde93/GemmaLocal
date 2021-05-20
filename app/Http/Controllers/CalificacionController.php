@@ -30,6 +30,7 @@ class CalificacionController extends Controller
     {
         $alumnos = Matricula::orderBy('id_alumno')->where('id_grupo', $request->id_grupo)->paginate(10);
         $calificaciones = Calificacion::orderBy('id_alumno')->where('id_grupo',$request->id_grupo)->get();
+
         return view('calificaciones.calificar-grupo', compact('request', 'alumnos', 'calificaciones'));
 
     }
@@ -135,42 +136,30 @@ class CalificacionController extends Controller
 
     public function calificarGrupo(Request $request){
 
+
           for($i=0;$i<count($request->nota);$i++){
 
-
-            $existe=Calificacion::where('id_grupo',$request->id_grupo)->where('id_alumno',$request->id_alumno[$i])->count();
+            $existe=Calificacion::where('id_grupo',$request->id_grupo)->where('id_alumno',$request->id_alumno[1])->count();
 
             if($existe>0){
 
+           $calificacion = Calificacion::where('id_alumno',$request->id_alumno[$i]);
 
-                    if($request->nota[$i]!=null){
+            $nota=$request->nota[$i];
 
-                        $calificacion = Calificacion::where('id_alumno',$request->id_alumno[$i]);
-
-                        $calificacion->update(['nota' => $request->nota[$i]]);
-                    }
-
-
+            $calificacion->update(['nota' => $nota]);
 
         }else{
 
 
+            $calificacion = new Calificacion();
 
-                $calificacion = new Calificacion();
+            $calificacion->id_alumno = $request->id_alumno[$i];
+            $calificacion->id_grupo = $request->id_grupo;
+            $calificacion->id_periodocalificacion = $request->id_periodocalificacion;
+            $calificacion->nota = $request->nota[$i];
 
-                $calificacion->id_alumno = $request->id_alumno[$i];
-                $calificacion->id_grupo = $request->id_grupo;
-                $calificacion->id_periodocalificacion = $request->id_periodocalificacion;
-
-                if($request->nota[$i]!=null){
-
-                    $calificacion->nota = $request->nota[$i];
-
-                    $calificacion->save();
-
-
-                }
-
+            $calificacion->save();
 
         }
 
