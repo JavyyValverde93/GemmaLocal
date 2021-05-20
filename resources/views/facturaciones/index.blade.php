@@ -1,6 +1,6 @@
 <x-menu>
     <x-slot name="slot">
-        <div align="center">Facturaciones</div>
+        <h5 align="center">Facturaciones</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('facturaciones.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Factura</a>

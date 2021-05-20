@@ -5,7 +5,7 @@
             <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
             <a href="" class="text-danger">Titulaciones</a> >
         </div>
-        <div align="center">Titulaciones de {{$profesor}}</div>
+        <h5 align="center">Titulaciones de {{$profesor}}</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('titulaciones.create', ["id_profesor=$id_profesor", "profesor=$profesor"])}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle mr-2"></i> Añadir Titulación</a>

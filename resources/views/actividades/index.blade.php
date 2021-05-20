@@ -4,7 +4,7 @@
             <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
             <a href="{{route('actividades.index')}}" class="text-danger"> Actividades </a> > 
         </div>
-        <div align="center">Actividades</div>
+        <h5 align="center">Actividades</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('grupos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Grupo</a>

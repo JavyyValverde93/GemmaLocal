@@ -1,6 +1,6 @@
 <x-menu-grupos>
     <x-slot name="slot">
-        <div align="center">Plazos Matrículas</div>
+        <h5 align="center">Plazos Matrículas</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('plazosmatriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Plazo Matriculación</a>

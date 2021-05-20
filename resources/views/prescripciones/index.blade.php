@@ -3,7 +3,7 @@
 		<div class="row migaspan">
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
         </div>
-        <div align="center">Prescripciones</div>
+        <h5 align="center">Prescripciones</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('prescripciones.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Prescripción</a>

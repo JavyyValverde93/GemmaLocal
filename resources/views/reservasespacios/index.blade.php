@@ -1,6 +1,6 @@
 <x-menu-grupos>
     <x-slot name="slot">
-        <div align="center">Reservas de Espacios</div>
+        <h5 align="center">Reservas de Espacios</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('reservasespacios.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Reservar Espacio</a>

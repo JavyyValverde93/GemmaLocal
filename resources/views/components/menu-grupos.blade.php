@@ -26,7 +26,7 @@ session_start();
         <div class="d-flex ml-4" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-danger border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading ml-4" style="color: white; font-size: 25px;">GEMMA</div>
+                <div class="sidebar-heading ml-5" style="color: white; font-size: 20px;">GEMMA</div>
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
                         <span class="material-icons align-middle" style="margin-top: 75px;">
