@@ -10,7 +10,7 @@
                 <a href="{{route('tutores.create', ["id_alumno=$id_alumno", "alumno=$alumno"])}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle mr-2"></i> Añadir Tutor</a>
             </div>
         </div>
-        <table class="table">
+        <table class="table table-striped table-hover table-sm">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th> </th>
                 <th>Nombre del Tutor</th>
@@ -18,6 +18,7 @@
                 <th>DNI</th>
                 <th>Dirección</th>
                 <th>Relación</th>
+                <th>&nbsp;</th>
             </tr>
             @foreach($tutores as $item)
             <tr>
@@ -27,6 +28,10 @@
                 <td>{{$item->dni}}</td>
                 <td>{{$item->direccion}}</td>
                 <td>{{$item->relacion}}</td>
+                <td>
+                    <a href="{{route('tutores.show', $item)}}"><i class="fas fa-eye"></i></a>
+                    <a href="{{route('tutores.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                </td> 
                 
             </tr>
             @endforeach
