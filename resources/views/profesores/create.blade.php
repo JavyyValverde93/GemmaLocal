@@ -33,7 +33,6 @@
 				$('input[name=edad]').val(edad);
 			}
 		  </script>
-		<div align="center">Profesor</div>
 		<form action="{{route('profesores.store')}}" method="POST" enctype="multipart/form-data" class="p-5">
 			@csrf
 			<div class="row justify-content-lg-center">

@@ -12,7 +12,6 @@
               padding-right: 26px;
             }
           </style>
-        <div align="center">Préstamos</div>
 
         <form action="{{route('prestamos.store')}}" method="POST" class="mt-4 border p-5">
             @csrf

@@ -187,6 +187,8 @@ a {
 #mail:hover {
   padding:7px;
   padding-top: 10px;
+  padding-top: 10px;
+  color: #d9534f !important;
 }
 
 a:hover {

@@ -3,7 +3,7 @@
 		<div class="row migaspan">
             <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
         </div>
-        <div align="center">Grupos</div>
+        <h5 align="center">Grupos</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('grupos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Grupo</a>

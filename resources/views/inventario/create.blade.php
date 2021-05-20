@@ -11,7 +11,6 @@
             color: red;
       }
     </style>
-    <h1 class="mt-1">Inventario</h1>
       <form action="{{route('inventario.store')}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
         @csrf
           <div class="form-row">
