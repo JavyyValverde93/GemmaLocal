@@ -44,6 +44,14 @@ class ReservaespacioController extends Controller
             'id_espacio'=> 'required',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'descripcion.required'=>'Es obligatorio la descripcion',
+            'id_grupo.required'=>'Es obligatorio el id del grupo',
+            'id_usuario.required'=>'Es obligatorio el id del usuario',
+            'id_espacio.required'=>'Es obligatorio el id del espacio',
+            'fecha_inicio.required'=>'Es obligatorio la fecha de inicio',
+            'fecha_fin.required'=>'Es obligatorio la fecha de fin'
         ]);
 
         try{
@@ -104,6 +112,14 @@ class ReservaespacioController extends Controller
             'id_espacio'=> 'required',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'descripcion.required'=>'Es obligatorio la descripcion',
+            'id_grupo.required'=>'Es obligatorio el id del grupo',
+            'id_usuario.required'=>'Es obligatorio el id del usuario',
+            'id_espacio.required'=>'Es obligatorio el id del espacio',
+            'fecha_inicio.required'=>'Es obligatorio la fecha de inicio',
+            'fecha_fin.required'=>'Es obligatorio la fecha de fin'
         ]);
 
         try{

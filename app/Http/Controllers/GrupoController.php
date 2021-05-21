@@ -70,7 +70,17 @@ class GrupoController extends Controller
             'descripcion' => 'required',
             'horas' => 'required',
             'asistencia' => 'required',
-            'anio_academico' => 'required',
+            'anio_academico' => 'required'
+        ],[
+            'id_profesor.required'=>'Es obligatorio el id profesor',
+            'nombre.required'=>'Es obligatorio el nombre',
+            'id_espacio.required'=>'Es obligatorio el id espacio',
+            'id_categoria.required'=>'Es obligatorio el id categoria',
+            'nombre_actividad.required'=>'Es obligatorio el nombre de la actividad',
+            'descripcion.required'=>'Es obligatorio la descripcion',
+            'horas.required'=>'Es obligatorio el numero de horas',
+            'asistencia.required'=>'Es obligatorio la asistencia',
+            'anio_academico.required'=>'Es obligatorio el año academico'
         ]);
 
         try{
@@ -142,6 +152,10 @@ class GrupoController extends Controller
             'id_profesor' => 'required',
             'nombre' => 'required',
             'id_espacio' => 'required'
+        ],[
+            'id_profesor.required'=>'Es obligatorio el id profesor',
+            'nombre.required'=>'Es obligatorio el nombre',
+            'id_espacio.required'=>'Es obligatorio el id espacio'
         ]);
 
         try{

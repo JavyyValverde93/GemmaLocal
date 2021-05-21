@@ -79,8 +79,8 @@ class MatriculaController extends Controller
             'id_alumno' => 'required',
             'id_plazomatricula' => 'required',
         ],[
-            'id_alumno.required' => 'Id de alumno requerido',
-            'id_plazomatriculacion.required' => 'Id del plazo reuqerido'
+            'id_alumno.required' => 'Es obligatorio el id del alumno',
+            'id_plazomatriculacion.required' => 'Es obligatorio el id del plazo de matriculacion'
         ]);
 
         $validar = Matricula::where('id_alumno', $request->id_alumno)
@@ -141,8 +141,11 @@ class MatriculaController extends Controller
         $request->validate([
             'id_alumno' => 'required',
             'id_grupo' => 'required',
+        ],[
+            'id_alumno.required' => 'Es obligatorio el id del alumno',
+            'id_plazomatriculacion.required' => 'Es obligatorio el id del plazo de matriculacion'
         ]);
-
+        
         try{
             $matricula->id_alumno = $request->id_usuario;
             $matricula->id_grupo = $request->id_grupo;

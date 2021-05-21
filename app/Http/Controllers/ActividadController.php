@@ -48,6 +48,15 @@ class ActividadController extends Controller
             'asistencia' => 'required',
             'anio_academico' => 'required',
             'estado' => 'required',
+        ],[
+            'id_profesor.required'=>'Es obligatorio el id profesor',
+            'id_grupo.required'=>'Es obligatorio el id grupo',
+            'id_categoria.required'=>'Es obligatorio el id categoria',
+            'nombre.required'=>'Es obligatorio el nombre',
+            'horas.required'=>'Es obligatorio el horas',
+            'asistencia.required'=>'Es obligatorio el asistencia',
+            'anio_academico.required'=>'Es obligatorio el año academico',
+            'estado.required'=>'Es obligatorio el estado',
         ]);
 
         try{
@@ -115,7 +124,16 @@ class ActividadController extends Controller
             'horas' => 'required',
             'asistencia' => 'required',
             'anio_academico' => 'required',
-            'estado' => 'required',
+            'estado' => 'required'
+        ],[
+            'id_profesor.required'=>'Es obligatorio el id profesor',
+            'id_grupo.required'=>'Es obligatorio el id grupo',
+            'id_categoria.required'=>'Es obligatorio el id categoria',
+            'nombre.required'=>'Es obligatorio el nombre',
+            'horas.required'=>'Es obligatorio el horas',
+            'asistencia.required'=>'Es obligatorio el asistencia',
+            'anio_academico.required'=>'Es obligatorio el año academico',
+            'estado.required'=>'Es obligatorio el estado'
         ]);
 
         try{

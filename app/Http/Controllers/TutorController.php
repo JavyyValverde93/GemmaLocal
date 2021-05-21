@@ -46,6 +46,13 @@ class TutorController extends Controller
             'dni' => 'required',
             'telefono' => 'required',
             'direccion' => 'required'
+        ],[
+            'nombre.required' => 'Es obligatorio el nombre',
+            'id_alumno.required' => 'Es obligatorio el id del alumno',
+            'relacion.required' => 'Es obligatorio la relacion',
+            'dni.required' => 'Es obligatorio el DNI',
+            'telefono.required' => 'Es obligatorio el titulo',
+            'direccion.required' => 'Es obligatorio la dirección',
         ]);
 
         $validar = Tutor::where('id_alumno', $request->id_alumno)

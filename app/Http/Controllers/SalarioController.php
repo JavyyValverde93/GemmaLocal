@@ -53,9 +53,9 @@ class SalarioController extends Controller
             'total_mes' => 'required',
             'nomina' => 'required'
         ],[
-            'id_usuario.required' => 'Usuario requerido',
-            'total_mes.required' => 'Total por mes requerido',
-            'nomina.required' => 'Salario requerido'
+            'id_usuario.required' => 'Es obligatorio el id del usuario',
+            'total_mes.required' => 'Es obligatorio el total del mes',
+            'nomina.required' => 'Es obligatorio la nomina'
         ]);
 
         try{

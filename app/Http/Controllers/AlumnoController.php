@@ -64,21 +64,21 @@ class AlumnoController extends Controller
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
         ],[
-            'nombre.required' => 'nombre',
-            'apellidos.required' => 'apellidos',
-            'dni.required' => 'dni',
-            'domicilio.required' => 'domicilio',
-            'poblacion.required' => 'poblacion',
-            'provincia.required' => 'provincia',
-            'pais.required' => 'pais',
-            'codigo_postal.required' => 'codigo_postal',
-            'sexo.required' => 'sexo',
-            'telefono.required' => 'telefono',
-            'email.required' => 'email',
-            'edad.required' => 'edad',
-            'fecha_nacimiento.required' => 'fecha_nacimiento',
-            'lugar_nacimiento.required' => 'lugar_nacimiento',
-            'nss.required' => 'nss'
+            'nombre.required' => 'Es obligatorio el nombre',
+            'apellidos.required' => 'Es obligatorio los apellidos',
+            'dni.required' => 'Es obligatorio el DNI',
+            'domicilio.required' => 'Es obligatorio el domicilio',
+            'poblacion.required' => 'Es obligatorio el poblacion',
+            'provincia.required' => 'Es obligatorio el provincia',
+            'pais.required' => 'Es obligatorio el pais',
+            'codigo_postal.required' => 'Es obligatorio el codigo postal',
+            'sexo.required' => 'Es obligatorio el sexo',
+            'telefono.required' => 'Es obligatorio el telefono',
+            'email.required' => 'Es obligatorio el email',
+            'edad.required' => 'Es obligatorio el edad',
+            'fecha_nacimiento.required' => 'Es obligatorio el fecha nacimiento',
+            'lugar_nacimiento.required' => 'Es obligatorio el lugar nacimiento',
+            'nss.required' => 'Es obligatorio el NSS'
         ]);
         $nombre = $request->nombre;
         $apellidos = $request->apellidos;
@@ -184,21 +184,21 @@ class AlumnoController extends Controller
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
         ],[
-            'nombre.required' => 'nombre',
-            'apellidos.required' => 'apellidos',
-            'dni.required' => 'dni',
-            'domicilio.required' => 'domicilio',
-            'poblacion.required' => 'poblacion',
-            'provincia.required' => 'provincia',
-            'pais.required' => 'pais',
-            'codigo_postal.required' => 'codigo_postal',
-            'sexo.required' => 'sexo',
-            'telefono.required' => 'telefono',
-            'email.required' => 'email',
-            'edad.required' => 'edad',
-            'fecha_nacimiento.required' => 'fecha_nacimiento',
-            'lugar_nacimiento.required' => 'lugar_nacimiento',
-            'nss.required' => 'nss'
+            'nombre.required' => 'Es obligatorio el nombre',
+            'apellidos.required' => 'Es obligatorio los apellidos',
+            'dni.required' => 'Es obligatorio el DNI',
+            'domicilio.required' => 'Es obligatorio el domicilio',
+            'poblacion.required' => 'Es obligatorio el poblacion',
+            'provincia.required' => 'Es obligatorio el provincia',
+            'pais.required' => 'Es obligatorio el pais',
+            'codigo_postal.required' => 'Es obligatorio el codigo postal',
+            'sexo.required' => 'Es obligatorio el sexo',
+            'telefono.required' => 'Es obligatorio el telefono',
+            'email.required' => 'Es obligatorio el email',
+            'edad.required' => 'Es obligatorio el edad',
+            'fecha_nacimiento.required' => 'Es obligatorio el fecha nacimiento',
+            'lugar_nacimiento.required' => 'Es obligatorio el lugar nacimiento',
+            'nss.required' => 'Es obligatorio el NSS'
         ]);
 
         try{

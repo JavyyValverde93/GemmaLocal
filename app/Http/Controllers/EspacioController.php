@@ -40,7 +40,12 @@ class EspacioController extends Controller
             'nombre'=> 'required',
             'capacidad' => 'required',
             'planta' => 'required',
-            'turno' => 'required',
+            'turno' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'capacidad.required'=>'Es obligatorio la capacidad',
+            'planta.required'=>'Es obligatorio la planta',
+            'turno.required'=>'Es obligatorio el turno'
         ]);
  
         if($request->activo == "false"){
@@ -111,6 +116,11 @@ class EspacioController extends Controller
             'capacidad' => 'required',
             'planta' => 'required',
             'turno' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'capacidad.required'=>'Es obligatorio la capacidad',
+            'planta.required'=>'Es obligatorio la planta',
+            'turno.required'=>'Es obligatorio el turno'
         ]);
 
         try{

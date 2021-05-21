@@ -63,6 +63,10 @@ class PrescripcionController extends Controller
             'id_alumno' => 'required',
             'id_actividad' => 'required',
             'id_plazoprescripcion' => 'required'
+        ],[
+            'id_alumno.required'=>'Es obligatorio el id del alumno',
+            'id_actividad.required'=>'Es obligatorio el id de la actividad',
+            'id_plazoprescripcion.required'=>'Es obligatorio  el id del plazo de la prescripcion'
         ]);
         
         $validar = Prescripcion::where('id_alumno', $request->id_alumno)
@@ -125,6 +129,10 @@ class PrescripcionController extends Controller
             'id_alumno' => 'required',
             'id_actividad' => 'required',
             'id_plazoprescripcion' => 'required'
+        ],[
+            'id_alumno.required'=>'Es obligatorio el id del alumno',
+            'id_actividad.required'=>'Es obligatorio el id de la actividad',
+            'id_plazoprescripcion.required'=>'Es obligatorio  el id del plazo de la prescripcion'
         ]);
 
         try{

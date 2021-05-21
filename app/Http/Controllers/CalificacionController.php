@@ -48,6 +48,11 @@ class CalificacionController extends Controller
             'id_grupo' => 'required',
             'id_periodocalificacion' => 'required',
             'nota' => 'required'
+        ],[
+            'id_alumno.required'=>'Es obligatorio el id alumno',
+            'id_grupo.required'=>'Es obligatorio el id grupo',
+            'id_periodocalificacion.required'=>'Es obligatorio el id periodocalificacion',
+            'nota.required'=>'Es obligatorio el nota'
         ]);
 
         try{
@@ -103,6 +108,11 @@ class CalificacionController extends Controller
             'id_grupo' => 'required',
             'id_periodocalificacion' => 'required',
             'nota' => 'required'
+        ],[
+            'id_alumno.required'=>'Es obligatorio el id alumno',
+            'id_grupo.required'=>'Es obligatorio el id grupo',
+            'id_periodocalificacion.required'=>'Es obligatorio el id periodocalificacion',
+            'nota.required'=>'Es obligatorio el nota'
         ]);
 
         try{

@@ -40,6 +40,10 @@ class PlazomatriculaController extends Controller
             'nombre' => 'required',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'fecha_inicio.required'=>'Es obligatorio la fecha de inicio',
+            'fecha_fin.required'=>'Es obligatorio la fecha de fin'
         ]);
 
         try{
@@ -98,6 +102,10 @@ class PlazomatriculaController extends Controller
             'nombre' => 'required',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'fecha_inicio.required'=>'Es obligatorio la fecha de inicio',
+            'fecha_fin.required'=>'Es obligatorio la fecha de fin'
         ]);
 
         try{

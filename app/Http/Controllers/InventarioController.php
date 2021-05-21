@@ -38,8 +38,11 @@ class InventarioController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'datos' => 'required',
+            'datos' => 'required'
             
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'datos.required'=>'Es obligatorio el datos'
         ]);
 
         try{
@@ -90,8 +93,11 @@ class InventarioController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'datos' => 'required',
+            'datos' => 'required'
             
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'datos.required'=>'Es obligatorio el datos'
         ]);
 
         try{

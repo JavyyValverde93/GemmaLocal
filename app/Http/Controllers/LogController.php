@@ -41,6 +41,9 @@ class LogController extends Controller
         $request->validate([
             'id_usuario' => 'required',
             'accion' => 'required',
+        ],[
+            'id_usuario.required'=>'Es obligatorio el id usuario',
+            'accion.required'=>'Es obligatorio la accion'
         ]);
 
         try{
@@ -76,7 +79,7 @@ class LogController extends Controller
      */
     public function edit(Log $log)
     {
-        //
+        return view('logs.edit', compact('log'));
     }
 
     /**
@@ -88,7 +91,7 @@ class LogController extends Controller
      */
     public function update(Request $request, Log $log)
     {
-        return view('logs.edit', compact('log'));
+        //
     }
 
     /**

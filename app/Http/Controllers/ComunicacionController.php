@@ -38,6 +38,9 @@ class ComunicacionController extends Controller
         $request->validate([
             'id_usuario' => 'required',
             'mensaje' => 'required'
+        ],[
+            'id_usuario.required'=>'Es obligatorio el id usuario',
+            'mensaje.required'=>'Es obligatorio el mensaje'
         ]);
 
         try{

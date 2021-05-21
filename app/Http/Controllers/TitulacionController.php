@@ -46,6 +46,11 @@ class TitulacionController extends Controller
             'id_actividad' => 'required',
             'especialidad' => 'required',
             'titulacion' => 'required'
+        ],[
+            'id_profesor.required' => 'Es obligatorio el id del profesor',
+            'id_actividad.required' => 'Es obligatorio el id de la actividad',
+            'especialidad.required' => 'Es obligatorio la especialidad',
+            'titulacion.required' => 'Es obligatorio la titulacion'
         ]);
         
         $validar = Titulacion::where('id_profesor', $request->id_profesor)
@@ -110,6 +115,11 @@ class TitulacionController extends Controller
             'id_actividad' => 'required',
             'especialidad' => 'required',
             'titulacion' => 'required'
+        ],[
+            'id_profesor.required' => 'Es obligatorio el id del profesor',
+            'id_actividad.required' => 'Es obligatorio el id de la actividad',
+            'especialidad.required' => 'Es obligatorio la especialidad',
+            'titulacion.required' => 'Es obligatorio la titulacion'
         ]);
 
         try{

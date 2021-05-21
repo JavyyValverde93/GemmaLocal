@@ -43,7 +43,13 @@ class AsistenciaController extends Controller
             'id_alumno' => 'required',
             'id_grupo' => 'required',
             'justificada' => 'required',
-            'ausente' => 'required',
+            'ausente' => 'required'
+        ],[
+            'id_alumno.required'=>'Es obligatorio el id alumno',
+            'id_grupo.required'=>'Es obligatorio el id grupo',
+            'id_categoria.required'=>'Es obligatorio el id categoria',
+            'justificada.required'=>'Es obligatorio el justificada',
+            'ausente.required'=>'Es obligatorio el ausente'
         ]);
 
         try{
@@ -99,6 +105,12 @@ class AsistenciaController extends Controller
             'id_grupo' => 'required',
             'justificada' => 'required',
             'ausente' => 'required',
+        ],[
+            'id_alumno.required'=>'Es obligatorio el id alumno',
+            'id_grupo.required'=>'Es obligatorio el id grupo',
+            'id_categoria.required'=>'Es obligatorio el id categoria',
+            'justificada.required'=>'Es obligatorio el justificada',
+            'ausente.required'=>'Es obligatorio el ausente'
         ]);
 
         try{
