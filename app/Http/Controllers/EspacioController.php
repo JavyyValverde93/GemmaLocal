@@ -88,7 +88,7 @@ class EspacioController extends Controller
      */
     public function show(Espacio $espacio)
     {
-        //
+        return view('espacios.show', compact('espacio'));
     }
 
     /**
