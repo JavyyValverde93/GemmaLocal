@@ -148,6 +148,10 @@ session_start();
                         color: red;
                     }
 
+                    form small{
+                        color: red;
+                    }
+
                 </style>
             <div style="width: 98%">
                 <div class="container-fluid ml-3">

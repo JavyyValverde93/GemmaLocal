@@ -22,6 +22,7 @@
             <div class="form-group col-md-6 mx-4">
               <label for="inputEmail4">Nombre:</label>
               <input type="text" name="nombre" class="form-control" placeholder="Nombre del espacio">
+              <small>{{$errors->first('nombre')}}</small>
             </div>
           </div>
   
@@ -29,11 +30,13 @@
             <div class="form-group mx-4">
               <label>Capacidad:</label>
               <input type="number" name="capacidad" step="1" min="0" required class="form-control" placeholder="Capacidad de alumnos">
+              <small>{{$errors->first('capacidad')}}</small>
             </div>
   
             <div class="form-group col-auto mx-4">
               <label>Planta:</label>
               <input type="number" name="planta" step="1" required value="{{old('planta')}}" class="form-control" placeholder="Número de planta">
+              <small>{{$errors->first('planta')}}</small>
             </div>
   
             <div class="form-group col-auto mx-4">
@@ -42,6 +45,7 @@
                 <option value="false" selected>No</option>
                 <option value="true">Sí</option>
               </select>
+              <small>{{$errors->first('activo')}}</small>
             </div>
   
           </div>
@@ -53,6 +57,7 @@
                 <option value="false" selected>No</option>
                 <option value="true">Sí</option>
               </select>
+              <small>{{$errors->first('aula_combinada')}}</small>
             </div>
   
             <div class="form-group col-auto mx-4">
@@ -61,6 +66,7 @@
                 <option value="mañana" selected>Mañana</option>
                 <option value="tarde">Tarde</option>
               </select>
+              <small>{{$errors->first('turno')}}</small>
             </div>
   
           </div>
