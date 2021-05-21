@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Gmail;
 use App\Models\Alumno;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 
 class AlumnoController extends Controller
 {
@@ -47,6 +49,7 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'nombre' => 'required',
             'apellidos' => 'required',
@@ -89,7 +92,8 @@ class AlumnoController extends Controller
             $user = new User();
             $user->name = $request->nombre." ".$request->apellidos;
             $user->email = $request->email;
-            $user->password = Hash::make($this->randomPassword());
+            $pwd = $this->randomPassword();
+            $user->password = Hash::make($pwd);
             $user->fecha_creacion = now()->getTimestamp();
             $user->fecha_modificacion = now()->getTimestamp();
 
@@ -123,6 +127,17 @@ class AlumnoController extends Controller
                 Storage::disk("public")->put($nom2, File::get($nom));
                 $alumno->foto = 'storage/'.$nom2;
             }
+
+            /*MAIL*/
+
+            $details = [
+                'title' => 'Gracias por regsitrarse',
+                'nombre' => "$user->name",
+                'email' => "$user->email",
+                'pwd' => "$pwd"
+            ];
+
+            Mail::to('noreplygemmaalmeria@gmail.com')->send(new Gmail($details));
 
             $user->save();
             $alumno->id_usuario = $user->id;
