@@ -39,7 +39,7 @@ class RolController extends Controller
             'nombre' => 'required'
         ],[
             'nombre.required'=>'Es obligatorio el nombre'
-        ]
+        ]);
         
         try{
             $rol = new Rol();
@@ -86,7 +86,7 @@ class RolController extends Controller
             'nombre' => 'required'
         ],[
             'nombre.required'=>'Es obligatorio el nombre'
-        ]
+        ]);
         
         try{
             $rol->nombre = $request->nombre;

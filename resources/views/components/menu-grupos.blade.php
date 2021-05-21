@@ -69,13 +69,13 @@ session_start();
                         </form>
                     </aside>
                     <div class="nav flex-column nav-pills ml-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a href="{{route('dashboard')}}"class="nav-link active bg-danger text-white text-decoration-none" id="v-pills-home-tab"  role="tab" aria-controls="v-pills-home" aria-selected="true">Administración</a>
-                        <a href="{{route('grupos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false"> Grupos</a>
+                        <a href="{{route('dashboard')}}"class="nav-link active bg-danger text-white text-decoration-none nav-link-active" id="v-pills-home-tab" role="tab" aria-controls="v-pills-home" aria-selected="true">Administración</a>
+                        <a href="{{route('grupos.index')}}" class="nav-link active bg-danger text-white text-decoration-none" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false"> Grupos</a>
                         <a href="{{route('matriculas.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false"> Matriculas</a>
                         <a href="{{route('prescripciones.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Prescripciones</a>
                         <a href="{{route('inventario.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Inventario</a>
-                        <a href="{{route('alumnos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
-                        <a href="{{route('profesores.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Profesores</a>
+                        <a href="{{route('alumnos.index')}}" class="nav-selected nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
+                        <a href="{{route('profesores.index')}}" class=" nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Profesores</a>
                         <a href="{{route('espacios.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Espacios</a>
                         <a href="{{route('comunicaciones.index')}}" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Comunicaciones</a>
                         <a href="{{route('logs.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Logs</a>
@@ -152,6 +152,10 @@ session_start();
                         color: red;
                     }
 
+                    .nav-selected:focus{
+                        outline: none;
+                    }
+
                 </style>
             <div style="width: 98%">
                 <div class="container-fluid ml-3">
@@ -167,7 +171,10 @@ session_start();
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Código JS del Sidebar -->
         <script>
-         
+            navs = document.getElementsByClassName('nav-selected');
+            for($i=0; $i<=navs.length; $i++){
+                navs[$i].focus();
+            }
 			
 			$("#confirm").click(function(){
   				var bool=confirm("¿Seguro que desea cerrar la sesión?");
