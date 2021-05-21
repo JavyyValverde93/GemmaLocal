@@ -7,11 +7,13 @@
 				<input type="hidden" name="id_usuario" value="{{$id_usuario}}">
 				<input type="hidden" name="id_profesor" value="{{$profesor->id}}">
 				<label for="total_mes" class="form-text">Total mes</label>
-				<input type="number" name="total_mes" step="0.01" class="form-control">
+				<input type="number" name="total_mes" value="{{old('total_mes')}}" step="0.01" class="form-control">
+				<small>{{$errors->first('total_mes')}}</small>
 			</div>
 			<div class="form-group">
 				<label for="nomina" class="form-text">Nomina</label>
-				<input type="text" name="nomina" class="form-control">
+				<input type="text" name="nomina" value="{{old('nomina')}}" class="form-control">
+				<small>{{$errors->first('nomina')}}</small>
 			</div>
 			<button type="submit" class="btn btn-danger">Enviar</button>
 		</form>

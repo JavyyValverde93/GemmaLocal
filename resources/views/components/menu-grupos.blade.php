@@ -18,7 +18,8 @@ session_start();
     <link rel="stylesheet" href="{{asset('css/administracion/styles.css')}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-
+    <link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
         
 </head>
 
@@ -54,7 +55,7 @@ session_start();
                         <a class="text-white text-decoration-none" href="{{route('espacios.index')}}" id="room">room</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                        <a class="text-white text-decoration-none" href="{{route('comunicaciones.index')}}" id="room">email</a>
+                        <a class="text-white text-decoration-none" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" href="{{route('comunicaciones.index')}}" id="room">email</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
                         <a class="text-white text-decoration-none" href="{{route('logs.index')}}" id="room">warning</a>
@@ -76,7 +77,7 @@ session_start();
                         <a href="{{route('alumnos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
                         <a href="{{route('profesores.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Profesores</a>
                         <a href="{{route('espacios.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Espacios</a>
-                        <a href="{{route('comunicaciones.index')}}" onclick="event.preventDefault(); return alert('Esta función estará disponible en la versión Premium');" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Comunicaciones</a>
+                        <a href="{{route('comunicaciones.index')}}" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Comunicaciones</a>
                         <a href="{{route('logs.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Logs</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -144,6 +145,10 @@ session_start();
                         color: #dc3545;
                     }
                     .page-link:hover{
+                        color: red;
+                    }
+
+                    form small{
                         color: red;
                     }
 
