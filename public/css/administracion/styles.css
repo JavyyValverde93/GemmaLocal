@@ -6693,7 +6693,7 @@ button.bg-warning:focus {
 
 a.bg-danger:hover, a.bg-danger:focus,
 button.bg-danger:hover,
-button.bg-danger:focus {
+button.bg-danger:focus, a.nav-selected {
   background-color: white !important;
   color: var(--danger) !important;
 }

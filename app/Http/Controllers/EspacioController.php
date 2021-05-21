@@ -123,14 +123,25 @@ class EspacioController extends Controller
             'turno.required'=>'Es obligatorio el turno'
         ]);
 
+        if($request->activo == "false"){
+            $activo = false;
+        }else if($request->activo == "true"){
+            $activo = true;
+        }
+
+        if($request->aula_combinada == "false"){
+            $aula_combinada = false;
+        }else if($request->aula_combinada == "true"){
+            $aula_combinada = true;
+        }
+
         try{
             $espacio->nombre = $request->nombre;
             $espacio->capacidad = $request->capacidad;
             $espacio->planta = $request->planta;
-            $espacio->activo = $request->activo;
-            $espacio->aula_combinada = $request->aula_combinada;
+            $espacio->activo = $activo;
+            $espacio->aula_combinada = $aula_combinada;
             $espacio->turno = $request->turno;
-            $espacio->fecha_creacion = now()->getTimestamp();
             $espacio->fecha_modificacion = now()->getTimestamp();
 
             $espacio->save();
@@ -138,7 +149,7 @@ class EspacioController extends Controller
              return back()->with('mensaje', 'Espacio modificado');
         }catch(\Exception $ex){
             $this->Log("Error al modificar el Espacio $request->nombre");
-            return back()->with('error', 'El espacio no ha podido modificarse');
+            return back()->with('error', 'El espacio no ha podido modificarse'.$ex->getMessage());
         }
     }
 

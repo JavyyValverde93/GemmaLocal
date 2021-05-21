@@ -24,7 +24,7 @@
             <div class="form-row">
             <div class="form-group col-md-6">
                   <label for="inputDatos">Datos</label><br>
-                  <textarea name="datos" cols="50" required>{{$inventario->datos}}</textarea>
+                  <textarea name="datos" cols="60" rows="5" required>{{$inventario->datos}}</textarea>
                   <small>{{$errors->first('datos')}}</small>
                 </div>
             </div>

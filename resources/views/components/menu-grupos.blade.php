@@ -74,8 +74,8 @@ session_start();
                         <a href="{{route('matriculas.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false"> Matriculas</a>
                         <a href="{{route('prescripciones.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Prescripciones</a>
                         <a href="{{route('inventario.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Inventario</a>
-                        <a href="{{route('alumnos.index')}}" class="nav-selected nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
-                        <a href="{{route('profesores.index')}}" class=" nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Profesores</a>
+                        <a href="{{route('alumnos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
+                        <a href="{{route('profesores.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Profesores</a>
                         <a href="{{route('espacios.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Espacios</a>
                         <a href="{{route('comunicaciones.index')}}" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Comunicaciones</a>
                         <a href="{{route('logs.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Logs</a>
@@ -156,6 +156,11 @@ session_start();
                         outline: none;
                     }
 
+                    #nav-selected{
+                        background-color: white;
+                        color: #dc3545; 
+                    }
+
                 </style>
             <div style="width: 98%">
                 <div class="container-fluid ml-3">
@@ -216,10 +221,12 @@ session_start();
                     $("#wrapper").toggleClass("toggled");
                 }
                 
-            navs = document.getElementsByClassName('nav-selected');
-            for($i=0; $i<=navs.length; $i++){
-                navs[$i].focus();
-            }
+                navs = document.getElementById('v-pills-tab').getElementsByTagName('a');
+                for($i=0; $i<=navs.length-2; $i++){
+                    if(window.location.href.includes(navs[$i].href)){
+                        navs[$i].classList.add('nav-selected');
+                    }
+                }
             }
 
             function disableButton(form) {

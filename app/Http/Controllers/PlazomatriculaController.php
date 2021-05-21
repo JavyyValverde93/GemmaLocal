@@ -37,7 +37,7 @@ class PlazomatriculaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
+            'nombre' => 'required|unique:plazosmatriculas,nombre',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required'
         ],[
@@ -84,8 +84,9 @@ class PlazomatriculaController extends Controller
      * @param  \App\Models\Plazomatricula  $plazomatricula
      * @return \Illuminate\Http\Response
      */
-    public function edit(Plazomatricula $plazomatricula)
+    public function edit(Plazomatricula $plazosmatricula)
     {
+        $plazomatricula = $plazosmatricula;
         return view('plazosmatriculas.edit', compact('plazomatricula'));
     }
 
@@ -96,31 +97,37 @@ class PlazomatriculaController extends Controller
      * @param  \App\Models\Plazomatricula  $plazomatricula
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Plazomatricula $plazomatricula)
+    public function update(Request $request, Plazomatricula $plazosmatricula)
     {
+        $plazomatricula = $plazosmatricula;
         $request->validate([
-            'nombre' => 'required',
+            'nombre' => "required|unique:plazosmatriculas,nombre,$plazomatricula->id",
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required'
         ],[
             'nombre.required'=>'Es obligatorio el nombre',
+            'nombre.unique'=>'El nombre debe ser único',
             'fecha_inicio.required'=>'Es obligatorio la fecha de inicio',
             'fecha_fin.required'=>'Es obligatorio la fecha de fin'
         ]);
 
         try{
             $plazomatricula->nombre = $request->nombre;
-            $plazomatricula->fecha_inicio = $request->fecha_inicio;
-            $plazomatricula->fecha_fin = $request->fecha_fin;
+            $date = new \DateTime($request->fecha_inicio);
+            $date = $date->getTimestamp();
+            $date2 = new \DateTime($request->fecha_fin);
+            $date2 = $date2->getTimestamp();
+            $plazomatricula->fecha_inicio = $date;
+            $plazomatricula->fecha_fin = $date2;
 
             $plazomatricula->save();
             $this->Log("Ha modificado el plazo de matriculación $request->nombre");
 
-            return back()->with('mensaje', 'Plazo modificado correctamente');
+            return redirect()->route('plazosmatriculas.index')->with('mensaje', 'Plazo modificado correctamente');
 
         }catch(\Exception $ex){
             $this->Log("Error al modificar plazo de matriculación $request->nombre");
-            return back()->with('error', 'No se ha podido modificar el plazo');
+            return back()->with('error', 'No se ha podido modificar el plazo'.$ex->getMessage());
         }
     }
 
