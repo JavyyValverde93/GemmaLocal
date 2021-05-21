@@ -171,10 +171,6 @@ session_start();
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Código JS del Sidebar -->
         <script>
-            navs = document.getElementsByClassName('nav-selected');
-            for($i=0; $i<=navs.length; $i++){
-                navs[$i].focus();
-            }
 			
 			$("#confirm").click(function(){
   				var bool=confirm("¿Seguro que desea cerrar la sesión?");
@@ -219,6 +215,11 @@ session_start();
                 }else if(menu == 1){
                     $("#wrapper").toggleClass("toggled");
                 }
+                
+            navs = document.getElementsByClassName('nav-selected');
+            for($i=0; $i<=navs.length; $i++){
+                navs[$i].focus();
+            }
             }
 
             function disableButton(form) {

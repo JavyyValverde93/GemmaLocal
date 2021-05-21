@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\Rol;
 
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,16 @@ class RolSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Rol::create([
+            'nombre' => 'profesor'
+        ]);
+
+        Rol::create([
+            'nombre' => 'alumno'
+        ]);
+
+        Rol::create([
+            'nombre'=> 'administrador'
+        ]);
     }
 }
