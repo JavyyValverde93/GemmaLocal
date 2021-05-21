@@ -19,6 +19,7 @@
               <div class="form-group col-md-6 mx-4">
                 <label for="inputEmail4">Nombre:</label>
                 <input type="text" name="nombre" class="form-control" id="inputEmail4" placeholder="Nombre del grupo" value="{{$grupo->nombre}}">
+                <small>{{$errors->first('nombre')}}</small>
               </div>
             </div>
     
@@ -29,11 +30,12 @@
                   <div class="col">
                     <label>Profesor:</label><br>
                     <select name="id_profesor" required>
-                      <option>Selecciones un profesor..</option>
+                      <option>Selecciones un profesor...</option>
                       @foreach($profesores as $item)
                       <option value="{{$item->id}}">{{$item->apellidos}} {{$item->nombre}}</option>
                       @endforeach
                     </select>
+                    <small>{{$errors->first('id_profesor')}}</small>
                   </div>
                   <div class="col">
                     <label>Espacio:</label><br>
@@ -43,6 +45,7 @@
                       <option value="{{$item->id}}">P:{{$item->planta}} - {{$item->nombre}}</option>
                       @endforeach
                     </select>
+                    <small>{{$errors->first('id_espacio')}}</small>
   
                   </div>
                 </div>

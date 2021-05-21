@@ -24,11 +24,13 @@
             <input type="hidden" name="profesor" value="{{$request->profesor}}">
             <div class="form-group">
                 <label for="titulacion" class="form-text">Titulaci&oacute;n</label>
-                <input type="text" name="titulacion" class="form-control">
+                <input type="text" name="titulacion" value="{{old('titulacion')}}" class="form-control">
+                <small>{{$errors->first('titulacion')}}</small>
             </div>
             <div class="form-group">
                 <label for="especialidad" class="form-text">Especialidad</label>
-                <input type="text" name="especialidad" class="form-control">
+                <input type="text" name="especialidad" value="{{old('especialidad')}}" class="form-control">
+                <small>{{$errors->first('especialidad')}}</small>
             </div>
             
             <div class="form-group">
@@ -39,6 +41,7 @@
                     <option value="{{$item->id}}">{{$item->nombre}}</option>
                     @endforeach
                 </select>
+                <small>{{$errors->first('id_actividad')}}</small>
             </div>
             <input type="submit" name="Enviar" class="btn btn-danger">
         </form>

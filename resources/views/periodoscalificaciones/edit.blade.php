@@ -7,14 +7,17 @@
               <div class="form-group col-md-4">
                   <label for="inputName">Nombre</label>
                   <input type="text" class="form-control" name="nombre" required value="{{$periodocalificacion ->nombre}}">
+                  <small>{{$errors->first('nombre')}}</small>
                 </div>
               <div class="form-group col-md-4">
                 <label for="inputFechaIni">Fecha Inicio</label>
                 <input type="date" class="form-control" name="fecha_inicio" required value="{{date("d/m/Y", $periodocalificacion ->fecha_inicio)}}">
+                <small>{{$errors->first('fecha_inicio')}}</small>
               </div>
               <div class="form-group col-md-4">
                 <label for="inputFechaFin">Fecha Fin</label>
                 <input type="date" class="form-control" name="fecha_fin" required value="{{date("d/m/Y", $periodocalificacion ->fecha_fin)}}">
+                <small>{{$errors->first('fecha_fin')}}</small>
               </div>
           </div>
           <button type="submit" class="btn btn-danger">Guardar</button>

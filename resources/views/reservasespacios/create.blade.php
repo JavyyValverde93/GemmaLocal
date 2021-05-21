@@ -8,13 +8,15 @@
 			@csrf
 			<div class="form-group">
 				<label for="nombre" class="form-text">Nombre</label>
-				<input type="text" name="nombre" class="form-control">
+				<input type="text" name="nombre" value="{{old('nombre')}}" class="form-control">
+				<small>{{$errors->first('nombre')}}</small>
 			</div>
 			<div class="form-group">
 				<label for="descripcion" class="form-text">Descripci&oacute;n</label>
-				<input type="text" name="descripcion" class="form-control">
+				<input type="text" name="descripcion" value="{{old('descripcion')}}" class="form-control">
+				<small>{{$errors->first('descripcion')}}</small>
 			</div>
-			<input type="submit" name="Enviar" class="btn btn-danger">
+			<button type="submit" name="Enviar" class="btn btn-danger">Reservar Espacio</button>
 		</form>
 
 	</x-slot>

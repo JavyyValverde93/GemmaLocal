@@ -24,20 +24,23 @@
             <input type="hidden" name="alumno" value="{{$request->alumno}}">
             <div class="form-group">
                 <label class="form-text">Nombre del Tutor</label>
-                <input type="text" name="nombre" class="form-control">
+                <input type="text" name="nombre" value="{{old('nombre')}}" class="form-control">
+                <small></small>{{$errors->first('nombre')}}</small>
             </div>
             <div class="form-group row">
                 <div class="col">
                     <label class="form-text">DNI</label>
-                    <input type="text" name="dni" class="form-control">
+                    <input type="text" name="dni" value="{{old('dni')}}" class="form-control">
+                    <small>{{$errors->first('dni')}}</small>
                 </div>
                 <div class="col">
                     <label class="form-text">Teléfono</label>
-                    <input type="text" name="telefono" class="form-control">
+                    <input type="text" name="telefono" value="{{old('telefono')}}" class="form-control">
+                    <small>{{$errors->first('telefono')}}</small>
                 </div>
                 <div class="col">
                     <label class="form-text">Relación</label>
-                    <select name="relacion">
+                    <select name="relacion" value="{{old('relacion')}}">
                         <option>Seleccione su relación con el alumo</option>
                         <option value="Padre">Padre</option>
                         <option value="Madre">Madre</option>
@@ -50,14 +53,16 @@
                         <option value="Amig@">Amig@</option>
                         <option value="Otro">Otro</option>
                     </select>
+                    <small>{{$errors->first('relacion')}}</small>
                 </div>
             </div>
             
             <div class="form-group">
                 <label class="form-text">Dirección</label>
-                <input type="text" name="direccion" class="form-control">
+                <input type="text" name="direccion" value="{{old('direccion')}}" class="form-control">
+                <small>{{$errors->first('direccion')}}</small>
             </div>
-            <input type="submit" name="Enviar" class="btn btn-danger">
+            <button type="submit" name="Enviar" class="btn btn-danger">Agregar Tutor</button>
         </form>
 
     </x-slot>

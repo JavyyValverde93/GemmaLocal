@@ -7,6 +7,7 @@
                 <div class="form-group col-md-4">
                     <label for="inputAccion">Acción</label> <br>
                     <textarea name="accion" rows="5" cols="80" required></textarea>
+                    <small>{{$errors->first('accion')}}</small>
                 </div>
             <button type="submit" class="btn btn-danger">Guardar</button>
         </form>

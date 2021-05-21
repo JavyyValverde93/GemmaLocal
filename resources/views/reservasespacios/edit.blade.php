@@ -7,12 +7,14 @@
 			<div class="form-group">
 				<label for="nombre" class="form-text">Nombre</label>
 				<input type="text" name="nombre" class="form-control" value="{{$reservaespacio->nombre}}">
+				<small>{{$errors->first('nombre')}}</small>
 			</div>
 			<div class="form-group">
 				<label for="descripcion" class="form-text">Descripci&oacute;n</label>
 				<input type="text" name="descripcion" class="form-control" value="{{$reservaespacio->descripcion}}">
+				<small>{{$errors->first('descripcion')}}</small>
 			</div>
-			<input type="submit" name="Enviar" class="btn btn-danger">
+			<button type="submit" name="Enviar" class="btn btn-danger">Modificar reserva</button>
 		</form>
 
 	</x-slot>
