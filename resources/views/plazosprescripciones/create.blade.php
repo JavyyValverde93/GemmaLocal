@@ -2,7 +2,7 @@
     <x-slot name="slot">
         <div class="row migaspan">
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
-            <a href="{{route('prescripciones.index')}}" class="text-danger">Plazos</a> >
+            <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos</a> >
             <a href="{{route('plazosprescripciones.create')}}" class="text-danger">Crear Plazos Prescripción</a> >
         </div>
         <form action="{{route('plazosprescripciones.store')}}" method="POST" class="mt-4 border p-5" style="width: 1200px">

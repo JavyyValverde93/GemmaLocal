@@ -2,7 +2,7 @@
     <x-slot name="slot">
 		<div class="row migaspan">
             <a href="{{route('alumnos.index')}}" class="text-danger"> Alumnos </a> > 
-            <a href="" class="text-danger">Tutores</a> >
+            <a href="{{route('tutores.index')}}" class="text-danger">Tutores</a> >
         </div>
         <div align="center">Tutores de {{$alumno}}</div>
         <div class="row">

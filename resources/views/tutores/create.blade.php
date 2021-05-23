@@ -1,5 +1,10 @@
 <x-menu-grupos>
     <x-slot name="slot">
+    <div class="row migaspan">
+        <a href="{{route('alumnos.index')}}" class="text-danger"> Alumnos </a> > 
+        <a href="{{route('tutores.index')}}" class="text-danger">Tutores</a> >
+        <a href="{{route('tutores.create')}}" class="text-danger">Crear Tutores</a> >
+    </div>
         <style>
             label.input-custom-file input[type=file] {
                 display: none;

@@ -1,5 +1,8 @@
 <x-menu-grupos>
     <x-slot name="slot">
+    <div class="row migaspan">
+        <a href="{{route('titulaciones.index')}}" class="text-danger">Titulaciones</a> >
+    </div>
         <style>
             label.input-custom-file input[type=file] {
                 display: none;

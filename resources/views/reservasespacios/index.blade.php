@@ -1,5 +1,8 @@
 <x-menu-grupos>
     <x-slot name="slot">
+    <div class="row migaspan">
+      <a href="{{route('espacios.index')}}" class="text-danger">Espacios</a> >
+    </div>
         <h5 align="center">Reservas de Espacios</h5>
         <div class="row">
             <div class="col">

@@ -1,5 +1,9 @@
 <x-menu-grupos>
 	<x-slot name="slot">
+	<div class="row migaspan">
+        <a href="{{route('salarios.index')}}" class="text-danger">Salarios</a> >
+        <a href="{{route('salarios.create')}}" class="text-danger">Crear Salarios</a> >
+    </div>
 		<h1 class="text-center">Salario</h1>
 		<form action="{{route('salarios.store')}}" method="POST" class="ml-5 mt-4 border p-5">
 			@csrf

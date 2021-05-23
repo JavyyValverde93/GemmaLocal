@@ -1,5 +1,8 @@
 <x-menu-grupos>
     <x-slot name="slot">
+    <div class="ro{{$errors->first('slot')}}</small>w migaspan">
+      <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
+    </div>
       <small>{{$errors->first('slot')}}</small>
       <style>
         select{

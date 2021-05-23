@@ -1,5 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <div class="row migaspan">
+            <a href="{{route('matriculas.index')}}" class="text-danger">Matrículas</a> >
+            <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos Matrículas</a> >
+        </div>
         <h5 align="center">Plazos Matrículas</h5>
         <div class="row">
             <div class="col">

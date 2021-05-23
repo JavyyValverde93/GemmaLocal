@@ -3,7 +3,6 @@
         <div class="row migaspan">
             <a href="{{route('inventario.index')}}" class="text-danger">Inventario</a> >
             <a href="{{route('prestamos.index')}}" class="text-danger">Prestamos</a> >
-            <a href="{{route('prestamos.create')}}" class="text-danger">Solicitar Prestamo</a> >
         </div>
         <style>
             select{
