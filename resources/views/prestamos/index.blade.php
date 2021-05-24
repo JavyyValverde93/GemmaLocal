@@ -4,6 +4,9 @@
             <a href="{{route('inventario.index')}}" class="text-danger">Inventario</a> >
             <a href="{{route('prestamos.index')}}" class="text-danger">Prestamos</a> >
         </div>
+        <script>
+            navselected = 'inventario';
+        </script>
         <h5 align="center">Préstamos</h5>
         <div class="row">
             <div class="col">

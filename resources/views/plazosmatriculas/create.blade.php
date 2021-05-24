@@ -3,6 +3,9 @@
         <div class="row migaspan">
             <a href="{{route('matriculas.index')}}" class="text-danger">Matriculas</a> >
         </div>
+        <script>
+            navselected = 'matricula';
+        </script>
         <form action="{{route('plazosmatriculas.store')}}" method="POST" class="mt-4 border p-5">
             @csrf
             <div class="form-row col-md-12">

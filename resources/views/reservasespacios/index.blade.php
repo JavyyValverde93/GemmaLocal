@@ -1,5 +1,8 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <script>
+            navselected = 'espacio';
+        </script>
         <h5 align="center">Reservas de Espacios</h5>
         <div class="row">
             <div class="col">

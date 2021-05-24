@@ -1,5 +1,8 @@
 <x-menu-grupos>
 	<x-slot name="slot">
+        <script>
+            navselected = 'inventario';
+        </script>
 		<style>
 			label.input-custom-file input[type=file] {
 				display: none;

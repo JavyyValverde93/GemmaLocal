@@ -3,6 +3,9 @@
 		<div class="row migaspan">
             <a href="{{route('matriculas.index')}}" class="text-danger">Matriculas</a> >
         </div>
+        <script>
+            navselected = 'matricula';
+        </script>
         <form action="{{route('plazosmatriculas.update', $plazomatricula)}}" method="POST" class="mt-4 border p-5">
             @csrf
             @method('PUT')

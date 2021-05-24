@@ -2,6 +2,9 @@
     <x-slot name="slot">
         <h5 align="center">Plazos Matrículas</h5>
         <div class="row">
+            <script>
+                navselected = 'matricula';
+            </script>
             <div class="col">
                 <a href="{{route('plazosmatriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Plazo Matriculación</a>
                 {{-- <a href="{{route('matriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Matrícula</a> --}}

@@ -5,6 +5,9 @@
             <a href="{{route('prescripciones.index')}}" class="text-danger">Plazos</a> >
             <a href="{{route('plazosprescripciones.create')}}" class="text-danger">Crear Plazos Prescripción</a> >
         </div>
+        <script>
+            navselected = 'prescripcion';
+        </script>
         <form action="{{route('plazosprescripciones.store')}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
             @csrf
             <div class="form-row col-md-10">

@@ -223,7 +223,7 @@ session_start();
                 
                 navs = document.getElementById('v-pills-tab').getElementsByTagName('a');
                 for($i=0; $i<=navs.length-2; $i++){
-                    if(window.location.href.includes(navs[$i].href)){
+                    if(window.location.href.includes(navs[$i].href) || typeof navselected!=='undefined' && navs[$i].href.includes(navselected)){
                         navs[$i].classList.add('nav-selected');
                     }
                 }
