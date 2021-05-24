@@ -1,5 +1,8 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <script>
+            navselected = 'prescripcion';
+        </script>
         <div align="center">Seleccione el plazo en el que se desea preinscribir al alumno</div>
         <div class="row">
             <div class="col">

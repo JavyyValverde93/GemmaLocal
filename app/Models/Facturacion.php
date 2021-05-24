@@ -25,7 +25,9 @@ class Facturacion extends Model
 
 	public $timestamps = false;	
 	
-
+	public function User(){
+		return $this->belongsTo(User::class, 'id_usuario');
+	}
 
 }
 

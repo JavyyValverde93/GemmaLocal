@@ -46,6 +46,13 @@ class TutorController extends Controller
             'dni' => 'required',
             'telefono' => 'required',
             'direccion' => 'required'
+        ],[
+            'nombre.required' => 'Es obligatorio el nombre',
+            'id_alumno.required' => 'Es obligatorio el id del alumno',
+            'relacion.required' => 'Es obligatorio la relacion',
+            'dni.required' => 'Es obligatorio el DNI',
+            'telefono.required' => 'Es obligatorio el titulo',
+            'direccion.required' => 'Es obligatorio la dirección',
         ]);
 
         $validar = Tutor::where('id_alumno', $request->id_alumno)
@@ -53,6 +60,7 @@ class TutorController extends Controller
         ->where('dni', $request->dni)->first();
          
         if($validar!=null){
+            $this->Log("Error al intentar añadir un tutor existente");
             return back()->with('error', 'El tutor ya existe');
         }
 
@@ -65,10 +73,12 @@ class TutorController extends Controller
             $tutor->telefono = $request->telefono;
             $tutor->direccion = $request->direccion;
             $tutor->save();
+            $this->Log("Ha añadido al Tutor $request->nombre");
 
             return redirect()->route('tutores.index', ["id_alumno=$request->id_alumno", "alumno=$request->alumno"])->with('mensaje', 'Tutor creado');
 
         }catch(\Exception $ex){
+            $this->Log("Error al añadir Tutor $request->nombre");
             return back()->with('error','No se ha podido crear el Tutor');
         }
     }

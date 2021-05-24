@@ -3,15 +3,6 @@
         <div class="row migaspan">
             <a href="{{route('matriculas.index')}}" class="text-danger">Matriculas</a> >
         </div>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
         <h4 class="ml-5 mt-1">Seleccione el grupo en el que se desea matricular</h4>
         <div class="col">
             <form action="{{route('grupos.index')}}" class=" float-right m-3" method="GET">

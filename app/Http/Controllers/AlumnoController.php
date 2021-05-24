@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Gmail;
 use App\Models\Alumno;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 
 class AlumnoController extends Controller
 {
@@ -47,6 +49,7 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'nombre' => 'required',
             'apellidos' => 'required',
@@ -64,21 +67,21 @@ class AlumnoController extends Controller
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
         ],[
-            'nombre.required' => 'nombre',
-            'apellidos.required' => 'apellidos',
-            'dni.required' => 'dni',
-            'domicilio.required' => 'domicilio',
-            'poblacion.required' => 'poblacion',
-            'provincia.required' => 'provincia',
-            'pais.required' => 'pais',
-            'codigo_postal.required' => 'codigo_postal',
-            'sexo.required' => 'sexo',
-            'telefono.required' => 'telefono',
-            'email.required' => 'email',
-            'edad.required' => 'edad',
-            'fecha_nacimiento.required' => 'fecha_nacimiento',
-            'lugar_nacimiento.required' => 'lugar_nacimiento',
-            'nss.required' => 'nss'
+            'nombre.required' => 'Es obligatorio el nombre',
+            'apellidos.required' => 'Es obligatorio los apellidos',
+            'dni.required' => 'Es obligatorio el DNI',
+            'domicilio.required' => 'Es obligatorio el domicilio',
+            'poblacion.required' => 'Es obligatorio el poblacion',
+            'provincia.required' => 'Es obligatorio el provincia',
+            'pais.required' => 'Es obligatorio el pais',
+            'codigo_postal.required' => 'Es obligatorio el codigo postal',
+            'sexo.required' => 'Es obligatorio el sexo',
+            'telefono.required' => 'Es obligatorio el telefono',
+            'email.required' => 'Es obligatorio el email',
+            'edad.required' => 'Es obligatorio el edad',
+            'fecha_nacimiento.required' => 'Es obligatorio el fecha nacimiento',
+            'lugar_nacimiento.required' => 'Es obligatorio el lugar nacimiento',
+            'nss.required' => 'Es obligatorio el NSS'
         ]);
         $nombre = $request->nombre;
         $apellidos = $request->apellidos;
@@ -89,7 +92,8 @@ class AlumnoController extends Controller
             $user = new User();
             $user->name = $request->nombre." ".$request->apellidos;
             $user->email = $request->email;
-            $user->password = Hash::make($this->randomPassword());
+            $pwd = $this->randomPassword();
+            $user->password = Hash::make($pwd);
             $user->fecha_creacion = now()->getTimestamp();
             $user->fecha_modificacion = now()->getTimestamp();
 
@@ -124,12 +128,25 @@ class AlumnoController extends Controller
                 $alumno->foto = 'storage/'.$nom2;
             }
 
+            /*MAIL*/
+
+            $details = [
+                'title' => 'Gracias por regsitrarse',
+                'nombre' => "$user->name",
+                'email' => "$user->email",
+                'pwd' => "$pwd"
+            ];
+
+            Mail::to('noreplygemmaalmeria@gmail.com')->send(new Gmail($details));
+
             $user->save();
             $alumno->id_usuario = $user->id;
             $alumno->save();
+            $this->Log("Ha creado el Alumno $alumno->nombre");
 
             return back()->with('mensaje', 'Alumno creado correctamente');
         }catch(\Exception $ex){
+            $this->Log("Error al crear el alumno $request->nombre");
             return back()->with('error', 'No ha podido crearse el alumno'.$ex);
         }
     }
@@ -182,21 +199,21 @@ class AlumnoController extends Controller
             'lugar_nacimiento' => 'required',
             'nss' => 'required'
         ],[
-            'nombre.required' => 'nombre',
-            'apellidos.required' => 'apellidos',
-            'dni.required' => 'dni',
-            'domicilio.required' => 'domicilio',
-            'poblacion.required' => 'poblacion',
-            'provincia.required' => 'provincia',
-            'pais.required' => 'pais',
-            'codigo_postal.required' => 'codigo_postal',
-            'sexo.required' => 'sexo',
-            'telefono.required' => 'telefono',
-            'email.required' => 'email',
-            'edad.required' => 'edad',
-            'fecha_nacimiento.required' => 'fecha_nacimiento',
-            'lugar_nacimiento.required' => 'lugar_nacimiento',
-            'nss.required' => 'nss'
+            'nombre.required' => 'Es obligatorio el nombre',
+            'apellidos.required' => 'Es obligatorio los apellidos',
+            'dni.required' => 'Es obligatorio el DNI',
+            'domicilio.required' => 'Es obligatorio el domicilio',
+            'poblacion.required' => 'Es obligatorio el poblacion',
+            'provincia.required' => 'Es obligatorio el provincia',
+            'pais.required' => 'Es obligatorio el pais',
+            'codigo_postal.required' => 'Es obligatorio el codigo postal',
+            'sexo.required' => 'Es obligatorio el sexo',
+            'telefono.required' => 'Es obligatorio el telefono',
+            'email.required' => 'Es obligatorio el email',
+            'edad.required' => 'Es obligatorio el edad',
+            'fecha_nacimiento.required' => 'Es obligatorio el fecha nacimiento',
+            'lugar_nacimiento.required' => 'Es obligatorio el lugar nacimiento',
+            'nss.required' => 'Es obligatorio el NSS'
         ]);
 
         try{
@@ -230,9 +247,11 @@ class AlumnoController extends Controller
             }
 
             $alumno->save();
+            $this->Log("Ha modificado al Alumno $alumno->nombre");
 
             return back()->with('mensaje', 'Alumno modificado correctamente');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar el alumno $request->nombre");
             return back()->with('error', 'No ha podido modificarse el alumno');
         }
     }

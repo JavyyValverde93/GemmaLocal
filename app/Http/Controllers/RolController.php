@@ -37,6 +37,8 @@ class RolController extends Controller
     {
         $request->validate([
             'nombre' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre'
         ]);
         
         try{
@@ -82,6 +84,8 @@ class RolController extends Controller
     {
         $request->validate([
             'nombre' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre'
         ]);
         
         try{

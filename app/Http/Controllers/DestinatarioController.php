@@ -57,7 +57,7 @@ class DestinatarioController extends Controller
      */
     public function edit(Destinatario $destinatario)
     {
-        //
+        return view('destinatarios.edit', compact('destinatario'));
     }
 
     /**

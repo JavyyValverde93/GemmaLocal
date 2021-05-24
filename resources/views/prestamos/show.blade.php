@@ -1,5 +1,14 @@
 <x-menu-grupos>
 	<x-slot name="slot">
+        <script>
+            navselected = 'inventario';
+        </script>
+        
+        <div class="row migaspan">
+            <a href="{{route('inventario.index')}}" class="text-danger">Inventario</a> >
+            <a href="{{route('prestamos.index')}}" class="text-danger">Prestamos</a> >
+        </div>
+        
 		<style>
 			label.input-custom-file input[type=file] {
 				display: none;

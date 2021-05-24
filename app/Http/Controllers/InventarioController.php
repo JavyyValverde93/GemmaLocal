@@ -14,7 +14,7 @@ class InventarioController extends Controller
      */
     public function index(Request $request)
     {
-        $inventario = Inventario::orderBy('fecha_modificacion', 'desc')->paginate(15);
+        $inventario = Inventario::orderBy('fecha_modificacion', 'desc')->nombre($request->nombre)->paginate(15);
         return view('inventario.index', compact('inventario', 'request'));
     }
 
@@ -38,8 +38,11 @@ class InventarioController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'datos' => 'required',
+            'datos' => 'required'
             
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'datos.required'=>'Es obligatorio el datos'
         ]);
 
         try{
@@ -49,8 +52,10 @@ class InventarioController extends Controller
             $inventario->fecha_creacion = now()->getTimestamp();
             $inventario->fecha_modificacion = now()->getTimestamp();
             $inventario->save();
+            $this->Log("Ha añadido $inventario->nombre al Inventario");
             return redirect()->route('inventario.index')->with('mensaje', $request->nombre.' añadido a inventario');
         }catch(\Exception $ex){
+            $this->Log("Error al añadir $request->nombre al Inventario");
             return back()->with('error', 'No ha podido definirse el inventario');
         }
     }
@@ -88,8 +93,11 @@ class InventarioController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'datos' => 'required',
+            'datos' => 'required'
             
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'datos.required'=>'Es obligatorio el datos'
         ]);
 
         try{
@@ -98,8 +106,10 @@ class InventarioController extends Controller
             $inventario->fecha_creacion = now()->getTimestamp();
             $inventario->fecha_modificacion = now()->getTimestamp();
             $inventario->save();
+            $this->Log("Ha modificado $inventario->nombre del Inventario");
             return back()->with('mensaje', 'Inventario modificado');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar $request->nombre del Inventario");
             return back()->with('error', 'No ha podido modificarse el inventario');
         }
     }

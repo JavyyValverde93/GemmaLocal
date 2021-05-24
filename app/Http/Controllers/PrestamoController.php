@@ -46,6 +46,13 @@ class PrestamoController extends Controller
             'importe_fianza' => 'required',
             'concepto_fianza' => 'required',
             'observaciones' => 'required',
+        ],[
+            'id_usuario.required'=>'Es obligatorio el id del usuario',
+            'id_inventario.required'=>'Es obligatorio el id del inventario',
+            'fecha_prevista_devolucion.required'=>'Es obligatorio la fecha prevista de devolucion',
+            'importe_fianza.required'=>'Es obligatorio el importe de la fianza',
+            'concepto_fianza.required'=>'Es obligatorio el concepto de la fianza',
+            'observaciones.required'=>'Es obligatorio las observaciones'
         ]);
 
         try{
@@ -60,9 +67,11 @@ class PrestamoController extends Controller
             $prestamo->fecha_creacion = now()->getTimestamp();
             $prestamo->fecha_modificacion = now()->getTimestamp();
             $prestamo->save();
+            $this->Log("Ha solicitado un préstamo de ".$prestamo->inventario->nombre);
 
             return back()->with('mensaje', 'Préstamo creado');
         }catch(\Exception $ex){
+            $this->Log("Error al solicitar préstamo del Inventario $request->id_inventario");
             return back()->with('error', 'El préstamo no ha podido crearse');
         }
     }

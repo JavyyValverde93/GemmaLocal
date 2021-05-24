@@ -44,6 +44,14 @@ class ReservaespacioController extends Controller
             'id_espacio'=> 'required',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'descripcion.required'=>'Es obligatorio la descripcion',
+            'id_grupo.required'=>'Es obligatorio el id del grupo',
+            'id_usuario.required'=>'Es obligatorio el id del usuario',
+            'id_espacio.required'=>'Es obligatorio el id del espacio',
+            'fecha_inicio.required'=>'Es obligatorio la fecha de inicio',
+            'fecha_fin.required'=>'Es obligatorio la fecha de fin'
         ]);
 
         try{
@@ -56,9 +64,11 @@ class ReservaespacioController extends Controller
             $reservaespacio->fecha_inicio = $request->fecha_inicio;
             $reservaespacio->fecha_fin = $request->fecha_fin;
             $reservaespacio->save();
+            $this->Log("Ha reservado el Espacio ".$reservaespacio->espacio->nombre);
 
             return back()->with('mensaje', 'Reserva realizada');
         }catch(\Exception $ex){
+            $this->Log("Error al reservar el Espacio $request->id");
             return back()->with('error', 'Error al reservar espacio');
         }
     }
@@ -82,7 +92,7 @@ class ReservaespacioController extends Controller
      */
     public function edit(Reservaespacio $reservaespacio)
     {
-        //
+        return view('reservasespacios.edit', compact('reservaespacio'));
     }
 
     /**
@@ -102,6 +112,14 @@ class ReservaespacioController extends Controller
             'id_espacio'=> 'required',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'descripcion.required'=>'Es obligatorio la descripcion',
+            'id_grupo.required'=>'Es obligatorio el id del grupo',
+            'id_usuario.required'=>'Es obligatorio el id del usuario',
+            'id_espacio.required'=>'Es obligatorio el id del espacio',
+            'fecha_inicio.required'=>'Es obligatorio la fecha de inicio',
+            'fecha_fin.required'=>'Es obligatorio la fecha de fin'
         ]);
 
         try{
@@ -113,9 +131,11 @@ class ReservaespacioController extends Controller
             $reservaespacio->fecha_inicio = $request->fecha_inicio;
             $reservaespacio->fecha_fin = $request->fecha_fin;
             $reservaespacio->save();
+            $this->Log("Ha modificado la reserva del Espacio ".$reservaespacio->espacio->nombre);
 
             return back()->with('mensaje', 'Reserva modificada');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar la reserva del Espacio ".$reservaespacio->espacio->nombre);
             return back()->with('error', 'Error al modificar reserva de espacio');
         }
     }

@@ -1,19 +1,34 @@
 <x-menu-grupos>
     <x-slot name="slot">
-        <form action="{{route('plazosprescripciones.update', $plazoprescripcion)}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
+        <script>
+            navselected = 'prescripcion';
+        </script>
+
+    <div class="row migaspan">
+        <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
+        <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos</a> >
+    </div>
+
+        <form action="{{route('plazosprescripciones.update', $plazoprescripcion)}}" method="POST" class="ml-5 mt-4 border p-5">
             @csrf
-            <div class="form-row col-md-10">
+            @method('PUT')
+            <div class="form-row col-md-12">
                 <div class="form-group col-md-5">
-                    <label for="inputName">Nombre de la Prescripción</label>
-                    <input type="name" class="form-control" name="nombre" placeholder="Nombre de la Prescripción" value="{{$plazoprescripcion->nombre}}">
+                    <label>Nombre de la Prescripción</label>
+                    <input required type="name" class="form-control" name="nombre" placeholder="Nombre de la Prescripción" value="{{$plazoprescripcion->nombre}}">
+                    <small>{{$errors->first('nombre')}}</small>
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="inputStartDate">Fecha de Inicio</label>
-                    <input type="date" class="form-control" name="fecha_inicio" value="{{date("d/m/Y", $plazoprescripcion->fecha_inicio)}}">
+            </div>
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-5">
+                    <label>Fecha de Inicio</label>
+                    <input required type="date" class="form-control" name="fecha_inicio" value="{{date("Y-m-d", $plazoprescripcion->fecha_inicio)}}">
+                    <small>{{$errors->first('fecha_inicio')}}</small>
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="inputCloseDate">Fecha de Cierre</label>
-                    <input type="date" class="form-control" name="fecha_fin" value="{{date("d/m/Y", $plazoprescripcion->fecha_fin)}}">
+                <div class="form-group col-md-5">
+                    <label>Fecha de Cierre</label>
+                    <input required type="date" class="form-control" name="fecha_fin" value="{{date("Y-m-d", $plazoprescripcion->fecha_fin)}}">
+                    <small>{{$errors->first('fecha_fin')}}</small>
                   
                 </div>
             </div>

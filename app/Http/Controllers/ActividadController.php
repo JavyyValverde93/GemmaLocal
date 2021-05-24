@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Actividad;
+use App\Models\Log;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
 
 class ActividadController extends Controller
 {
@@ -45,6 +48,15 @@ class ActividadController extends Controller
             'asistencia' => 'required',
             'anio_academico' => 'required',
             'estado' => 'required',
+        ],[
+            'id_profesor.required'=>'Es obligatorio el id profesor',
+            'id_grupo.required'=>'Es obligatorio el id grupo',
+            'id_categoria.required'=>'Es obligatorio el id categoria',
+            'nombre.required'=>'Es obligatorio el nombre',
+            'horas.required'=>'Es obligatorio el horas',
+            'asistencia.required'=>'Es obligatorio el asistencia',
+            'anio_academico.required'=>'Es obligatorio el año academico',
+            'estado.required'=>'Es obligatorio el estado',
         ]);
 
         try{
@@ -64,8 +76,11 @@ class ActividadController extends Controller
 
             $actividad->save();
 
+            $this->Log("Ha creado la Actividad $actividad->nombre");
+
             return back()->with('mensaje', 'Actividad creada');
         }catch(\Exception $ex){
+            $this->Log("No ha podido crear la Actividad $request->nombre");
             return back()->with('error', 'Error al crear la actividad');
         }
     }
@@ -89,7 +104,7 @@ class ActividadController extends Controller
      */
     public function edit(Actividad $actividad)
     {
-        //
+        return view('actividades.edit', compact('actividad'));
     }
 
     /**
@@ -109,7 +124,16 @@ class ActividadController extends Controller
             'horas' => 'required',
             'asistencia' => 'required',
             'anio_academico' => 'required',
-            'estado' => 'required',
+            'estado' => 'required'
+        ],[
+            'id_profesor.required'=>'Es obligatorio el id profesor',
+            'id_grupo.required'=>'Es obligatorio el id grupo',
+            'id_categoria.required'=>'Es obligatorio el id categoria',
+            'nombre.required'=>'Es obligatorio el nombre',
+            'horas.required'=>'Es obligatorio el horas',
+            'asistencia.required'=>'Es obligatorio el asistencia',
+            'anio_academico.required'=>'Es obligatorio el año academico',
+            'estado.required'=>'Es obligatorio el estado'
         ]);
 
         try{
@@ -127,9 +151,11 @@ class ActividadController extends Controller
             $actividad->fecha_modificacion = now()->getTimestamp();
 
             $actividad->save();
+            $this->Log("Ha modificado la Actividad $actividad->nombre");
 
-            return back()->with('mensaje', 'Actividad creada');
+            return redirect()->route('actividades.show', $actividad)->with('mensaje', 'Actividad modificada');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar la Actividad $request->nombre");
             return back()->with('error', 'Error al crear la actividad');
         }
     }
@@ -144,4 +170,5 @@ class ActividadController extends Controller
     {
         //
     }
+
 }

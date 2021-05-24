@@ -46,6 +46,11 @@ class TitulacionController extends Controller
             'id_actividad' => 'required',
             'especialidad' => 'required',
             'titulacion' => 'required'
+        ],[
+            'id_profesor.required' => 'Es obligatorio el id del profesor',
+            'id_actividad.required' => 'Es obligatorio el id de la actividad',
+            'especialidad.required' => 'Es obligatorio la especialidad',
+            'titulacion.required' => 'Es obligatorio la titulacion'
         ]);
         
         $validar = Titulacion::where('id_profesor', $request->id_profesor)
@@ -53,6 +58,7 @@ class TitulacionController extends Controller
         ->where('especialidad', $request->especialidad)->first();
          
         if($validar!=null){
+            $this->Log("Error por intentar introducir una Titulación existente, $request->titulacion");
             return back()->with('error', 'La Titulación ya existe');
         }
 
@@ -64,9 +70,11 @@ class TitulacionController extends Controller
             $titulacion->especialidad = $request->especialidad;
             $titulacion->titulacion = $request->titulacion;
             $titulacion->save();
+            $this->Log("Ha añadido la Titulación $request->titulacion");
 
             return redirect()->route('titulaciones.index', ["id_profesor=$request->id_profesor", "profesor=$request->profesor"])->with('mensaje', 'Titulación creada');
         }catch(\Exception $ex){
+            $this->Log("Error al añadir Titulación $request->titulacion");
             return back()->with('error', 'No se ha podido crear la titulación');
         }
     }
@@ -90,7 +98,7 @@ class TitulacionController extends Controller
      */
     public function edit(Titulacion $titulacion)
     {
-        //
+        return view('titulaciones.edit', compact('titulacion'));
     }
 
     /**
@@ -107,6 +115,11 @@ class TitulacionController extends Controller
             'id_actividad' => 'required',
             'especialidad' => 'required',
             'titulacion' => 'required'
+        ],[
+            'id_profesor.required' => 'Es obligatorio el id del profesor',
+            'id_actividad.required' => 'Es obligatorio el id de la actividad',
+            'especialidad.required' => 'Es obligatorio la especialidad',
+            'titulacion.required' => 'Es obligatorio la titulacion'
         ]);
 
         try{
@@ -115,9 +128,11 @@ class TitulacionController extends Controller
             $titulacion->especialidad = $request->especialidad;
             $titulacion->titulacion = $request->titulacion;
             $titulacion->save();
+            $this->Log("Ha modificado la Titulación $request->titulacion");
 
             return back()->with('mensaje', 'Titulación modificada');
         }catch(\Exception $ex){
+            $this->Log("Error al modificar la Titulación $request->titulacion");
             return back()->with('error', 'No se ha podido modificar la titulación');
         }
     }

@@ -1,5 +1,14 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        
+        <script>
+            navselected = 'profesor';
+        </script>
+        
+    <div class="row migaspan">
+        <a href="{{route('titulaciones.index')}}" class="text-danger">Titulaciones</a> >
+    </div>
+    
         <style>
             label.input-custom-file input[type=file] {
                 display: none;
@@ -26,10 +35,12 @@
             <div class="form-group">
                 <label for="titulacion" class="form-text">Titulaci&oacute;n</label>
                 <input type="text" name="titulacion" class="form-control" value="{{$titulacion->titulacion}}">
+                <small>{{$errors->first('titulacion')}}</small>
             </div>
             <div class="form-group">
                 <label for="especialidad" class="form-text">Especialidad</label>
                 <input type="text" name="especialidad" class="form-control" value="{{$titulacion->especialidad}}">
+                <small>{{$errors->first('especialidad')}}</small>
             </div>
             
             <div class="form-group">
@@ -40,6 +51,7 @@
                     <option value="{{$item->id}}">{{$item->nombre}}</option>
                     @endforeach
                 </select>
+                <small>{{$errors->first('id_actividad')}}</small>
             </div>
             <input type="submit" name="Enviar" class="btn btn-danger">
         </form>

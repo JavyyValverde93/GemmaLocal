@@ -53,9 +53,9 @@ class SalarioController extends Controller
             'total_mes' => 'required',
             'nomina' => 'required'
         ],[
-            'id_usuario.required' => 'Usuario requerido',
-            'total_mes.required' => 'Total por mes requerido',
-            'nomina.required' => 'Salario requerido'
+            'id_usuario.required' => 'Es obligatorio el id del usuario',
+            'total_mes.required' => 'Es obligatorio el total del mes',
+            'nomina.required' => 'Es obligatorio la nomina'
         ]);
 
         try{
@@ -67,8 +67,10 @@ class SalarioController extends Controller
             $salario->fecha_modificacion = now()->getTimestamp();
 
             $salario->save();
+            $this->Log("Ha actualizado el Salario de ".$salario->user->name);
             return back()->with('mensaje', 'Salario actualizado');
         }catch(\Exception $ex){
+            $this->Log("Error al actualizar el Salario del Usuario $request->id_usuario");
             return back()->with('error', 'Error al actualizar salario');
         }
     }
@@ -92,7 +94,7 @@ class SalarioController extends Controller
      */
     public function edit(Salario $salario)
     {
-        //
+        return view('salarios.edit', compact('salario'));
     }
 
     /**

@@ -40,6 +40,10 @@ class PlazoprescripcionController extends Controller
             'nombre' => 'required',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'fecha_inicio.required'=>'Es obligatorio la fecha de inicio',
+            'fecha_fin.required'=>'Es obligatorio la fecha de fin'
         ]);
 
         $date = new \DateTime($request->fecha_inicio);
@@ -48,6 +52,7 @@ class PlazoprescripcionController extends Controller
         $date2 = $date2->getTimestamp();
 
         if($date2<=$date){
+            $this->Log("Error al crear plazo de prescripción $request->nombre");
             return back()->with('error', 'No se ha podido crear el nuevo plazo');
         }
 
@@ -57,11 +62,13 @@ class PlazoprescripcionController extends Controller
             $plazoprescripcion->fecha_inicio = $date;
             $plazoprescripcion->fecha_fin = $date2;
             $plazoprescripcion->save();
+            $this->Log("Ha creado el plazo de prescripción $request->nombre");
 
 
-            return back()->with('mensaje', 'Plazo creado correctamente');
+            return redirect()->route('plazosprescripciones.index')->with('mensaje', 'Plazo creado correctamente');
 
         }catch(\Exception $ex){
+            $this->Log("Error al crear el plazo de prescripción $request->nombre");
             return back()->with('error', 'No se ha podido crear el nuevo plazo');
         }
     }
@@ -72,7 +79,7 @@ class PlazoprescripcionController extends Controller
      * @param  \App\Models\Plazoprescripcion  $plazoprescripcion
      * @return \Illuminate\Http\Response
      */
-    public function show(Plazoprescripcion $plazoprescripcion)
+    public function show(Plazoprescripcion $plazoprescripcione)
     {
         //
     }
@@ -83,9 +90,10 @@ class PlazoprescripcionController extends Controller
      * @param  \App\Models\Plazoprescripcion  $plazoprescripcion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Plazoprescripcion $plazoprescripcion)
+    public function edit(Plazoprescripcion $plazosprescripcione)
     {
-        //
+        $plazoprescripcion = $plazosprescripcione;
+        return view('plazosprescripciones.edit', compact('plazoprescripcion'));
     }
 
     /**
@@ -95,24 +103,41 @@ class PlazoprescripcionController extends Controller
      * @param  \App\Models\Plazoprescripcion  $plazoprescripcion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Plazoprescripcion $plazoprescripcion)
+    public function update(Request $request, Plazoprescripcion $plazosprescripcione)
     {
+        $plazoprescripcion = $plazosprescripcione;
         $request->validate([
-            'nombre' => 'required',
+            'nombre' => 'required|unique:plazosprescripciones,nombre,'.$plazoprescripcion->id,
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required',
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre',
+            'nombre.unique'=>'El nombre debe ser único',
+            'fecha_inicio.required'=>'Es obligatorio la fecha de inicio',
+            'fecha_fin.required'=>'Es obligatorio la fecha de fin'
         ]);
+
+        $date = new \DateTime($request->fecha_inicio);
+        $date = $date->getTimestamp();
+        $date2 = new \DateTime($request->fecha_fin);
+        $date2 = $date2->getTimestamp();
+
+        if($date2<=$date){
+            $this->Log("Error al crear plazo de prescripción $request->nombre");
+            return back()->with('error', 'No se ha podido crear el nuevo plazo');
+        }
 
         try{
             $plazoprescripcion->nombre = $request->nombre;
-            $plazoprescripcion->fecha_inicio = $request->fecha_inicio;
-            $plazoprescripcion->fecha_fin = $request->fecha_fin;
-
+            $plazoprescripcion->fecha_inicio = $date;
+            $plazoprescripcion->fecha_fin = $date2;
             $plazoprescripcion->save();
+            $this->Log("Ha modificado el plazo de prescripción $request->nombre");
 
-            return back()->with('mensaje', 'Plazo modificado correctamente');
+            return redirect()->route('plazosprescripciones.index')->with('mensaje', 'Plazo modificado correctamente');
 
         }catch(\Exception $ex){
+            $this->Log("Error al modificar el plazo de prescripción $request->nombre");
             return back()->with('error', 'No se ha podido modificar el plazo');
         }
     }

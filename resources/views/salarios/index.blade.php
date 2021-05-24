@@ -1,7 +1,7 @@
 <x-menu-grupos>
     <x-slot name="slot">
 		<div class="row migaspan">
-            <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
+            <a href="{{route('salarios.index')}}" class="text-danger">Salarios</a> >
         </div>
         <div align="center">Salario de {{$profesor->nombre}}</div>
         <div class="row">

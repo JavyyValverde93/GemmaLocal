@@ -37,6 +37,8 @@ class PermisoController extends Controller
     {
         $request->validate([
             'nombre' => 'required'
+        ],[
+            'nombre.required'=>'Es obligatorio el nombre'
         ]);
         
         try{
@@ -68,7 +70,7 @@ class PermisoController extends Controller
      */
     public function edit(Permiso $permiso)
     {
-        //
+        return view('permisos.edit', compact('permiso'));
     }
 
     /**

@@ -1,7 +1,14 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <div class="row migaspan">
+            <a href="{{route('matriculas.index')}}" class="text-danger">Matrículas</a> >
+            <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos Matrículas</a> >
+        </div>
         <h5 align="center">Plazos Matrículas</h5>
         <div class="row">
+            <script>
+                navselected = 'matricula';
+            </script>
             <div class="col">
                 <a href="{{route('plazosmatriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Plazo Matriculación</a>
                 {{-- <a href="{{route('matriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Matrícula</a> --}}
@@ -29,8 +36,8 @@
                 <td>{{date("d/m/Y", $item->fecha_inicio)}}</td>
                 <td>{{date("d/m/Y", $item->fecha_fin)}}</td>
                 <td>
-                    {{-- <a href="{{route('plazosmatriculas.show', $item)}}"><i class="fas fa-eye"></i></a>
-                    <a href="{{route('plazosmatriculas.edit', $item)}}"><i class="fas fa-edit"></i></a> --}}
+                    {{-- <a href="{{route('plazosmatriculas.show', $item)}}"><i class="fas fa-eye"></i></a> --}}
+                    <a href="{{route('plazosmatriculas.edit', $item)}}"><i class="fas fa-edit"></i></a>
                 </td>
                 
             </tr>
