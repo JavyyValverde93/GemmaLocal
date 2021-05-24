@@ -96,7 +96,7 @@ class PrestamoController extends Controller
      */
     public function edit(Prestamo $prestamo)
     {
-        //
+        return view('prestamos.edit', compact('prestamo'));
     }
 
     /**
@@ -108,7 +108,40 @@ class PrestamoController extends Controller
      */
     public function update(Request $request, Prestamo $prestamo)
     {
-        //
+        $request->validate([
+            'id_usuario' => 'required',
+            'id_inventario' => 'required',
+            'fecha_prevista_devolucion' => 'required',
+            'importe_fianza' => 'required',
+            'concepto_fianza' => 'required',
+            'observaciones' => 'required',
+        ],[
+            'id_usuario.required'=>'Es obligatorio el id del usuario',
+            'id_inventario.required'=>'Es obligatorio el id del inventario',
+            'fecha_prevista_devolucion.required'=>'Es obligatorio la fecha prevista de devolucion',
+            'importe_fianza.required'=>'Es obligatorio el importe de la fianza',
+            'concepto_fianza.required'=>'Es obligatorio el concepto de la fianza',
+            'observaciones.required'=>'Es obligatorio las observaciones'
+        ]);
+
+        try{
+            $prestamo->id_usuario = $request->id_usuario;
+            $prestamo->id_inventario = $request->id_inventario;
+            $date = new \DateTime($request->fecha_prevista_devolucion);
+            $prestamo->fecha_prevista_devolucion = $date->getTimestamp();
+            $prestamo->importe_fianza = $request->importe_fianza;
+            $prestamo->concepto_fianza = $request->concepto_fianza;
+            $prestamo->observaciones = $request->observaciones;
+            $prestamo->fecha_creacion = now()->getTimestamp();
+            $prestamo->fecha_modificacion = now()->getTimestamp();
+            $prestamo->save();
+            $this->Log("Ha solicitado un préstamo de ".$prestamo->inventario->nombre);
+
+            return back()->with('mensaje', 'Préstamo creado');
+        }catch(\Exception $ex){
+            $this->Log("Error al solicitar préstamo del Inventario $request->id_inventario");
+            return back()->with('error', 'El préstamo no ha podido crearse');
+        }
     }
 
     /**

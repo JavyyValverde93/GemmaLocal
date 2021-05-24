@@ -15,7 +15,7 @@
                 color: red;
             }
         </style>
-        <h5 aclass="text-center">Editar Grupos</h5>
+        <h5 class="text-center">Editar Grupos</h5>
         <form action="{{route('grupos.update',$grupo)}}" method="POST" class="ml-5 mt-4 border p-5">
             @csrf
             @method('PUT')

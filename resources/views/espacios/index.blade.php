@@ -39,10 +39,9 @@
                 <td>@if($item->aula_combinada==false)No @else Sí @endif</td>
                 <td>@if($item->activo==false)No @else Sí @endif</td>
                 <td>
-                    <a href="{{route('espacios.show', $item)}}"><i class="fas fa-eye"></i></a>
-                    <a href="{{route('espacios.edit', $item)}}"><i class="fas fa-edit"></i></a>
-                </td>
-                
+                    <a href="{{route('espacios.show', $item)}}"><i class="fas fa-eye" title="Visualizar Espacios"></i></a>
+                    <a href="{{route('espacios.edit', $item)}}"><i class="fas fa-edit" title="Editar Espacios"></i></a>
+                </td>                
             </tr>
             @endforeach
         </table>
@@ -50,5 +49,4 @@
             {{$espacios->appends($request->except('page'))->links()}}
         </div>
     </x-slot>
-
 </x-menu-grupos>

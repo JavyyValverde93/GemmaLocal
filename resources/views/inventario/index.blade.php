@@ -33,8 +33,8 @@
                 <td style="width: 400px">{{$item->datos}}</td>
                 <td>{{date("d/m/Y", $item->fecha_modificacion)}}</td>
                 <td>
-                    <a href="{{route('inventario.show', $item)}}"><i class="fas fa-eye"></i></a>
-                    <a href="{{route('inventario.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                    <a href="{{route('inventario.show', $item)}}"><i class="fas fa-eye" title="Visualizar Inventario"></i></a>
+                    <a href="{{route('inventario.edit', $item)}}"><i class="fas fa-edit" title="Editar Inventario"></i></a>
                 </td>
                 
             </tr>
