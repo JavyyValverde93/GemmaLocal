@@ -6,6 +6,7 @@ use App\Models\Prescripcion;
 use App\Models\Actividad;
 use App\Models\Alumno;
 use App\Models\Plazoprescripcion;
+use App\Models\Matricula;
 use Illuminate\Http\Request;
 
 class PrescripcionController extends Controller
@@ -19,17 +20,35 @@ class PrescripcionController extends Controller
     {
         if($request->nombre==null){
             $busqueda = ["%"];
-            $prescripciones = Prescripcion::orderBy('id', 'desc')->paginate(20);
+            if($request->pendientes=='true'){
+                $prescripciones = Prescripcion::orderBy('id', 'desc')->whereNotIn('id', Matricula::select('id_prescripcion')->where('id_prescripcion', "!=", null)->get('id_prescripcion'))->paginate(20);
+            }else if($request->matriculadas=='true'){
+                $prescripciones = Prescripcion::orderBy('id', 'desc')->whereIn('id', Matricula::select('id_prescripcion')->get('id_prescripcion'))->paginate(20);
+            }else{
+                $prescripciones = Prescripcion::orderBy('id', 'desc')->paginate(20);
+            }
         }else{
             $busqueda = $request->nombre;
             $alumnos = Alumno::select('id', 'nombre', 'apellidos')->orWhere('nombre', 'LIKE', "%$busqueda%")
             ->orWhere('apellidos', 'LIKE', "%$busqueda%")->get('id');
             if($alumnos->first()==null){
                 $busqueda = ["%"];
-                $prescripciones = Prescripcion::orderBy('id', 'desc')->paginate(20);
+                if($request->pendientes=='true'){
+                    $prescripciones = Prescripcion::orderBy('id', 'desc')->whereNotIn('id', Matricula::select('id_prescripcion')->where('id_prescripcion', "!=", null)->get('id_prescripcion'))->paginate(20);
+                }else if($request->matriculadas=='true'){
+                    $prescripciones = Prescripcion::orderBy('id', 'desc')->whereIn('id', Matricula::select('id_prescripcion')->get('id_prescripcion'))->paginate(20);
+                }else{
+                    $prescripciones = Prescripcion::orderBy('id', 'desc')->paginate(20);
+                }
             }else{
                 $busqueda = $alumnos;
-                $prescripciones = Prescripcion::orderBy('id', 'desc')->orWhereIn('id_alumno', $busqueda)->paginate(20);
+                if($request->pendientes=='true'){
+                    $prescripciones = Prescripcion::orderBy('id', 'desc')->orWhereIn('id_alumno', $busqueda)->whereNotIn('id', Matricula::select('id_prescripcion')->where('id_prescripcion', "!=", null)->get('id_prescripcion'))->paginate(20);
+                }else if($request->matriculadas=='true'){
+                    $prescripciones = Prescripcion::orderBy('id', 'desc')->orWhereIn('id_alumno', $busqueda)->whereIn('id', Matricula::select('id_prescripcion')->get('id_prescripcion'))->paginate(20);
+                }else{
+                    $prescripciones = Prescripcion::orderBy('id', 'desc')->orWhereIn('id_alumno', $busqueda)->paginate(20);
+                }
             }
         }
         if($request->plazoprescripcion=='true'){

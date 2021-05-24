@@ -10,6 +10,10 @@
                 <a href="{{route('plazosprescripciones.index')}}" class="btn btn-outline-danger my-2"><i class="fas fa-eye-circle"></i> Plazos</a>
             </div>
             <div class="col">
+                <a href="{{route('prescripciones.index', ['pendientes=true', 'nombre='.$request->nombre])}}" class="btn btn-outline-danger my-2"><i class="fas fa-clock"></i> Pendientes</a>
+                <a href="{{route('prescripciones.index', ['matriculadas=true', 'nombre='.$request->nombre])}}" class="btn btn-outline-danger my-2"><i class="fas fa-check-circle"></i> Matriculadas</a>
+           </div>
+            <div class="col">
                 <form action="{{route('prescripciones.index')}}" class=" float-right m-3" method="GET">
                 @csrf
                 <input type="text" value="{{$request->nombre}}" name="nombre" class="rounded" placeholder="Buscar...">

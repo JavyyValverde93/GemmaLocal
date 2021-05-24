@@ -23,6 +23,7 @@
                         <span class="row"><b>Profesor:</b>&nbsp;{{$profesor->nombre}}&nbsp;{{$profesor->apellidos}}</span>
                         <span class="row"><b>Espacio:</b>&nbsp;{{$espacio->nombre}}</span>
                         <span class="row"><b>Planta:</b>&nbsp;{{$espacio->planta}}</span>
+                        @if($actividad!=null)<span class="row"><b>Actividad:</b>&nbsp;{{$actividad->nombre}}</span>@endif
                     </div>
                     
                 </div>

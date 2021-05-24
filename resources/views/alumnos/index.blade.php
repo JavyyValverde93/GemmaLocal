@@ -42,10 +42,6 @@
 
                     <a href="{{route('asistencia.verlista',$item)}}"><i class="fas fa-list"></i></a>
                 </td>
-                <td>{{$item->id}}</td>
-                <td>{{$item->nombre}} {{$item->apellidos}}</td>
-                <td>{{$item->dni}}</td>
-                <td>{{$item->telefono}}<br>{{$item->telefono2}}</td>
 
             </tr>
             @endforeach

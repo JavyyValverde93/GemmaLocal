@@ -31,7 +31,7 @@
             <tr>
                 <td></td>
                 <td>{{$item->alumno->nombre}} {{$item->alumno->apellidos}}</td>
-                <td>{{$item->grupo->nombre}}</td>
+                <td><a href="{{route('grupos.show', $item->grupo)}}">{{$item->grupo->nombre}}</a></td>
                 <td>{{$item->id_prescripcion}}</td>
                 <td>{{date("d/m/Y", $item->plazomatricula->fecha_inicio)}} - {{date("d/m/Y", $item->plazomatricula->fecha_fin)}}</td>
                 <td>

@@ -92,7 +92,7 @@ session_start();
             <!-- Contenido de la Página -->
             <div id="page-content-wrapper">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <button class="btn btn-outline-dark ml-4" id="menu-toggle" onmouseover="selectMenu()">
+                    <button class="btn btn-outline-dark ml-4" id="menu-toggle">
                         <span class="material-icons align-middle">
                             reorder
                         </span>
