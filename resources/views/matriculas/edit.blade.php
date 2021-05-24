@@ -28,7 +28,7 @@
                       @foreach ($matricula as $item)
                       <tr>
                         <td>{{$item->nombre}}</td>
-                        <td align="center">
+                        <td class="text-center">
                             <form action="{{route('matriculas.store')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="id_alumno" value="{{$request->id_alumno}}">

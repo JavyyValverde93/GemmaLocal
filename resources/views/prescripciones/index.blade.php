@@ -3,7 +3,7 @@
 		<div class="row migaspan">
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
         </div>
-        <h5 align="center">Prescripciones</h5>
+        <h5 class="text-center">Prescripciones</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('prescripciones.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Prescripción</a>
@@ -35,8 +35,7 @@
                     {{-- <a href="{{route('prescripciones.show', $item)}}"><i class="fas fa-eye"></i></a>
                     <a href="{{route('prescripciones.edit', $item)}}"><i class="fas fa-edit"></i></a> --}}
                     <a href="{{route('matriculas.index', ['id_alumno='.$item->alumno->id, 'plazomatricula=true', "id_prescripcion=$item->id", "id_actividad=$item->id_actividad"])}}"><i class="fas fa-clipboard-list"></i></a>
-                </td>
-                
+                </td>                
             </tr>
             @endforeach
         </table>

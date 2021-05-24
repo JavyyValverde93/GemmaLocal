@@ -4,7 +4,7 @@
             <a href="{{route('matriculas.index')}}" class="text-danger">Matrículas</a> >
             <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos Matrículas</a> >
         </div>
-        <h5 align="center">Plazos Matrículas</h5>
+        <h5 class="text-center">Plazos Matrículas</h5>
         <div class="row">
             <script>
                 navselected = 'matricula';

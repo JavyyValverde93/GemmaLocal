@@ -3,7 +3,7 @@
 		<div class="row migaspan">
             <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
         </div>
-        <h5 align="center">Profesores</h5>
+        <h5 class="text-center">Profesores</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('profesores.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Profesor</a>

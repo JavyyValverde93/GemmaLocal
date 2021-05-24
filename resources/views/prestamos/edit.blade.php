@@ -14,8 +14,7 @@
               padding-right: 26px;
             }
           </style>
-        <div align="center">Préstamos</div>
-
+        <h5 class="text-center">Editar Prestamo</h5>
         <form action="{{route('prestamos.edit', $prestamo)}}" method="POST" class="mt-4 border p-5">
             @csrf
             @method('PUT')

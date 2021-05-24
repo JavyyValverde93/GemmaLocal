@@ -31,40 +31,40 @@ session_start();
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
                         <span class="material-icons align-middle" style="margin-top: 75px;">
-                            <a class="text-white text-decoration-none" href="{{route('dashboard')}}" id="home">home</a>
+                            <a class="text-white text-decoration-none" href="{{route('dashboard')}}" id="home" title="Administración">home</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('grupos.index')}}" id="group">group</a>
+                            <a class="text-white text-decoration-none" href="{{route('grupos.index')}}" id="group" title="Grupos">group</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('matriculas.index')}}" id="task">task</a>
+                            <a class="text-white text-decoration-none" href="{{route('matriculas.index')}}" id="task" title="Matriculas">task</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('prescripciones.index')}}" id="description">description</a>
+                            <a class="text-white text-decoration-none" href="{{route('prescripciones.index')}}" id="description" title="Prescripciones" title="Inventario">description</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('inventario.index')}}" id="inventory">inventory_2</a>
+                            <a class="text-white text-decoration-none" href="{{route('inventario.index')}}" id="inventory" title="Inventario">inventory_2</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('alumnos.index')}}" id="face">person</a>
+                            <a class="text-white text-decoration-none" href="{{route('alumnos.index')}}" id="face" title="Alumnos">person</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('profesores.index')}}" id="school">school</a>
+                            <a class="text-white text-decoration-none" href="{{route('profesores.index')}}" id="school" title="Profesores">school</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                        <a class="text-white text-decoration-none" href="{{route('espacios.index')}}" id="room">room</a>
+                        <a class="text-white text-decoration-none" href="{{route('espacios.index')}}" id="room" title="Espacios">room</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                        <a class="text-white text-decoration-none" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" href="{{route('comunicaciones.index')}}" id="room">email</a>
+                        <a class="text-white text-decoration-none" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" href="{{route('comunicaciones.index')}}" id="room" title="Comunicaciones">email</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                        <a class="text-white text-decoration-none" href="{{route('logs.index')}}" id="room">warning</a>
+                        <a class="text-white text-decoration-none" href="{{route('logs.index')}}" id="room" title="Logs">warning</a>
                         </span> 
                         
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <span class="material-icons align-middle mt-3">
-                                <a class="text-white text-decoration-none" href="Cerrar Sesión" id="logout">logout</a>
+                                <a class="text-white text-decoration-none" href="Cerrar Sesión" id="logout" title="Cerrar Sesión">logout</a>
                             </span> 
                         </form>
                     </aside>
@@ -92,7 +92,7 @@ session_start();
             <!-- Contenido de la Página -->
             <div id="page-content-wrapper">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <button class="btn btn-outline-dark ml-4" id="menu-toggle">
+                    <button class="btn btn-outline-dark ml-4" id="menu-toggle" onmouseover="selectMenu()">
                         <span class="material-icons align-middle">
                             reorder
                         </span>
@@ -221,10 +221,21 @@ session_start();
                     $("#wrapper").toggleClass("toggled");
                 }
                 
+                selectMenu();
+            }
+
+            function selectMenu(){
                 navs = document.getElementById('v-pills-tab').getElementsByTagName('a');
+                navs2 = document.getElementsByClassName("keep")[0].getElementsByTagName('a');
                 for($i=0; $i<=navs.length-2; $i++){
-                    if(window.location.href.includes(navs[$i].href) || typeof navselected!=='undefined' && navs[$i].href.includes(navselected)){
-                        navs[$i].classList.add('nav-selected');
+                    if(localStorage.getItem('menu')==1){
+                        if(window.location.href.includes(navs2[$i].href) || typeof navselected!=='undefined' && navs2[$i].href.includes(navselected)){
+                            navs2[$i].classList.add('nav-selected');
+                        }
+                    }else{
+                        if(window.location.href.includes(navs[$i].href) || typeof navselected!=='undefined' && navs[$i].href.includes(navselected)){
+                            navs[$i].classList.add('nav-selected');
+                        }
                     }
                 }
             }

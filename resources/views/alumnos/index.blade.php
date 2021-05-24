@@ -4,7 +4,7 @@
         <div class="row migaspan">
             <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
         </div>
-        <h5 align="center">Alumnos</h5>
+        <h5 class="text-center">Alumnos</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('alumnos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear alumno</a>
@@ -39,10 +39,14 @@
                     <a href="{{route('matriculas.index', ['id_alumno='.$item->id, 'plazomatricula=true'])}}"><i class="fas fa-clipboard-list"></i></a>
                     <a href="{{route('prescripciones.index', ['id_alumno='.$item->id, 'plazoprescripcion=true'])}}"><i class="fas fa-file-prescription"></i></a>
                     <a href="{{route('tutores.index', ["id_alumno=$item->id", "alumno=$item->nombre $item->apellidos"])}}"><i class="fas fa-address-book"></i></a>
-                    <a href="{{route('asistencia.verlista', $item)}}"><i class="fas fa-list"></i></a>
+
+                    <a href="{{route('asistencia.verlista',$item)}}"><i class="fas fa-list"></i></a>
                 </td>
-                
-                
+                <td>{{$item->id}}</td>
+                <td>{{$item->nombre}} {{$item->apellidos}}</td>
+                <td>{{$item->dni}}</td>
+                <td>{{$item->telefono}}<br>{{$item->telefono2}}</td>
+
             </tr>
             @endforeach
         </table>

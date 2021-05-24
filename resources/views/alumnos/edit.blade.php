@@ -16,9 +16,10 @@
             color: red;
         }
       </style>
-        <form action="{{route('alumnos.update', $alumno)}}" enctype="multipart/form-data" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px" onsubmit="disableButton(this)">
+      <h5 class="text-center">Editar Alumnos</h5>
+        <form action="{{route('alumnos.update', $alumno)}}" enctype="multipart/form-data" method="POST" class="mt-4 border p-5" style="width: 1200px" onsubmit="disableButton(this)">
           @csrf
-			@method('PUT')
+			    @method('PUT')
             <div class="form-row">
                 <div class="form-group col-md-2">
                   <label>Nombre</label>

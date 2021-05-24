@@ -4,16 +4,28 @@
                 <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> >
                 <a href="#" class="text-danger">Asistencias</a> >
             </div>
-        <div align="center">Asistencias</div>
         <div class="row">
-            <div class="col">
-            </div>
-            <div class="col">
-
+            <div class="col mb-4">
+                <h5 class="text-center">Asistencias</h5>
             </div>
         </div>
         <form action="{{route('asistencia.pasarlista')}}" method="POST">
             @csrf
+
+            <div class="row">
+                <div class="col">
+
+                    <label> Dia De Asistencia
+
+                    <input type="date" name="fecha" value="@php echo date('Y-m-d', time()); @endphp" max="@php echo date('Y-m-d', time()); @endphp" id="fecha">
+
+                   </label>
+
+                </div>
+
+            </div>
+
+
             <table class="table table-striped table-hover table-sm">
                 <tr class="rounded text-white" style="background-color: #dc3545">
                     <th> </th>

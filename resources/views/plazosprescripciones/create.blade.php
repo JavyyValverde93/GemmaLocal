@@ -3,15 +3,15 @@
         <div class="row migaspan">
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
             <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos</a> >
-            <a href="{{route('plazosprescripciones.create')}}" class="text-danger">Crear Plazos Prescripción</a> >
         </div>
+        <h5 class="text-center">Crear Plazos Prescripción</h5>
         <script>
             navselected = 'prescripcion';
         </script>
         <form action="{{route('plazosprescripciones.store')}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
             @csrf
             <div class="form-row col-md-10">
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
                     <label for="inputName">Nombre de la Prescripción</label>
                     <input type="name" class="form-control" name="nombre" placeholder="Nombre de la Prescripción">
                     <small>{{$errors->first('nombre')}}</small>

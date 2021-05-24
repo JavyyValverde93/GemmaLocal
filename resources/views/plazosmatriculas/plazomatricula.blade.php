@@ -1,6 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
-        
+        <div class="row migaspan">
+            <a href="{{route('matriculas.index')}}" class="text-danger">Matrículas</a> >
+            <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos Matrículas</a> >
+        </div>
         <div class="row">
             <div class="col">
                 {{-- <a href="{{route('matriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Matrícula</a> --}}
@@ -16,7 +19,7 @@
             </form>
             </div>
         </div>
-        <h5 align="center">Seleccione el plazo en el que se desea matricular al alumno</h5>
+        <h5 class="text-center">Seleccione el plazo en el que se desea matricular al alumno</h5>
         <table class="table table-striped table-hover table-sm">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th>&nbsp;</th>

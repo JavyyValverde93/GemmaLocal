@@ -6,6 +6,7 @@
         </script>
         
     <div class="row migaspan">
+        <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
         <a href="{{route('titulaciones.index')}}" class="text-danger">Titulaciones</a> >
     </div>
     
@@ -19,14 +20,14 @@
                 color: red;
             }
             
-            select{
-            font-size: 20px;
-            width: auto;
-            padding-right: 26px;
+            select {
+                font-size: 20px;
+                width: auto;
+                padding-right: 26px;
             }
 
         </style>
-        <div align="center">Titulaci&oacute;n para {{$request->profesor}}</div>
+        <h5 class="text-center">Editar Titulaci&oacute;n para {{$request->profesor}}</h5>
         <form action="{{route('titulaciones.edit', $titulacion)}}" method="POST" class="ml-5 mt-4 border p-5">
             @csrf
             @method('PUT')

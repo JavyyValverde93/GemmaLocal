@@ -13,7 +13,7 @@
 				color: red;
 			}
 		</style>
-		<h1 align="center">{{$alumno->nombre}}&nbsp;{{$alumno->apellidos}}</h1>
+		<h5 class="text-center">{{$alumno->nombre}}&nbsp;{{$alumno->apellidos}}</h5>
 		<div class="card text-center border-danger mr-3">
             <div class="card-header">
                 <img class="img-fluid rounded" src="{{asset($alumno->foto)}}" width="300px" height="300px" alt="Foto">
