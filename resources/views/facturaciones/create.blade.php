@@ -1,5 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
+    <div class="row migaspan">
+      <a href="{{route('facturaciones.index')}}" class="text-danger">Facturaciones</a> >
+      <a href="{{route('facturaciones.create')}}" class="text-danger">Crear Facturaciones</a> >
+    </div>
         <style>
             select {
                 font-size: 20px;

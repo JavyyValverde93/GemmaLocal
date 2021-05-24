@@ -1,5 +1,8 @@
 <x-menu-grupos>
   <x-slot name="slot">
+    <div class="row migaspan">
+      <a href="{{route('periodoscalificaciones.index')}}" class="text-danger">Periodo Calificaciones</a> >
+    </div>
     <h1 class="ml-5 mt-1">Periodo Calificación</h1>
     <form action="{{route('periodoscalificaciones.store')}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
       @csrf

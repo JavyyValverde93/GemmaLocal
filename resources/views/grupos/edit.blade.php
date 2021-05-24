@@ -1,6 +1,8 @@
 <x-menu-grupos>
     <x-slot name="slot">
-
+        <div class="row migaspan">
+            <a href="{{route('grupos.index')}}" class="text-danger">Grupos</a> >
+        </div>
         <style>
             select {
                 font-size: 20px;

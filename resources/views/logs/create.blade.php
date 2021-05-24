@@ -1,5 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <div class="row migaspan">
+            <a href="{{route('logs.index')}}" class="text-danger">logs</a> >
+            <a href="{{route('logs.create')}}" class="text-danger">Crear Logs</a> >
+        </div>
         <h4 align="center" class="ml-5 mt-1">Log</h4>
         <form action="{{route('logs.store')}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
             @csrf
