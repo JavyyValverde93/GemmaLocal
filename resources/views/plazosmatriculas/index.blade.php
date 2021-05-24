@@ -4,7 +4,7 @@
             <a href="{{route('matriculas.index')}}" class="text-danger">Matrículas</a> >
             <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos Matrículas</a> >
         </div>
-        <h5 align="center">Plazos Matrículas</h5>
+        <h5 class="text-center">Plazos Matrículas</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('plazosmatriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Plazo Matriculación</a>

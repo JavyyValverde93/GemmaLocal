@@ -11,6 +11,7 @@
             color: red;
       }
     </style>
+    <h5 class="text-center">Añadir Inventario</h5>
       <form action="{{route('inventario.store')}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
         @csrf
           <div class="form-row">

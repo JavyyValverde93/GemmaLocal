@@ -4,7 +4,7 @@
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
             <a href="{{route('prescripciones.index')}}" class="text-danger">Plazos</a> >
         </div>
-        <h5 align="center">Plazos Prescripciones</h5>
+        <h5 class="text-center">Plazos Prescripción</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('plazosprescripciones.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Plazo Prescripción</a>
@@ -36,8 +36,7 @@
                 <td>
                     {{-- <a href="{{route('plazosprescripciones.show', $item)}}"><i class="fas fa-eye"></i></a> --}}
                     <a href="{{route('plazosprescripciones.edit', $item)}}"><i class="fas fa-edit"></i></a>
-                </td>
-                
+                </td>                
             </tr>
             @endforeach
         </table>
@@ -45,5 +44,4 @@
             {{$plazosprescripciones->appends($request->except('page'))->links()}}
         </div>
     </x-slot>
-
 </x-menu-grupos>

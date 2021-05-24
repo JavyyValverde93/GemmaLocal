@@ -4,7 +4,7 @@
             <a href="{{route('alumnos.index')}}" class="text-danger"> Alumnos </a> > 
             <a href="{{route('tutores.index')}}" class="text-danger">Tutores</a> >
         </div>
-        <div align="center">Tutores de {{$alumno}}</div>
+        <h5 class="text-center">Tutores de {{$alumno}}</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('tutores.create', ["id_alumno=$id_alumno", "alumno=$alumno"])}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle mr-2"></i> Añadir Tutor</a>

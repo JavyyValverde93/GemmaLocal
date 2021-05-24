@@ -4,7 +4,7 @@
                 <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> >
                 <a href="#" class="text-danger">Asistencias</a> >
             </div>
-        <div align="center">Asistencias</div>
+        <h5 class="text-center">Asistencias</h5>
         <div class="row">
             <div class="col">
             </div>

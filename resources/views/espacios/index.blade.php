@@ -3,7 +3,7 @@
 		<div class="row migaspan">
             <a href="{{route('espacios.index')}}" class="text-danger">Espacios</a> >
         </div>
-        <h5 align="center">Espacios</h5>
+        <h5 class="text-center">Espacios</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('espacios.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Espacio</a>

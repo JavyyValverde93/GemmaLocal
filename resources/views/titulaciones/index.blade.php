@@ -1,9 +1,10 @@
 <x-menu-grupos>
     <x-slot name="slot">
     <div class="row migaspan">
+        <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
         <a href="{{route('titulaciones.index')}}" class="text-danger">Titulaciones</a> >
     </div>
-        <h5 align="center">Titulaciones de {{$profesor}}</h5>
+        <h5 class="text-center">Titulaciones de {{$profesor}}</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('titulaciones.create', ["id_profesor=$id_profesor", "profesor=$profesor"])}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle mr-2"></i> Añadir Titulación</a>

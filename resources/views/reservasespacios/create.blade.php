@@ -2,8 +2,8 @@
 	<x-slot name="slot">
 	<div class="row migaspan">
       <a href="{{route('espacios.index')}}" class="text-danger">Espacios</a> >
-      <a href="{{route('reservasespacios.create')}}" class="text-danger">Reservar Espacios</a> >
     </div>
+	<h5 class="text-center">Reservar Espacios</h5>
 		<form action="{{route('reservasespacios.create')}}" method="POST" class="mt-4 border p-5">
 			@csrf
 			<div class="form-group">

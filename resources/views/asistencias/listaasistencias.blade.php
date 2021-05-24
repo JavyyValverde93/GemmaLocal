@@ -4,7 +4,7 @@
             <a href="{{route('alumnos.index')}}" class="text-danger"> Alumno </a> >
             <a href="#" class="text-danger">Asistencias</a> >
         </div>
-    <div align="center"><h4>Asistencias De {{$alumno->apellidos}}  {{$alumno->nombre}}</h4></div>
+    <div class="text-center"><h4>Asistencias De {{$alumno->apellidos}}  {{$alumno->nombre}}</h4></div>
     <table class="table table-sm">
         <tr class="rounded text-white" style="background-color: #dc3545">
             <th> </th>

@@ -1,7 +1,7 @@
 <x-menu-grupos>
     <x-slot name="slot">
     <div class="row migaspan">
-      <a href="{{route('facturaciones.index')}}" class="text-danger">Facturaciones</a> >
+      <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
     </div>
         <style>
             select {
@@ -16,8 +16,8 @@
             }
 
         </style>
-        <h4 align="center">Facturación de {{$profesor->nombre}} {{$profesor->apellidos}}</h4>
-        <form action="{{route('facturaciones.update', $facturacion)}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
+        <h4 class="text-center">Facturación de {{$profesor->nombre}} {{$profesor->apellidos}}</h4>
+        <form action="{{route('facturaciones.update', $facturacion)}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
           @csrf
           @method('PUT')
             <div class="form-row">

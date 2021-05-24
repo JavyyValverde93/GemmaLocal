@@ -4,10 +4,8 @@
             <a href="{{route('grupos.index')}}"> Grupos </a> >
             <a href="{{route('periodoscalificaciones.index')}}">Periodos Calificaciones</a> >
         </div>
-        <div align="center">Calificar alumnos</div>
+        <h5 class="text-center">Calificar alumnos</h5>
         <div class="row">
-            <div class="col">
-            </div>
             <div class="col mb-5">
                 {{-- <form action="{{route('calificaciones.index')}}" class=" float-right m-3" method="GET">
                 @csrf

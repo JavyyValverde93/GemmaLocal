@@ -2,7 +2,6 @@
 	<x-slot name="slot">
 		<div class="row migaspan">
             <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
-			<a href="{{route('profesores.create')}}" class="text-danger">Crear Profesores</a> >
         </div>
 		<style>
 			label.input-custom-file input[type=file] {
@@ -33,6 +32,7 @@
 				$('input[name=edad]').val(edad);
 			}
 		  </script>
+		<h5 class="text-center">Crear Profesores</h5>
 		<form action="{{route('profesores.store')}}" method="POST" enctype="multipart/form-data" class="p-5">
 			@csrf
 			<div class="row justify-content-lg-center">
@@ -56,7 +56,7 @@
 									<small>{{$errors->first('telefono2')}}</small>
 								</div>
 								<div class="form-group">
-									<label for="l_nacimiento" class="form-text">Lugar Nacimiento</label>
+									<label for="l_nacimiento" class="form-text">Lugar Nacimi.</label>
 									<input type="text" class="form-control" name="lugar_nacimiento" value="{{old('lugar_nacimiento')}}" required>
 									<small>{{$errors->first('lugar_nacimiento')}}</small>
 								</div>
@@ -83,7 +83,7 @@
 									<small>{{$errors->first('email')}}</small>
 								</div>
 								<div class="form-group">
-									<label for="nss" class="form-text no">Nº Seguridad Social</label>
+									<label for="nss" class="form-text no">Nº Seg. Social</label>
 									<input type="number" class="form-control" name="nss" value="{{old('nss')}}" required>
 									<small>{{$errors->first('nss')}}</small>
 								</div>
@@ -148,12 +148,6 @@
 								</div>
 							</td>
 							<td>
-								
-								<div class="form-group">
-									<label for="foto" class="form-text no">Foto</label>
-									<input class="form-control" type="file" name="foto" value="{{old('foto')}}" required>
-									<small>{{$errors->first('foto')}}</small>
-								</div>
 								<div class="form-group">
 									<label for="telefono" class="form-text">Teléfono</label>
 									<input type="number" class="form-control" name="telefono" value="{{old('telefono')}}" required>
@@ -173,6 +167,11 @@
 									<label for="irpf" class="form-text no">IRPF</label>
 									<input type="text" class="form-control" name="irpf" value="{{old('irpf')}}">
 									<small>{{$errors->first('irpf')}}</small>
+								</div>
+								<div class="form-group">
+									<label for="foto" class="form-text no">Foto</label>
+									<input class="form-control" type="file" name="foto" value="{{old('foto')}}" required>
+									<small>{{$errors->first('foto')}}</small>
 								</div>
 							</td>
 						</tr>

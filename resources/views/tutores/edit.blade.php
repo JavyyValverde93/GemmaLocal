@@ -21,7 +21,7 @@
             }
 
         </style>
-        <div align="center">Tutores de {{$request->alumno}}</div>
+        <h5 class="text-center">Tutores de {{$request->alumno}}</h5>
         <form action="{{route('tutores.edit', $tutor)}}" method="POST" class="ml-5 mt-4 border p-5">
             @csrf
             @method('PUT')

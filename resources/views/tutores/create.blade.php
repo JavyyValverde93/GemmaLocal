@@ -22,8 +22,8 @@
             }
 
         </style>
-        <div align="center">Tutores de {{$request->alumno}}</div>
-        <form action="{{route('tutores.store')}}" method="POST" class="ml-5 mt-4 border p-5">
+        <h5 class="text-center">Tutores de {{$request->alumno}}</h5>
+        <form action="{{route('tutores.store')}}" method="POST" class="mt-4 border p-5">
             @csrf
             <input type="hidden" name="id_alumno" value="{{$id_alumno}}">
             <input type="hidden" name="alumno" value="{{$request->alumno}}">

@@ -3,7 +3,6 @@
         <div class="row migaspan">
             <a href="{{route('inventario.index')}}" class="text-danger">Inventario</a> >
             <a href="{{route('prestamos.index')}}" class="text-danger">Prestamos</a> >
-            <a href="{{route('prestamos.create')}}" class="text-danger">Solicitar Prestamo</a> >
         </div>
         <style>
             select{
@@ -12,7 +11,7 @@
               padding-right: 26px;
             }
           </style>
-
+        <h5 class="text-center">Solicitar Prestamo</h5>
         <form action="{{route('prestamos.store')}}" method="POST" class="mt-4 border p-5">
             @csrf
             <input type="hidden" name="id_usuario" value="1">
