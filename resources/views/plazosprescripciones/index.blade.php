@@ -3,7 +3,10 @@
         <div class="row migaspan">
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
             <a href="{{route('prescripciones.index')}}" class="text-danger">Plazos</a> >
-        </div>
+        </div>        
+        <script>
+            navselected = 'prescripcion';
+        </script>
         <h5 class="text-center">Plazos Prescripción</h5>
         <div class="row">
             <div class="col">

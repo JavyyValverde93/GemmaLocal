@@ -5,6 +5,9 @@
             <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos Matrículas</a> >
         </div>
         <h5 class="text-center">Plazos Matriculas</h5>
+        <script>
+            navselected = 'matricula';
+        </script>
         <form action="{{route('plazosmatriculas.update', $plazomatricula)}}" method="POST" class="mt-4 border p-5">
             @csrf
             @method('PUT')

@@ -92,7 +92,7 @@ session_start();
             <!-- Contenido de la Página -->
             <div id="page-content-wrapper">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <button class="btn btn-outline-dark ml-4" id="menu-toggle">
+                    <button class="btn btn-outline-dark ml-4" id="menu-toggle" onmouseover="selectMenu()">
                         <span class="material-icons align-middle">
                             reorder
                         </span>
@@ -221,10 +221,21 @@ session_start();
                     $("#wrapper").toggleClass("toggled");
                 }
                 
+                selectMenu();
+            }
+
+            function selectMenu(){
                 navs = document.getElementById('v-pills-tab').getElementsByTagName('a');
+                navs2 = document.getElementsByClassName("keep")[0].getElementsByTagName('a');
                 for($i=0; $i<=navs.length-2; $i++){
-                    if(window.location.href.includes(navs[$i].href)){
-                        navs[$i].classList.add('nav-selected');
+                    if(localStorage.getItem('menu')==1){
+                        if(window.location.href.includes(navs2[$i].href) || typeof navselected!=='undefined' && navs2[$i].href.includes(navselected)){
+                            navs2[$i].classList.add('nav-selected');
+                        }
+                    }else{
+                        if(window.location.href.includes(navs[$i].href) || typeof navselected!=='undefined' && navs[$i].href.includes(navselected)){
+                            navs[$i].classList.add('nav-selected');
+                        }
                     }
                 }
             }

@@ -4,8 +4,10 @@
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
             <a href="{{route('prescripciones.index')}}" class="text-danger">Plazos</a> >
         </div>
-        <h5 class="text-center" class="mt-1">Seleccione el plazo en el que se desea preinscribir al alumno</h5>
-        <div class="row">
+        <script>
+            navselected = 'prescripcion';
+        </script>
+        <h5 class="text-center" class="mt-1">Seleccione el plazo en el que se desea preinscribir al alumno</h5>        <div class="row">
             <div class="col">
                 {{-- <a href="{{route('matriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Matrícula</a> --}}
             </div>

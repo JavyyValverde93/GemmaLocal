@@ -1,5 +1,8 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <script>
+            navselected = 'grupo';
+        </script>
         <div class="row migaspan">
             <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
             <a href="{{route('actividades.index')}}" class="text-danger"> Actividades </a> > 

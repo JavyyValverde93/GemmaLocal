@@ -1,10 +1,15 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <script>
+            navselected = 'prescripcion';
+        </script>
+
     <div class="row migaspan">
         <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
         <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos</a> >
     </div>
     <h5 class="text-center">Plazos Prescripción</h5>
+
         <form action="{{route('plazosprescripciones.update', $plazoprescripcion)}}" method="POST" class="ml-5 mt-4 border p-5">
             @csrf
             @method('PUT')

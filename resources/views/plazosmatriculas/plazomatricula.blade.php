@@ -8,6 +8,9 @@
             <div class="col">
                 {{-- <a href="{{route('matriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Matrícula</a> --}}
             </div>
+            <script>
+                navselected = 'matricula';
+            </script>
             <div class="col">
                 <form action="{{route('plazosmatriculas.plazomatricula')}}" class="float-right m-3" method="GET">
                 @csrf

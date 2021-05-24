@@ -3,7 +3,10 @@
 		<div class="row migaspan">
             <a href="{{route('inventario.index')}}" class="text-danger">Inventario</a> >
             <a href="{{route('prestamos.index')}}" class="text-danger">Prestamos</a> >
-        </div>
+        </div>        
+        <script>
+            navselected = 'inventario';
+        </script>
         <h5 class="text-center">Préstamos</h5>
         <div class="row">
             <div class="col">
