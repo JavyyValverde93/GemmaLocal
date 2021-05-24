@@ -3,14 +3,13 @@
       <div class="row migaspan">
           <a href="{{route('inventario.index')}}" class="text-danger">Inventario</a> >
       </div>
-      <style>
-        
+      <style>        
         label::after{
-              content: "*";
-              color: red;
+            content: "*";
+            color: red;
         }
       </style>
-      <h1 class="ml-5 mt-1">Inventario</h1>
+      <h5 class="text-center">Editar Inventario</h5>
         <form action="{{route('inventario.update', $inventario)}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
           @csrf
           @method('PUT')

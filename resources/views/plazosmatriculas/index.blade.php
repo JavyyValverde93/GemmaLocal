@@ -4,7 +4,7 @@
             <a href="{{route('matriculas.index')}}" class="text-danger">Matrículas</a> >
             <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos Matrículas</a> >
         </div>
-        <h5 align="center">Plazos Matrículas</h5>
+        <h5 class="text-center">Plazos Matrículas</h5>
         <div class="row">
             <script>
                 navselected = 'matricula';
@@ -36,8 +36,8 @@
                 <td>{{date("d/m/Y", $item->fecha_inicio)}}</td>
                 <td>{{date("d/m/Y", $item->fecha_fin)}}</td>
                 <td>
-                    {{-- <a href="{{route('plazosmatriculas.show', $item)}}"><i class="fas fa-eye"></i></a> --}}
-                    <a href="{{route('plazosmatriculas.edit', $item)}}"><i class="fas fa-edit"></i></a>
+                    {{-- <a href="{{route('plazosmatriculas.show', $item)}}"><i class="fas fa-eye" title="Visualizar Plazos Matriculas"></i></a> --}}
+                    <a href="{{route('plazosmatriculas.edit', $item)}}"><i class="fas fa-edit" title="Editar Plazos Matrículas"></i></a>
                 </td>
                 
             </tr>

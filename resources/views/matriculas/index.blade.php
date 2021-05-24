@@ -3,7 +3,7 @@
 		<div class="row migaspan">
             <a href="{{route('matriculas.index')}}" class="text-danger">Matrículas</a> >
         </div>
-        <h5 align="center">Matrículas</h5>
+        <h5 class="text-center">Matrículas</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('plazosmatriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Plazo Matriculación</a>
@@ -35,8 +35,8 @@
                 <td>{{$item->id_prescripcion}}</td>
                 <td>{{date("d/m/Y", $item->plazomatricula->fecha_inicio)}} - {{date("d/m/Y", $item->plazomatricula->fecha_fin)}}</td>
                 <td>
-                    {{-- <a href="{{route('matriculas.show', $item)}}"><i class="fas fa-eye"></i></a> --}}
-                    {{-- <a href="{{route('matriculas.edit', $item)}}"><i class="fas fa-edit"></i></a> --}}
+                    {{-- <a href="{{route('matriculas.show', $item)}}"><i class="fas fa-eye" title="Visualizar Matricula"></i></a> --}}
+                    {{-- <a href="{{route('matriculas.edit', $item)}}"><i class="fas fa-edit" title="Editar Matricula"></i></a> --}}
                 </td>
                 
             </tr>

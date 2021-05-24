@@ -15,7 +15,7 @@
 		</style>
 		<div class="card text-center border-danger mt-3 ">
             <div class="card-header">
-                <h1>{{$inventario->nombre}}</h1>
+                <h5>{{$inventario->nombre}}</h5>
             </div>
             <div class="card-body">
 

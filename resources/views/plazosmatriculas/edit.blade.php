@@ -1,8 +1,10 @@
 <x-menu-grupos>
     <x-slot name="slot">
-		<div class="row migaspan">
-            <a href="{{route('matriculas.index')}}" class="text-danger">Matriculas</a> >
+        <div class="row migaspan">
+            <a href="{{route('matriculas.index')}}" class="text-danger">Matrículas</a> >
+            <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos Matrículas</a> >
         </div>
+        <h5 class="text-center">Plazos Matriculas</h5>
         <script>
             navselected = 'matricula';
         </script>
@@ -10,7 +12,7 @@
             @csrf
             @method('PUT')
             <div class="form-row col-md-10">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-10">
                     <label>Nombre del Plazo</label>
                     <input required type="text" class="form-control" name="nombre" placeholder="Nombre de la Actividad" value="{{$plazomatricula ->nombre}}">
                     <small>{{$errors->first('nombre')}}</small>

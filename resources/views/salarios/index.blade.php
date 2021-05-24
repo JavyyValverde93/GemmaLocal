@@ -1,14 +1,15 @@
 <x-menu-grupos>
     <x-slot name="slot">
-		<div class="row migaspan">
-            <a href="{{route('salarios.index')}}" class="text-danger">Salarios</a> >
-        </div>
-        <div align="center">Salario de {{$profesor->nombre}}</div>
+    <div class="row migaspan">
+		<a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
+        <a href="{{route('salarios.index')}}" class="text-danger">Salarios</a> >
+    </div>
+        <h5 class="text-center">Salario de {{$profesor->nombre}}</h5>
         <div class="row">
             <div class="col">
             </div>
         </div>
-        <table class="table table-sm">
+        <table class="table table-striped table-hover table-sm">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th> </th>
                 <th>Nombre</th>

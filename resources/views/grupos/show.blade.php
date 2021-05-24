@@ -3,6 +3,7 @@
         <div class="row migaspan">
             <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
         </div>
+        <br/>
 		<style>
 			label.input-custom-file input[type=file] {
 				display: none;

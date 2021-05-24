@@ -6,7 +6,7 @@
             </div>
         <div class="row">
             <div class="col mb-4">
-                <div align="center">Asistencias</div>
+                <h5 class="text-center">Asistencias</h5>
             </div>
         </div>
         <form action="{{route('asistencia.pasarlista')}}" method="POST">

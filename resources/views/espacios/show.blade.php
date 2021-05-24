@@ -13,9 +13,9 @@
 				color: red;
 			}
 		</style>
-		<div class="card text-center border-danger mr-3">
+		<div class="card text-center border-danger mr-3 mt-3">
             <div class="card-header">
-                <h1>{{$espacio->nombre}}</h1>
+                <h5>{{$espacio->nombre}}</h5>
             </div>
             <div class="card-body">
                 <div class="row">

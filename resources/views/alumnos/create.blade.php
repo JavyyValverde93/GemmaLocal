@@ -2,7 +2,6 @@
     <x-slot name="slot">
         <div class="ro{{$errors->first('slot')}}</small>w migaspan">
             <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
-            <a href="{{route('alumnos.create')}}" class="text-danger">Crear Alumnos</a> >
         </div>
   
       <style>
@@ -36,6 +35,7 @@
             $('input[name=edad]').val(edad);
         }
       </script>
+      <h5 class="text-center">Crear Alumnos</h5>
         <form action="{{route('alumnos.store')}}" method="POST" class="mt-4 border p-5" enctype="multipart/form-data" style="width: 1200px" onsubmit="disableButton(this)">
           @csrf
             <div class="form-row">
