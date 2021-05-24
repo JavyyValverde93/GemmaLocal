@@ -184,7 +184,7 @@ a {
 #admin:hover, #face:hover, #logout:hover,
 #group:hover, #task:hover, #description:hover,
 #inventory:hover, #room:hover, #money:hover
-#mail:hover {
+#mail:hover, .nav-selected {
   padding:7px;
   padding-top: 10px;
   padding-top: 10px;
