@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Asistencia;
 use App\Models\Alumno;
 use App\Models\Matricula;
+use DateTime;
 use Illuminate\Http\Request;
 
 class AsistenciaController extends Controller
@@ -131,7 +132,18 @@ class AsistenciaController extends Controller
 
     public function pasarListaGrupo(Request $request){
 
-          for($i=0;$i<count($request->id_alumno);$i++){
+         $fecha=new DateTime($request->fecha);
+
+         $dia=Asistencia::where('fecha_creacion',$fecha->getTimestamp())->where('id_grupo',$request->id_grupo)->count();
+
+
+         if($dia>0){
+
+            return back()->with('error', 'Ya se han registrado las asistencias');
+
+         }else{
+
+         for($i=0;$i<count($request->id_alumno);$i++){
 
             $datoasistencia=false;
             $alumno=$request->id_alumno[$i];
@@ -147,8 +159,8 @@ class AsistenciaController extends Controller
 
             $asistencia->ausente = $datoasistencia;
 
-            $asistencia->fecha_creacion = now()->getTimestamp();
-            $asistencia->fecha_modificacion = now()->getTimestamp();
+            $asistencia->fecha_creacion = $fecha->getTimestamp();
+            $asistencia->fecha_modificacion=$fecha->getTimestamp();
 
             $asistencia->save();
 
@@ -157,7 +169,7 @@ class AsistenciaController extends Controller
 
           return back()->with('mensaje', 'Asistencias asignadas');
 
-
+        }
     }
 
 
