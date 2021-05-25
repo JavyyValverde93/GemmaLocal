@@ -31,10 +31,10 @@ session_start();
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
                         <span class="material-icons align-middle" style="margin-top: 75px;">
-                            <a class="text-white text-decoration-none" href="{{route('dashboard')}}" id="home" title="Administración">home</a>
+                        <a class="text-white text-decoration-none" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" href="{{route('comunicaciones.index')}}" id="room" title="Comunicaciones">email</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('grupos.index')}}" id="group" title="Grupos">group</a>
+                            <a class="text-white text-decoration-none" href="{{route('alumnos.index')}}" id="face" title="Alumnos">person</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
                             <a class="text-white text-decoration-none" href="{{route('matriculas.index')}}" id="task" title="Matriculas">task</a>
@@ -43,19 +43,19 @@ session_start();
                             <a class="text-white text-decoration-none" href="{{route('prescripciones.index')}}" id="description" title="Prescripciones" title="Inventario">description</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('inventario.index')}}" id="inventory" title="Inventario">inventory_2</a>
-                        </span> 
-                        <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('alumnos.index')}}" id="face" title="Alumnos">person</a>
-                        </span> 
-                        <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('profesores.index')}}" id="school" title="Profesores">school</a>
+                            <a class="text-white text-decoration-none" href="{{route('grupos.index')}}" id="group" title="Grupos">group</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
                         <a class="text-white text-decoration-none" href="{{route('espacios.index')}}" id="room" title="Espacios">room</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                        <a class="text-white text-decoration-none" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" href="{{route('comunicaciones.index')}}" id="room" title="Comunicaciones">email</a>
+                            <a class="text-white text-decoration-none" href="{{route('profesores.index')}}" id="school" title="Profesores">school</a>
+                        </span> 
+                        <span class="material-icons align-middle mt-3">
+                            <a class="text-white text-decoration-none" href="{{route('inventario.index')}}" id="inventory" title="Inventario">inventory_2</a>
+                        </span> 
+                        <span class="material-icons align-middle mt-3">
+                            <a class="text-white text-decoration-none" href="{{route('dashboard')}}" id="home" title="Administración">calendar_today</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
                         <a class="text-white text-decoration-none" href="{{route('logs.index')}}" id="room" title="Logs">warning</a>
@@ -69,15 +69,15 @@ session_start();
                         </form>
                     </aside>
                     <div class="nav flex-column nav-pills ml-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a href="{{route('dashboard')}}"class="nav-link active bg-danger text-white text-decoration-none nav-link-active" id="v-pills-home-tab" role="tab" aria-controls="v-pills-home" aria-selected="true">Administración</a>
-                        <a href="{{route('grupos.index')}}" class="nav-link active bg-danger text-white text-decoration-none" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false"> Grupos</a>
+                        <a href="{{route('comunicaciones.index')}}" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Comunicaciones</a>
+                        <a href="{{route('alumnos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
                         <a href="{{route('matriculas.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false"> Matriculas</a>
                         <a href="{{route('prescripciones.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Prescripciones</a>
-                        <a href="{{route('inventario.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Inventario</a>
-                        <a href="{{route('alumnos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
-                        <a href="{{route('profesores.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Profesores</a>
+                        <a href="{{route('grupos.index')}}" class="nav-link active bg-danger text-white text-decoration-none" id="v-pills-profile-tab" role="tab" aria-controls="v-pills-profile" aria-selected="false"> Grupos</a>
                         <a href="{{route('espacios.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Espacios</a>
-                        <a href="{{route('comunicaciones.index')}}" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Comunicaciones</a>
+                        <a href="{{route('profesores.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Profesores</a>
+                        <a href="{{route('inventario.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Inventario</a>
+                        <a href="{{route('dashboard')}}"class="nav-link active bg-danger text-white text-decoration-none nav-link-active" id="v-pills-home-tab" role="tab" aria-controls="v-pills-home" aria-selected="true">Administración</a>
                         <a href="{{route('logs.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Logs</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

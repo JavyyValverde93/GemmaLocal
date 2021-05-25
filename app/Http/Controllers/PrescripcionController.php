@@ -179,4 +179,9 @@ class PrescripcionController extends Controller
     {
         //
     }
+
+    public function prescripciones_alumno(Request $request){
+        $prescripciones = Prescripcion::where('id_alumno', $request->id_alumno)->paginate(10);
+        return view('prescripciones.prescripciones_alumno', compact('request', 'prescripciones'));
+    }
 }
