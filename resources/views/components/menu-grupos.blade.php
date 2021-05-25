@@ -128,8 +128,8 @@ session_start();
                     background-color: rgb(237,245,245);
                     }
                     .table-hover tbody tr:hover{
-                    background-color: #fff5f57e;
-                    color: rgb(112,24,78);
+                    background-color: rgba(187, 187, 187, 0.944);
+                    /* color: rgb(112,24,78); */
                     }
                     .thead-green{
                     background-color: rgb(0, 99, 71);

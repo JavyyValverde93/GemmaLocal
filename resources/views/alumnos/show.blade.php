@@ -14,6 +14,12 @@
 			}
 		</style>
 		<h5 class="text-center">{{$alumno->nombre}}&nbsp;{{$alumno->apellidos}}</h5>
+        <div class="row m-2">
+            <a href="{{route('tutores.index', ["id_alumno=$alumno->id", "alumno=$alumno->nombre $alumno->apellidos"])}}" class="btn btn-outline-danger mx-2">Tutores</a>
+            <a href="{{route('matriculas.index', ['id_alumno='.$alumno->id, 'plazomatricula=true'])}}" class="btn btn-outline-danger mx-2">Matricular</a>
+            <a href="{{route('prescripciones.index', ['id_alumno='.$alumno->id, 'plazoprescripcion=true'])}}" class="btn btn-outline-danger mx-2">Preinscribir</a>
+            <a href="{{route('asistencia.verlista',$alumno)}}" class="btn btn-outline-danger mx-2">Asistencias</a>
+        </div>
 		<div class="card text-center border-danger mr-3">
             <div class="card-header">
                 <img class="img-fluid rounded" src="{{asset($alumno->foto)}}" width="300px" height="300px" alt="Foto">
