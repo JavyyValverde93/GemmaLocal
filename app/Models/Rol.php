@@ -12,5 +12,11 @@ class Rol extends Model
 	protected $fillable=['nombre'];
     
 	public $timestamps = false;	
+
+	protected $table = 'roles';
+
+	public function Permisos(){
+		return $this->belongsToMany(Permisos::class, 'id_permiso');
+	}
 	
 }

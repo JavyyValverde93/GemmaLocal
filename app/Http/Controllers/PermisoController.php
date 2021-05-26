@@ -24,7 +24,7 @@ class PermisoController extends Controller
      */
     public function create()
     {
-        //
+        return view('permisos.create');
     }
 
     /**

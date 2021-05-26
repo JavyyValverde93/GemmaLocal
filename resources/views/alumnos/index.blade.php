@@ -7,6 +7,7 @@
         <h5 class="text-center">Alumnos</h5>
         <div class="row">
             <div class="col">
+                <a href="" class="btn btn-outline-danger"><i class="far fa-bookmark"></i></a>
                 <a href="{{route('alumnos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear alumno</a>
             </div>
             <div class="col">

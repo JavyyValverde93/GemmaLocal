@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{EspacioController, FacturacionController, GrupoController, ComunicacionController, DestinatarioController, InventarioController, LogController, MatriculaController, PeriodocalificacionController, PermisoController, PersonalController, PlazomatriculaController, PlazoprescripcionController, PrescripcionController, PreferenciahorarioController, PrestamoController, ProfesorController, ReservaespacioController, TutorController, SalarioController, TitulacionController, ActividadController, AlumnoController,AsistenciaController, CalificacionController, CategoriaController, RolController};
+use App\Http\Controllers\{EspacioController, FacturacionController, GrupoController, ComunicacionController, DestinatarioController, InventarioController, LogController, MatriculaController, PeriodocalificacionController, PermisoController, PersonalController, PlazomatriculaController, PlazoprescripcionController, PrescripcionController, PreferenciahorarioController, PrestamoController, ProfesorController, ReservaespacioController, TutorController, SalarioController, TitulacionController, ActividadController, AlumnoController,AsistenciaController, CalificacionController, CategoriaController, RolController, RolespermisoController};
 use App\Models\Plazomatricula;
 use Database\Seeders\PreferenciahorarioSeeder;
 
@@ -224,6 +224,13 @@ Route::post('titulaciones/store', [TitulacionController::class, 'store'])->name(
 Route::get('titulaciones/{titulacione}/edit', [TitulacionController::class, 'edit'])->name('titulaciones.edit')->middleware(['auth']);
 Route::put('titulaciones/update/{titulacione}', [TitulacionController::class, 'update'])->name('titulaciones.update')->middleware(['auth']);
 Route::get('titulaciones/show/{titulacione}', [TitulacionController::class, 'show'])->name('titulaciones.show')->middleware(['auth']);
+//RolesPermisos
+Route::get('rolespermisos', [RolespermisoController::class, 'index'])->name('rolespermisos.index')->middleware(['auth']);
+Route::get('rolespermisos/create', [RolespermisoController::class, 'create'])->name('rolespermisos.create')->middleware(['auth']);
+Route::post('rolespermisos/store', [RolespermisoController::class, 'store'])->name('rolespermisos.store')->middleware(['auth']);
+Route::get('rolespermisos/{rolespermiso}/edit', [RolespermisoController::class, 'edit'])->name('rolespermisos.edit')->middleware(['auth']);
+Route::put('rolespermisos/update/{rolespermiso}', [RolespermisoController::class, 'update'])->name('rolespermisos.update')->middleware(['auth']);
+Route::get('rolespermisos/show/{rolespermiso}', [RolespermisoController::class, 'show'])->name('rolespermisos.show')->middleware(['auth']);
 
 
 // Route::resource('espacios', EspacioController::class)->middleware(['auth']);
@@ -270,3 +277,5 @@ Route::get('justificarfalta/{asistencia}', [AsistenciaController::class, 'justif
 Route::get('alumnos/vista', [AlumnoController::class, 'vista'])->name('alumnos.vista');
 Route::get('matriculas/matriculas_alumno', [MatriculaController::class, 'matriculas_alumno'])->name('matriculas.matriculas_alumno');
 Route::get('prescripciones/prescripciones_alumno', [PrescripcionController::class, 'prescripciones_alumno'])->name('prescripciones.prescripciones_alumno');
+
+Route::get('ver_actividades/', [ProfesorController::class, 'ver_actividades'])->name('profesores.ver_actividades');

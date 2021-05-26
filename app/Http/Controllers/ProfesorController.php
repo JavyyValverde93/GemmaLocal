@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profesor;
+use App\Models\Actividad;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -272,5 +273,10 @@ class ProfesorController extends Controller
             $pass[] = $alphabet[$n];
         }
         return implode($pass); //turn the array into a string
+    }
+
+    public function ver_actividades(Request $request){
+        $actividades = Actividad::where('id_profesor', $request->id_profesor)->paginate(10);
+        return view('profesores.ver_actividades', compact('actividades'));
     }
 }
