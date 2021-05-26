@@ -181,7 +181,6 @@ sup {
 }
 
 a {
-<<<<<<< HEAD
     text-decoration: none;
     color: white;
     background-color: transparent;
@@ -222,33 +221,47 @@ a {
     padding-top: 10px;
     padding-top: 10px;
     color: #d9534f !important;
-=======
-  text-decoration: none;
-  color: white;
-  background-color: transparent;
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
 }
 
-#home:focus, #school:focus, #report:focus,
-#admin:focus, #face:focus, #logout:focus,
-#group:hover, #task:hover, #description:hover,
-#inventory:hover, #room:hover, #money:hover,
+#home:focus,
+#school:focus,
+#report:focus,
+#admin:focus,
+#face:focus,
+#logout:focus,
+#group:hover,
+#task:hover,
+#description:hover,
+#inventory:hover,
+#room:hover,
+#money:hover,
 #mail:hover {
-  background-color: white;
-  color: rgba(220,53,69,255);
-  padding: 7px;
-  padding-top: 10px;
+    background-color: white;
+    color: rgba(220, 53, 69, 255);
+    padding: 7px;
+    padding-top: 10px;
 }
 
-#home:hover, #school:hover, #report:hover,
-#admin:hover, #face:hover, #logout:hover,
-#group:hover, #task:hover, #description:hover,
-#inventory:hover, #room:hover, #money:hover
-#mail:hover, .nav-selected {
-  padding:7px;
-  padding-top: 10px;
-  padding-top: 10px;
-  color: #d9534f !important;
->>>>>>> 305ed4326003deadf6e317162369dd07f27a5d9b
+#home:hover,
+#school:hover,
+#report:hover,
+#admin:hover,
+#face:hover,
+#logout:hover,
+#group:hover,
+#task:hover,
+#description:hover,
+#inventory:hover,
+#room:hover,
+#money:hover #mail:hover,
+.nav-selected {
+    padding: 7px;
+    padding-top: 10px;
+    padding-top: 10px;
+    color: #d9534f !important;
 }
 
 a:hover {
@@ -768,6 +781,8 @@ pre code {
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
+    margin-top: 70px;
+    margin-bottom: -2px;
 }
 
 .no-gutters {
@@ -6044,8 +6059,8 @@ a.badge-dark.focus {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #dc3545;
+    border-color: #dc3545;
 }
 
 .list-group-item+.list-group-item {

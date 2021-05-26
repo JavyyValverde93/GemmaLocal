@@ -163,6 +163,18 @@ class AlumnoController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Alumno  $alumno
+     * @return \Illuminate\Http\Response
+     */
+    public function vistas(Request $request)
+    {
+        $alumno = Alumno::where('id', $request->id)->first();
+        return view('alumnos.vistas',compact('alumno'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Alumno  $alumno

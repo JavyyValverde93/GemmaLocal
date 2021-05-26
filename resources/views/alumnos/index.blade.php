@@ -27,7 +27,7 @@
                 <th>Teléfonos</th>
             </tr>
             @foreach($alumnos as $item)
-            <tr onclick="window.location.href='{{route('alumnos.show', $item)}}'">
+            <tr onclick="window.location.href='{{route('alumnos.vista', ['id='.$item->id])}}'">
                 <td></td>
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}} {{$item->apellidos}}</td>
