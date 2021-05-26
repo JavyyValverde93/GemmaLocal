@@ -181,7 +181,7 @@ sup {
 }
 
 a {
-    <<<<<<< HEAD text-decoration: none;
+    text-decoration: none;
     color: white;
     background-color: transparent;
 }
@@ -221,7 +221,7 @@ a {
     padding-top: 10px;
     padding-top: 10px;
     color: #d9534f !important;
-    =======text-decoration: none;
+    text-decoration: none;
     color: white;
     background-color: transparent;
 }
@@ -262,7 +262,6 @@ a {
     padding-top: 10px;
     padding-top: 10px;
     color: #d9534f !important;
-    >>>>>>>305ed4326003deadf6e317162369dd07f27a5d9b
 }
 
 a:hover {
@@ -6060,8 +6059,8 @@ a.badge-dark.focus {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #dc3545;
+    border-color: #dc3545;
 }
 
 .list-group-item+.list-group-item {

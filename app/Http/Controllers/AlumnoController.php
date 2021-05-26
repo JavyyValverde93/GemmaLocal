@@ -168,8 +168,9 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function vistas(Alumno $alumno)
+    public function vistas(Request $request)
     {
+        $alumno = Alumno::where('id', $request->id)->first();
         return view('alumnos.vistas',compact('alumno'));
     }
 
