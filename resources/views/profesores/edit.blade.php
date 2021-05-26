@@ -31,6 +31,7 @@
 				}
 				$('input[name=edad]').val(edad);
 			}
+			
       </script>
 		<h5 class="text-center">Profesor</h5>
 		<form action="{{route('profesores.update',$profesor)}}" enctype="multipart/form-data" method="POST" class="p-5">
@@ -151,7 +152,7 @@
 							<td>
 								<div class="form-group">
 									<label for="telefono" class="form-text">Teléfono</label>
-									<input type="number" class="form-control" name="telefono" value="{{$profesor->telefono}}">
+									<input type="text" class="form-control" name="telefono" value="{{$profesor->telefono}}">
 									<small>{{$errors->first('telefono')}}</small>
 								</div>
 								<div class="form-group">
@@ -182,5 +183,16 @@
 			<button type="submit" name="Enviar" class="btn btn-danger">Actualizar profesor</button>
 		</form>
 
+		<script>
+			if(typeof noeditar!=='undefined'){
+				noedit();
+			}
+			function noedit(){
+				input = document.getElementsByTagName('input');
+				for(i=0; i<=input.length-1; i++){
+					input[i].readOnly = true;
+				}
+			}
+		</script>
 	</x-slot>
 </x-menu-grupos>

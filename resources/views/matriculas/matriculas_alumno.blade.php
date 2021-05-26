@@ -1,21 +1,15 @@
 <x-menu-grupos>
     <x-slot name="slot">
 		<div class="row migaspan">
-            <a href="{{route('matriculas.index')}}" class="text-danger">Matrículas</a> >
+            <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
+            <a href="{{route('alumnos.vista', ["id_alumno=$request->id_alumno"])}}" class="text-danger">Alumno</a> >
+            <a href="" class="text-danger">Matrículas</a> >
         </div>
         <h5 class="text-center">Matrículas</h5>
         <div class="row">
             <div class="col">
-                <a href="{{route('plazosmatriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Plazo Matriculación</a>
                 <a href="{{route('plazosmatriculas.index')}}" class="btn btn-outline-danger my-2"> Plazos Matriculación</a>
-                {{-- <a href="{{route('matriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Matrícula</a> --}}
-            </div>
-            <div class="col">
-                <form action="{{route('matriculas.index')}}" class=" float-right m-3" method="GET">
-                @csrf
-                <input type="text" value="{{$request->nombre}}" name="nombre" class="rounded" placeholder="Buscar...">
-                <button type="submit" class="btn btn-danger"><i class="fas fa-search"></i></button>
-            </form>
+                <a href="{{route('matriculas.index', ['id_alumno='.$request->id_alumno, 'plazomatricula=true'])}}" class="btn btn-outline-danger mx-2">Matricular</a>
             </div>
         </div>
         <table class="table table-striped table-hover table-sm">

@@ -1,24 +1,15 @@
 <x-menu-grupos>
     <x-slot name="slot">
 		<div class="row migaspan">
+            <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
+            <a href="{{route('alumnos.vista', ["id_alumno=$request->id_alumno"])}}" class="text-danger">Alumno</a> >
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
         </div>
         <h5 class="text-center">Prescripciones</h5>
         <div class="row">
             <div class="col">
-                <a href="{{route('prescripciones.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Prescripción</a>
-                <a href="{{route('plazosprescripciones.index')}}" class="btn btn-outline-danger my-2"><i class="fas fa-eye-circle"></i> Plazos</a>
-            </div>
-            <div class="col">
-                <a href="{{route('prescripciones.index', ['pendientes=true', 'nombre='.$request->nombre])}}" class="btn btn-outline-danger my-2"><i class="fas fa-clock"></i> Pendientes</a>
-                <a href="{{route('prescripciones.index', ['matriculadas=true', 'nombre='.$request->nombre])}}" class="btn btn-outline-danger my-2"><i class="fas fa-check-circle"></i> Matriculadas</a>
-           </div>
-            <div class="col">
-                <form action="{{route('prescripciones.index')}}" class=" float-right m-3" method="GET">
-                @csrf
-                <input type="text" value="{{$request->nombre}}" name="nombre" class="rounded" placeholder="Buscar...">
-                <button type="submit" class="btn btn-danger"><i class="fas fa-search"></i></button>
-            </form>
+                <a href="{{route('plazosprescripciones.index')}}" class="btn btn-outline-danger my-2">Plazos</a>
+                <a href="{{route('prescripciones.index', ['id_alumno='.$request->id_alumno, 'plazoprescripcion=true'])}}" class="btn btn-outline-danger my-2">Preinscribirse</a>
             </div>
         </div>
         <table class="table table-striped table-hover table-sm">
@@ -38,7 +29,7 @@
                 <td>
                     {{-- <a href="{{route('prescripciones.show', $item)}}"><i class="fas fa-eye" title="Visualizar Prescripciones"></i></a>
                     <a href="{{route('prescripciones.edit', $item)}}"><i class="fas fa-edit" title="Editar Prescripciones"></i></a> --}}
-                    <a href="{{route('matriculas.index', ['id_alumno='.$item->alumno->id, 'plazomatricula=true', "id_prescripcion=$item->id", "id_actividad=$item->id_actividad"])}}"><i class="fas fa-clipboard-list" title="Matriculas"></i></a>
+                    {{-- <a href="{{route('matriculas.index', ['id_alumno='.$item->alumno->id, 'plazomatricula=true', "id_prescripcion=$item->id", "id_actividad=$item->id_actividad"])}}"><i class="fas fa-clipboard-list" title="Matriculas"></i></a> --}}
                 </td>                
             </tr>
             @endforeach

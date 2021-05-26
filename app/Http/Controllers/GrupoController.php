@@ -132,7 +132,8 @@ class GrupoController extends Controller
     {
         $profesor = Profesor::find($grupo->id_profesor);
         $espacio = Espacio::find($grupo->id_espacio);
-        return view('grupos.show',compact('grupo','profesor','espacio'));
+        $actividad = Actividad::where('id_grupo', $grupo->id)->first();
+        return view('grupos.show',compact('grupo','profesor','espacio', 'actividad'));
     }
 
     /**
@@ -197,7 +198,11 @@ class GrupoController extends Controller
             $grupo->fecha_modificacion = now()->getTimestamp();
 
             $actividad = Actividad::where('id_grupo', $grupo->id)->first();
-
+            if($actividad==null){
+                $actividad = new Actividad();
+                $actividad->id_grupo = $grupo->id;
+                $actividad->fecha_creacion = now()->getTimestamp();
+            }
             $actividad->nombre = $request->nombre_actividad;
             $actividad->descripcion = $request->descripcion;
             $actividad->id_profesor = $request->id_profesor;
@@ -214,7 +219,7 @@ class GrupoController extends Controller
             return back()->with('mensaje', 'Grupo modificado');
         }catch(\Exception $ex){
             $this->Log("Error al intentar modificar $grupo->nombre");
-            return back()->with('error', 'El grupo no ha podido modificarse');
+            return back()->with('error', 'El grupo no ha podido modificarse'.$ex);
         }
     }
 

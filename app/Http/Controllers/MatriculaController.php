@@ -170,4 +170,9 @@ class MatriculaController extends Controller
     {
         //
     }
+
+    public function matriculas_alumno(Request $request){
+        $matriculas = Matricula::where('id_alumno', $request->id_alumno)->paginate(10);
+        return view('matriculas.matriculas_alumno', compact('request', 'matriculas'));
+    }
 }

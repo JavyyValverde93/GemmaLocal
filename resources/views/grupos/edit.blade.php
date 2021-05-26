@@ -23,7 +23,7 @@
                 <div class="form-group col-md-6 mx-4">
                     <label for="inputEmail4">Nombre:</label>
                     <input required type="text" name="nombre" class="form-control" id="inputEmail4"
-                        placeholder="Nombre del grupo" value="{{$grupo->nombre}}">
+                        placeholder="Nombre del grupo" @if($actividad!=null) value="{{$grupo->nombre}}" @endif>
                     <small>{{$errors->first('nombre')}}</small>
                 </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="form-row">
                 <div class="form-group mx-4">
                     <label>Nombre de la Actividad:</label><br>
-                    <input required type="text" name="nombre_actividad" value="{{$actividad->nombre}}">
+                    <input required type="text" name="nombre_actividad" @if($actividad!=null) value="{{$actividad->nombre}}" @endif>
                     <small>{{$errors->first('nombre_actividad')}}</small>
                 </div>
                 <div class="form-group mx-4">
@@ -71,8 +71,8 @@
                     <select name="id_categoria" required>
                         <option>Seleccione la categoría...</option>
                         @foreach ($categorias as $item)
-                        <option value="{{$item->id}}" @if($actividad->id_categoria==$item->id) selected
-                            @endif>{{$item->nombre}}</option>
+                        <option value="{{$item->id}}"@if($actividad!=null) @if($actividad->id_categoria==$item->id) selected
+                            @endif @endif>{{$item->nombre}}</option>
                         @endforeach
                     </select>
                     <small>{{$errors->first('id_categoria')}}</small>
@@ -82,7 +82,7 @@
             <div class="form-row">
                 <div class="form-group mx-4">
                     <label>Descripción:</label><br>
-                    <textarea cols="60" required name="descripcion">{{$actividad->descripcion}}</textarea>
+                    <textarea cols="60" required name="descripcion">@if($actividad!=null) {{$actividad->descripcion}} @endif</textarea>
                     <small>{{$errors->first('descripcion')}}</small>
                 </div>
             </div>
@@ -90,21 +90,21 @@
             <div class="form-row">
                 <div class="form-group mx-4">
                     <label>Horas:</label><br>
-                    <input required type="number" name="horas" value="{{$actividad->horas}}">
+                    <input required type="number" name="horas" value="@if($actividad!=null){{$actividad->horas}}@endif">
                     <small>{{$errors->first('horas')}}</small>
                 </div>
                 <div class="form-group mx-4">
                     <label>Asistencia:</label><br>
                     <select name="asistencia" required>
                         <option>Seleccione el tipo de asistencia</option>
-                        <option value="presencial" @if($actividad->asistencia=='presencial') selected @endif>Presencial</option>
-                        <option value="no presencial" @if($actividad->asistencia=='no presencial') selected @endif>No Presencial</option>
+                        <option value="presencial"@if($actividad!=null) @if($actividad->asistencia=='presencial') selected @endif @endif>Presencial</option>
+                        <option value="no presencial"@if($actividad!=null) @if($actividad->asistencia=='no presencial') selected @endif @endif>No Presencial</option>
                     </select>
                     <small>{{$errors->first('asistencia')}}</small>
                 </div>
                 <div class="form-group mx-4">
                     <label>Anio académico:</label><br>
-                    <input required type="text" name="anio_academico" value="{{$actividad->anio_academico}}">
+                    <input required type="text" name="anio_academico" @if($actividad!=null) value="{{$actividad->anio_academico}}" @endif>
                     <small>{{$errors->first('anio_academico')}}</small>
                 </div>
             </div>

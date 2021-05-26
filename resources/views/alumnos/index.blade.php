@@ -24,28 +24,14 @@
                 <th>Nombre</th>
                 <th>DNI</th>
                 <th>Teléfonos</th>
-                <td></td>
             </tr>
             @foreach($alumnos as $item)
-            <tr>
+            <tr onclick="window.location.href='{{route('alumnos.show', $item)}}'">
                 <td></td>
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}} {{$item->apellidos}}</td>
                 <td>{{$item->dni}}</td>
                 <td>{{$item->telefono}}<br>{{$item->telefono2}}</td>
-                <td class="m-2">
-                    <a href="{{route('alumnos.show', $item)}}"><i class="fas fa-eye" title="Visualizar Alumnos"></i></a>
-                    <a href="{{route('alumnos.edit', $item)}}"><i class="fas fa-edit" title="Editar Alumnos"></i></a>
-                    <a href="{{route('matriculas.index', ['id_alumno='.$item->id, 'plazomatricula=true'])}}"><i class="fas fa-clipboard-list" title="Matrículas"></i></a>
-                    <a href="{{route('prescripciones.index', ['id_alumno='.$item->id, 'plazoprescripcion=true'])}}"><i class="fas fa-file-prescription" title="Plazo Prescripciones"></i></a>
-                    <a href="{{route('tutores.index', ["id_alumno=$item->id", "alumno=$item->nombre $item->apellidos"])}}"><i class="fas fa-address-book" title="Tutores"></i></a>
-                    <a href="{{route('asistencia.verlista',$item)}}"><i class="fas fa-list" title="Asistencia"></i></a>
-                </td>
-                <td>{{$item->id}}</td>
-                <td>{{$item->nombre}} {{$item->apellidos}}</td>
-                <td>{{$item->dni}}</td>
-                <td>{{$item->telefono}}<br>{{$item->telefono2}}</td>
-
             </tr>
             @endforeach
         </table>
@@ -53,5 +39,4 @@
             {{$alumnos->appends($request->except('page'))->links()}}
         </div>
     </x-slot>
-
 </x-menu-grupos>
