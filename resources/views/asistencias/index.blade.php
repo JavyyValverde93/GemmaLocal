@@ -25,10 +25,12 @@
 
             </div>
 
+        </form>
 
+            <form action="{{route('')}}">
             <table class="table table-striped table-hover table-sm">
                 <tr class="rounded text-white" style="background-color: #dc3545">
-                    <th> </th>
+                    <th></th>
                     <th>Nombre</th>
                     <th>Teléfono</th>
                     <th>Asistencia</th>
@@ -39,8 +41,14 @@
                     <td>{{$item->alumno->nombre}} {{$item->alumno->apellidos}}</td>
                     <td>{{$item->alumno->telefono}}</td>
                     <td>
-                        <input type="radio" name="{{$item->alumno->id}}" value="1" class="mx-1"/> Sí
-                        <input type="radio" name="{{$item->alumno->id}}" value="-1"class="mx-1" checked/> No
+
+
+                             <input type="radio" name="{{$item->alumno->id}}" value="1" class="mx-1" checked/> Sí
+
+
+                             <input type="radio" name="{{$item->alumno->id}}" value="-1"class="mx-1" checked/> No
+
+
 
                     </td>
 

@@ -19,7 +19,8 @@ class AsistenciaController extends Controller
     {
         // $alumnos = Asistencia::orderBy('fecha_creacion', 'desc')->where('id_grupo', $request->id_grupo)->paginate(15);
         $alumnos = Matricula::orderBy('id')->where('id_grupo', $request->id_grupo)->get();
-        return view('asistencias.index', compact('alumnos', 'request'));
+        $asistencias=Asistencia::where('id_grupo', $request->id_grupo)->get();
+        return view('asistencias.index', compact('alumnos', 'asistencias','request'));
     }
 
     /**
