@@ -1,8 +1,7 @@
 <x-menu-grupos>
     <x-slot name="slot">
     <div class="row migaspan">
-      <a href="{{route('facturaciones.index')}}" class="text-danger">Facturaciones</a> >
-      <a href="{{route('facturaciones.create')}}" class="text-danger">Crear Facturaciones</a> >
+      <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
     </div>
         <style>
             select {
@@ -17,28 +16,25 @@
             }
 
         </style>
-        <h4 align="center">Facturación de {{$profesor->nombre}} {{$profesor->apellidos}}</h4>
-        <form action="{{route('facturaciones.store')}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
+        <h5 class="text-center">Crear Factura de {{$profesor->nombre}} {{$profesor->apellidos}}</h5>
+        <form action="{{route('facturaciones.store')}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
           @csrf
             <div class="form-row">
               <input type="hidden" name="id_usuario" value="{{$id_usuario}}">
-              <div class="form-group col-md-6 mx-4">
+              <div class="form-group col-md-4 mx-4">
                     <label for="inputEmail4">Forma de pago:</label>
                     <input type="text" name="forma_pago" value="{{old('forma_pago')}}" class="form-control" id="inputEmail4" placeholder="Forma de pago">
                     <small>{{$errors->first('forma_pago')}}</small>
-                </div>
-            </div>
+              </div>
 
-            <div class="form-row">
-
-                <div class="form-group col-auto mx-4">
+              <div class="form-group col-md-3 mx-4">
                     <label>Número de tarjeta:</label>
                     <input type="number" step="1" required name="num_tarjeta" value="{{old('num_tarjeta')}}"
-                    <small>{{$errors->first('num_tarjeta')}}</small>
+                    {{$errors->first('num_tarjeta')}}
                         class="form-control" placeholder="Número de tarjeta">
-                </div>
-
+              </div>
             </div>
+
             <div class="form-row">
                 <div class="form-group col-auto mx-4">
                     <label>Caducidad:</label><br>
@@ -48,7 +44,7 @@
 
                 <div class="form-group col-auto mx-4">
                     <label class="no">Descripción:</label><br>
-                    <textarea name="descripcion" cols="30" rows="3" required>{{old('descripcion')}}</textarea>
+                    <textarea name="descripcion" cols="60" rows="1" required>{{old('descripcion')}}</textarea>
                 </div>{{$errors->first('descripcion')}}</small>
 
             </div>
@@ -74,7 +70,7 @@
 
                 <div class="form-grou col-auto mx-4">
                     <label>Descuento:</label><br>
-                    <input type="number" step="1" min="0" max="100" name="descuento" value="{{old('descuento')}}" required>%
+                    <input type="number" step="1" min="0" max="100" name="descuento" value="{{old('descuento')}}" required>  %
                     <small>{{$errors->first('descuento')}}</small>
                 </div>
 
@@ -163,15 +159,15 @@
                     <input type="text" name="nombre_banco" value="{{old('nombre_banco')}}" required>
                     <small>{{$errors->first('nombre_banco')}}</small>
                 </div>
-            </div>
-
-            <div class="form-row">
 
                 <div class="form-group mx-4">
                     <label>Dirección del banco:</label><br>
                     <input type="text" name="direccion_banco" value="{{old('direccion_banco')}}" required>
                     <small>{{$errors->first('direccion_banco')}}</small>
                 </div>
+            </div>
+
+            <div class="form-row">
 
                 <div class="form-group col-auto mx-4">
                     <label>Población del banco:</label><br>

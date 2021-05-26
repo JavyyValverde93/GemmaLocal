@@ -8,8 +8,7 @@
 	<div class="row migaspan">
       <a href="{{route('espacios.index')}}" class="text-danger">Espacios</a> >
     </div>
-	
-		<div align="center">Reserva Espacio</div>
+		<h5 class="text-center">Reserva Espacio</h5>
 		<form action="{{route('reservasespacios.update', $reservaespacio)}}" method="POST" class="ml-5 mt-4 border p-5">
 			@csrf
             @method('PUT')

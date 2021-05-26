@@ -3,7 +3,7 @@
 		<div class="row migaspan">
             <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
         </div>
-        <h5 align="center">Profesores</h5>
+        <h5 class="text-center">Profesores</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('profesores.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Profesor</a>
@@ -31,11 +31,11 @@
                 <td>{{$item->dni}}</td>
                 <td>{{$item->telefono}}</td>
                 <td>
-                    <a href="{{route('profesores.show', $item)}}"><i class="fas fa-eye"></i></a>
-                    <a href="{{route('profesores.edit', $item)}}"><i class="fas fa-edit"></i></a>
-                    <a href="{{route('titulaciones.index', ["id_profesor=$item->id", "profesor=$item->nombre $item->apellidos"])}}"><i class="fas fa-suitcase"></i></a>
-                    <a href="{{route('salarios.index', ["id_profesor=$item->id"])}}"><i class="fas fa-euro-sign"></i></a>
-                    <a href="{{route('facturaciones.index', ["id_profesor=$item->id"])}}"><i class="fas fa-file-invoice"></i></a>
+                    <a href="{{route('profesores.show', $item)}}"><i class="fas fa-eye" title="Visualizar Profesores"></i></a>
+                    <a href="{{route('profesores.edit', $item)}}"><i class="fas fa-edit" title="Editar Profesores"></i></a>
+                    <a href="{{route('titulaciones.index', ["id_profesor=$item->id", "profesor=$item->nombre $item->apellidos"])}}"><i class="fas fa-suitcase" title="Titulaciones"></i></a>
+                    <a href="{{route('salarios.index', ["id_profesor=$item->id"])}}"><i class="fas fa-euro-sign" title="Salarios"></i></a>
+                    <a href="{{route('facturaciones.index', ["id_profesor=$item->id"])}}"><i class="fas fa-file-invoice" title="Facturaciones"></i></a>
 
                 </td>
                 

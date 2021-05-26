@@ -3,7 +3,7 @@
     <div class="row migaspan">
       <a href="{{route('periodoscalificaciones.index')}}" class="text-danger">Periodo Calificaciones</a> >
     </div>
-        <div align="center">Periodos Calificaciones</div>
+        <h5 class="text-center">Periodos Calificaciones</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('periodoscalificaciones.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Plazo Calificación</a>

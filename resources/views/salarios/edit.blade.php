@@ -1,10 +1,11 @@
 <x-menu-grupos>
 	<x-slot name="slot">
 	<div class="row migaspan">
+		<a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
         <a href="{{route('salarios.index')}}" class="text-danger">Salarios</a> >
     </div>
-		<h1 class="text-center">Salario</h1>
-		<form class="ml-5 mt-4 border p-5" action="{{route('salarios.edit', $salario)}}" method="POST">
+		<h5 class="text-center">Salario</h5>
+		<form class="mt-4 border p-5" action="{{route('salarios.edit', $salario)}}" method="POST">
             @method('PUT')
 			<div class="form-group">
 				<label for="total_mes" class="form-text">Total mes</label>

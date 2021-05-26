@@ -1,14 +1,18 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <script>
+            navselected = 'alumno';
+        </script>
         <div class="row migaspan">
             <a href="{{route('alumnos.index')}}" class="text-danger"> Alumno </a> >
             <a href="#" class="text-danger">Asistencias</a> >
         </div>
-    <div align="center"><h4>Asistencias De {{$alumno->apellidos}}  {{$alumno->nombre}}</h4></div>
+    <div class="text-center"><h4>Asistencias De {{$alumno->apellidos}}  {{$alumno->nombre}}</h4></div>
     <table class="table table-sm">
         <tr class="rounded text-white" style="background-color: #dc3545">
             <th> </th>
             <th>Dia</th>
+            <th>Grupo</th>
             <th>Faltas</th>
             <th>Justificar</th>
         </tr>
@@ -20,7 +24,7 @@
             <td>
 
                 @php
-                    $fecha = date('d-m-Y', $item->fecha_creacion);
+                    $fecha = date('d-m-Y h:m:s A', $item->fecha_creacion);
 
                     echo $fecha;
 
@@ -28,6 +32,7 @@
 
             </td>
 
+            <td>{{$item->grupo->nombre}}</td>
 
 
                 @if ($item->ausente==1)

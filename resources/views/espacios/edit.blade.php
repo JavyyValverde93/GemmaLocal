@@ -1,8 +1,5 @@
 <x-menu-grupos>
     <x-slot name="slot">
-    <div class="row migaspan">
-      <a href="{{route('espacios.index')}}" class="text-danger">Espacios</a> >
-    </div>
       <style>
         select{
           font-size: 20px;
@@ -10,7 +7,7 @@
           padding-right: 26px;
         }
         
-        label::after{
+        label::after {
               content: "*";
               color: red;
         }
@@ -18,6 +15,7 @@
         <div class="row migaspan">
             <a href="{{route('espacios.index')}}" class="text-danger">Espacios</a> >
         </div>
+        <h5 class="text-center">Editar Espacios</h5>
         <form action="{{route('espacios.update',$espacio)}}" method="POST" class="mt-4 border p-5">
           @csrf
           @method('PUT')

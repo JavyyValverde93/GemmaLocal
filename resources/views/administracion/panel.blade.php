@@ -1,6 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
-        <h1 style="margin-left: 35px;">Administración</h1>
+        <div class="row migaspan">
+            <a href="{{route('administracion.panel')}}" class="text-danger">Administración</a> >
+        </div>
+        <h1 style="margin-left: 35px; margin-top:100px;">Administración</h1>
         <div class="row align-items-start">
             {{-- <div class="card mt-2 ml-5 mr-2 w-20 text-danger">
                 <div class="card-body">

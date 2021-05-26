@@ -4,7 +4,7 @@
         <div class="row migaspan">
             <a href="{{route('logs.index')}}" class="text-danger">logs</a> >
         </div>
-        <h5 align="center">Logs</h5>
+        <h5 class="text-center">Logs</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('logs.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Log</a>

@@ -2,7 +2,6 @@
   <x-slot name="slot">
     <div class="row migaspan">
       <a href="{{route('espacios.index')}}" class="text-danger">Espacios</a> >
-      <a href="{{route('espacios.create')}}" class="text-danger">Crear Espacios</a> >
     </div>
     <style>
       select{
@@ -16,6 +15,7 @@
             color: red;
       }
     </style>
+    <h5 class="text-center">Crear Espacios</h5>
       <form action="{{route('espacios.store')}}" method="POST" class="mt-4 border p-5" onsubmit="disableButton(this)">
         @csrf
           <div class="form-row">

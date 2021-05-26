@@ -296,6 +296,15 @@ class AlumnoController extends Controller
 
     }
 
+    public function vista(Request $request){
+        if($request->id_alumno!=null){
+            $alumno = Alumno::where('id', $request->id_alumno)->first();
+            return redirect()->route('alumnos.show', $alumno);
+        }else{
+            return redirect()->route('alumnos.create');
+        }
+    }
+
 
 
 }

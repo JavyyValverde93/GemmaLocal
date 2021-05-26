@@ -1,15 +1,18 @@
 <x-menu-grupos>
     <x-slot name="slot">
+        <div class="row migaspan">
+            <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
+            <a href="{{route('prescripciones.index')}}" class="text-danger">Plazos</a> >
+        </div>
         <script>
             navselected = 'prescripcion';
         </script>
-        <div align="center">Seleccione el plazo en el que se desea preinscribir al alumno</div>
-        <div class="row">
+        <h5 class="text-center" class="mt-1">Seleccione el plazo en el que se desea preinscribir al alumno</h5>        <div class="row">
             <div class="col">
                 {{-- <a href="{{route('matriculas.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Matrícula</a> --}}
             </div>
         </div>
-        <table class="table">
+        <table class="table table-striped table-hover table-sm mt-1">
             <tr class="rounded text-white" style="background-color: #dc3545">
                 <th>&nbsp;</th>
                 <th>Nombre</th>

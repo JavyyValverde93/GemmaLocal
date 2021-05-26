@@ -31,9 +31,10 @@
 				}
 				$('input[name=edad]').val(edad);
 			}
+			
       </script>
-		<div align="center">Profesor</div>
-		<form action="{{route('profesores.update',$profesor)}}" enctype="multipart/form-data" method="POST" class="ml-5 mt-4 border p-5">
+		<h5 class="text-center">Profesor</h5>
+		<form action="{{route('profesores.update',$profesor)}}" enctype="multipart/form-data" method="POST" class="p-5">
 			@csrf
 			@method('PUT')
 			<div class="row justify-content-lg-center">
@@ -57,7 +58,7 @@
 									<small>{{$errors->first('telefono2')}}</small>
 								</div>
 								<div class="form-group">
-									<label for="l_nacimiento" class="form-text">Lugar Nacimiento</label>
+									<label for="l_nacimiento" class="form-text">Lugar Nacimi.</label>
 									<input type="text" class="form-control" name="lugar_nacimiento" value="{{$profesor->lugar_nacimiento}}">
 									<small>{{$errors->first('lugar_nacimiento')}}</small>
 								</div>
@@ -84,7 +85,7 @@
 									<small>{{$errors->first('email')}}</small>
 								</div>
 								<div class="form-group">
-									<label for="nss" class="form-text no">Nº Seguridad Social</label>
+									<label for="nss" class="form-text no">Nº Seg. Social</label>
 									<input type="number" class="form-control" name="nss" value="{{$profesor->nss}}">
 									<small>{{$errors->first('nss')}}</small>
 								</div>
@@ -149,15 +150,9 @@
 								</div>
 							</td>
 							<td>
-								
-								<div class="form-group">
-									<label for="foto" class="form-text no">Foto</label>
-									<input class="form-control" type="file" name="foto">
-									<small>{{$errors->first('foto')}}</small>
-								</div>
 								<div class="form-group">
 									<label for="telefono" class="form-text">Teléfono</label>
-									<input type="number" class="form-control" name="telefono" value="{{$profesor->telefono}}">
+									<input type="text" class="form-control" name="telefono" value="{{$profesor->telefono}}">
 									<small>{{$errors->first('telefono')}}</small>
 								</div>
 								<div class="form-group">
@@ -175,6 +170,11 @@
 									<input type="text" class="form-control" name="irpf" value="{{$profesor->irpf}}">
 									<small>{{$errors->first('irpf')}}</small>
 								</div>
+								<div class="form-group">
+									<label for="foto" class="form-text no">Foto</label>
+									<input class="form-control" type="file" name="foto">
+									<small>{{$errors->first('foto')}}</small>
+								</div>
 							</td>
 						</tr>
 					</table>
@@ -183,5 +183,16 @@
 			<button type="submit" name="Enviar" class="btn btn-danger">Actualizar profesor</button>
 		</form>
 
+		<script>
+			if(typeof noeditar!=='undefined'){
+				noedit();
+			}
+			function noedit(){
+				input = document.getElementsByTagName('input');
+				for(i=0; i<=input.length-1; i++){
+					input[i].readOnly = true;
+				}
+			}
+		</script>
 	</x-slot>
 </x-menu-grupos>

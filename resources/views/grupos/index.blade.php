@@ -3,7 +3,7 @@
 		<div class="row migaspan">
             <a href="{{route('grupos.index')}}" class="text-danger"> Grupos </a> > 
         </div>
-        <h5 align="center">Grupos</h5>
+        <h5 class="text-center">Grupos</h5>
         <div class="row">
             <div class="col">
                 <a href="{{route('grupos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Grupo</a>
@@ -34,10 +34,10 @@
                 <td><a href="{{route('espacios.show', $item->espacio)}}" class="text-black">{{$item->espacio->nombre}}</a></td>
                 <td><a href="#" class="text-black">{{$item->espacio->planta}}</a></td>
                 <td>
-                    <a href="{{route('grupos.show', $item)}}"><i class="fas fa-eye"></i></a>
-                    <a href="{{route('grupos.edit', $item)}}"><i class="fas fa-edit mx-2"></i></a>
-                    <a href="{{route('periodoscalificaciones.index', ["c=p", "id_grupo=$item->id"])}}"><i class="fas fa-sort-numeric-up-alt"></i></a>
-                    <a href="{{route('asistencias.index', ["id_grupo=$item->id"])}}"><i class="fas fa-list mx-2"></i></a>
+                    <a href="{{route('grupos.show', $item)}}"><i class="fas fa-eye" title="Visualizar Grupo"></i></a>
+                    <a href="{{route('grupos.edit', $item)}}"><i class="fas fa-edit mx-2" title="Editar Grupo"></i></a>
+                    <a href="{{route('periodoscalificaciones.index', ["c=p", "id_grupo=$item->id"])}}"><i class="fas fa-sort-numeric-up-alt" title="Periodo Calificaciones"></i></a>
+                    <a href="{{route('asistencias.index', ["id_grupo=$item->id"])}}"><i class="fas fa-list mx-2" title="Asistencias"></i></a>
                 </td>
                 
             </tr>

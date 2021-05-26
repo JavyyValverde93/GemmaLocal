@@ -30,6 +30,10 @@ class Grupo extends Model
 		return $this->belongsTo(Profesor::class, 'id_profesor');
 	}
 
+	public function Actividad(){
+		return $this->hasMany(Actividad::class);
+	}
+
 	public function Matricula(){
 		return $this->hasMany(Matricula::class);
 	}

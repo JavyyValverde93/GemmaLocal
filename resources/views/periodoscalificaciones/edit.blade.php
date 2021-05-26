@@ -3,8 +3,8 @@
     <div class="row migaspan">
       <a href="{{route('periodoscalificaciones.index')}}" class="text-danger">Periodo Calificaciones</a> >
     </div>
-      <h1 class="ml-5 mt-1">Periodo Calificación</h1>
-      <form action="{{route('periodoscalificaciones.update', $periodocalificacion)}}" method="POST" class="ml-5 mt-4 border p-5" style="width: 1200px">
+      <h5 class="text-center" class="mt-1">Periodo Calificación</h5>
+      <form action="{{route('periodoscalificaciones.update', $periodocalificacion)}}" method="POST" class="mt-4 border p-5" style="width: 1200px">
         @csrf
           <div class="form-row">
               <div class="form-group col-md-4">

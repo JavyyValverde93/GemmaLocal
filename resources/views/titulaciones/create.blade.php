@@ -6,8 +6,8 @@
         </script>
         
     <div class="row migaspan">
+        <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
         <a href="{{route('titulaciones.index')}}" class="text-danger">Titulaciones</a> >
-        <a href="{{route('titulaciones.create')}}" class="text-danger">Crear Titulaciones</a> >
     </div>
     
         <style>
@@ -27,8 +27,8 @@
             }
 
         </style>
-        <div align="center">Titulaci&oacute;n para {{$request->profesor}}</div>
-        <form action="{{route('titulaciones.store')}}" method="POST" class="ml-5 mt-4 border p-5">
+        <h5 class="text-center">Añadir Titulaci&oacute;n para {{$request->profesor}}</h5>
+        <form action="{{route('titulaciones.store')}}" method="POST" class="mt-4 border p-5">
             @csrf
             <input type="hidden" name="id_profesor" value="{{$id_profesor}}">
             <input type="hidden" name="profesor" value="{{$request->profesor}}">

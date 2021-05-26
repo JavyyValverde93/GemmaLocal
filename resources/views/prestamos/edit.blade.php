@@ -14,9 +14,8 @@
               padding-right: 26px;
             }
           </style>
-        <div align="center">Préstamos</div>
-
-        <form action="{{route('prestamos.edit', $prestamo)}}" method="POST" class="mt-4 border p-5">
+        <h5 class="text-center">Editar Prestamo</h5>
+        <form action="{{route('prestamos.update', $prestamo)}}" method="POST" class="mt-4 border p-5">
             @csrf
             @method('PUT')
             <input type="hidden" name="id_usuario" value="1">
@@ -26,8 +25,8 @@
                         <label>Inventario</label><br>
                         <select name="id_inventario" value="{{$prestamo->id_inventario}}">
                             <option>Seleccione el inventario...</option>
-                            @foreach($inventario as $item)
-                            <option value="{{$item->id}}">{{$item->nombre}}</option>
+                            @foreach($prestamo as $item)
+                            <option value="{{$item->id_inventario}}">{{$item->nombre}}</option>
                             @endforeach
                         </select>
                         <small>{{$errors->first('id_inventario')}}</small>
