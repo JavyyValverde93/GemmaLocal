@@ -11,9 +11,14 @@
             }
             
             select{
-            font-size: 20px;
-            width: auto;
-            padding-right: 26px;
+                font-size: 20px;
+                width: auto;
+                padding-right: 26px;
+            }
+
+            .list-group-item.active{
+                background-color: red;
+                border-color: rgb(202, 17, 17);
             }
 
         </style>
@@ -38,23 +43,21 @@
                 <div class="row">
                     <div class="col-sm-3 col-xs-9">
                         <div class="list-group" id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
-                                href="#list-home" role="tab" aria-controls="profile">
+                            <a class="list-group-item list-group-item-action">
                                 <img src="https://e7.pngegg.com/pngimages/590/797/png-clipart-computer-icons-avatar-person-avatar-white-heroes.png"
                                     class="card-img-top" alt="Foto Perfil">
                             </a>
-                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                            <a class="list-group-item list-group-item-action show active" id="list-profile-list" data-toggle="list"
                                 href="#list-home" role="tab" aria-controls="profile">Datos Personales</a>
+
                             <a class="list-group-item list-group-item-action" id="list-direccion-list" data-toggle="list"
                                 href="#list-direccion" role="tab" aria-controls="direccion">Dirección</a>
-                            <a class="list-group-item list-group-item-action" id="list-matriculas-list" data-toggle="list"
-                                href="#list-matricula" rol="tab" aria-controls="matricula">Matrículas</a>
-                            <a class="list-group-item list-group-item-action" id="list-prescripciones-list" data-toggle="list"
-                                href="#list-prescripciones" role="tab" aria-controls="prescripciones">Prescripciones</a>
-                            <a class="list-group-item list-group-item-action" id="list-tutores-list" data-toggle="list"
-                                href="#list-tutores" role="tab" aria-controls="tutores">Tutores</a>
-                            <a class="list-group-item list-group-item-action" id="list-asistencias-list" data-toggle="list"
-                                href="#list-asistencias" role="tab" aria-controls="asistencias">Asistencias</a>
+                            <a class="list-group-item list-group-item-action" 
+                            href="{{route('matriculas.matriculas_alumno', ['id_alumno='.$alumno->id])}}">Matrículas</a>
+                            <a class="list-group-item list-group-item-action" 
+                            href="{{route('prescripciones.prescripciones_alumno', ['id_alumno='.$alumno->id])}}">Prescripciones</a>
+                            <a class="list-group-item list-group-item-action" href="{{route('tutores.index', ["id_alumno=$alumno->id", "alumno=$alumno->nombre $alumno->apellidos"])}}">Tutores</a>
+                            <a class="list-group-item list-group-item-action" href="{{route('asistencia.verlista', [$alumno, "id_alumno=$alumno->id"])}}">Asistencias</a>
                         </div>
                     </div>
                     <div class="col-sm-9 mt-2 col-xs-9">
@@ -82,14 +85,13 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <b>Edad:</b>
-                                                    <input type="number" class="form-control w-40"
-                                                        name="edad" placeholder="Telefono"
-                                                        value="{{$alumno->edad}}">
-                                                    <small>{{$errors->first('edad')}}</small>
+                                                    <b>DNI:</b>
+                                                    <input type="text" class="form-control" id="dni" name="dni"
+                                                        placeholder="DNI" value="{{$alumno->dni}}">
+                                                    <small>{{$errors->first('dni')}}</small>
                                                 <td>
                                                 <td>
-                                                    <b>Sexo:</b></br>
+                                                    <b>Sexo:</b><br>
                                                     <select name="sexo" required>
                                                         <option>Selec. sexo...</option>
                                                         <option value="Hombre" @if($alumno->sexo=="Hombre") selected @endif>Hombre</option>
@@ -107,10 +109,11 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <b>DNI:</b>
-                                                    <input type="text" class="form-control" id="dni" name="dni"
-                                                        placeholder="DNI" value="{{$alumno->dni}}">
-                                                    <small>{{$errors->first('dni')}}</small>
+                                                    <b>Edad:</b>
+                                                    <input type="number" class="form-control w-40"
+                                                        name="edad" placeholder="Telefono"
+                                                        value="{{$alumno->edad}}">
+                                                    <small>{{$errors->first('edad')}}</small>
                                                 <td>
                                                 <td>
                                                     <b>Teléfono:</b>
@@ -212,6 +215,14 @@
                                         <p class="card-text"></p>
                                     </div>
                                 </div>
+                                <div class="tab-pane fade" id="list-messages" role="tabpanel"
+                                    aria-labelledby="list-messages-list"></div>
+                                <div class="tab-pane fade" id="list-settings" role="tabpanel"
+                                    aria-labelledby="list-settings-list"></div>
+                                <div class="tab-pane fade" id="list-messages" role="tabpanel"
+                                    aria-labelledby="list-messages-list"></div>
+                                <div class="tab-pane fade" id="list-settings" role="tabpanel"
+                                    aria-labelledby="list-settings-list"></div>
                             </div>
                             <div class="tab-pane fade" id="list-matricula" role="tabpanel"
                                     aria-labelledby="list-matriculas-list">           
