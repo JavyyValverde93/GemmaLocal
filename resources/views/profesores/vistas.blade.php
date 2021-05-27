@@ -1,7 +1,7 @@
 <x-menu-grupos>
     <x-slot name="slot">
         <div class="ro{{$errors->first('slot')}}</small>w migaspan">
-            <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
+            <a href="{{route('profesores.index')}}" class="text-danger">Profesores</a> >
         </div>
         <small>{{$errors->first('slot')}}</small>
         <style>
@@ -27,11 +27,11 @@
         </div>
     @endif
     
-        <form @if($alumno->nombre!=null) action="{{route('alumnos.update', $alumno)}}" @else
-            action="{{route('alumnos.store')}}" @endif enctype="multipart/form-data" method="POST"
+        <form @if($profesor->nombre!=null) action="{{route('profesores.update', $profesor)}}" @else
+            action="{{route('profesores.store')}}" @endif enctype="multipart/form-data" method="POST"
             onsubmit="disableButton(this)">
             @csrf
-            @if($alumno->nombre!=null)
+            @if($profesor->nombre!=null)
             @method('PUT')
             @endif
             <div class="card-body">
@@ -47,20 +47,20 @@
                                 href="#list-home" role="tab" aria-controls="profile">Datos Personales</a>
                             <a class="list-group-item list-group-item-action" id="list-direccion-list" data-toggle="list"
                                 href="#list-direccion" role="tab" aria-controls="direccion">Dirección</a>
-                            <a class="list-group-item list-group-item-action" id="list-matriculas-list" data-toggle="list"
-                                href="#list-matricula" rol="tab" aria-controls="matricula">Matrículas</a>
-                            <a class="list-group-item list-group-item-action" id="list-prescripciones-list" data-toggle="list"
-                                href="#list-prescripciones" role="tab" aria-controls="prescripciones">Prescripciones</a>
-                            <a class="list-group-item list-group-item-action" id="list-tutores-list" data-toggle="list"
-                                href="#list-tutores" role="tab" aria-controls="tutores">Tutores</a>
-                            <a class="list-group-item list-group-item-action" id="list-asistencias-list" data-toggle="list"
-                                href="#list-asistencias" role="tab" aria-controls="asistencias">Asistencias</a>
+                            <a class="list-group-item list-group-item-action" id="list-pago-list" data-toggle="list"
+                                href="#list-pago" rol="tab" aria-controls="pago">Pago</a>
+                            <a class="list-group-item list-group-item-action" id="list-facturaciones-list" data-toggle="list"
+                                href="#list-facturaciones" rol="tab" aria-controls="facturaciones">Facturaciones</a>
+                            <a class="list-group-item list-group-item-action" id="list-salarios-list" data-toggle="list"
+                                href="#list-salarios" role="tab" aria-controls="salarios">Salarios</a>
+                            <a class="list-group-item list-group-item-action" id="list-titulaciones-list" data-toggle="list"
+                                href="#list-titulaciones" role="tab" aria-controls="titulaciones">Titulaciones</a>
                         </div>
                     </div>
                     <div class="col-sm-9 mt-2 col-xs-9">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="list-home" role="tabpanel"
-                                aria-labelledby="list-home-list">
+                                aria-labelledby="list-profile-list">
                                 <div class="card" style="width: 100%;">
                                     <div class="card-body">
                                         <h5 class="card-title">Datos Personales</h5>
@@ -69,14 +69,14 @@
                                                 <td colspan="2">
                                                     <b>Nombre:</b>
                                                     <input type="text" class="form-control" id="nombre" name="nombre"
-                                                        placeholder="nombre" value="{{$alumno->nombre}}">
+                                                        placeholder="nombre" value="{{$profesor->nombre}}">
                                                     <small>{{$errors->first('nombre')}}</small>
                                                 </td>
                                                 <td colspan="3">
                                                     <b>Apellidos:</b>
                                                     <input type="text" class="form-control" id="apellidos"
                                                         name="apellidos" placeholder="apellido"
-                                                        value="{{$alumno->apellidos}}">
+                                                        value="{{$profesor->apellidos}}">
                                                     <small>{{$errors->first('apellidos')}}</small></h5>
                                                 </td>
                                             </tr>
@@ -85,23 +85,23 @@
                                                     <b>Edad:</b>
                                                     <input type="number" class="form-control w-40"
                                                         name="edad" placeholder="Telefono"
-                                                        value="{{$alumno->edad}}">
+                                                        value="{{$profesor->edad}}">
                                                     <small>{{$errors->first('edad')}}</small>
                                                 <td>
                                                 <td>
                                                     <b>Sexo:</b></br>
                                                     <select name="sexo" required>
                                                         <option>Selec. sexo...</option>
-                                                        <option value="Hombre" @if($alumno->sexo=="Hombre") selected @endif>Hombre</option>
-                                                        <option value="Mujer" @if($alumno->sexo=="Mujer") selected @endif>Mujer</option>
-                                                        <option value="Otro" @if($alumno->sexo=="Otro") selected @endif>Otro</option>
+                                                        <option value="Hombre" @if($profesor->sexo=="Hombre") selected @endif>Hombre</option>
+                                                        <option value="Mujer" @if($profesor->sexo=="Mujer") selected @endif>Mujer</option>
+                                                        <option value="Otro" @if($profesor->sexo=="Otro") selected @endif>Otro</option>
                                                     </select>
                                                     <small>{{$errors->first('sexo')}}</small>
                                                 </td>
                                                 <td>
                                                     <b>Fecha Nacimiento:</b>
                                                     <input type="date" class="form-control w-40" name="fecha_nacimiento"
-                                                        value="{{date("Y-m-d", $alumno->fecha_nacimiento)}}" max={{date("Y-m-d", now()->getTimestamp())}}>
+                                                        value="{{date("Y-m-d", $profesor->fecha_nacimiento)}}" max={{date("Y-m-d", now()->getTimestamp())}}>
                                                     <small>{{$errors->first('fecha_nacimiento')}}</small>
                                                 </td>
                                             </tr>
@@ -109,21 +109,21 @@
                                                 <td>
                                                     <b>DNI:</b>
                                                     <input type="text" class="form-control" id="dni" name="dni"
-                                                        placeholder="DNI" value="{{$alumno->dni}}">
+                                                        placeholder="DNI" value="{{$profesor->dni}}">
                                                     <small>{{$errors->first('dni')}}</small>
                                                 <td>
                                                 <td>
                                                     <b>Teléfono:</b>
                                                     <input type="text" class="form-control w-40" id="telefono"
                                                         name="telefono" placeholder="Telefono"
-                                                        value="{{$alumno->telefono}}">
+                                                        value="{{$profesor->telefono}}">
                                                     <small>{{$errors->first('telefono')}}</small>
                                                 </td>
                                                 <td colspan="">
                                                     <b>Teléfono 2:</b>
                                                     <input type="text" class="form-control w-40" id="telefono2"
                                                         name="telefono2" placeholder="Telefono2"
-                                                        value="{{$alumno->telefono2}}">
+                                                        value="{{$profesor->telefono2}}">
                                                     <small>{{$errors->first('telefono2')}}</small>
                                                 </td>
                                             </tr>
@@ -131,13 +131,13 @@
                                                 <td colspan="3">
                                                     <b>Email:</b>
                                                     <input type="text" class="form-control w-40" id="email" name="email"
-                                                        placeholder="Email" value="{{$alumno->email}}">
+                                                        placeholder="Email" value="{{$profesor->email}}">
                                                     <small>{{$errors->first('email')}}</small>
                                                 </td>
                                                 <td>
                                                     <b>Lugar de Nacimiento:</b>
                                                     <input type="text" class="form-control w-40" name="lugar_nacimiento"
-                                                        placeholder="Lugar de Nacimiento" value="{{$alumno->lugar_nacimiento}}">
+                                                        placeholder="Lugar de Nacimiento" value="{{$profesor->lugar_nacimiento}}">
                                                     <small>{{$errors->first('lugar_nacimiento')}}</small>
                                                 </td>
                                             </tr>
@@ -145,13 +145,13 @@
                                                 <td colspan="3">
                                                     <b>Email 2:</b>
                                                     <input type="text" class="form-control w-40" name="email2"
-                                                        placeholder="Email 2" value="{{$alumno->email2}}">
+                                                        placeholder="Email 2" value="{{$profesor->email2}}">
                                                     <small>{{$errors->first('email2')}}</small>
                                                 </td>
                                                 <td>
                                                     <b>Nº Seguri. Social:</b>
                                                     <input type="text" class="form-control w-40" id="nss" name="nss"
-                                                        placeholder="NSS" value="{{$alumno->nss}}">
+                                                        placeholder="NSS" value="{{$profesor->nss}}">
                                                     <small>{{$errors->first('nss')}}</small>
                                                 </td>
                                             </tr>
@@ -164,7 +164,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="list-direccion" role="tabpanel"
-                                aria-labelledby="list-profile-list">
+                                aria-labelledby="list-direccion-list">
                                 <div class="card" style="width: 100%;">
                                     <div class="card-body">
                                         <h5 class="card-title">Dirección</h5>
@@ -174,7 +174,7 @@
                                                     <b>Domicilio:</b>
                                                     <input type="text" class="form-control w-40" id="codigo_postal"
                                                         name="domicilio" placeholder="Código Postal"
-                                                        value="{{$alumno->domicilio}}">
+                                                        value="{{$profesor->domicilio}}">
                                                     <small>{{$errors->first('domicilio')}}</small>
                                                 </td>
                                             </tr>
@@ -183,14 +183,14 @@
                                                     <b>Código Postal:</b>
                                                     <input type="text" class="form-control w-40" id="codigo_postal"
                                                         name="codigo_postal" placeholder="Código Postal"
-                                                        value="{{$alumno->codigo_postal}}">
+                                                        value="{{$profesor->codigo_postal}}">
                                                     <small>{{$errors->first('codigo_postal')}}</small>
                                                 <td>
                                                 <td>
                                                     <b>Provincia:</b>
                                                     <input type="text" class="form-control" id="provincia"
                                                         name="provincia" placeholder="Provincia"
-                                                        value="{{$alumno->provincia}}">
+                                                        value="{{$profesor->provincia}}">
                                                     <small>{{$errors->first('provincia')}}</small>
                                                 <td>
                                             </tr>
@@ -198,13 +198,13 @@
                                                 <td colspan="2">
                                                     <b>País:</b>
                                                     <input type="text" class="form-control" id="pais" name="pais"
-                                                        placeholder="Pais" value="{{$alumno->pais}}">
+                                                        placeholder="Pais" value="{{$profesor->pais}}">
                                                     <small>{{$errors->first('pais')}}</small>
                                                 </td>
                                                 <td colspan="2">
                                                     <b>Población:</b>
                                                     <input type="text" class="form-control" name="poblacion"
-                                                        placeholder="Po" value="{{$alumno->poblacion}}">
+                                                        placeholder="Po" value="{{$profesor->poblacion}}">
                                                     <small>{{$errors->first('poblacion')}}</small>
                                                 </td>
                                             </tr>
@@ -213,21 +213,68 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="list-matricula" role="tabpanel"
-                                    aria-labelledby="list-matriculas-list">           
+                            <div class="tab-pane fade" id="list-pago" role="tabpanel"
+                                aria-labelledby="list-pago-list">
+                                <div class="card" style="width: 100%;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Pago</h5>
+                                        <table class="table">
+                                            <tr>
+                                                <td colspan="4">
+                                                    <b>Forma de Pago:</b>
+                                                    <input type="text" class="form-control w-40" id="forma_pago"
+                                                        name="forma_pago" placeholder="Forma Pago"
+                                                        value="{{$profesor->forma_pago}}">
+                                                    <small>{{$errors->first('forma_pago')}}</small>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <b>Entidad de Ingreso:</b>
+                                                    <input type="text" class="form-control" name="e_ingreso"
+                                                        placeholder="Entidad Ingreso" value="{{$profesor->entidad_ingreso}}">
+                                                    <small>{{$errors->first('entidad_ingreso')}}</small>
+                                                </td>
+                                                <td>
+                                                    <b>Swift:</b>
+                                                    <input type="text" class="form-control" id="swift"
+                                                        name="swift" placeholder="Swift"
+                                                        value="{{$profesor->swift}}">
+                                                    <small>{{$errors->first('swift')}}</small>
+                                                <td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <b>IBAN:</b>
+                                                    <input type="text" class="form-control" id="iban"
+                                                        name="iban" placeholder="IBAN"
+                                                        value="{{$profesor->iban}}">
+                                                    <small>{{$errors->first('iban')}}</small>
+                                                <td>
+                                            </tr>
+                                        </table>
+                                        <p class="card-text"></p>
+                                    </div>
+                                </div>       
                             </div>
-                            <div class="tab-pane fade" id="list-prescripciones" role="tabpanel"
-                                aria-labelledby="list-prescripciones-list"></div>
-                            <div class="tab-pane fade" id="list-tutores" role="tabpanel"
-                                aria-labelledby="list-tutores-list"></div>
-                            <div class="tab-pane fade" id="list-asistencias" role="tabpanel"
-                                aria-labelledby="list-asistencias-list"></div>
+                            <div class="tab-pane fade" id="list-facturaciones" role="tabpanel"
+                                aria-labelledby="list-facturaciones-list">
+                                    
+                            </div>
+                            <div class="tab-pane fade" id="list-salarios" role="tabpanel"
+                                aria-labelledby="list-salarios-list">
+                                    
+                            </div>
+                            <div class="tab-pane fade" id="list-titulaciones" role="tabpanel"
+                                aria-labelledby="list-titulaciones-list">
+                                    
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <button type="submit" class="btn btn-danger mt-1" style="margin-left: 50%;">Modificar
-                alumno</button>
+                profesor</button>
         </form>
         <script>
             $(function(){

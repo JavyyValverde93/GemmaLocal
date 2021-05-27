@@ -25,20 +25,11 @@
                 <th>&nbsp;</th>
             </tr>
             @foreach($profesores as $item)
-            <tr>
+            <tr onclick="window.location.href='{{route('profesores.vista', ['id='.$item->id])}}'">
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}} {{$item->apellidos}}</td>
                 <td>{{$item->dni}}</td>
-                <td>{{$item->telefono}}</td>
-                <td>
-                    <a href="{{route('profesores.show', $item)}}"><i class="fas fa-eye" title="Visualizar Profesores"></i></a>
-                    <a href="{{route('profesores.edit', $item)}}"><i class="fas fa-edit" title="Editar Profesores"></i></a>
-                    <a href="{{route('titulaciones.index', ["id_profesor=$item->id", "profesor=$item->nombre $item->apellidos"])}}"><i class="fas fa-suitcase" title="Titulaciones"></i></a>
-                    <a href="{{route('salarios.index', ["id_profesor=$item->id"])}}"><i class="fas fa-euro-sign" title="Salarios"></i></a>
-                    <a href="{{route('facturaciones.index', ["id_profesor=$item->id"])}}"><i class="fas fa-file-invoice" title="Facturaciones"></i></a>
-
-                </td>
-                
+                <td>{{$item->telefono}}</td>                
             </tr>
             @endforeach
         </table>

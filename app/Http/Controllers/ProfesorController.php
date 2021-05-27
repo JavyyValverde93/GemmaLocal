@@ -135,6 +135,18 @@ class ProfesorController extends Controller
         }
     }
 
+        /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Alumno  $alumno
+     * @return \Illuminate\Http\Response
+     */
+    public function vistas(Request $request)
+    {
+        $profesor = Profesor::where('id', $request->id)->first();
+        return view('profesores.vistas',compact('profesor'));
+    }
+
     /**
      * Display the specified resource.
      *
