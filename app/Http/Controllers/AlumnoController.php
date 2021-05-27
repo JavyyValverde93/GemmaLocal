@@ -24,8 +24,10 @@ class AlumnoController extends Controller
     public function index(Request $request)
     {
         //Mostrar un listado de alumnos
-
-        $alumnos=Alumno::select('nombre', 'apellidos', 'id', 'dni', 'telefono')->orderBy('nombre')->nombre($request->nombre)->paginate(10);
+        if($request->ordenar==null){
+            $request->ordenar = 'nombre';
+        }
+        $alumnos=Alumno::select('nombre', 'apellidos', 'id', 'dni', 'telefono')->orderBy($request->ordenar)->nombre($request->nombre)->paginate(10);
 
 		return view('alumnos.index',compact('alumnos', 'request'));
     }

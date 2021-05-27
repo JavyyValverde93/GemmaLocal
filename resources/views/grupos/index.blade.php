@@ -11,7 +11,7 @@
                 <a href="{{route('actividades.index')}}" class="btn btn-outline-danger my-2">Ver Actividades</a>
             </div>
             <div class="col">
-                <form action="{{route('grupos.index')}}" class=" float-right m-3" method="GET">
+                <form action="{{route('grupos.index')}}" class="float-right m-3" method="GET">
                 @csrf
                 <input type="text" name="nombre" class="rounded" value="{{$request->nombre}}" placeholder="Buscar...">
                 <button type="submit" class="btn btn-danger"><i class="fas fa-search"></i></button>

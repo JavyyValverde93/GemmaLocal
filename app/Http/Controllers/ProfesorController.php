@@ -179,8 +179,9 @@ class ProfesorController extends Controller
      * @param  \App\Models\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profesor $profesor)
+    public function update(Request $request, Profesor $profesore)
     {
+        $profesor = $profesore;
 
         $request->validate([
             'nombre' => 'required',
@@ -259,7 +260,7 @@ class ProfesorController extends Controller
             return back()->with('mensaje', 'Profesor modificado correctamente');
         }catch(\Exception $ex){
             $this->Log("Error al modificar al Profesor $request->nombre $request->apellidos");
-            return back()->with('error', 'No ha podido modificarse el profesor');
+            return back()->with('error', 'No ha podido modificarse el profesor: '.$ex->getMessage());
         }
     }
 

@@ -5,6 +5,7 @@
         </script>
         <div class="row migaspan">
             <a href="{{route('alumnos.index')}}" class="text-danger"> Alumno </a> >
+            <a href="{{route('alumnos.vista', ["id=$request->id_alumno"])}}" class="text-danger">Alumno</a> >
             <a href="#" class="text-danger">Asistencias</a> >
         </div>
     <div class="text-center"><h4>Asistencias De {{$alumno->apellidos}}  {{$alumno->nombre}}</h4></div>

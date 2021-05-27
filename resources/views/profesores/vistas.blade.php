@@ -49,12 +49,9 @@
                                 href="#list-direccion" role="tab" aria-controls="direccion">Dirección</a>
                             <a class="list-group-item list-group-item-action" id="list-pago-list" data-toggle="list"
                                 href="#list-pago" rol="tab" aria-controls="pago">Pago</a>
-                            <a class="list-group-item list-group-item-action" id="list-facturaciones-list" data-toggle="list"
-                                href="#list-facturaciones" rol="tab" aria-controls="facturaciones">Facturaciones</a>
-                            <a class="list-group-item list-group-item-action" id="list-salarios-list" data-toggle="list"
-                                href="#list-salarios" role="tab" aria-controls="salarios">Salarios</a>
-                            <a class="list-group-item list-group-item-action" id="list-titulaciones-list" data-toggle="list"
-                                href="#list-titulaciones" role="tab" aria-controls="titulaciones">Titulaciones</a>
+                            <a class="list-group-item list-group-item-action" href="{{route('facturaciones.index', ["id_profesor=$profesor->id"])}}">Facturaciones</a>
+                            <a class="list-group-item list-group-item-action" href="{{route('salarios.index', ["id_profesor=$profesor->id"])}}">Salarios</a>
+                            <a class="list-group-item list-group-item-action"href="{{route('titulaciones.index', ["id_profesor=$profesor->id", "profesor=$profesor->nombre $profesor->apellidos"])}}">Titulaciones</a>
                         </div>
                     </div>
                     <div class="col-sm-9 mt-2 col-xs-9">
@@ -82,16 +79,15 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <b>Edad:</b>
-                                                    <input type="number" class="form-control w-40"
-                                                        name="edad" placeholder="Telefono"
-                                                        value="{{$profesor->edad}}">
-                                                    <small>{{$errors->first('edad')}}</small>
+                                                    <b>DNI:</b>
+                                                    <input type="text" class="form-control" id="dni" name="dni"
+                                                        placeholder="DNI" value="{{$profesor->dni}}">
+                                                    <small>{{$errors->first('dni')}}</small>
                                                 <td>
                                                 <td>
-                                                    <b>Sexo:</b></br>
+                                                    <b>Sexo:</b><br>
                                                     <select name="sexo" required>
-                                                        <option>Selec. sexo...</option>
+                                                        <option value="">Selec. sexo...</option>
                                                         <option value="Hombre" @if($profesor->sexo=="Hombre") selected @endif>Hombre</option>
                                                         <option value="Mujer" @if($profesor->sexo=="Mujer") selected @endif>Mujer</option>
                                                         <option value="Otro" @if($profesor->sexo=="Otro") selected @endif>Otro</option>
@@ -107,10 +103,11 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <b>DNI:</b>
-                                                    <input type="text" class="form-control" id="dni" name="dni"
-                                                        placeholder="DNI" value="{{$profesor->dni}}">
-                                                    <small>{{$errors->first('dni')}}</small>
+                                                    <b>Edad:</b>
+                                                    <input type="number" class="form-control w-40"
+                                                        name="edad" placeholder="Telefono"
+                                                        value="{{$profesor->edad}}">
+                                                    <small>{{$errors->first('edad')}}</small>
                                                 <td>
                                                 <td>
                                                     <b>Teléfono:</b>
@@ -231,7 +228,7 @@
                                             <tr>
                                                 <td colspan="2">
                                                     <b>Entidad de Ingreso:</b>
-                                                    <input type="text" class="form-control" name="e_ingreso"
+                                                    <input type="text" class="form-control" name="entidad_ingreso"
                                                         placeholder="Entidad Ingreso" value="{{$profesor->entidad_ingreso}}">
                                                     <small>{{$errors->first('entidad_ingreso')}}</small>
                                                 </td>

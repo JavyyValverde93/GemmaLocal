@@ -151,6 +151,17 @@ session_start();
                         background-color: white;
                         color: #dc3545; 
                     }
+
+                    tr:hover{
+                        cursor: pointer;
+                    }
+
+                    select{
+                        font-size: 20px;
+                        width: auto;
+                        padding-right: 26px;
+                        border-radius: 4px;
+                    }
                 </style>
             <div style="width: 98%">
                 <div class="container-fluid ml-3">
