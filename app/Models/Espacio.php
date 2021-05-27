@@ -28,4 +28,14 @@ class Espacio extends Model
             return $query->where('nombre', "LIKE", "%");
         }
     }
+
+    public static function calcMatriculas($id_espacio){
+        try{
+            $capacidad = Matricula::where('id_grupo', Grupo::where('id_espacio', $id_espacio)->first()->id)->count();
+            return $capacidad;
+        }catch(\Exception $ex){
+            return 0;
+        }
+
+    }
 }

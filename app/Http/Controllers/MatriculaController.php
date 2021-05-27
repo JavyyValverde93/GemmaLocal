@@ -7,6 +7,7 @@ use App\Models\Grupo;
 use App\Models\Alumno;
 use App\Models\Plazomatricula;
 use App\Models\Prescripcion;
+use App\Models\Espacio;
 use App\Models\Actividad;
 use Illuminate\Http\Request;
 
@@ -92,6 +93,10 @@ class MatriculaController extends Controller
         }
 
         try{
+            $capacidad = Espacio::find(Grupo::find($request->id_grupo)->id_espacio)->capacidad-Matricula::where('id_grupo', $request->id_grupo)->count();
+            if($capacidad<=0){
+                return back()->with('error', 'Este grupo ya está lleno');
+            }
             $matricula = new Matricula();
             $matricula->id_alumno = $request->id_alumno;
             $matricula->id_grupo = $request->id_grupo;
@@ -103,7 +108,7 @@ class MatriculaController extends Controller
             return redirect()->route('alumnos.index')->with('mensaje', 'Matrícula creada');
         }catch(\Exception $ex){
             $this->Log("Error al matricular al Alumno $request->id_alumno en el Grupo $request->id_grupo");
-            return back()->with('error', 'No ha podido crearse la matricula');
+            return back()->with('error', 'No ha podido crearse la matricula: '.$ex->getMessage());
         }
     }
 
@@ -147,6 +152,10 @@ class MatriculaController extends Controller
         ]);
         
         try{
+            $capacidad = Espacio::find(Grupo::find($request->id_grupo)->id_espacio)->capacidad-Matricula::where('id_grupo', $request->id_grupo)->count();
+            if($capacidad<=0){
+                return back()->with('error', 'Este grupo ya está lleno');
+            }
             $matricula->id_alumno = $request->id_usuario;
             $matricula->id_grupo = $request->id_grupo;
             $matricula->fecha_creacion = now()->getTimestamp();

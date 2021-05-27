@@ -9,6 +9,7 @@
         <h5 class="text-center">Roles</h5>
         <div class="row">
             <div class="col">
+                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"><i class="far fa-bookmark"></i></a>
                 <a href="{{route('roles.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Añadir Rol</a>
                 <a href="{{route('permisos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Permiso</a>
                 <a href="{{route('rolespermisos.create')}}" class="btn btn-outline-danger my-2">Asignar Rol a Permiso</a>

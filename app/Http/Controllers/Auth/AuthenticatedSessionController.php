@@ -31,8 +31,9 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        echo '<script>if(localStorage.getItem("pagFav")==null){localStorage.setItem("pagFav", "/");}</script>';
+        echo '<script>window.location.href = localStorage.getItem("pagFav");</script>';
+        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

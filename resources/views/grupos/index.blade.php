@@ -6,6 +6,7 @@
         <h5 class="text-center">Grupos</h5>
         <div class="row">
             <div class="col">
+                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"><i class="far fa-bookmark"></i></a>
                 <a href="{{route('grupos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Grupo</a>
                 <a href="{{route('actividades.index')}}" class="btn btn-outline-danger my-2">Ver Actividades</a>
             </div>
