@@ -1,7 +1,10 @@
 <x-menu-grupos>
     <x-slot name="slot">
         <div class="row migaspan">
-            <a href="{{route('administracion.panel')}}" class="text-danger">Administración</a> >
+            <a href="" class="text-danger">Administración</a> >
+        </div>
+        <div class="row m-4">
+            <a href="{{route('roles.index')}}" class="btn btn-outline-danger">Roles</a>
         </div>
         <h1 style="margin-left: 35px; margin-top:100px;">Administración</h1>
         <div class="row align-items-start">

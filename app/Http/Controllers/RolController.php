@@ -14,7 +14,8 @@ class RolController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Rol::orderBy('nombre')->get();
+        return view('roles.index', compact('roles'));
     }
 
     /**
@@ -24,7 +25,7 @@ class RolController extends Controller
      */
     public function create()
     {
-        //
+        return view('roles.create');
     }
 
     /**
