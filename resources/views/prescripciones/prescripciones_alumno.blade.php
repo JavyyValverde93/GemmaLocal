@@ -2,7 +2,7 @@
     <x-slot name="slot">
 		<div class="row migaspan">
             <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
-            <a href="{{route('alumnos.vista', ["id_alumno=$request->id_alumno"])}}" class="text-danger">Alumno</a> >
+            <a href="{{route('alumnos.vista', ["id=$request->id_alumno"])}}" class="text-danger">Alumno</a> >
             <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
         </div>
         <h5 class="text-center">Prescripciones</h5>

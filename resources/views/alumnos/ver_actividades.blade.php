@@ -4,7 +4,9 @@
             navselected = 'prefesor';
         </script>
         <div class="row migaspan">
-            <a href="{{route('profesores.index')}}" class="text-danger"> Profesores </a> > 
+            <a href="{{route('alumnos.index')}}" class="text-danger"> Alumnos </a> > 
+            <a href="{{route('alumnos.vista', ["id=$request->id_alumno"])}}" class="text-danger">Alumno</a> >
+            <a href="" class="text-danger">Actividades</a> >
         </div>
         <h5 class="text-center">Actividades</h5>
         <div class="row">
@@ -21,6 +23,7 @@
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Profesor</th>
+                <th>Grupo</th>
                 <th>Espacio</th>
                 <th>&nbsp;</th>
             </tr>
@@ -30,6 +33,7 @@
                 <td>{{$item->nombre}} </td>
                 <td><a href="{{route('profesores.show', $item->profesor)}}" class="text-black">{{$item->profesor->apellidos}} {{$item->profesor->nombre}}</a></td>
                 <td><a href="{{route('grupos.show', $item->grupo)}}" class="text-black">{{$item->grupo->nombre}}</a></td>
+                <td><a href="{{route('espacios.show', $item->grupo->espacio)}}" class="text-black">{{$item->grupo->espacio->nombre}}</a></td>
                 <td>
                     {{-- <a href="{{route('grupos.show', $item)}}"><i class="fas fa-eye" title="Visualizar Actividad"></i></a>
                     <a href="{{route('grupos.edit', $item)}}"><i class="fas fa-edit mx-2" title="Editar Actividad"></i></a>

@@ -114,6 +114,9 @@ session_start();
                         color: blue;
                         text-decoration: underline;
                     }
+                    tr td a:hover{
+                        background-color: #0815ff00;
+                    }
                     .migaspan a{
                         color: #dc3545; /* blue #007eb0 */
                         text-decoration: underline;

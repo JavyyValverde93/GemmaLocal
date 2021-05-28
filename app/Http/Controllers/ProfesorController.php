@@ -20,7 +20,10 @@ class ProfesorController extends Controller
      */
     public function index(Request $request)
     {
-        $profesores = Profesor::orderBy('id')->select('id', 'nombre', 'apellidos', 'telefono', 'dni')->nombre($request->nombre)->paginate(10);
+        if($request->ordenar==null){
+            $request->ordenar = 'nombre';
+        }
+        $profesores = Profesor::orderBy($request->ordenar)->select('id', 'nombre', 'apellidos', 'telefono', 'dni')->nombre($request->nombre)->paginate(10);
         return view('profesores.index', compact('profesores', 'request'));
     }
 
@@ -157,7 +160,7 @@ class ProfesorController extends Controller
     public function show(Profesor $profesore)
     {
         $profesor = $profesore;
-        return view('profesores.show', compact('profesor'));
+        return view('profesores.vistas',compact('profesor'));
     }
 
     /**
@@ -290,6 +293,6 @@ class ProfesorController extends Controller
 
     public function ver_actividades(Request $request){
         $actividades = Actividad::where('id_profesor', $request->id_profesor)->paginate(10);
-        return view('profesores.ver_actividades', compact('actividades'));
+        return view('profesores.ver_actividades', compact('actividades', 'request'));
     }
 }

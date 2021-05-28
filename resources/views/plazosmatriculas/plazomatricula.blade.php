@@ -28,9 +28,12 @@
                 <th>Fecha límite</th>
             </tr>
             @foreach($plazosmatriculas as $item)
-            <tr>
+            @if($request->id_actividad==null)
+            <tr onclick="window.location.href={{route('matriculas.create', ['id_alumno='.$request->id_alumno, 'id_plazomatricula='.$item->id])}}">
                 <td></td>
-                @if($request->id_actividad!=null)
+                <td>{{$item->nombre}}</td>
+                @else
+                <td></td>
                     <td>
                         <form action="{{route('matriculas.store')}}" method="POST">
                             @csrf 
@@ -41,8 +44,6 @@
                             <button type="submit">{{$item->nombre}}</button>
                         </form>
                     </td>
-                @else
-                    <td><a href="{{route('matriculas.create', ['id_alumno='.$request->id_alumno, 'id_plazomatricula='.$item->id])}}">{{$item->nombre}}</a></td>
                 @endif
                 <td>{{date("d/m/Y", $item->fecha_inicio)}}</td>
                 <td>{{date("d/m/Y", $item->fecha_fin)}}</td>

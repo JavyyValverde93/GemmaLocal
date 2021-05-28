@@ -64,10 +64,9 @@ class MatriculaController extends Controller
     public function store(Request $request)
     {
         if($request->id_actividad!=null){
-            $id_grupo = Actividad::where('id', $request->id_actividad)->first();
-            $request->id_grupo = $id_grupo->id;
+            $grupo = Actividad::where('id', $request->id_actividad)->first();
+            $request->id_grupo = $grupo->id_grupo;
         }
-
         if($request->id_grupo==null){
             $request->validate([
                 'id_grupo' => 'required'

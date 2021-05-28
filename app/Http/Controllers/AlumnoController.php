@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Mail\Gmail;
 use App\Models\Alumno;
+use App\Models\Grupo;
+use App\Models\Actividad;
+use App\Models\Matricula;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -317,6 +320,11 @@ class AlumnoController extends Controller
         }else{
             return redirect()->route('alumnos.create');
         }
+    }
+
+    public function ver_actividades(Request $request){
+        $actividades = Actividad::whereIn('id_grupo', Grupo::whereIn('id', Matricula::where('id_alumno', $request->id_alumno)->get('id_grupo'))->get('id'))->paginate(10);
+        return view('alumnos.ver_actividades', compact('request', 'actividades'));
     }
 
 

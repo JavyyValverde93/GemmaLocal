@@ -16,6 +16,10 @@
             padding-right: 26px;
             }
 
+            .list-group-item.active{
+                background-color: red;
+                border-color: rgb(202, 17, 17);
+            }
         </style>
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -38,17 +42,17 @@
                 <div class="row">
                     <div class="col-sm-3 col-xs-9">
                         <div class="list-group" id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
-                                href="#list-home" role="tab" aria-controls="profile">
+                            <a class="list-group-item list-group-item-action">
                                 <img src="https://e7.pngegg.com/pngimages/590/797/png-clipart-computer-icons-avatar-person-avatar-white-heroes.png"
                                     class="card-img-top" alt="Foto Perfil">
                             </a>
-                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                            <a class="list-group-item list-group-item-action show active" id="list-profile-list" data-toggle="list"
                                 href="#list-home" role="tab" aria-controls="profile">Datos Personales</a>
                             <a class="list-group-item list-group-item-action" id="list-direccion-list" data-toggle="list"
                                 href="#list-direccion" role="tab" aria-controls="direccion">Dirección</a>
                             <a class="list-group-item list-group-item-action" id="list-pago-list" data-toggle="list"
                                 href="#list-pago" rol="tab" aria-controls="pago">Pago</a>
+                            <a class="list-group-item list-group-item-action" href="{{route('profesores.ver_actividades', ["id_profesor=$profesor->id"])}}">Actividades</a>
                             <a class="list-group-item list-group-item-action" href="{{route('facturaciones.index', ["id_profesor=$profesor->id"])}}">Facturaciones</a>
                             <a class="list-group-item list-group-item-action" href="{{route('salarios.index', ["id_profesor=$profesor->id"])}}">Salarios</a>
                             <a class="list-group-item list-group-item-action"href="{{route('titulaciones.index', ["id_profesor=$profesor->id", "profesor=$profesor->nombre $profesor->apellidos"])}}">Titulaciones</a>

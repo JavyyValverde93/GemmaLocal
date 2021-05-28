@@ -84,6 +84,7 @@ Route::post('alumnos/store', [AlumnoController::class, 'store'])->name('alumnos.
 Route::get('alumnos/{alumno}/edit', [AlumnoController::class, 'edit'])->name('alumnos.edit')->middleware(['auth']);
 Route::put('alumnos/update/{alumno}', [AlumnoController::class, 'update'])->name('alumnos.update')->middleware(['auth']);
 Route::get('alumnos/show/{alumno}', [AlumnoController::class, 'show'])->name('alumnos.show')->middleware(['auth']);
+Route::get('alumnos/ver_actividades', [AlumnoController::class, 'ver_actividades'])->name('alumnos.ver_actividades');
 //Tutores
 Route::get('tutores', [TutorController::class, 'index'])->name('tutores.index')->middleware(['auth']);
 Route::get('tutores/create', [TutorController::class, 'create'])->name('tutores.create')->middleware(['auth']);
@@ -196,6 +197,8 @@ Route::post('profesores/store', [ProfesorController::class, 'store'])->name('pro
 Route::get('profesores/{profesore}/edit', [ProfesorController::class, 'edit'])->name('profesores.edit')->middleware(['auth']);
 Route::put('profesores/update/{profesore}', [ProfesorController::class, 'update'])->name('profesores.update')->middleware(['auth']);
 Route::get('profesores/show/{profesore}', [ProfesorController::class, 'show'])->name('profesores.show')->middleware(['auth']);
+Route::get('profesores/vistas', [ProfesorController::class, 'vistas'])->name('profesores.vista');
+Route::get('ver_actividades/', [ProfesorController::class, 'ver_actividades'])->name('profesores.ver_actividades');
 //Reservasespacios
 Route::get('reservasespacios', [ReservaespacioController::class, 'index'])->name('reservasespacios.index')->middleware(['auth']);
 Route::get('reservasespacios/create', [ReservaespacioController::class, 'create'])->name('reservasespacios.create')->middleware(['auth']);
@@ -275,8 +278,5 @@ Route::get('verlistaasistencia/{alumno}', [AsistenciaController::class, 'verasis
 Route::get('justificarfalta/{asistencia}', [AsistenciaController::class, 'justificarFalta'])->name('asistencia.justificar');
 
 Route::get('alumnos/vistas', [AlumnoController::class, 'vistas'])->name('alumnos.vista');
-Route::get('profesores/vistas', [ProfesorController::class, 'vistas'])->name('profesores.vista');
 Route::get('matriculas/matriculas_alumno', [MatriculaController::class, 'matriculas_alumno'])->name('matriculas.matriculas_alumno');
 Route::get('prescripciones/prescripciones_alumno', [PrescripcionController::class, 'prescripciones_alumno'])->name('prescripciones.prescripciones_alumno');
-
-Route::get('ver_actividades/', [ProfesorController::class, 'ver_actividades'])->name('profesores.ver_actividades');

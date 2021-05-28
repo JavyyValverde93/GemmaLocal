@@ -12,9 +12,22 @@
             <div class="col">
                 <form action="{{route('profesores.index')}}" class=" float-right m-3" method="GET">
                 @csrf
+                <input type="hidden" name="ordenar" value="{{$request->ordenar}}">
                 <input type="text" value="{{$request->nombre}}" name="nombre" class="rounded" placeholder="Buscar...">
                 <button type="submit" class="btn btn-danger"><i class="fas fa-search"></i></button>
             </form>
+            <form action="{{route('profesores.index')}}" method="GET" class="float-right m-3">
+                @csrf 
+                <i class="fas fa-sort mr-2"></i><select name="ordenar" onchange="this.form.submit()">
+                    <option value="">Ordenar por...</option>
+                    <option value="id" @if($request->ordenar=='id') selected @endif>Id</option>
+                    <option value="nombre" @if($request->ordenar=='nombre') selected @endif>Nombre</option>
+                    <option value="apellidos" @if($request->ordenar=='apellidos') selected @endif>Apellidos</option>
+                    <option value="fecha_creacion" @if($request->ordenar=='fecha_creacion') selected @endif>Antigüedad</option>
+                    <option value="edad" @if($request->ordenar=='edad') selected @endif>Edad</option>
+                </select>
+                <input type="hidden" name="nombre" value="{{$request->nombre}}">
+            </form> 
             </div>
         </div>
         <table class="table table-striped table-hover table-sm">

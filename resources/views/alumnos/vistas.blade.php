@@ -56,6 +56,8 @@
                             href="{{route('matriculas.matriculas_alumno', ['id_alumno='.$alumno->id])}}">Matrículas</a>
                             <a class="list-group-item list-group-item-action" 
                             href="{{route('prescripciones.prescripciones_alumno', ['id_alumno='.$alumno->id])}}">Prescripciones</a>
+                            <a class="list-group-item list-group-item-action" 
+                            href="{{route('alumnos.ver_actividades', ['id_alumno='.$alumno->id])}}">Actividades</a>
                             <a class="list-group-item list-group-item-action" href="{{route('tutores.index', ["id_alumno=$alumno->id", "alumno=$alumno->nombre $alumno->apellidos"])}}">Tutores</a>
                             <a class="list-group-item list-group-item-action" href="{{route('asistencia.verlista', [$alumno, "id_alumno=$alumno->id"])}}">Asistencias</a>
                         </div>
