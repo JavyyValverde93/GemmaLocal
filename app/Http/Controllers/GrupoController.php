@@ -233,4 +233,20 @@ class GrupoController extends Controller
     {
         //
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Grupo  $grupo
+     * @return \Illuminate\Http\Response
+     */
+    public function vistas(Request $request)
+    {
+        $grupo = Grupo::where('id', $request->id)->first();
+        $profesores = Profesor::select('nombre', 'apellidos', 'id')->orderBy('apellidos')->get();
+        $espacios = Espacio::orderBy('planta')->get();
+        $categorias = Categoria::orderBy('nombre')->get();
+        $actividad = Actividad::where('id_grupo', $grupo->id)->first();
+        return view('grupos.vistas', compact('grupo', 'actividad', 'profesores', 'espacios', 'categorias'));
+    }
 }

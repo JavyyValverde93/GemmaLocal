@@ -19,6 +19,18 @@ class InventarioController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Inventario  $inventario
+     * @return \Illuminate\Http\Response
+     */
+    public function vistas(Request $request)
+    {
+        $inventario = Inventario::where('id', $request->id)->first();
+        return view('inventario.vistas',compact('inventario'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

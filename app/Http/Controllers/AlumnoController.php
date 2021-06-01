@@ -302,15 +302,12 @@ class AlumnoController extends Controller
 
         return view('administracion/foto-perfil');
 
-
     }
 
 
     public function cambiarDatosPersonales(){
 
-
         return view('administracion/lista-alumnos-datospersonales');
-
     }
 
     public function vista(Request $request){
@@ -326,7 +323,4 @@ class AlumnoController extends Controller
         $actividades = Actividad::whereIn('id_grupo', Grupo::whereIn('id', Matricula::where('id_alumno', $request->id_alumno)->get('id_grupo'))->get('id'))->paginate(10);
         return view('alumnos.ver_actividades', compact('request', 'actividades'));
     }
-
-
-
 }
