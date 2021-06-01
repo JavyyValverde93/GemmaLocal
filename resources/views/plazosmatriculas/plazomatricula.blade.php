@@ -1,8 +1,8 @@
 <x-menu-grupos>
     <x-slot name="slot">
         <div class="row migaspan">
-            <a href="{{route('matriculas.index')}}" class="text-danger">Matrículas</a> >
-            <a href="{{route('plazosmatriculas.index')}}" class="text-danger">Plazos Matrículas</a> >
+            <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
+            <a href="{{route('alumnos.vista', ["id=$request->id_alumno"])}}" class="text-danger">Alumno</a> >
         </div>
         <div class="row">
             <div class="col">
@@ -29,7 +29,7 @@
             </tr>
             @foreach($plazosmatriculas as $item)
             @if($request->id_actividad==null)
-            <tr onclick="window.location.href={{route('matriculas.create', ['id_alumno='.$request->id_alumno, 'id_plazomatricula='.$item->id])}}">
+            <tr onclick="window.location.href='{{route('matriculas.create', ['id_alumno='.$request->id_alumno, 'id_plazomatricula='.$item->id])}}'">
                 <td></td>
                 <td>{{$item->nombre}}</td>
                 @else

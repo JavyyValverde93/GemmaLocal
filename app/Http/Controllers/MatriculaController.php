@@ -130,7 +130,8 @@ class MatriculaController extends Controller
      */
     public function edit(Matricula $matricula)
     {
-        return view('matriculas.edit', compact('matricula'));
+        $grupos = Grupo::select('id', 'nombre')->orderBy('nombre')->get();
+        return view('matriculas.edit', compact('matricula', 'grupos'));
     }
 
     /**
@@ -143,22 +144,21 @@ class MatriculaController extends Controller
     public function update(Request $request, Matricula $matricula)
     {
         $request->validate([
-            'id_alumno' => 'required',
             'id_grupo' => 'required',
         ],[
-            'id_alumno.required' => 'Es obligatorio el id del alumno',
-            'id_plazomatriculacion.required' => 'Es obligatorio el id del plazo de matriculacion'
+            'id_grupo.required' => 'Es obligatorio el grupo'
         ]);
+
+        if($request->id_grupo==$matricula->id_grupo){
+            return back();
+        }
         
         try{
             $capacidad = Espacio::find(Grupo::find($request->id_grupo)->id_espacio)->capacidad-Matricula::where('id_grupo', $request->id_grupo)->count();
             if($capacidad<=0){
                 return back()->with('error', 'Este grupo ya está lleno');
             }
-            $matricula->id_alumno = $request->id_usuario;
             $matricula->id_grupo = $request->id_grupo;
-            $matricula->fecha_creacion = now()->getTimestamp();
-            $matricula->id_prescripcion = $request->id_prescripcion;
             $matricula->save();
             $this->Log("Ha modificado la matrícula del Alumno ".$matricula->alumno->nombre." ".$matricula->alumno->apellidos." del Grupo ".$matricula->grupo->nombre);
             return back()->with('mensaje', 'Matrícula modificada');

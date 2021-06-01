@@ -1,8 +1,10 @@
 <x-menu-grupos>
     <x-slot name="slot">
         <div class="row migaspan">
-            <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
-            <a href="{{route('prescripciones.create')}}" class="text-danger">Crear Prescripciones</a> >
+            
+            <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
+            <a href="{{route('alumnos.vista', ["id=$request->id_alumno"])}}" class="text-danger">Alumno</a> >
+            <a href="{{route('prescripciones.index', ['id_alumno='.$request->id_alumno, 'plazoprescripcion=true'])}}" class="text-danger">Plazosprescripción</a> >
         </div>
         <h5 class="text-center" class="mt-2">Seleccione la Actividad en la que se desea preinscribir</h5>
         <div class="col">

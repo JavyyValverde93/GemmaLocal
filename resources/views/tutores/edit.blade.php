@@ -7,6 +7,7 @@
         
     <div class="row migaspan">
         <a href="{{route('alumnos.index')}}" class="text-danger"> Alumnos </a> > 
+        <a href="{{route('alumnos.vista', ["id=$tutor->id_alumno"])}}" class="text-danger">Alumno</a> >
         <a href="{{route('tutores.index')}}" class="text-danger">Tutores</a> >
     </div>
     
@@ -27,12 +28,10 @@
             }
 
         </style>
-        <h5 class="text-center">Tutores de {{$request->alumno}}</h5>
+        <h5 class="text-center">Tutor de {{$tutor->alumno->nombre}} {{$tutor->Alumno->apellidos}}</h5>
         <form action="{{route('tutores.edit', $tutor)}}" method="POST" class="ml-5 mt-4 border p-5">
             @csrf
             @method('PUT')
-            <input type="hidden" name="id_alumno" value="{{$id_alumno}}">
-            <input type="hidden" name="alumno" value="{{$request->alumno}}">
             <div class="form-group">
                 <label class="form-text">Nombre del Tutor</label>
                 <input type="text" name="nombre" class="form-control" value="{{$tutor->nombre}}">

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Actividad;
+use App\Models\Grupo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ActividadFactory extends Factory
@@ -21,11 +22,13 @@ class ActividadFactory extends Factory
      */
     public function definition()
     {
+        $rand = $this->faker->unique()->numberBetween(1, 21);
+        $id_profesor = Grupo::where('id', $rand)->first()->id_profesor;
         return [
-            'id_profesor' => $this->faker->unique()->numberBetween(2, 20),
-            'id_grupo' => $this->faker->unique()->numberBetween(2, 20),
+            'id_profesor' => $id_profesor,
+            'id_grupo' => $rand,
             'id_categoria' => $this->faker->numberBetween(0, 8),
-            'nombre' => $this->faker->lastName(),
+            'nombre' => "Actividad ".$this->faker->numberBetween(1, 20),
             'descripcion' => $this->faker->text(20),
             'horas' => $this->faker->numberBetween(2, 10),
             'anio_academico' => "2021/2022",

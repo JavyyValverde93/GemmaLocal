@@ -1,8 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
         <div class="row migaspan">
-            <a href="{{route('prescripciones.index')}}" class="text-danger">Prescripciones</a> >
-            <a href="{{route('prescripciones.index')}}" class="text-danger">Plazos</a> >
+            
+            <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
+            <a href="{{route('alumnos.vista', ["id=$request->id_alumno"])}}" class="text-danger">Alumno</a> >
         </div>
         <script>
             navselected = 'prescripcion';
@@ -20,9 +21,9 @@
                 <th>Fecha límite</th>
             </tr>
             @foreach($plazosprescripciones as $item)
-            <tr>
+            <tr onclick="window.location.href='{{route('prescripciones.create', ['id_alumno='.$request->id_alumno, 'id_plazoprescripcion='.$item->id])}}'">
                 <td></td>
-                <td><a href="{{route('prescripciones.create', ['id_alumno='.$request->id_alumno, 'id_plazoprescripcion='.$item->id])}}">{{$item->nombre}}</a></td>
+                <td>{{$item->nombre}}</td>
                 <td>{{date("d/m/Y", $item->fecha_inicio)}}</td>
                 <td>{{date("d/m/Y", $item->fecha_fin)}}</td>
                 

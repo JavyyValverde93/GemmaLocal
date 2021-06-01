@@ -21,7 +21,8 @@ class UserSeeder extends Seeder
             'password'=>Hash::make('adminadmin'),
             'email_verified_at'=>now(),
             'fecha_creacion'=>now()->getTimestamp(),
-            'fecha_modificacion'=>now()->getTimestamp()
+            'fecha_modificacion'=>now()->getTimestamp(),
+            'id_rol' => 1
         ]);
 
         User::create([
@@ -30,7 +31,8 @@ class UserSeeder extends Seeder
             'password'=>Hash::make('adminadmin'),
             'email_verified_at'=>now(),
             'fecha_creacion'=>now()->getTimestamp(),
-            'fecha_modificacion'=>now()->getTimestamp()
+            'fecha_modificacion'=>now()->getTimestamp(),
+            'id_rol' => 1
         ]);
 
         User::create([
@@ -39,7 +41,28 @@ class UserSeeder extends Seeder
             'password'=>Hash::make('adminadmin'),
             'email_verified_at'=>now(),
             'fecha_creacion'=>now()->getTimestamp(),
-            'fecha_modificacion'=>now()->getTimestamp()
+            'fecha_modificacion'=>now()->getTimestamp(),
+            'id_rol' => 1
+        ]);
+        
+        User::create([
+            'name'=>'alumno',
+            'email'=>'alumno@correo.com',
+            'password'=>Hash::make('alumno'),
+            'email_verified_at'=>now(),
+            'fecha_creacion'=>now()->getTimestamp(),
+            'fecha_modificacion'=>now()->getTimestamp(),
+            'id_rol' => 3
+        ]);
+        
+        User::create([
+            'name'=>'profesor',
+            'email'=>'profesor@correo.com',
+            'password'=>Hash::make('profesor'),
+            'email_verified_at'=>now(),
+            'fecha_creacion'=>now()->getTimestamp(),
+            'fecha_modificacion'=>now()->getTimestamp(),
+            'id_rol' => 2
         ]);
     }
 }

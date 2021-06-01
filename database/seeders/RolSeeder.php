@@ -15,6 +15,10 @@ class RolSeeder extends Seeder
     public function run()
     {
         Rol::create([
+            'nombre'=> 'administrador'
+        ]);
+
+        Rol::create([
             'nombre' => 'profesor'
         ]);
 
@@ -23,7 +27,8 @@ class RolSeeder extends Seeder
         ]);
 
         Rol::create([
-            'nombre'=> 'administrador'
+            'nombre' => 'personal'
         ]);
+
     }
 }

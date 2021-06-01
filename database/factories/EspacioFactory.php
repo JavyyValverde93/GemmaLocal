@@ -22,7 +22,7 @@ class EspacioFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->lastName(),
+            'nombre' => "Actividad ".$this->faker->lastName(),
             'capacidad' => $this->faker->numberBetween(15, 30),
             'planta' => $this->faker->numberBetween(-1, 3),
             'turno' => "mañana",

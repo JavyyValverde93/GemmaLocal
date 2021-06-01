@@ -30,7 +30,7 @@
                 <td>{{date("d/m/Y", $item->plazomatricula->fecha_inicio)}} - {{date("d/m/Y", $item->plazomatricula->fecha_fin)}}</td>
                 <td>
                     {{-- <a href="{{route('matriculas.show', $item)}}"><i class="fas fa-eye" title="Visualizar Matricula"></i></a> --}}
-                    {{-- <a href="{{route('matriculas.edit', $item)}}"><i class="fas fa-edit" title="Editar Matricula"></i></a> --}}
+                    <a href="{{route('matriculas.edit', $item)}}"><i class="fas fa-edit" title="Editar Matricula"></i></a>
                 </td>
                 
             </tr>

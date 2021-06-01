@@ -15,8 +15,12 @@ class Rol extends Model
 
 	protected $table = 'roles';
 
-	public function Permisos(){
-		return $this->belongsToMany(Permisos::class, 'id_permiso');
+	public function Rolespermiso(){
+		return $this->hasMany(Rolespermiso::class);
+	}
+
+	public function User(){
+		return $this->hasMany(User::class);
 	}
 	
 }

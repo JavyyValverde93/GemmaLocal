@@ -100,9 +100,10 @@ class TutorController extends Controller
      * @param  \App\Models\Tutor  $tutor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tutor $tutor)
+    public function edit(Tutor $tutore)
     {
-        //
+        $tutor = $tutore;
+        return view('tutores.edit', compact('tutor'));
     }
 
     /**

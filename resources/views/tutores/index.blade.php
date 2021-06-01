@@ -24,7 +24,7 @@
                 <th>Relación</th>
             </tr>
             @foreach($tutores as $item)
-            <tr>
+            <tr onclick="window.location.href='{{route('tutores.edit', $item)}}'">
                 <td></td>
                 <td>{{$item->nombre}}</td>
                 <td>{{$item->telefono}}</td>

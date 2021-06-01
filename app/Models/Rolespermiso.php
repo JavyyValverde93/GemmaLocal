@@ -13,5 +13,12 @@ class Rolespermiso extends Model
     
 	public $timestamps = false;	
 	
-    
+    public function Permiso(){
+		return $this->belongsTo(Permiso::class, 'id_permiso');
+	}
+
+	public function Rol(){
+		return$this->belongsTo(Rol::class, 'id_rol');
+	}
+
 }

@@ -12,7 +12,7 @@
                 <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"><i class="far fa-bookmark"></i></a>
                 <a href="{{route('roles.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Añadir Rol</a>
                 <a href="{{route('permisos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Permiso</a>
-                <a href="{{route('rolespermisos.create')}}" class="btn btn-outline-danger my-2">Asignar Rol a Permiso</a>
+                <a href="{{route('rolespermisos.create')}}" class="btn btn-outline-danger my-2">Asignar Permiso a Rol</a>
             </div>
         </div>
         <table class="table table-striped table-hover table-sm">
@@ -22,10 +22,9 @@
                 <th>&nbsp;</th>
             </tr>
             @foreach($roles as $item)
-            <tr>
+            <tr onclick="window.location.href='{{route('rolespermisos.create', ['rol='.$item->id])}}'">
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}}</td>
-                <td>{{dd($item->permisos)}}</td>
                 {{-- <td>
                     <a href="{{route('roles.show', $item)}}"><i class="fas fa-eye"></i></a>
                     <a href="{{route('roles.edit', $item)}}"><i class="fas fa-edit"></i></a>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Rolespermiso;
 use App\Models\Rol;
 use App\Models\Permiso;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class RolespermisoController extends Controller
@@ -24,12 +26,15 @@ class RolespermisoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $roles = Rol::orderBy('nombre')->first();
-        $permisos = Permiso::orderBy('nombre')->get();
-        dd($roles->permiso());
-        return view('rolespermisos.rolpermiso', compact('roles', 'permisos'));
+        $roles = Rol::orderBy('nombre')->get();
+        if($request->rol!=null){
+            $permisos = Permiso::orderBy('nombre')->whereIn('id', Rolespermiso::where('id_rol', '!=', $request->rol)->get('id'))->get();
+        }else{
+            $permisos = Permiso::orderBy('nombre')->get();
+        }
+        return view('rolespermisos.rolpermiso', compact('roles', 'permisos', 'request'));
     }
 
     /**
@@ -43,15 +48,21 @@ class RolespermisoController extends Controller
         $request->validate([
             'rol' => 'required',
             'permiso' => 'required',
+        ],[
+            'permiso.required' => "El permiso no existe"
         ]);
-
+            
         try{
+            $validar = Rolespermiso::where('id_rol', $request->rol)->where('id_permiso', $request->permiso)->first();
+            if($validar!=null){
+                return back()->with('error', 'Este permiso ya existe para este Rol');
+            }
             $rolespermiso = new Rolespermiso();
             $rolespermiso->id_rol = $request->rol;
             $rolespermiso->id_permiso = $request->permiso;
             $rolespermiso->save();
             $this->Log("Ha asignado el rol $request->rol al permiso $request->permiso");
-            return redirect()->route('roles.index')->with('mensaje', 'Rol Asignado a Permiso');
+            return back()->with('mensaje', 'Rol Asignado a Permiso');
         }catch(\Exception $ex){
             $this->Log("Error al asignar el rol $request->rol al permiso $request->permiso");
             return back()->with('error', 'No se ha podido asignar el permiso al rol');

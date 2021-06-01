@@ -22,7 +22,11 @@ class GrupoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre' => "Grupo ".$this->faker->lastName(),
+            'id_profesor' => $this->faker->unique()->numberBetween(2, 100),
+            'id_espacio' => rand(1, 20),
+            'fecha_creacion' => now()->getTimestamp(),
+            'fecha_modificacion' => now()->getTimestamp(),
         ];
     }
 }

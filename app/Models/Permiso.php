@@ -13,7 +13,7 @@ class Permiso extends Model
 	
 	public $timestamps = false;	
 	
-	public function Rol(){
-		return $this->belongsToMany(Permiso::class, 'id_rol');
+	public function Rolespermiso(){
+		return $this->hasMany(Rolespermiso::class);
 	}
 }

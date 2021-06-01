@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permiso;
+use App\Models\Rolespermiso;
 use Illuminate\Http\Request;
 
 class PermisoController extends Controller
@@ -45,6 +46,12 @@ class PermisoController extends Controller
             $permiso = new Permiso();
             $permiso->nombre = $request->nombre;
             $permiso->save();
+
+            $rolespermiso = new Rolespermiso();
+            $rolespermiso->id_permiso = $permiso->id;
+            $rolespermiso->id_rol = 1;
+            $rolespermiso->save();
+            
             return back()->with('mensaje', 'Permiso creado');
         }catch(\Exception $ex){
             return back()->with('error', 'El permiso no ha podido crearse');

@@ -60,4 +60,8 @@ class User extends Authenticatable
     public function Facturacion(){
         $this->hasMany(Facturacion::class);
     }
+
+    public function Rol(){
+        return $this->belongsTo(Rol::class, 'id_rol');
+    }
 }

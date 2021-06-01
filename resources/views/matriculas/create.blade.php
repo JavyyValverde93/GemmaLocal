@@ -1,7 +1,9 @@
 <x-menu-grupos>
     <x-slot name="slot">
         <div class="row migaspan">
-            <a href="{{route('matriculas.index')}}" class="text-danger">Matriculas</a> >
+            <a href="{{route('alumnos.index')}}" class="text-danger">Alumnos</a> >
+            <a href="{{route('alumnos.vista', ["id=$request->id_alumno"])}}" class="text-danger">Alumno</a> >
+            <a href={{route('matriculas.index', ['id_alumno='.$request->id_alumno, 'plazomatricula=true'])}} class="text-danger">Plazomatrícula</a> >
         </div>
         <h4 class="ml-5 mt-1">Seleccione el grupo en el que se desea matricular</h4>
         <div class="col">
