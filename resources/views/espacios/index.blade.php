@@ -6,7 +6,7 @@
         <h5 class="text-center">Espacios</h5>
         <div class="row">
             <div class="col">
-                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"><i class="far fa-bookmark"></i></a>
+                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"  data-toggle="tooltip" data-placement="top" title="Guardar Pagina"><i class="far fa-bookmark"></i></a>
                 <a href="{{route('espacios.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Espacio</a>
                 <a href="{{route('reservasespacios.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Reservar Espacio</a>
             </div>
