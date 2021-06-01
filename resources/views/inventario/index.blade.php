@@ -28,16 +28,11 @@
                 <th>&nbsp;</th>
             </tr>
             @foreach($inventario as $item)
-            <tr>
+            <tr onclick="window.location.href='{{route('inventario.vista', ['id='.$item->id])}}'">
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}}</td>
                 <td style="width: 400px">{{$item->datos}}</td>
-                <td>{{date("d/m/Y", $item->fecha_modificacion)}}</td>
-                <td>
-                    <a href="{{route('inventario.show', $item)}}"><i class="fas fa-eye" title="Visualizar Inventario"></i></a>
-                    <a href="{{route('inventario.edit', $item)}}"><i class="fas fa-edit" title="Editar Inventario"></i></a>
-                </td>
-                
+                <td>{{date("d/m/Y", $item->fecha_modificacion)}}</td>                
             </tr>
             @endforeach
         </table>
@@ -45,5 +40,4 @@
             {{$inventario->appends($request->except('page'))->links()}}
         </div>
     </x-slot>
-
 </x-menu-grupos>
