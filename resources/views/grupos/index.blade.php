@@ -6,7 +6,7 @@
         <h5 class="text-center">Grupos</h5>
         <div class="row">
             <div class="col">
-                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"><i class="far fa-bookmark"></i></a>
+                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Guardar Pagina"><i class="far fa-bookmark"></i></a>
                 <a href="{{route('grupos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Grupo</a>
                 <a href="{{route('actividades.index')}}" class="btn btn-outline-danger my-2">Ver Actividades</a>
             </div>
@@ -28,19 +28,12 @@
                 <th>&nbsp;</th>
             </tr>
             @foreach($grupos as $item)
-            <tr>
+            <tr onclick="window.location.href='{{route('grupos.vista', ['id='.$item->id])}}'">
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}} {{$item->apellidos}}</td>
                 <td><a href="{{route('profesores.show', $item->profesor)}}" class="text-black">{{$item->profesor->apellidos}} {{$item->profesor->nombre}}</a></td>
                 <td><a href="{{route('espacios.show', $item->espacio)}}" class="text-black">{{$item->espacio->nombre}}</a></td>
-                <td><a href="#" class="text-black">{{$item->espacio->planta}}</a></td>
-                <td>
-                    <a href="{{route('grupos.show', $item)}}"><i class="fas fa-eye" title="Visualizar Grupo"></i></a>
-                    <a href="{{route('grupos.edit', $item)}}"><i class="fas fa-edit mx-2" title="Editar Grupo"></i></a>
-                    <a href="{{route('periodoscalificaciones.index', ["c=p", "id_grupo=$item->id"])}}"><i class="fas fa-sort-numeric-up-alt" title="Periodo Calificaciones"></i></a>
-                    <a href="{{route('asistencias.index', ["id_grupo=$item->id"])}}"><i class="fas fa-list mx-2" title="Asistencias"></i></a>
-                </td>
-                
+                <td><a href="#" class="text-black">{{$item->espacio->planta}}</a></td>                
             </tr>
             @endforeach
         </table>

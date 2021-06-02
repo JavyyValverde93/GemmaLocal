@@ -18,6 +18,18 @@ class EspacioController extends Controller
         return view('espacios.index', compact('espacios', 'request'));
     }
 
+       /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Espacio  $espacio
+     * @return \Illuminate\Http\Response
+     */
+    public function vistas(Request $request)
+    {
+        $espacio = Espacio::where('id', $request->id)->first();
+        return view('espacios.vistas',compact('espacio'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

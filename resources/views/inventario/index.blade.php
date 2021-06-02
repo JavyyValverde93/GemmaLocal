@@ -6,7 +6,7 @@
         <h5 class="text-center">Inventario</h5>
         <div class="row">
             <div class="col">
-                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"><i class="far fa-bookmark"></i></a>
+                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"  data-toggle="tooltip" data-placement="top" title="Guardar Pagina"><i class="far fa-bookmark"></i></a>
                 <a href="{{route('inventario.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Añadir a Inventario</a>
                 <a href="{{route('prestamos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Solicitar Préstamo</a>
                 <a href="{{route('prestamos.index')}}" class="btn btn-outline-danger my-2">Préstamos</a>
@@ -28,16 +28,11 @@
                 <th>&nbsp;</th>
             </tr>
             @foreach($inventario as $item)
-            <tr>
+            <tr onclick="window.location.href='{{route('inventario.vista', ['id='.$item->id])}}'">
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}}</td>
                 <td style="width: 400px">{{$item->datos}}</td>
-                <td>{{date("d/m/Y", $item->fecha_modificacion)}}</td>
-                <td>
-                    <a href="{{route('inventario.show', $item)}}"><i class="fas fa-eye" title="Visualizar Inventario"></i></a>
-                    <a href="{{route('inventario.edit', $item)}}"><i class="fas fa-edit" title="Editar Inventario"></i></a>
-                </td>
-                
+                <td>{{date("d/m/Y", $item->fecha_modificacion)}}</td>                
             </tr>
             @endforeach
         </table>
@@ -45,5 +40,4 @@
             {{$inventario->appends($request->except('page'))->links()}}
         </div>
     </x-slot>
-
 </x-menu-grupos>

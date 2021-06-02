@@ -6,7 +6,7 @@
         <h5 class="text-center">Espacios</h5>
         <div class="row">
             <div class="col">
-                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"><i class="far fa-bookmark"></i></a>
+                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"  data-toggle="tooltip" data-placement="top" title="Guardar Pagina"><i class="far fa-bookmark"></i></a>
                 <a href="{{route('espacios.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear Espacio</a>
                 <a href="{{route('reservasespacios.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Reservar Espacio</a>
             </div>
@@ -31,18 +31,14 @@
                 <th>&nbsp;</th>
             </tr>
             @foreach($espacios as $item)
-            <tr>
+            <tr onclick="window.location.href='{{route('espacios.vista', ['id='.$item->id])}}'">
                 <td>{{$item->id}}</td>
                 <td>{{$item->nombre}}</td>
                 <td>{{\App\Models\Espacio::calcMatriculas($item->id)}}/{{$item->capacidad}}</td>
                 <td>{{$item->planta}}</td>
-                <td>@if($item->turno==false)No @else Sí @endif</td>
+                <td>@if($item->turno=="mañana")Mañana @else Tarde @endif</td>
                 <td>@if($item->aula_combinada==false)No @else Sí @endif</td>
-                <td>@if($item->activo==false)No @else Sí @endif</td>
-                <td>
-                    <a href="{{route('espacios.show', $item)}}"><i class="fas fa-eye" title="Visualizar Espacios"></i></a>
-                    <a href="{{route('espacios.edit', $item)}}"><i class="fas fa-edit" title="Editar Espacios"></i></a>
-                </td>                
+                <td>@if($item->activo==false)No @else Sí @endif</td>              
             </tr>
             @endforeach
         </table>

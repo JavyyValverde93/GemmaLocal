@@ -7,7 +7,7 @@
         <h5 class="text-center">Alumnos</h5>
         <div class="row">
             <div class="col">
-                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger"><i class="far fa-bookmark"></i></a>
+                <a href="" id="pagFav" onclick="event.preventDefault(); localStorage.setItem('pagFav', window.location); pagFav();" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Guardar Pagina"><i class="far fa-bookmark"></i></a>
                 <a href="{{route('alumnos.create')}}" class="btn btn-outline-danger my-2"><i class="fas fa-plus-circle"></i> Crear alumno</a>
             </div>
             <div class="col">
@@ -53,4 +53,6 @@
             {{$alumnos->appends($request->except('page'))->links()}}
         </div>
     </x-slot>
+
+
 </x-menu-grupos>

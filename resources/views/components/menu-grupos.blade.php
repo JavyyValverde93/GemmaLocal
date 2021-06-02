@@ -18,6 +18,7 @@ session_start();
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
+    
         
 </head>
 
@@ -25,44 +26,44 @@ session_start();
         <div class="d-flex ml-4" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-danger border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading ml-4" style="color: white; font-size: 25px;">GEMMA</div>
+                <div class="sidebar-heading ml-4" style="color: white; font-size: 25px; position:fixed;">GEMMA</div>
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
                         <span class="material-icons align-middle" style="margin-top: 75px;">
-                        <a class="text-white text-decoration-none" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" href="{{route('comunicaciones.index')}}" id="room" title="Comunicaciones">email</a>
+                        <a class="text-white text-decoration-none" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" href="{{route('comunicaciones.index')}}" id="room" data-toggle="tooltip" data-placement="right" title="Comunicaciones">email</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('alumnos.index')}}" id="face" title="Alumnos">person</a>
+                            <a class="text-white text-decoration-none" href="{{route('alumnos.index')}}" id="face" data-toggle="tooltip" data-placement="right" title="Alumnos">person</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('matriculas.index')}}" id="task" title="Matriculas">task</a>
+                            <a class="text-white text-decoration-none" href="{{route('matriculas.index')}}" id="task" data-toggle="tooltip" data-placement="right" title="Matriculas">task</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('prescripciones.index')}}" id="description" title="Prescripciones" title="Inventario">description</a>
+                            <a class="text-white text-decoration-none" href="{{route('prescripciones.index')}}" id="description" data-toggle="tooltip" data-placement="right" title="Prescripciones" title="Inventario">description</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('grupos.index')}}" id="group" title="Grupos">group</a>
+                            <a class="text-white text-decoration-none" href="{{route('grupos.index')}}" id="group" data-toggle="tooltip" data-placement="right" title="Grupos">group</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                        <a class="text-white text-decoration-none" href="{{route('espacios.index')}}" id="home" title="Espacios">room</a>
+                        <a class="text-white text-decoration-none" href="{{route('espacios.index')}}" id="home" data-toggle="tooltip" data-placement="right" data-placement="right" title="Espacios">room</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('profesores.index')}}" id="school" title="Profesores">school</a>
+                            <a class="text-white text-decoration-none" href="{{route('profesores.index')}}" id="school" data-toggle="tooltip" data-placement="right" title="Profesores">school</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('inventario.index')}}" id="inventory" title="Inventario">inventory_2</a>
+                            <a class="text-white text-decoration-none" href="{{route('inventario.index')}}" id="inventory" data-toggle="tooltip" data-placement="right" title="Inventario">inventory_2</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                            <a class="text-white text-decoration-none" href="{{route('dashboard')}}" id="home" title="Administración">calendar_today</a>
+                            <a class="text-white text-decoration-none" href="{{route('dashboard')}}" id="home" data-toggle="tooltip" data-placement="right" title="Administración">calendar_today</a>
                         </span> 
                         <span class="material-icons align-middle mt-3">
-                        <a class="text-white text-decoration-none" href="{{route('logs.index')}}" id="room" title="Logs">warning</a>
+                        <a class="text-white text-decoration-none" href="{{route('logs.index')}}" id="room" data-toggle="tooltip" data-placement="right" title="Logs">warning</a>
                         </span> 
                         
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <span class="material-icons align-middle mt-3">
-                                <a class="text-white text-decoration-none" href="Cerrar Sesión" id="logout" title="Cerrar Sesión">logout</a>
+                                <a class="text-white text-decoration-none" href="Cerrar Sesión" id="logout" data-toggle="tooltip" data-placement="right" title="Cerrar Sesión">logout</a>
                             </span> 
                         </form>
                     </aside>
@@ -88,7 +89,7 @@ session_start();
             </div>
 
             <!-- Contenido de la Página -->
-            <div id="page-content-wrapper">
+            <div id="page-content-wrapper" >
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                     <button class="btn btn-outline-dark ml-4" id="menu-toggle">
                         <span class="material-icons align-middle">
@@ -97,15 +98,15 @@ session_start();
                     </button>                    
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                            <li class="nav-item active">
+                        <ul class="navbar-nav ml-2 mt-2 mt-lg-0" >
+                            <li class="nav-item active col-md-3">
                                 <strong>@if(Auth::user()!=null){{Auth::user()->name}} @endif</strong> <br/>Profesor
                                 <span class="sr-only">(current)</span>
                             </li>
                         </ul>
                     </div>
                 </nav>
-
+  
                 <style>
                     tr td i:last-child{
                         color: rgb(110, 110, 110);
@@ -113,9 +114,6 @@ session_start();
                     tr td a{
                         color: blue;
                         text-decoration: underline;
-                    }
-                    tr td a:hover{
-                        background-color: #0815ff00;
                     }
                     .migaspan a{
                         color: #dc3545; /* blue #007eb0 */
@@ -181,6 +179,10 @@ session_start();
         <!-- Código JS del Sidebar -->
         <script>
 			
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();   
+            });
+
 			$("#confirm").click(function(){
   				var bool=confirm("¿Seguro que desea cerrar la sesión?");
   				if(bool){

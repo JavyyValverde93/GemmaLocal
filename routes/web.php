@@ -278,6 +278,9 @@ Route::get('verlistaasistencia/{alumno}', [AsistenciaController::class, 'verasis
 Route::get('justificarfalta/{asistencia}', [AsistenciaController::class, 'justificarFalta'])->name('asistencia.justificar');
 
 Route::get('alumnos/vistas', [AlumnoController::class, 'vistas'])->name('alumnos.vista');
+Route::get('inventario/vistas', [InventarioController::class, 'vistas'])->name('inventario.vista');
+Route::get('espacios/vistas', [EspacioController::class, 'vistas'])->name('espacios.vista');
+Route::get('grupos/vistas', [GrupoController::class, 'vistas'])->name('grupos.vista');
 Route::get('matriculas/matriculas_alumno', [MatriculaController::class, 'matriculas_alumno'])->name('matriculas.matriculas_alumno');
 Route::get('prescripciones/prescripciones_alumno', [PrescripcionController::class, 'prescripciones_alumno'])->name('prescripciones.prescripciones_alumno');
 

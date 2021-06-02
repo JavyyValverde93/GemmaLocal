@@ -17,7 +17,7 @@
             }
 
             .list-group-item.active{
-                background-color: red;
+                background-color: #dc3545;
                 border-color: rgb(202, 17, 17);
             }
         </style>
