@@ -84,7 +84,26 @@
 						window.location.href="{{route('rolespermisos.create')}}?rol="+document.getElementsByName('rol')[0].value;
 					}
 
+                    function quitarPermiso(){
+						window.location.href="{{route('rolespermisos.delete')}}?rol="+document.getElementsByName('rol')[0].value+"&permisoQuitar="+document.getElementsByName('permisoQuitar')[0].value;
+                    }
+
                 </script>
+            </div>
+            <div class="form-group row">
+                <div class="col my-3">
+                    @if($permisosQuitar!=null)
+                    <label class="no">Restringir permiso:</label><br>
+                    <select name="permisoQuitar" onchange="quitarPermiso()">
+                        <option value="">Seleccione el permiso...</option>
+                        @forelse ($permisosQuitar as $item)
+                            <option value="{{$item->id}}">{{$item->permiso->nombre}}</option>
+                        @empty
+                            <option>No hay permisos para quitar</option>
+                        @endforelse
+                    </select>
+                    @endif
+                </div>
             </div>
             <button type="submit" class="btn btn-danger" onclick="valuePermiso(event)">Enviar</button>
         </form>

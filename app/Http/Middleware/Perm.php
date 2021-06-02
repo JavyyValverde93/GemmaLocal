@@ -20,11 +20,11 @@ class Perm
     public function handle(Request $request, Closure $next, $permiso)
     {
         try{
-            // $perm = Rolespermiso::where('id_permiso', Permiso::where('nombre', $permiso)
-            // ->first()->id)->where('id_rol', Auth::user()->rol->id)->first();
-            // if($perm==null){
-            //     return back()->with('error', 'No tienes permiso para acceder a esta sección');
-            // }
+            $perm = Rolespermiso::where('id_permiso', Permiso::where('nombre', $permiso)
+            ->first()->id)->where('id_rol', Auth::user()->rol->id)->first();
+            if($perm==null){
+                return back()->with('error', 'No tienes permiso para acceder a esta sección');
+            }
             return $next($request);
         }catch(\Exception $ex){
             return back()->with('error', 'No tienes permiso para acceder a esta sección');

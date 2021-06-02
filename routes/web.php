@@ -280,3 +280,5 @@ Route::get('justificarfalta/{asistencia}', [AsistenciaController::class, 'justif
 Route::get('alumnos/vistas', [AlumnoController::class, 'vistas'])->name('alumnos.vista');
 Route::get('matriculas/matriculas_alumno', [MatriculaController::class, 'matriculas_alumno'])->name('matriculas.matriculas_alumno');
 Route::get('prescripciones/prescripciones_alumno', [PrescripcionController::class, 'prescripciones_alumno'])->name('prescripciones.prescripciones_alumno');
+
+Route::get('rolespermiso/delete/', [RolespermisoController::class, 'delete'])->name('rolespermisos.delete');

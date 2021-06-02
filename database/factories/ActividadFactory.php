@@ -27,7 +27,7 @@ class ActividadFactory extends Factory
         return [
             'id_profesor' => $id_profesor,
             'id_grupo' => $rand,
-            'id_categoria' => $this->faker->numberBetween(0, 8),
+            'id_categoria' => $this->faker->numberBetween(1, 8),
             'nombre' => "Actividad ".$this->faker->numberBetween(1, 20),
             'descripcion' => $this->faker->text(20),
             'horas' => $this->faker->numberBetween(2, 10),
