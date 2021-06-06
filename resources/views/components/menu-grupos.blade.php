@@ -26,7 +26,7 @@ session_start();
         <div class="d-flex ml-4" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-danger border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading ml-4" style="color: white; font-size: 25px; position:fixed;">GEMMA</div>
+                <div class="sidebar-heading ml-4" style="color: white; font-size: 25px;">GEMMA</div>
                 <div class="list-group list-group-flush">
                     <aside class="keep" style="color: white; text-align: center;">
                         <span class="material-icons align-middle" style="margin-top: 75px;">
@@ -68,6 +68,7 @@ session_start();
                         </form>
                     </aside>
                     <div class="nav flex-column nav-pills ml-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        
                         <a href="{{route('comunicaciones.index')}}" onclick="event.preventDefault(); return alertify.alert('Alerta informativa', 'Esta función estará disponible en la versión Premium');" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-settings-tab" role="tab" aria-controls="v-pills-settings" aria-selected="false"> Comunicaciones</a>
                         <a href="{{route('alumnos.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab" role="tab" aria-controls="v-pills-messages" aria-selected="false"> Alumnos</a>
                         <a href="{{route('matriculas.index')}}" class="nav-link bg-danger text-white text-decoration-none" id="v-pills-messages-tab"  role="tab" aria-controls="v-pills-messages" aria-selected="false"> Matriculas</a>
